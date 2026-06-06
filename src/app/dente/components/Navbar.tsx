@@ -20,7 +20,7 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
   return (
     <>
       <nav className={`${styles.nav} ${transparent && !scrolled ? styles.transparent : styles.solid}`}>
-        <a href="/" className={styles.brand}>Den<span>té</span></a>
+        <a href="/dente" className={styles.brand}>Den<span>té</span></a>
 
         <div className={styles.center}>
           <a href="#kontakt">Usługi</a>

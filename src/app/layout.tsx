@@ -2,13 +2,13 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Denté – Twój Dentysta',
-  description: 'Komfortowa stomatologia dla dzieci i dorosłych w Warszawie.',
+  title: 'Прототипи сайтів — TeleBots',
+  description: 'Демо-проєкти TeleBots для презентації клієнтам.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pl">
+    <html lang="uk">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

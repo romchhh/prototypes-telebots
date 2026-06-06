@@ -1,7 +1,9 @@
+import PrototypeBanner from '../../components/PrototypeBanner'
 import styles from './Footer.module.css'
 
 export default function Footer() {
   return (
+    <>
     <footer className={styles.footer}>
       <div className={styles.top}>
         <nav className={styles.links} aria-label="Stopka nawigacja">
@@ -40,8 +42,9 @@ export default function Footer() {
       <div className={styles.bottom}>
         <span>© {new Date().getFullYear()} Denté. Wszelkie prawa zastrzeżone.</span>
         <a href="#">Polityka prywatności</a>
-        <a href="#" className={styles.dev}>PROJEKT STRONY: DENTÉ STUDIO</a>
       </div>
     </footer>
+    <PrototypeBanner />
+    </>
   )
 }
