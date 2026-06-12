@@ -14,6 +14,12 @@ const PROTOTYPES = [
     desc: 'Масштабна подія у Тернополі — event page (UA)',
     tag: 'Подія',
   },
+  {
+    slug: 'marathon',
+    title: '10×10',
+    desc: 'Марафон англійської — landing page (UA)',
+    tag: 'Освіта',
+  },
 ]
 
 export default function Home() {

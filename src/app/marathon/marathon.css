@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500;1,600;1,700;1,800&display=swap');
+
+.marathon-page {
+  --deep:  #01060F;
+  --deep-rgb: 1, 6, 15;
+  --slate: #4A5568;
+  --sky:   #C41E3A;
+  --sky-rgb: 196, 30, 58;
+  --sky-dark: #9A182E;
+  --sand:  #E8C9CC;
+  --white: #ffffff;
+  --black: #000308;
+  font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
+  background: var(--white);
+  color: var(--deep);
+}
