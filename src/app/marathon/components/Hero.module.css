@@ -69,7 +69,7 @@
 .headline {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: clamp(52px, 7.5vw, 108px);
+  font-size: var(--heading-hero);
   line-height: 1.02;
   color: #fff;
   letter-spacing: -0.03em;
@@ -143,7 +143,7 @@
   }
 
   .headline {
-    font-size: clamp(36px, 10vw, 52px);
+    font-size: var(--heading-hero-md);
     line-height: 1.08;
   }
 
@@ -177,7 +177,7 @@
   .textBlock { gap: 14px; padding-bottom: 20px; }
 
   .headline {
-    font-size: clamp(32px, 9.5vw, 44px);
+    font-size: var(--heading-hero-sm);
     line-height: 1.1;
   }
 
@@ -196,7 +196,7 @@
   .textBlock { gap: 12px; padding-bottom: 16px; }
 
   .headline {
-    font-size: clamp(30px, 9vw, 42px);
+    font-size: var(--heading-hero-xs);
     line-height: 1.1;
   }
 

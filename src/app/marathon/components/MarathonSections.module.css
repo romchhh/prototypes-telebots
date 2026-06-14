@@ -59,7 +59,7 @@
 .heading {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: clamp(40px, 5.5vw, 72px);
+  font-size: var(--heading-section);
   line-height: 1.02;
   letter-spacing: -0.03em;
   margin-bottom: 48px;
@@ -69,7 +69,7 @@
 .headingLight {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: clamp(40px, 5.5vw, 72px);
+  font-size: var(--heading-section);
   line-height: 1.02;
   letter-spacing: -0.03em;
   margin-bottom: 48px;
@@ -78,14 +78,14 @@
 }
 
 .subheading {
-  font-size: 20px;
+  font-size: var(--heading-sub);
   font-weight: 700;
   color: var(--slate);
   margin: -32px 0 32px;
 }
 
 .subheadingLight {
-  font-size: 20px;
+  font-size: var(--heading-sub);
   font-weight: 600;
   color: rgba(255,255,255,0.65);
   margin: -32px 0 36px;
@@ -124,7 +124,7 @@
 .prose strong { color: var(--deep); font-weight: 700; }
 
 .emphasis {
-  font-size: clamp(28px, 4vw, 40px);
+  font-size: var(--heading-subsection);
   font-weight: 800;
   font-style: italic;
   color: var(--sky);
@@ -259,7 +259,7 @@
 
 .prizeIcon { font-size: 52px; display: block; margin-bottom: 20px; }
 .prizeTitle {
-  font-size: 14px;
+  font-size: var(--heading-card);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -273,7 +273,7 @@
   color: var(--deep);
 }
 .prizeFeatured .prizeDesc {
-  font-size: clamp(28px, 3.5vw, 40px);
+  font-size: var(--heading-subsection);
   color: var(--sky);
 }
 
@@ -435,7 +435,7 @@
 
 .bonusHeading {
   position: relative;
-  font-size: clamp(28px, 3.5vw, 40px);
+  font-size: var(--heading-subsection);
   font-weight: 800;
   letter-spacing: -0.02em;
   color: #fff;
@@ -689,7 +689,7 @@
 }
 
 .emphasisLight {
-  font-size: clamp(22px, 3vw, 32px);
+  font-size: clamp(26px, 3.6vw, 38px);
   font-weight: 700;
   font-style: italic;
   color: #fff;
