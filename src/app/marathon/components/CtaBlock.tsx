@@ -3,7 +3,7 @@ import styles from './CtaBlock.module.css'
 
 export default function CtaBlock() {
   return (
-    <section className={styles.section}>
+    <section className={`${styles.section} marathon-glow`}>
       <div className={styles.inner}>
         <div className={styles.left}>
           <p className={styles.price}>

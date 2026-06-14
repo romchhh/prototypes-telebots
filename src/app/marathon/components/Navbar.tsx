@@ -9,6 +9,7 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60)
+    onScroll()
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -18,10 +19,12 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
 
+  const isLightHeader = transparent && !scrolled
+
   return (
     <>
-      <nav className={`${styles.nav} ${transparent && !scrolled ? styles.transparent : styles.solid}`}>
-        <BrandLogo className={styles.brand} />
+      <nav className={`${styles.nav} ${isLightHeader ? styles.transparent : styles.solid}`}>
+        <BrandLogo className={styles.brand} variant={isLightHeader ? 'light' : 'dark'} />
 
         <div className={styles.center}>
           <a href="#programa">Програма</a>

@@ -38,7 +38,7 @@ export default function Footer() {
       </div>
 
       <div className={styles.wordmark}>
-        <BrandLogo href={undefined} size="lg" />
+        <BrandLogo href={undefined} size="lg" variant="dark" />
       </div>
 
       <div className={styles.bottom}>

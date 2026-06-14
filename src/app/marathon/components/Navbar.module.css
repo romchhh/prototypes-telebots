@@ -15,9 +15,10 @@
 }
 
 .solid {
-  background: rgba(var(--deep-rgb), 0.97);
+  background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(14px);
   padding: 24px var(--page-x);
+  box-shadow: 0 1px 0 rgba(var(--deep-rgb), 0.08);
 }
 
 .brand {
@@ -39,21 +40,48 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 17px;
   font-weight: 600;
-  color: rgba(255,255,255,0.78);
   text-decoration: none;
   transition: color 0.2s;
 }
-.center a:hover { color: #fff; }
+
+.transparent .center a {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.transparent .center a:hover {
+  color: #fff;
+}
+
+.solid .center a {
+  color: rgba(var(--deep-rgb), 0.72);
+}
+
+.solid .center a:hover {
+  color: var(--deep);
+}
 
 @media (min-width: 769px) {
   .center a {
     font-size: 20px;
     font-weight: 600;
-    color: #fff;
     letter-spacing: 0.01em;
   }
 
-  .center a:hover { color: rgba(255, 255, 255, 0.85); }
+  .transparent .center a {
+    color: #fff;
+  }
+
+  .transparent .center a:hover {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .solid .center a {
+    color: var(--deep);
+  }
+
+  .solid .center a:hover {
+    color: var(--sky);
+  }
 }
 
 .right {
@@ -100,6 +128,11 @@
   height: 3.5px;
   background: #fff;
   border-radius: 3px;
+  transition: background 0.35s;
+}
+
+.solid .hamburger span {
+  background: var(--deep);
 }
 
 .drawer {

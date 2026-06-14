@@ -242,7 +242,7 @@ export default function MarathonSections() {
       </section>
 
       {/* Results */}
-      <section className={`${styles.section} ${styles.dark}`}>
+      <section className={`${styles.section} ${styles.dark} marathon-glow`}>
         <div className={styles.container}>
           <SectionTitle light>Що ви отримаєте після марафону</SectionTitle>
           <p className={styles.subheadingLight}>Через 10 днів ви:</p>
@@ -288,7 +288,7 @@ export default function MarathonSections() {
       </section>
 
       {/* Final urgency */}
-      <section className={`${styles.section} ${styles.final}`}>
+      <section className={`${styles.section} ${styles.final} marathon-glow`}>
         <div className={styles.container}>
           <div className={styles.finalInner}>
             <SectionTitle light>Не відкладайте англійську ще на один понеділок</SectionTitle>
