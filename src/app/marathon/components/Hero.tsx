@@ -5,7 +5,7 @@ import styles from './Hero.module.css'
 
 export default function Hero() {
   return (
-    <section className={styles.hero}>
+    <section className={styles.hero} data-hero>
       <div className={styles.bg}>
         <Image
           src="/images/Gemini_Generated_Image_rtzyw7rtzyw7rtzy.png"

@@ -17,7 +17,23 @@
   padding: 18px 28px;
   border-radius: 999px;
   box-shadow: 0 8px 32px rgba(var(--sky-rgb), 0.45), 0 2px 8px rgba(0,0,0,0.2);
-  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(16px);
+  transition:
+    opacity 0.35s,
+    visibility 0.35s,
+    transform 0.35s,
+    background 0.2s,
+    box-shadow 0.2s;
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
   animation: fabPulse 3s ease-in-out infinite;
 }
 
@@ -25,6 +41,10 @@
   background: var(--sky-dark);
   transform: translateY(-3px) scale(1.03);
   box-shadow: 0 14px 40px rgba(var(--sky-rgb), 0.55), 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.visible:hover {
+  transform: translateY(-3px) scale(1.03);
 }
 
 .discount {
