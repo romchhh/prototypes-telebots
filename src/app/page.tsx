@@ -16,7 +16,7 @@ const PROTOTYPES = [
   },
   {
     slug: 'marathon',
-    title: '10×10',
+    title: 'Royal Academy School',
     desc: 'Марафон англійської — landing page (UA)',
     tag: 'Освіта',
   },

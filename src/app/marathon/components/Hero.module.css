@@ -39,7 +39,6 @@
   to   { transform: scale(1.03); }
 }
 
-
 .overlay {
   position: absolute;
   inset: 0;
@@ -55,7 +54,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 0 48px 52px;
+  padding: 0 var(--page-x) 52px;
 }
 
 .textBlock {
@@ -66,11 +65,12 @@
   animation: slideUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.15s both;
 }
 
+
 .headline {
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: clamp(72px, 10.5vw, 148px);
-  line-height: 0.92;
+  font-size: clamp(52px, 7.5vw, 108px);
+  line-height: 1.02;
   color: #fff;
   letter-spacing: -0.03em;
   margin: 0;
@@ -80,6 +80,12 @@
   font-weight: 800;
   font-style: italic;
   color: var(--sand);
+  letter-spacing: -0.02em;
+}
+.highlight {
+  font-style: italic;
+  font-weight: 800;
+  color: var(--sky);
   letter-spacing: -0.02em;
 }
 
@@ -105,56 +111,8 @@
   animation: slideUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.35s both;
 }
 
-/* contact */
 .contact { display: flex; flex-direction: column; gap: 8px; }
 .phone { font-size: 17px; font-weight: 700; color: #fff; letter-spacing: 0.01em; line-height: 1.45; max-width: 420px; }
-.address { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.6; }
-
-/* booking card */
-.card {
-  display: flex;
-  align-items: center;
-  gap: 22px;
-  background: rgba(255,255,255,0.97);
-  border-radius: 20px;
-  padding: 22px 26px;
-  min-width: 360px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: transform 0.22s cubic-bezier(0.16,1,0.3,1), box-shadow 0.22s;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.35);
-}
-.card:hover { transform: translateY(-5px); box-shadow: 0 16px 56px rgba(0,0,0,0.45); }
-
-.cardText { flex: 1; }
-.cardLabel {
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  color: var(--deep);
-  margin-top: 10px;
-  line-height: 1.35;
-}
-.timer {
-  font-size: 30px;
-  font-weight: 800;
-  color: var(--sky);
-  letter-spacing: -0.02em;
-  line-height: 1;
-}
-.timer b { font-weight: 800; }
-.timer span { font-size: 17px; font-weight: 500; color: var(--slate); margin: 0 5px 0 2px; }
-.cardSub { font-size: 12px; color: #999; margin-top: 7px; line-height: 1.5; }
-
-.cardArrow {
-  width: 50px; height: 50px;
-  border-radius: 50%;
-  background: var(--deep);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  transition: background 0.2s, transform 0.2s;
-}
-.card:hover .cardArrow { background: var(--sky); transform: rotate(45deg); box-shadow: 0 4px 16px rgba(var(--sky-rgb), 0.32); }
 
 @media (max-width: 768px) {
   .hero {
@@ -169,7 +127,7 @@
     min-height: 0;
     justify-content: flex-end;
     align-items: stretch;
-    padding: 88px 24px max(44px, calc(env(safe-area-inset-bottom) + 32px));
+    padding: 88px var(--page-x) max(44px, calc(env(safe-area-inset-bottom) + 32px));
     gap: 0;
     transform: none;
   }
@@ -185,7 +143,7 @@
   }
 
   .headline {
-    font-size: clamp(40px, 11.5vw, 58px);
+    font-size: clamp(36px, 10vw, 52px);
     line-height: 1.08;
   }
 
@@ -208,39 +166,24 @@
 
   .contact { gap: 5px; }
   .phone { font-size: 17px; }
-  .address { font-size: 14px; line-height: 1.45; }
-
-  .card {
-    min-width: unset;
-    width: 100%;
-    padding: 18px 18px;
-    border-radius: 16px;
-    gap: 16px;
-  }
-
-  .cardLabel { margin-top: 8px; font-size: 13px; }
-  .timer { font-size: 24px; }
-  .timer span { font-size: 15px; }
-  .cardArrow { width: 46px; height: 46px; }
 }
 
 @media (max-width: 390px) {
   .body {
-    padding: 84px 20px max(40px, calc(env(safe-area-inset-bottom) + 28px));
+    padding: 84px var(--page-x) max(40px, calc(env(safe-area-inset-bottom) + 28px));
     transform: none;
   }
 
   .textBlock { gap: 14px; padding-bottom: 20px; }
 
   .headline {
-    font-size: clamp(36px, 10.5vw, 48px);
+    font-size: clamp(32px, 9.5vw, 44px);
     line-height: 1.1;
   }
 
   .subline { font-size: 14px; }
 
   .bottomRow { gap: 12px; }
-  .card { padding: 16px 16px; }
 }
 
 @media (max-width: 768px) and (max-height: 700px) {
@@ -253,13 +196,11 @@
   .textBlock { gap: 12px; padding-bottom: 16px; }
 
   .headline {
-    font-size: clamp(34px, 10vw, 46px);
+    font-size: clamp(30px, 9vw, 42px);
     line-height: 1.1;
   }
 
   .subline { font-size: 13.5px; line-height: 1.5; }
 
   .bottomRow { gap: 10px; }
-  .card { padding: 14px 16px; }
-  .timer { font-size: 22px; }
 }

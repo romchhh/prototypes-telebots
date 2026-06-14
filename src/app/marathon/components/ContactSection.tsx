@@ -3,19 +3,11 @@ import Image from 'next/image'
 import { useState } from 'react'
 import styles from './ContactSection.module.css'
 
-const LEVELS = [
-  'Початковий (A1–A2)',
-  'Середній (B1)',
-  'Вище середнього (B2)',
-  'Просунутий (C1+)',
-  'Не впевнений(а)',
-]
-
-type FormState = { name: string; phone: string; level: string; comment: string; consent: boolean }
+type FormState = { name: string; phone: string; comment: string; consent: boolean }
 type Status = 'idle' | 'loading' | 'success' | 'error'
 
 export default function ContactSection() {
-  const [form, setForm] = useState<FormState>({ name: '', phone: '', level: '', comment: '', consent: false })
+  const [form, setForm] = useState<FormState>({ name: '', phone: '', comment: '', consent: false })
   const [status, setStatus] = useState<Status>('idle')
 
   const set = (k: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -73,18 +65,6 @@ export default function ContactSection() {
               <div className={styles.field}>
                 <label htmlFor="phone">Номер телефону</label>
                 <input id="phone" type="tel" placeholder="Ваш номер телефону" value={form.phone} onChange={set('phone')} required />
-              </div>
-              <div className={styles.field}>
-                <label htmlFor="level">Рівень англійської</label>
-                <div className={styles.selectWrap}>
-                  <select id="level" value={form.level} onChange={set('level')}>
-                    <option value="">Оберіть рівень</option>
-                    {LEVELS.map(s => <option key={s} value={s}>{s}</option>)}
-                  </select>
-                  <svg className={styles.chevron} width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--slate)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M3 6 L8 11 L13 6"/>
-                  </svg>
-                </div>
               </div>
               <div className={styles.field}>
                 <label htmlFor="comment">Коментар</label>

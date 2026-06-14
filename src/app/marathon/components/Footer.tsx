@@ -1,4 +1,6 @@
 import PrototypeBanner from '../../components/PrototypeBanner'
+import BrandLogo from './BrandLogo'
+import { MARATHON_BRAND } from '../brand'
 import styles from './Footer.module.css'
 
 export default function Footer() {
@@ -7,11 +9,9 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.top}>
         <nav className={styles.links} aria-label="Навігація в підвалі">
-          <a href="#">Про марафон</a>
-          <a href="#">Програма</a>
-          <a href="#">Викладачі</a>
-          <a href="#">Історії учасників</a>
-          <a href="#">Відгуки</a>
+          <a href="#programa">Програма</a>
+          <a href="#faq">Питання</a>
+          <a href="#pro-marafon">Про марафон</a>
         </nav>
 
         <div className={styles.cols}>
@@ -25,7 +25,7 @@ export default function Footer() {
             <h3>Контакт</h3>
             <p>Онлайн-формат</p>
             <p>+380 97 123 45 67</p>
-            <a href="mailto:hello@10x10.ua">hello@10x10.ua</a>
+            <a href="mailto:hello@royalacademy.school">hello@royalacademy.school</a>
           </div>
 
           <div className={styles.col}>
@@ -37,10 +37,12 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className={styles.wordmark} aria-hidden="true">10×10</div>
+      <div className={styles.wordmark}>
+        <BrandLogo href={undefined} size="lg" />
+      </div>
 
       <div className={styles.bottom}>
-        <span>© {new Date().getFullYear()} 10×10. Усі права захищені.</span>
+        <span>© {new Date().getFullYear()} {MARATHON_BRAND}. Усі права захищені.</span>
         <a href="#">Політика конфіденційності</a>
       </div>
     </footer>

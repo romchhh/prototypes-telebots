@@ -10,6 +10,14 @@
   --sand:  #E8C9CC;
   --white: #ffffff;
   --black: #000308;
+  --page-x: clamp(32px, 6vw, 80px);
+  --section-y: clamp(40px, 5vw, 70px);
+  --section-y-md: 36px;
+  --section-y-sm: 32px;
+  --section-y-xs: 28px;
+  --bg-white: #ffffff;
+  --bg-muted: #f4f5f7;
+  --bg-accent: #fff5f5;
   font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
   background: var(--white);
   color: var(--deep);

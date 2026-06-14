@@ -1,0 +1,25 @@
+'use client'
+import useCountdown from '../hooks/useCountdown'
+import styles from './TimerCard.module.css'
+
+export default function TimerCard({ className = '' }: { className?: string }) {
+  const time = useCountdown()
+
+  return (
+    <a href="#kontakt" className={`${styles.card} ${className}`}>
+      <div className={styles.cardText}>
+        <p className={styles.timer}>
+          <b>{time.h}</b><span>г</span>
+          <b>{time.m}</b><span>хв</span>
+          <b>{time.s}</b><span>с</span>
+        </p>
+        <p className={styles.cardLabel}>Приєднатись до марафону зі знижкою 80%</p>
+      </div>
+      <div className={styles.cardArrow}>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M2 14 L14 2 M6 2 H14 V10" />
+        </svg>
+      </div>
+    </a>
+  )
+}

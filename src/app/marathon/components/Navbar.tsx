@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
+import BrandLogo from './BrandLogo'
 import styles from './Navbar.module.css'
 
 export default function Navbar({ transparent = false }: { transparent?: boolean }) {
@@ -20,12 +21,12 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
   return (
     <>
       <nav className={`${styles.nav} ${transparent && !scrolled ? styles.transparent : styles.solid}`}>
-        <a href="/marathon" className={styles.brand}>10<span>×10</span></a>
+        <BrandLogo className={styles.brand} />
 
         <div className={styles.center}>
-          <a href="#kontakt">Програма</a>
-          <a href="#kontakt">Відгуки</a>
-          <a href="#kontakt">Про марафон</a>
+          <a href="#programa">Програма</a>
+          <a href="#faq">Питання</a>
+          <a href="#pro-marafon">Про марафон</a>
         </div>
 
         <div className={styles.right}>
@@ -48,9 +49,10 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
             <path d="M4 4 L24 24 M24 4 L4 24"/>
           </svg>
         </button>
-        <a href="#kontakt" onClick={() => setMenuOpen(false)}>Програма</a>
-        <a href="#kontakt" onClick={() => setMenuOpen(false)}>Відгуки</a>
-        <a href="#kontakt" onClick={() => setMenuOpen(false)}>Про марафон</a>
+        <BrandLogo href={undefined} size="sm" className={styles.drawerBrand} />
+        <a href="#programa" onClick={() => setMenuOpen(false)}>Програма</a>
+        <a href="#faq" onClick={() => setMenuOpen(false)}>Питання</a>
+        <a href="#pro-marafon" onClick={() => setMenuOpen(false)}>Про марафон</a>
         <a href="#kontakt" className={styles.drawerCta} onClick={() => setMenuOpen(false)}>
           Приєднатись
         </a>
