@@ -9,7 +9,7 @@
   justify-content: space-between;
   padding: 24px 48px;
   gap: 32px;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   transition: background 0.35s, backdrop-filter 0.35s, box-shadow 0.35s, padding 0.35s;
 }
 
@@ -38,6 +38,7 @@
   height: 42px;
   background: var(--red);
   color: #fff;
+  font-family: var(--font-sans);
   font-size: 24px;
   font-weight: 800;
   border-radius: 10px;
@@ -52,15 +53,15 @@
 }
 
 .logoText strong {
-  font-size: 17px;
-  font-weight: 800;
+  font-size: 15px;
+  font-weight: 700;
   letter-spacing: 0.12em;
   line-height: 1.1;
 }
 
 .logoText small {
-  font-size: 10px;
-  font-weight: 600;
+  font-size: 9px;
+  font-weight: 500;
   letter-spacing: 0.14em;
   color: var(--gray);
   text-transform: uppercase;
@@ -73,9 +74,9 @@
 }
 
 .center a {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--dark);
   text-decoration: none;
@@ -96,12 +97,12 @@
 .ctaPrimary {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  padding: 14px 28px;
+  gap: 14px;
+  padding: 8px 8px 8px 24px;
   border-radius: var(--radius-btn);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
@@ -115,6 +116,29 @@
   background: var(--red-hover);
   transform: translateY(-1px);
   box-shadow: 0 8px 28px rgba(227, 30, 36, 0.35);
+}
+
+.ctaArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    0 2px 8px rgba(0, 0, 0, 0.12);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s;
+}
+
+.ctaPrimary:hover .ctaArrow {
+  transform: rotate(45deg);
+  background: rgba(255, 255, 255, 0.28);
 }
 
 .hamburger {
@@ -148,7 +172,7 @@
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
 }
 
 .drawer.open {
@@ -158,7 +182,7 @@
 
 .drawer a {
   font-size: clamp(28px, 6vw, 40px);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--dark);
   text-decoration: none;
@@ -172,7 +196,7 @@
 
 .drawerCta {
   margin-top: 24px !important;
-  font-size: 14px !important;
+  font-size: 13px !important;
   font-weight: 700 !important;
   letter-spacing: 0.08em !important;
   background: var(--red) !important;

@@ -8,4 +8,6 @@ export const BRAND = {
   heroVideoFallback: '/videos/hero-house.mp4',
   heroPoster: '/images/lake-alpha-hero.jpg',
   heroImage: '/images/lake-alpha-hero.jpg',
+  prefabVideoId: 'aFRLEcvITp0',
+  prefabVideoUrl: 'https://www.youtube.com/watch?v=aFRLEcvITp0',
 } as const

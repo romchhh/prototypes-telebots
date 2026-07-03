@@ -39,94 +39,45 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background-color: rgba(0, 0, 0, 0.32);
+  background-color: rgba(0, 0, 0, 0.48);
   background-image:
-    linear-gradient(to top, rgba(0, 0, 0, 0.28) 0%, transparent 55%),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.12) 0%, transparent 40%);
+    linear-gradient(to top, rgba(0, 0, 0, 0.45) 0%, transparent 55%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, transparent 40%);
   pointer-events: none;
 }
 
-/* ── liquid glass prefab card ── */
-.glassCard {
+/* ── hero slogan on photo ── */
+.heroCopy {
   position: absolute;
-  left: 32px;
-  bottom: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  width: min(420px, 38%);
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(28px) saturate(180%);
-  -webkit-backdrop-filter: blur(28px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.32);
-  box-shadow:
-    0 12px 48px rgba(0, 0, 0, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4);
-  text-decoration: none;
-  cursor: pointer;
-  overflow: hidden;
-  transition: background 0.25s, transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s;
-  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+  top: 48px;
+  left: 48px;
   z-index: 2;
-}
-
-.glassCard:hover {
-  background: rgba(255, 255, 255, 0.22);
-  transform: translateY(-4px);
-  box-shadow:
-    0 20px 56px rgba(0, 0, 0, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
-}
-
-.glassThumb {
-  position: relative;
-  width: 100%;
-  height: 180px;
-  flex-shrink: 0;
-  overflow: hidden;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.glassImg {
-  object-fit: cover;
-}
-
-.playBtn {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.28);
-  transition: background 0.2s;
-}
-
-.glassCard:hover .playBtn {
-  background: rgba(0, 0, 0, 0.38);
-}
-
-.glassText {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 22px 24px 26px;
-}
-
-.glassLabel {
-  font-family: var(--font-display);
-  font-size: 0.875rem;
-  font-weight: 700;
-  letter-spacing: var(--tracking-wide);
-  text-transform: uppercase;
+  max-width: min(520px, 55%);
   color: #fff;
-  line-height: var(--leading-snug);
+  animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
 }
 
-.glassDesc {
-  font-size: var(--text-base);
-  line-height: var(--leading-relaxed);
-  color: rgba(255, 255, 255, 0.85);
+.slogan {
+  font-family: var(--font-sans);
+  font-size: clamp(1.875rem, 4.5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.slogan em {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--font-accent);
+  font-size: 1.05em;
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.0;
 }
 
 /* ── cta card ── */
@@ -144,76 +95,131 @@
   display: flex;
   flex-direction: column;
   gap: 0;
-  background: var(--white);
-  border-radius: 24px;
-  padding: 32px 36px 36px;
-  width: min(480px, 42vw);
-  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.18);
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 28px;
+  padding: 0;
+  width: min(500px, 44vw);
+  overflow: hidden;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.2),
+    0 1px 0 rgba(255, 255, 255, 0.9) inset;
+}
+
+.ctaBody {
+  padding: 32px 36px 28px;
 }
 
 .headline {
-  font-family: var(--font-display);
-  font-size: clamp(1.375rem, 2.2vw, 1.75rem);
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  font-family: var(--font-sans);
+  font-size: clamp(1.375rem, 2.4vw, 1.875rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
   color: var(--dark);
-  text-transform: uppercase;
   margin-bottom: 14px;
 }
 
+.headline em {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-accent);
+  font-size: 1.05em;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  color: var(--red);
+  line-height: 1.05;
+}
+
 .subline {
-  font-size: var(--text-base);
-  line-height: var(--leading-relaxed);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.65;
   color: var(--gray);
-  margin-bottom: 28px;
-  max-width: 34ch;
+  max-width: 32ch;
 }
 
 .actions {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-}
-
-.btnPrimary,
-.btnSecondary {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 15px 24px;
-  border-radius: var(--radius-btn);
-  font-family: var(--font-display);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.2s;
+  gap: 8px;
+  padding: 20px 24px 24px;
+  background: rgba(242, 240, 237, 0.55);
+  border-top: 1px solid rgba(26, 26, 26, 0.06);
 }
 
 .btnPrimary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 8px 8px 8px 22px;
+  border-radius: var(--radius-btn);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  text-decoration: none;
   background: var(--red);
   color: #fff;
-  box-shadow: 0 4px 16px rgba(227, 30, 36, 0.25);
+  box-shadow: 0 4px 18px rgba(227, 30, 36, 0.28);
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
 }
 
 .btnPrimary:hover {
   background: var(--red-hover);
   transform: translateY(-1px);
-  box-shadow: 0 6px 24px rgba(227, 30, 36, 0.32);
+  box-shadow: 0 8px 28px rgba(227, 30, 36, 0.34);
+}
+
+.btnArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s;
+}
+
+.btnPrimary:hover .btnArrow {
+  transform: rotate(45deg);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .btnSecondary {
-  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 14px 22px;
+  border-radius: var(--radius-btn);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: var(--white);
   color: var(--dark);
-  border: 1.5px solid rgba(26, 26, 26, 0.15);
+  border: 1px solid rgba(26, 26, 26, 0.1);
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
 }
 
 .btnSecondary:hover {
   border-color: var(--dark);
-  background: rgba(26, 26, 26, 0.03);
+  background: var(--white);
+  color: var(--dark);
 }
 
 @keyframes heroZoom {
@@ -228,20 +234,64 @@
 
 @media (max-width: 900px) {
   .hero {
-    padding: 72px 16px 0;
+    --hero-stack-gap: 32px;
+    padding: 72px 16px clamp(24px, 5vw, 40px);
   }
 
   .shell {
+    position: relative;
     display: flex;
     flex-direction: column;
+    gap: var(--hero-stack-gap);
+    min-height: 90vh;
+    min-height: 90dvh;
+    border-radius: 32px;
+    overflow: hidden;
+    padding: clamp(32px, 8vw, 48px) 16px 16px;
   }
 
   .mediaWrap {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    gap: var(--hero-stack-gap);
     height: auto;
-    min-height: unset;
+    min-height: 0;
     max-height: none;
-    aspect-ratio: 4 / 5;
-    border-radius: 32px;
+    aspect-ratio: unset;
+    border-radius: 0;
+    flex-shrink: 0;
+    padding: 0;
+    overflow: visible;
+    background: transparent;
+  }
+
+  .mediaBg,
+  .mediaOverlay {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
+
+  .mediaBg {
+    z-index: 0;
+  }
+
+  .mediaOverlay {
+    z-index: 1;
+  }
+
+  .heroCopy {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    max-width: none;
+    z-index: 2;
+  }
+
+  .slogan {
+    font-size: clamp(1.625rem, 7vw, 2.25rem);
   }
 
   .bottomRow {
@@ -250,16 +300,19 @@
     bottom: auto;
     left: auto;
     width: 100%;
-    margin-top: -56px;
-    margin-bottom: 32px;
-    padding: 0 4px;
+    margin: 0;
+    padding: 0;
+    z-index: 2;
     animation: none;
   }
 
   .ctaCard {
     width: 100%;
-    padding: 24px 24px 28px;
-    border-radius: 20px;
+    border-radius: 22px;
+  }
+
+  .ctaBody {
+    padding: 24px 24px 20px;
   }
 
   .headline {
@@ -267,39 +320,26 @@
     margin-bottom: 12px;
   }
 
-  .subline {
-    font-size: 0.9375rem;
-    margin-bottom: 22px;
+  .headline em {
+    margin-top: 3px;
   }
 
-  .glassCard {
-    left: 16px;
-    top: auto;
-    bottom: 72px;
-    width: calc(100% - 32px);
+  .subline {
+    font-size: 0.875rem;
     max-width: none;
   }
 
-  .glassThumb {
-    height: 140px;
-  }
-
-  .glassText {
-    padding: 18px 20px 22px;
-  }
-
-  .glassDesc {
-    font-size: 0.9375rem;
+  .actions {
+    padding: 16px 18px 20px;
   }
 }
 
 @media (max-width: 480px) {
   .hero {
-    padding: 68px 12px 0;
+    padding: 68px 12px 24px;
   }
 
-  .bottomRow {
-    margin-top: -48px;
-    margin-bottom: 28px;
+  .shell {
+    padding: clamp(28px, 7vw, 40px) 12px 12px;
   }
 }

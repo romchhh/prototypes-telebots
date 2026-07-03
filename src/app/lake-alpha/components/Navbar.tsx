@@ -44,7 +44,14 @@ export default function Navbar() {
         </nav>
 
         <div className={styles.right}>
-          <a href="#kontakt" className={styles.ctaPrimary}>Замовити консультацію</a>
+          <a href="#kontakt" className={styles.ctaPrimary}>
+            <span>Замовити консультацію</span>
+            <span className={styles.ctaArrow} aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M2 14 L14 2 M6 2 H14 V10"/>
+              </svg>
+            </span>
+          </a>
         </div>
 
         <button

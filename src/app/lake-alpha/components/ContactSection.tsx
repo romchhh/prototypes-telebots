@@ -56,7 +56,7 @@ export default function ContactSection() {
       <div className={styles.inner}>
         <div className={styles.left}>
           <h2 className={styles.heading}>
-            Почніть жити<br />без компромісів
+            Почніть жити<br /><em>без компромісів</em>
           </h2>
           <p className={styles.lead}>
             Залиште заявку — ми розповімо про модель, покажемо будинок

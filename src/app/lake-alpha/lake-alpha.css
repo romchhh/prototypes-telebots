@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@500;600;700&family=Noto+Serif+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap');
 
 .lake-alpha {
   --cream: #f2f0ed;
@@ -14,8 +14,9 @@
   --radius-card: 32px;
   --radius-btn: 999px;
 
-  --font-display: 'Montserrat', 'Helvetica Neue', sans-serif;
+  --font-sans: 'Montserrat', 'Helvetica Neue', sans-serif;
   --font-body: 'Inter', 'Helvetica Neue', sans-serif;
+  --font-accent: 'Noto Serif Display', 'Georgia', serif;
 
   --text-xs: 0.6875rem;
   --text-sm: 0.8125rem;
@@ -25,17 +26,19 @@
   --text-2xl: clamp(2rem, 4vw, 3rem);
   --text-3xl: clamp(2.25rem, 5vw, 3.5rem);
 
-  --leading-tight: 1.08;
+  --leading-tight: 1.1;
   --leading-snug: 1.35;
   --leading-normal: 1.6;
   --leading-relaxed: 1.7;
 
-  --tracking-tight: -0.025em;
-  --tracking-wide: 0.06em;
-  --tracking-wider: 0.1em;
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0.04em;
+  --tracking-wide: 0.1em;
+  --tracking-wider: 0.14em;
 
   font-family: var(--font-body);
   font-size: var(--text-base);
+  font-weight: 400;
   line-height: var(--leading-normal);
   background: var(--cream);
   color: var(--dark);
@@ -53,7 +56,13 @@
 .lake-alpha h1,
 .lake-alpha h2,
 .lake-alpha h3 {
-  font-family: var(--font-display);
-  font-weight: 800;
-  letter-spacing: var(--tracking-tight);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: var(--tracking-normal);
+}
+
+.lake-alpha em {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 700;
 }
