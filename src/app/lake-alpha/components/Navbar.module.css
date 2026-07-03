@@ -1,0 +1,214 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 48px;
+  gap: 32px;
+  font-family: var(--font-display);
+  transition: background 0.35s, backdrop-filter 0.35s, box-shadow 0.35s, padding 0.35s;
+}
+
+.scrolled {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 1px 0 rgba(26, 26, 26, 0.08);
+  padding: 16px 48px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: var(--dark);
+  flex-shrink: 0;
+}
+
+.logoMark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: var(--red);
+  color: #fff;
+  font-size: 24px;
+  font-weight: 800;
+  border-radius: 10px;
+  line-height: 1;
+  font-style: italic;
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.logoText strong {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.1;
+}
+
+.logoText small {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--gray);
+  text-transform: uppercase;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 2.8vw, 40px);
+}
+
+.center a {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--dark);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.center a:hover {
+  color: var(--red);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  border-radius: var(--radius-btn);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background: var(--red);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(227, 30, 36, 0.28);
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.ctaPrimary:hover {
+  background: var(--red-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 28px rgba(227, 30, 36, 0.35);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.hamburger span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: var(--dark);
+  border-radius: 2px;
+}
+
+.drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  font-family: var(--font-display);
+}
+
+.drawer.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.drawer a {
+  font-size: clamp(28px, 6vw, 40px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--dark);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.drawer a:hover {
+  color: var(--red);
+}
+
+.drawerCta {
+  margin-top: 24px !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  background: var(--red) !important;
+  color: #fff !important;
+  border-radius: var(--radius-btn) !important;
+  padding: 16px 36px !important;
+}
+
+.drawerClose {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: var(--dark);
+}
+
+@media (max-width: 1100px) {
+  .center {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .header,
+  .scrolled {
+    padding: 18px 20px;
+  }
+
+  .right {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}

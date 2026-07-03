@@ -15,6 +15,12 @@ const PROTOTYPES = [
     tag: 'Подія',
   },
   {
+    slug: 'lake-alpha',
+    title: 'Lake Alpha',
+    desc: 'HutJet — модульний будинок, landing page (UA)',
+    tag: 'Нерухомість',
+  },
+  {
     slug: 'marathon',
     title: 'Royal Academy School',
     desc: 'Марафон англійської — landing page (UA)',

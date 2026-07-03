@@ -1,21 +1,17 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import MarathonSections from './components/MarathonSections'
 import ContactSection from './components/ContactSection'
 import Footer from './components/Footer'
-import FloatingCta from './components/FloatingCta'
 
-export default function MarathonPage() {
+export default function LakeAlphaPage() {
   return (
-    <>
-      <Navbar transparent />
+    <div className="lake-alpha-page">
+      <Navbar />
       <main>
         <Hero />
-        <MarathonSections />
         <ContactSection />
       </main>
       <Footer />
-      <FloatingCta />
-    </>
+    </div>
   )
 }

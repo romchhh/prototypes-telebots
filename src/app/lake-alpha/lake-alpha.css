@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700;800&display=swap');
+
+.lake-alpha {
+  --cream: #f2f0ed;
+  --white: #ffffff;
+  --dark: #1a1a1a;
+  --gray: #6b6b6b;
+  --gray-light: #9a9a9a;
+  --red: #e31e24;
+  --red-hover: #c9191f;
+  --green: #6bcb77;
+  --border: rgba(26, 26, 26, 0.08);
+  --radius-shell: 48px;
+  --radius-card: 32px;
+  --radius-btn: 999px;
+
+  --font-display: 'Montserrat', 'Helvetica Neue', sans-serif;
+  --font-body: 'Inter', 'Helvetica Neue', sans-serif;
+
+  --text-xs: 0.6875rem;
+  --text-sm: 0.8125rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: clamp(1.75rem, 3vw, 2.25rem);
+  --text-2xl: clamp(2rem, 4vw, 3rem);
+  --text-3xl: clamp(2.25rem, 5vw, 3.5rem);
+
+  --leading-tight: 1.08;
+  --leading-snug: 1.35;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.7;
+
+  --tracking-tight: -0.025em;
+  --tracking-wide: 0.06em;
+  --tracking-wider: 0.1em;
+
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  background: var(--cream);
+  color: var(--dark);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'kern' 1, 'liga' 1;
+}
+
+.lake-alpha *,
+.lake-alpha *::before,
+.lake-alpha *::after {
+  box-sizing: border-box;
+}
+
+.lake-alpha h1,
+.lake-alpha h2,
+.lake-alpha h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: var(--tracking-tight);
+}
