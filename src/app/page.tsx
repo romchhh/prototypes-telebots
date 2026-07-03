@@ -17,7 +17,13 @@ const PROTOTYPES = [
   {
     slug: 'lake-alpha',
     title: 'Lake Alpha',
-    desc: 'HutJet — модульний будинок, landing page (UA)',
+    desc: 'HutJet — кастомний лендинг модульного будинку (UA)',
+    tag: 'Нерухомість',
+  },
+  {
+    slug: 'lake-alpha-dente',
+    title: 'Lake Alpha v2',
+    desc: 'HutJet — альтернатива на layout Denté (UA)',
     tag: 'Нерухомість',
   },
   {

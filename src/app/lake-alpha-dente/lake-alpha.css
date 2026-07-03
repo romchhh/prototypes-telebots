@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+
+.lake-alpha-dente {
+  --deep: #1a1a1a;
+  --slate: #6b6b6b;
+  --sky: #e31e24;
+  --sand: #f2f0ed;
+  --white: #ffffff;
+  --black: #0a0a0a;
+  --red: #e31e24;
+  --red-hover: #c9191f;
+  --radius-btn: 999px;
+  --font-sans: 'Montserrat', 'Helvetica Neue', sans-serif;
+}
