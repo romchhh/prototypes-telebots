@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+
+.west-auto {
+  --deep: #0b1220;
+  --slate: #6b7785;
+  --sky: #e87722;
+  --sand: #f0c674;
+  --white: #ffffff;
+  --black: #0a0a0a;
+  --font-sans: 'Montserrat', 'Helvetica Neue', sans-serif;
+}

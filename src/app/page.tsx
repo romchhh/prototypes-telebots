@@ -32,6 +32,12 @@ const PROTOTYPES = [
     desc: 'Марафон англійської — landing page (UA)',
     tag: 'Освіта',
   },
+  {
+    slug: 'west-auto',
+    title: 'West Auto Shipping',
+    desc: 'Пригін авто з США — landing page (UA)',
+    tag: 'Авто',
+  },
 ]
 
 export default function Home() {
