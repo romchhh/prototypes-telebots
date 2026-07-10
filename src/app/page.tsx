@@ -38,6 +38,12 @@ const PROTOTYPES = [
     desc: 'Пригін авто з США — landing page (UA)',
     tag: 'Авто',
   },
+  {
+    slug: 'kreona',
+    title: 'Kreona Company',
+    desc: 'Автомобілі з Європи — підбір, покупка, продаж (UA)',
+    tag: 'Авто',
+  },
 ]
 
 export default function Home() {

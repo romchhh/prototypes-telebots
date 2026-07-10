@@ -17,7 +17,7 @@
 
 .bgImage {
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center 35%;
 }
 
 .bgMobile {
@@ -32,8 +32,8 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to top, rgba(3,14,22,0.92) 0%, rgba(3,14,22,0.55) 40%, rgba(3,14,22,0.12) 100%),
-    linear-gradient(to right, rgba(3,14,22,0.50) 0%, transparent 55%);
+    linear-gradient(to top, rgba(0, 0, 0, 0.86) 0%, rgba(0, 0, 0, 0.45) 45%, rgba(0, 0, 0, 0.22) 100%),
+    linear-gradient(to right, rgba(0, 0, 0, 0.42) 0%, transparent 55%);
 }
 
 .body {
@@ -43,25 +43,49 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 0 48px 52px;
+  padding: 0 var(--page-pad) 52px;
 }
 
 .headline {
-  font-family: 'Aileron', sans-serif;
+  font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(72px, 10.5vw, 148px);
-  line-height: 0.92;
+  font-size: clamp(52px, 8.5vw, 112px);
+  line-height: 0.96;
   color: #fff;
-  letter-spacing: -0.03em;
-  margin-bottom: 44px;
-  animation: slideUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.15s both;
+  letter-spacing: -0.035em;
+  margin-bottom: 0;
 }
 .headline em {
-  font-family: 'Noto Serif Display', serif;
-  font-weight: 800;
+  font-family: var(--font-accent);
+  font-weight: 700;
   font-style: italic;
-  color: var(--sand);
+  color: var(--orange-soft);
   letter-spacing: -0.02em;
+}
+
+.copy {
+  margin-bottom: 40px;
+  animation: slideUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.15s both;
+}
+
+.pillars {
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 0;
+  font-family: var(--font-sans);
+  font-size: clamp(13px, 1.4vw, 15px);
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.pillarSep {
+  margin: 0 14px;
+  color: var(--orange);
+  font-weight: 500;
 }
 
 .bottomRow {
@@ -72,56 +96,53 @@
   animation: slideUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.35s both;
 }
 
-/* contact */
 .contact { display: flex; flex-direction: column; gap: 8px; }
-.phone { font-size: 19px; font-weight: 700; color: #fff; letter-spacing: 0.02em; }
-.address { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+.phone { font-size: 19px; font-weight: 700; color: #fff; letter-spacing: 0.01em; }
+.address { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.6; }
 
-/* booking card */
 .card {
   display: flex;
   align-items: center;
   gap: 20px;
   background: rgba(255,255,255,0.97);
-  border-radius: 18px;
+  border-radius: var(--radius);
   padding: 18px 22px;
   min-width: 310px;
   cursor: pointer;
   text-decoration: none;
   transition: transform 0.22s cubic-bezier(0.16,1,0.3,1), box-shadow 0.22s;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.35);
+  box-shadow: 0 12px 44px rgba(5, 11, 20, 0.28);
 }
-.card:hover { transform: translateY(-5px); box-shadow: 0 16px 56px rgba(0,0,0,0.45); }
+.card:hover { transform: translateY(-5px); box-shadow: 0 18px 56px rgba(5, 11, 20, 0.38); }
 
 .cardText { flex: 1; }
 .cardLabel {
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--slate);
+  color: var(--orange);
   margin-bottom: 6px;
 }
-.timer {
-  font-size: 26px;
+.cardTitle {
+  font-size: 22px;
   font-weight: 800;
-  color: var(--deep);
+  color: var(--ink);
   letter-spacing: -0.02em;
-  line-height: 1;
+  line-height: 1.15;
 }
-.timer b { font-weight: 800; }
-.timer span { font-size: 15px; font-weight: 500; color: var(--slate); margin: 0 4px 0 1px; }
-.cardSub { font-size: 12px; color: #999; margin-top: 7px; line-height: 1.5; }
+.cardSub { font-size: 12px; color: var(--stone); margin-top: 7px; line-height: 1.5; }
 
 .cardArrow {
-  width: 44px; height: 44px;
+  width: 48px; height: 48px;
   border-radius: 50%;
-  background: var(--deep);
+  background: var(--orange);
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
   transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 4px 16px rgba(232, 119, 34, 0.4);
 }
-.card:hover .cardArrow { background: var(--sky); transform: rotate(45deg); }
+.card:hover .cardArrow { background: var(--ink); transform: rotate(45deg); }
 
 @media (max-width: 768px) {
   .bgDesktop {
@@ -130,7 +151,7 @@
 
   .bgMobile {
     display: block;
-    object-position: center 30%;
+    object-position: center center;
   }
 
   .hero {
@@ -145,21 +166,37 @@
     min-height: 0;
     justify-content: flex-end;
     align-items: stretch;
-    padding: 72px 24px max(24px, env(safe-area-inset-bottom));
+    padding: 72px var(--page-pad) max(48px, calc(28px + env(safe-area-inset-bottom)));
     gap: 0;
     transform: none;
   }
 
-  .headline {
+  .copy {
     position: absolute;
-    left: 24px;
-    right: 24px;
+    left: var(--page-pad);
+    right: var(--page-pad);
     top: 50%;
     transform: translateY(-50%);
-    font-size: clamp(50px, 13.5vw, 72px);
-    line-height: 0.94;
+    margin-bottom: 0;
+    pointer-events: none;
+  }
+
+  .headline {
+    position: static;
+    font-size: clamp(40px, 11.5vw, 60px);
+    line-height: 0.98;
     margin: 0;
     pointer-events: none;
+  }
+
+  .pillars {
+    margin-top: 14px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+  }
+
+  .pillarSep {
+    margin: 0 10px;
   }
 
   .bottomRow {
@@ -180,26 +217,28 @@
     min-width: unset;
     width: 100%;
     padding: 14px 16px;
-    border-radius: 14px;
+    border-radius: 18px;
     gap: 14px;
   }
 
   .cardLabel { margin-bottom: 4px; }
-  .timer { font-size: 20px; }
+  .cardTitle { font-size: 18px; }
   .cardSub { margin-top: 4px; font-size: 11px; }
-  .cardArrow { width: 40px; height: 40px; }
+  .cardArrow { width: 42px; height: 42px; }
 }
 
 @media (max-width: 390px) {
   .body {
-    padding: 64px 20px max(20px, env(safe-area-inset-bottom));
-    transform: none;
+    padding: 64px var(--page-pad) max(44px, calc(24px + env(safe-area-inset-bottom)));
+  }
+
+  .copy {
+    left: var(--page-pad);
+    right: var(--page-pad);
   }
 
   .headline {
-    left: 20px;
-    right: 20px;
-    font-size: clamp(44px, 12.5vw, 56px);
+    font-size: clamp(36px, 11vw, 50px);
   }
 
   .bottomRow { gap: 12px; }
@@ -209,15 +248,19 @@
 @media (max-width: 768px) and (max-height: 700px) {
   .body {
     padding-top: 60px;
-    padding-bottom: max(16px, env(safe-area-inset-bottom));
-    transform: none;
+    padding-bottom: max(36px, calc(20px + env(safe-area-inset-bottom)));
   }
 
   .headline {
-    font-size: clamp(42px, 11.5vw, 54px);
+    font-size: clamp(34px, 10vw, 46px);
+  }
+
+  .pillars {
+    margin-top: 10px;
+    font-size: 11px;
   }
 
   .bottomRow { gap: 10px; }
   .card { padding: 12px 14px; }
-  .timer { font-size: 18px; }
+  .cardTitle { font-size: 17px; }
 }
