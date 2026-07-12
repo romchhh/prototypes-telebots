@@ -1,0 +1,202 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  transform: scale(1.04);
+  animation: slowZoom 20s ease-out forwards;
+}
+
+.bgImage {
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.bgMobile { display: none; }
+.bgDesktop { display: block; }
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(18, 26, 23, 0.88) 0%, rgba(18, 26, 23, 0.4) 48%, rgba(18, 26, 23, 0.18) 100%),
+    linear-gradient(to right, rgba(18, 26, 23, 0.35) 0%, transparent 55%);
+}
+
+.body {
+  position: relative;
+  z-index: 10;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 var(--page-pad) 52px;
+}
+
+.copy {
+  margin-bottom: 40px;
+  animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+
+.brandMark {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 700;
+  color: var(--sage);
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.headline {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: clamp(48px, 7.5vw, 96px);
+  line-height: 0.98;
+  color: #fff;
+  letter-spacing: -0.035em;
+}
+.headline em {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 700;
+  color: #d8c5b8;
+}
+
+.sub {
+  margin-top: 18px;
+  max-width: 38ch;
+  font-size: clamp(15px, 1.6vw, 18px);
+  font-weight: 500;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.bottomRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+}
+
+.contact { display: flex; flex-direction: column; gap: 8px; }
+.phone { font-size: 19px; font-weight: 700; color: #fff; }
+.address { font-size: 14px; color: rgba(255, 255, 255, 0.55); line-height: 1.6; }
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  min-width: 300px;
+  text-decoration: none;
+  box-shadow: 0 12px 44px rgba(18, 26, 23, 0.28);
+  transition: transform 0.22s, box-shadow 0.22s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 56px rgba(18, 26, 23, 0.38);
+}
+
+.cardLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sage-deep);
+  margin-bottom: 6px;
+}
+.cardTitle {
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.cardSub {
+  font-size: 12px;
+  color: var(--stone);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+.cardArrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+.card:hover .cardArrow {
+  background: var(--sage);
+  transform: rotate(45deg);
+}
+
+@media (max-width: 768px) {
+  .bgDesktop { display: none; }
+  .bgMobile {
+    display: block;
+    object-position: center center;
+  }
+
+  .hero {
+    height: 100svh;
+    max-height: 100svh;
+    min-height: unset;
+  }
+
+  .body {
+    padding: 72px var(--page-pad) max(48px, calc(28px + env(safe-area-inset-bottom)));
+  }
+
+  .copy {
+    position: absolute;
+    left: var(--page-pad);
+    right: var(--page-pad);
+    top: 50%;
+    transform: translateY(-50%);
+    margin-bottom: 0;
+    pointer-events: none;
+  }
+
+  .brandMark { font-size: 26px; margin-bottom: 8px; }
+
+  .headline {
+    font-size: clamp(38px, 11vw, 54px);
+  }
+
+  .sub {
+    margin-top: 12px;
+    font-size: 14px;
+  }
+
+  .bottomRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .card {
+    min-width: unset;
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 18px;
+  }
+
+  .cardTitle { font-size: 18px; }
+  .cardArrow { width: 42px; height: 42px; }
+}

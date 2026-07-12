@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@1,9..144,600;1,9..144,700&display=swap');
+
+.liquidGlass {
+  --ink: #06101c;
+  --text: #f4f7fb;
+  --muted: rgba(244, 247, 251, 0.68);
+  --orange: #ff8a3d;
+  --orange-deep: #e86f22;
+  --glass: rgba(255, 255, 255, 0.1);
+  --glass-strong: rgba(255, 255, 255, 0.16);
+  --glass-border: rgba(255, 255, 255, 0.28);
+  --glass-highlight: rgba(255, 255, 255, 0.45);
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+  --blur: blur(28px) saturate(160%);
+  --page-pad: 64px;
+  --page-pad-sm: 24px;
+  --radius: 28px;
+  --radius-sm: 18px;
+  --radius-pill: 999px;
+  --font-sans: 'Outfit', 'Helvetica Neue', sans-serif;
+  --font-accent: 'Fraunces', Georgia, serif;
+
+  position: relative;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  color: var(--text);
+  background: #05080f;
+  overflow-x: hidden;
+  isolation: isolate;
+}
+
+@media (max-width: 768px) {
+  .liquidGlass {
+    --page-pad: var(--page-pad-sm);
+  }
+}
+
+/* Ambient liquid backdrop */
+.liquidGlass::before {
+  content: '';
+  position: fixed;
+  inset: -20%;
+  z-index: -2;
+  background:
+    radial-gradient(ellipse 50% 40% at 15% 20%, rgba(255, 138, 61, 0.45), transparent 55%),
+    radial-gradient(ellipse 45% 40% at 85% 15%, rgba(56, 140, 255, 0.42), transparent 55%),
+    radial-gradient(ellipse 50% 45% at 70% 80%, rgba(120, 80, 255, 0.28), transparent 55%),
+    radial-gradient(ellipse 40% 35% at 20% 75%, rgba(40, 200, 180, 0.3), transparent 50%),
+    linear-gradient(160deg, #08111f 0%, #0a1528 45%, #120b1c 100%);
+  animation: liquidDrift 22s ease-in-out infinite alternate;
+}
+
+.liquidGlass::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 50% 0%, transparent 30%, rgba(5, 8, 15, 0.35) 100%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+@keyframes liquidDrift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(-2%, 3%, 0) scale(1.06); }
+}

@@ -44,6 +44,18 @@ const PROTOTYPES = [
     desc: 'Автомобілі з Європи — підбір, покупка, продаж (UA)',
     tag: 'Авто',
   },
+  {
+    slug: 'liquid-glass',
+    title: 'Kreona · Liquid Glass',
+    desc: 'Повний liquid glass UI — авто з Європи (UA)',
+    tag: 'Авто',
+  },
+  {
+    slug: 'nura',
+    title: 'Nura',
+    desc: 'Косметологічна клініка — landing page (UA)',
+    tag: 'Клініка',
+  },
 ]
 
 export default function Home() {

@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+.nura {
+  --ink: #121a17;
+  --forest: #1e2e28;
+  --sage: #7fa894;
+  --sage-deep: #5f8a74;
+  --blush: #c9897c;
+  --blush-deep: #b06f62;
+  --mist: #eef1ef;
+  --stone: #6b7872;
+  --white: #ffffff;
+  --page-pad: 64px;
+  --page-pad-sm: 24px;
+  --radius: 22px;
+  --radius-sm: 14px;
+  --radius-pill: 999px;
+  --font-sans: 'Outfit', 'Helvetica Neue', sans-serif;
+  --font-accent: 'Cormorant Garamond', Georgia, serif;
+
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--white);
+}
+
+@media (max-width: 768px) {
+  .nura {
+    --page-pad: var(--page-pad-sm);
+  }
+}
