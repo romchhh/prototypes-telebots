@@ -45,6 +45,12 @@ const PROTOTYPES = [
     tag: 'Авто',
   },
   {
+    slug: 'litun',
+    title: 'Ілля Літун',
+    desc: 'Освітній бізнес — консалтинг, страт сесії, клуб (UA)',
+    tag: 'Освіта',
+  },
+  {
     slug: 'liquid-glass',
     title: 'Kreona · Liquid Glass',
     desc: 'Повний liquid glass UI — авто з Європи (UA)',

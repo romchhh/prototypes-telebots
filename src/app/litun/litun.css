@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600;1,9..144,700&display=swap');
+
+.litun {
+  /* Deep blue palette — same structure as Kreona, cooler accents */
+  --ink: #040a16;
+  --navy: #0a1628;
+  --mist: #eef2f8;
+  --stone: #6b778a;
+  --blue: #2f6fed;
+  --blue-deep: #1f54c4;
+  --blue-soft: #7aa2f7;
+  --orange: var(--blue);
+  --orange-deep: var(--blue-deep);
+  --orange-soft: var(--blue-soft);
+  --white: #ffffff;
+  --black: #0a0a0a;
+  --page-pad: 64px;
+  --page-pad-sm: 24px;
+  --radius: 22px;
+  --radius-sm: 14px;
+  --radius-pill: 999px;
+  --font-sans: 'Bricolage Grotesque', 'Helvetica Neue', sans-serif;
+  --font-display: 'Bricolage Grotesque', 'Helvetica Neue', sans-serif;
+  --font-accent: 'Fraunces', Georgia, serif;
+
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--white);
+}
+
+@media (max-width: 768px) {
+  .litun {
+    --page-pad: var(--page-pad-sm);
+  }
+}
+
+.litunBand {
+  background:
+    radial-gradient(ellipse 70% 55% at 85% 8%, rgba(47, 111, 237, 0.12), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 5% 92%, rgba(4, 10, 22, 0.06), transparent 50%),
+    linear-gradient(180deg, #eef2f8 0%, #e3e9f3 100%);
+}
