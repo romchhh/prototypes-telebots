@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { SOCIALS } from '../brand'
+import { SOCIALS } from './brand'
 
 export const SOCIAL_ICONS: Record<(typeof SOCIALS)[number]['label'], ReactNode> = {
   Instagram: (
