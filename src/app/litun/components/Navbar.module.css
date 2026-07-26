@@ -14,7 +14,7 @@
 }
 
 .solid {
-  background: rgba(4, 10, 22, 0.92);
+  background: rgba(15, 15, 15, 0.92);
   backdrop-filter: blur(16px);
   padding: 18px var(--page-pad);
 }
@@ -32,10 +32,10 @@
 }
 .brand span {
   font-family: var(--font-accent);
-  font-weight: 600;
-  font-style: italic;
+  font-weight: 800;
+  font-style: normal;
   letter-spacing: 0;
-  color: var(--blue-soft);
+  color: var(--color-accent);
   margin-left: 0.25em;
 }
 
@@ -57,7 +57,7 @@
   white-space: nowrap;
   transition: opacity 0.2s, color 0.2s;
 }
-.center a:hover { color: var(--blue-soft); }
+.center a:hover { color: var(--color-accent); }
 
 .right {
   display: flex;
@@ -100,12 +100,12 @@
   color: #fff;
   text-decoration: none;
   transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-  box-shadow: 0 6px 28px rgba(47, 111, 237, 0.45);
+  box-shadow: 0 6px 28px rgba(42, 100, 233, 0.45);
 }
 .cta:hover {
   background: var(--blue-deep);
   transform: translateY(-2px);
-  box-shadow: 0 10px 36px rgba(47, 111, 237, 0.55);
+  box-shadow: 0 10px 36px rgba(42, 100, 233, 0.55);
 }
 
 .hamburger {
@@ -164,9 +164,9 @@
 
 .drawerBrand span {
   font-family: var(--font-accent);
-  font-weight: 600;
-  font-style: italic;
-  color: var(--blue);
+  font-weight: 800;
+  font-style: normal;
+  color: var(--color-accent);
   margin-left: 0.25em;
 }
 
@@ -204,7 +204,7 @@
   white-space: nowrap;
   background: var(--blue);
   color: #fff;
-  box-shadow: 0 6px 28px rgba(47, 111, 237, 0.45);
+  box-shadow: 0 6px 28px rgba(42, 100, 233, 0.45);
   transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
 }
 

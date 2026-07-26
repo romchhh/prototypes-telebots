@@ -1,7 +1,7 @@
 .hero {
   background:
-    radial-gradient(ellipse 70% 55% at 90% 0%, rgba(47, 111, 237, 0.22), transparent 55%),
-    linear-gradient(160deg, #07111f 0%, #0c1a33 48%, #122548 100%);
+    radial-gradient(ellipse 70% 55% at 90% 0%, rgba(42, 100, 233, 0.28), transparent 55%),
+    linear-gradient(160deg, #0f0f0f 0%, #131514 48%, #1a3169 100%);
   color: #fff;
   padding: 140px var(--page-pad) 88px;
 }
@@ -20,14 +20,14 @@
   text-decoration: none;
   transition: color 0.2s;
 }
-.back:hover { color: var(--blue-soft); }
+.back:hover { color: var(--color-accent); }
 
 .eyebrow {
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--blue-soft);
+  color: var(--color-accent);
   margin-bottom: 16px;
 }
 
@@ -72,16 +72,16 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--blue);
-  box-shadow: 0 0 0 4px rgba(47, 111, 237, 0.2);
+  background: var(--color-accent);
+  box-shadow: 0 0 0 4px rgba(42, 100, 233, 0.2);
 }
 
 .cta {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: var(--blue);
-  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  border-radius: var(--radius-sm);
   padding: 15px 28px;
   font-size: 14px;
   font-weight: 700;
@@ -89,12 +89,12 @@
   color: #fff;
   text-decoration: none;
   transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-  box-shadow: 0 6px 28px rgba(47, 111, 237, 0.45);
+  box-shadow: 0 6px 28px rgba(42, 100, 233, 0.45);
 }
 .cta:hover {
-  background: var(--blue-deep);
+  background: var(--color-accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 10px 36px rgba(47, 111, 237, 0.55);
+  box-shadow: 0 10px 36px rgba(42, 100, 233, 0.55);
 }
 
 @media (max-width: 768px) {

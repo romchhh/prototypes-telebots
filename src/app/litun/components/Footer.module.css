@@ -23,7 +23,7 @@
   text-decoration: none;
   transition: color 0.2s;
 }
-.links a:hover { color: var(--blue-soft); }
+.links a:hover { color: var(--color-accent); }
 
 .cols {
   display: grid;
@@ -51,7 +51,7 @@
   line-height: 1.65;
   transition: color 0.2s;
 }
-.col a:hover { color: var(--blue-soft); }
+.col a:hover { color: var(--color-accent); }
 
 .socials {
   display: flex;
@@ -76,7 +76,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: var(--blue-soft);
+  color: var(--color-accent);
   transition: color 0.2s;
 }
 
@@ -98,7 +98,7 @@
   margin-top: 56px;
   text-align: center;
   user-select: none;
-  background: linear-gradient(180deg, #fff 30%, rgba(47, 111, 237, 0.6) 100%);
+  background: linear-gradient(180deg, #fff 30%, rgba(42, 100, 233, 0.7) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

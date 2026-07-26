@@ -1,31 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600;1,9..144,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 .litun {
-  /* Deep blue palette — same structure as Kreona, cooler accents */
-  --ink: #040a16;
-  --navy: #0a1628;
-  --mist: #eef2f8;
-  --stone: #6b778a;
-  --blue: #2f6fed;
-  --blue-deep: #1f54c4;
-  --blue-soft: #7aa2f7;
+  /* Brand book — «Особистий консалтинг» */
+  --color-bg: #0f0f0f;
+  --color-bg-secondary: #171617;
+  --color-accent: #2a64e9;
+  --color-accent-hover: #2357dc;
+  --color-accent-dark: #1a3169;
+  --color-light-card: #d4ddfa;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #8c8c8c;
+  --color-success: #1cbc27;
+  --color-warning: #d2494b;
+
+  /* Aliases used across components */
+  --ink: #0f0f0f;
+  --navy: #171617;
+  --mist: #d4ddfa;
+  --stone: #8c8c8c;
+  --blue: #2a64e9;
+  --blue-deep: #2357dc;
+  --blue-soft: #d4ddfa;
   --orange: var(--blue);
   --orange-deep: var(--blue-deep);
   --orange-soft: var(--blue-soft);
   --white: #ffffff;
-  --black: #0a0a0a;
+  --black: #0f0f0f;
   --page-pad: 64px;
   --page-pad-sm: 24px;
-  --radius: 22px;
-  --radius-sm: 14px;
+  --radius: 20px;
+  --radius-sm: 12px;
   --radius-pill: 999px;
-  --font-sans: 'Bricolage Grotesque', 'Helvetica Neue', sans-serif;
-  --font-display: 'Bricolage Grotesque', 'Helvetica Neue', sans-serif;
-  --font-accent: 'Fraunces', Georgia, serif;
+  --font-sans: 'Manrope', sans-serif;
+  --font-display: 'Anton', sans-serif;
+  --font-accent: 'Anton', sans-serif;
 
   font-family: var(--font-sans);
-  color: var(--ink);
-  background: var(--white);
+  color: var(--color-bg);
+  background: #fff;
 }
 
 @media (max-width: 768px) {
@@ -36,7 +48,7 @@
 
 .litunBand {
   background:
-    radial-gradient(ellipse 70% 55% at 85% 8%, rgba(47, 111, 237, 0.12), transparent 55%),
-    radial-gradient(ellipse 60% 50% at 5% 92%, rgba(4, 10, 22, 0.06), transparent 50%),
-    linear-gradient(180deg, #eef2f8 0%, #e3e9f3 100%);
+    radial-gradient(ellipse 70% 55% at 85% 8%, rgba(42, 100, 233, 0.1), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 5% 92%, rgba(15, 15, 15, 0.04), transparent 50%),
+    linear-gradient(180deg, #f5f7fc 0%, #eef1f8 100%);
 }
