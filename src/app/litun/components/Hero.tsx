@@ -27,7 +27,7 @@ export default function Hero() {
       <div className={styles.body}>
         <div className={styles.copy}>
           <h1 className={styles.headline}>
-            Освітній бізнес з&nbsp;&nbsp;<em>Іллею Літуном</em>
+            Освітній бізнес<br />з&nbsp;<em>Іллею Літуном</em>
           </h1>
           <p className={styles.role}>{BRAND.role}</p>
 

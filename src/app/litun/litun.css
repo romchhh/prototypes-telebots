@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap');
 
 .litun {
   /* Brand book — «Особистий консалтинг» */
@@ -32,8 +32,8 @@
   --radius-sm: 12px;
   --radius-pill: 999px;
   --font-sans: 'Manrope', sans-serif;
-  --font-display: 'Anton', sans-serif;
-  --font-accent: 'Anton', sans-serif;
+  --font-display: 'Oswald', sans-serif;
+  --font-accent: 'Oswald', sans-serif;
 
   font-family: var(--font-sans);
   color: var(--color-bg);

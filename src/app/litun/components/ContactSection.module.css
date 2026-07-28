@@ -32,8 +32,6 @@
   letter-spacing: 0.01em;
   text-transform: uppercase;
   color: var(--color-bg);
-  -webkit-text-stroke: 0.4px currentColor;
-  paint-order: stroke fill;
 }
 
 .heading em {
@@ -42,7 +40,6 @@
   font-weight: 700;
   color: var(--color-accent);
   letter-spacing: 0.01em;
-  -webkit-text-stroke: 0.4px currentColor;
 }
 
 .lead {
