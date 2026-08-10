@@ -342,7 +342,13 @@
       line-height: 1.45;
       max-width: 100%;
     }
-    .heroCta { margin-top: 20px; font-size: 15px; padding: 15px 28px; }
+    .heroCta {
+      margin-top: 20px;
+      font-size: 15px;
+      padding: 15px 28px;
+      align-self: flex-start;
+      width: auto;
+    }
   
     .glassCells {
       position: relative;
