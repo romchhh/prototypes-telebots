@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+.yustytsiya {
+  --color-bg: #ffffff;
+  --color-bg-elevated: #f7f5f1;
+  --color-accent: #b8922f;
+  --color-accent2: #9a7824;
+  --color-text: #121a28;
+  --color-muted: #5c6b7a;
+  --color-line: rgba(18, 26, 40, 0.1);
+  --font-display: 'Oswald', 'Arial Narrow', sans-serif;
+  --font-sans: 'Manrope', 'Helvetica Neue', sans-serif;
+  --radius-pill: 999px;
+  --hero-pad: clamp(20px, 4vw, 72px);
+
+  --deep: #121a28;
+  --sky: #b8922f;
+  --sand: #9a7824;
+  --slate: #5c6b7a;
+  --white: #ffffff;
+  --font-serif: var(--font-display);
+
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+.yustytsiya *,
+.yustytsiya *::before,
+.yustytsiya *::after {
+  box-sizing: border-box;
+}
+
+.yustytsiya a {
+  color: inherit;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

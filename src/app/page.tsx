@@ -9,6 +9,12 @@ const PROTOTYPES = [
     tag: 'Клініка',
   },
   {
+    slug: 'yustytsiya',
+    title: 'Юстиція',
+    desc: 'Професійний юрист у Києві — landing page (UA)',
+    tag: 'Юриспруденція',
+  },
+  {
     slug: 'proyav',
     title: 'PROяв',
     desc: 'Масштабна подія у Тернополі — event page (UA)',

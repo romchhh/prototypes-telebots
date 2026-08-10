@@ -1,0 +1,385 @@
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 100vh;
+    min-height: 100dvh;
+    max-height: 100vh;
+    max-height: 100dvh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+  }
+  
+  /* Subtle grid */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(184, 146, 47, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(184, 146, 47, 0.08) 1px, transparent 1px);
+    background-size: 52px 52px;
+    mask-image: linear-gradient(180deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
+  }
+  
+  /* Warm glow — left side */
+  .bgGlow {
+    position: absolute;
+    top: -10%;
+    left: -15%;
+    width: 55vw;
+    height: 80vh;
+    background: radial-gradient(ellipse at center, rgba(184, 146, 47, 0.1) 0%, transparent 65%);
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  /* Yellow glow — right side behind portrait */
+  .bgGlow2 {
+    position: absolute;
+    bottom: -5%;
+    right: -8%;
+    width: 60vw;
+    height: 85vh;
+    background: radial-gradient(ellipse at center, rgba(230, 190, 70, 0.22) 0%, rgba(212, 168, 50, 0.1) 40%, transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  /* ─── Portrait ─── */
+  .portrait {
+    position: absolute;
+    right: -2%;
+    bottom: 0;
+    width: min(48vw, 640px);
+    height: min(92vh, 920px);
+    z-index: 5;
+    pointer-events: none;
+    animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+  }
+
+  .portraitGlow {
+    position: absolute;
+    left: 50%;
+    top: 42%;
+    width: 85%;
+    height: 75%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    border-radius: 50%;
+    background:
+      radial-gradient(ellipse at center, rgba(245, 205, 80, 0.45) 0%, rgba(230, 180, 55, 0.22) 42%, transparent 72%);
+    filter: blur(28px);
+    pointer-events: none;
+  }
+  
+  .portraitImage {
+    object-fit: contain;
+    object-position: center bottom;
+    filter: drop-shadow(0 18px 36px rgba(184, 146, 47, 0.18));
+  }
+  
+  /* ─── Body layout ─── */
+  .body {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 0;
+    padding: 140px var(--hero-pad) 48px;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+  }
+  
+  /* ─── Eyebrow ─── */
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 18px;
+  }
+  
+  /* ─── Copy block ─── */
+  .copy {
+    max-width: min(92vw, 760px);
+    animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+    position: relative;
+    z-index: 3;
+  }
+  
+  /* ─── Headline ─── */
+  .headline {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(56px, 8.5vw, 112px);
+    line-height: 0.93;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin-bottom: 0;
+  }
+  
+  .headline em {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-style: italic;
+    color: var(--color-accent);
+    letter-spacing: -0.02em;
+  }
+  
+  /* ─── Role subtitle ─── */
+  .role {
+    margin-top: 20px;
+    max-width: min(44ch, 42vw);
+    font-family: var(--font-sans);
+    font-size: clamp(15px, 1.5vw, 18px);
+    line-height: 1.6;
+    color: var(--color-muted);
+    font-weight: 400;
+  }
+  
+  /* ─── Hero CTA ─── */
+  .heroCta {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 32px;
+    padding: 20px 40px;
+    border-radius: var(--radius-pill);
+    background: var(--color-accent);
+    color: #0f1b2d;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.22s, transform 0.22s, box-shadow 0.22s;
+    box-shadow: 0 10px 32px rgba(197, 160, 73, 0.38);
+  }
+  .heroCta:hover {
+    background: var(--color-accent2);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 40px rgba(197, 160, 73, 0.48);
+  }
+  .heroCta svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* ─── Glass stat badges ─── */
+  .glassCells {
+    position: absolute;
+    inset: 0;
+    z-index: 8;
+    pointer-events: none;
+  }
+  
+  .glassCard {
+    position: absolute;
+    pointer-events: auto;
+    padding: 16px 18px 14px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(18, 26, 40, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow:
+      0 14px 36px rgba(18, 26, 40, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both;
+  }
+  
+  .glassOrb {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(184, 146, 47, 0.14);
+    border: 1px solid rgba(184, 146, 47, 0.35);
+  }
+  
+  .glassRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-right: 28px;
+  }
+  
+  .glassValue {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3vw, 44px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--color-accent);
+    white-space: nowrap;
+  }
+  
+  .glassMeta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    color: var(--color-muted);
+    text-transform: lowercase;
+  }
+  
+  /* Badge positions */
+  .glassLeft {
+    left: clamp(12px, 5vw, 72px);
+    bottom: clamp(48px, 10vh, 112px);
+    width: min(230px, 30vw);
+  }
+  .glassMid {
+    left: 50%;
+    bottom: clamp(56px, 6.5vh, 80px);
+    transform: translateX(-50%);
+    width: min(270px, 34vw);
+    z-index: 11;
+  }
+  .glassRight {
+    right: clamp(16px, 4vw, 72px);
+    bottom: clamp(128px, 16vh, 200px);
+    width: min(210px, 28vw);
+    z-index: 11;
+  }
+  
+  /* ─── Desktop overrides ─── */
+  @media (min-width: 769px) {
+    .portrait { z-index: 4; }
+    .body {
+      padding-top: 130px;
+      z-index: 6;
+    }
+    .copy {
+      margin-top: auto;
+      margin-bottom: clamp(100px, 12vh, 140px);
+      transform: translateY(-12px);
+      position: relative;
+      z-index: 3;
+    }
+    .glassCells { z-index: 8; }
+  
+    .glassLeft {
+      left: clamp(12px, 5vw, 72px);
+      bottom: clamp(28px, 4vh, 44px);
+      width: min(220px, 28vw);
+      z-index: 6;
+    }
+
+    .glassRight {
+      z-index: 12;
+    }
+  }
+  
+  /* ─── 980px ─── */
+  @media (max-width: 980px) {
+    .portrait { right: 0; width: min(46vw, 520px); height: min(85vh, 780px); }
+  }
+  
+  /* ─── Mobile ─── */
+  @media (max-width: 768px) {
+    .hero {
+      height: 100svh;
+      height: 100dvh;
+      min-height: 100svh;
+      min-height: 100dvh;
+      max-height: 100svh;
+      max-height: 100dvh;
+      overflow: hidden;
+    }
+  
+    .portrait {
+      right: -8%;
+      width: min(78vw, 400px);
+      height: min(68vh, 520px);
+      opacity: 0.9;
+      z-index: 5;
+    }
+  
+    .body {
+      justify-content: flex-end;
+      flex: 1;
+      height: 100%;
+      min-height: 0;
+      padding: 110px var(--hero-pad) max(28px, calc(18px + env(safe-area-inset-bottom)));
+      gap: 0;
+    }
+  
+    .copy {
+      margin-top: 0;
+      max-width: 58%;
+      flex: 0 1 auto;
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .headline { font-size: clamp(40px, 12vw, 60px); line-height: 0.94; }
+    .role { margin-top: 10px; font-size: 15px; line-height: 1.45; max-width: 42vw; }
+    .heroCta { margin-top: 20px; font-size: 15px; padding: 15px 28px; }
+  
+    .glassCells {
+      position: relative;
+      inset: auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 6px;
+      width: min(72%, 200px);
+      max-width: 200px;
+      margin-top: auto;
+      padding-top: 12px;
+      padding-bottom: 2px;
+      z-index: 6;
+      align-self: flex-start;
+      flex-shrink: 0;
+    }
+  
+    .glassCard {
+      position: relative;
+      left: auto !important; right: auto !important;
+      top: auto !important; bottom: auto !important;
+      transform: none !important;
+      width: 100%; max-width: none;
+      padding: 8px 10px 7px;
+      border-radius: 12px;
+    }
+  
+    .glassOrb { top: 7px; right: 7px; width: 14px; height: 14px; }
+    .glassRow { gap: 8px; padding-right: 16px; }
+    .glassValue { font-size: 18px; }
+    .glassMeta { font-size: 10px; gap: 0; }
+    .glassLeft, .glassMid, .glassRight { justify-self: stretch; }
+  }
+  
+  @media (max-width: 480px) {
+    .portrait { right: -10%; width: min(84vw, 380px); height: min(58vh, 480px); opacity: 0.88; }
+    .copy { margin-top: 0; max-width: 56%; }
+    .role { max-width: 40vw; font-size: 14px; }
+    .headline { font-size: clamp(38px, 12vw, 54px); }
+    .glassCells { width: min(70%, 180px); max-width: 180px; gap: 5px; }
+    .glassValue { font-size: 16px; }
+    .glassMeta { font-size: 9px; }
+  }
+  
+  @media (max-width: 768px) and (max-height: 740px) {
+    .body { padding-top: 96px; padding-bottom: max(20px, calc(12px + env(safe-area-inset-bottom))); }
+    .copy { margin-top: 0; flex: 0 1 auto; }
+    .role { margin-top: 8px; font-size: 14px; max-width: 38vw; }
+    .glassCells { gap: 5px; padding-top: 10px; }
+    .glassCard { padding: 7px 9px 6px; }
+    .glassValue { font-size: 16px; }
+    .glassMeta { font-size: 9px; }
+  }

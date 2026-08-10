@@ -1,0 +1,130 @@
+.footer {
+  background: #ffffff;
+  color: var(--color-muted);
+  padding: 64px var(--hero-pad) 0;
+  overflow: hidden;
+  border-top: 1px solid var(--color-line);
+}
+
+.top {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.1fr 2fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.brandBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.brand {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.tag {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-muted);
+  max-width: 24ch;
+}
+
+.cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.col h3 {
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.col p,
+.col a {
+  margin: 0;
+  font-size: 14px;
+  color: var(--color-muted);
+  text-decoration: none;
+  line-height: 1.6;
+  transition: color 0.2s;
+}
+
+.col a:hover {
+  color: var(--color-text);
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(64px, 14vw, 160px);
+  letter-spacing: 0.04em;
+  color: rgba(18, 26, 40, 0.06);
+  line-height: 0.85;
+  margin-top: 48px;
+  text-align: center;
+  user-select: none;
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 22px 0;
+  border-top: 1px solid rgba(18, 26, 40, 0.08);
+  width: 100%;
+}
+
+.bottom span,
+.bottom a {
+  font-size: 12px;
+  color: #8a96a3;
+  text-decoration: none;
+}
+
+.bottom a:hover {
+  color: var(--color-text);
+}
+
+@media (max-width: 800px) {
+  .top {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .cols {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .cols {
+    grid-template-columns: 1fr;
+  }
+
+  .bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

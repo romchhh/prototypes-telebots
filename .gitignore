@@ -1,11 +1,13 @@
 # dependencies
 /node_modules
+/litun/node_modules
 /.pnp
 .pnp.js
 .yarn/install-state.gz
 
 # next.js
 /.next/
+/litun/.next/
 /out/
 
 # production
@@ -26,6 +28,8 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+/litun/*.tsbuildinfo
 
 # vercel
 .vercel
+/litun/.vercel
