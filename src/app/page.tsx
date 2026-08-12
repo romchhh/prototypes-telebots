@@ -15,6 +15,12 @@ const PROTOTYPES = [
     tag: 'Юриспруденція',
   },
   {
+    slug: 'proassistant',
+    title: 'ProAssistant',
+    desc: 'Професійна підготовка майбутніх лідерів — landing page (UA)',
+    tag: 'Освіта',
+  },
+  {
     slug: 'proyav',
     title: 'PROяв',
     desc: 'Масштабна подія у Тернополі — event page (UA)',

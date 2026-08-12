@@ -1,0 +1,206 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px var(--hero-pad);
+  min-height: 88px;
+  transition: background 0.3s, backdrop-filter 0.3s, padding 0.3s, border-color 0.3s;
+  border-bottom: 1px solid transparent;
+}
+
+.transparent {
+  background: transparent;
+}
+
+.solid {
+  background: rgba(246, 250, 247, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom-color: var(--color-line);
+  padding: 20px var(--hero-pad);
+  min-height: 76px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  line-height: 0;
+}
+
+.brandLogo {
+  width: clamp(140px, 16vw, 200px);
+  height: auto;
+  transform: rotate(-2.5deg);
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.center a {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.center a:hover {
+  color: var(--color-accent);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: 2.5px solid var(--color-accent);
+  border-radius: var(--radius-pill);
+  padding: 15px 29px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.2s, border-color 0.2s;
+  box-shadow: none;
+}
+
+.cta:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 26px rgba(45, 138, 86, 0.28);
+}
+
+.menuBtn {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 6px 0;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: var(--color-text);
+  line-height: 1;
+}
+
+.menuBtn svg {
+  flex-shrink: 0;
+}
+
+.drawer {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: var(--color-bg);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  padding: 22px var(--hero-pad);
+}
+
+.drawer.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.drawerLogo {
+  position: absolute;
+  top: 22px;
+  left: var(--hero-pad);
+  margin: 0;
+  line-height: 0;
+}
+
+.drawerLogoImg {
+  width: 132px;
+  height: auto;
+  transform: rotate(-2.5deg);
+}
+
+.drawer a {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 9vw, 48px);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+
+.drawer a:hover {
+  color: var(--color-accent);
+}
+
+.drawerCta {
+  font-family: var(--font-sans) !important;
+  font-size: 16px !important;
+  letter-spacing: 0.04em;
+  background: transparent !important;
+  border: 2.5px solid var(--color-accent);
+  border-radius: var(--radius-pill);
+  padding: 17px 39px;
+  color: var(--color-accent) !important;
+  margin-top: 22px;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.drawerCta:hover {
+  background: var(--color-accent) !important;
+  color: #ffffff !important;
+}
+
+.drawerClose {
+  position: absolute;
+  top: 22px;
+  right: var(--hero-pad);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+  .nav {
+    padding: 22px var(--hero-pad);
+    min-height: 76px;
+  }
+
+  .brandLogo {
+    width: 132px;
+  }
+
+  .center,
+  .right {
+    display: none;
+  }
+
+  .menuBtn {
+    display: inline-flex;
+  }
+}

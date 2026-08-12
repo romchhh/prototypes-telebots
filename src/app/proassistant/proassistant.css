@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+.proassistant {
+  --color-bg: #f6faf7;
+  --color-bg-elevated: #eaf4ee;
+  --color-accent: #2d8a56;
+  --color-accent2: #1f6b41;
+  --color-text: #12241c;
+  --color-muted: #5a6e64;
+  --color-line: rgba(18, 36, 28, 0.1);
+  --font-display: 'Oswald', 'Arial Narrow', sans-serif;
+  --font-sans: 'Manrope', 'Helvetica Neue', sans-serif;
+  --radius-pill: 999px;
+  --hero-pad: clamp(20px, 4vw, 72px);
+
+  --deep: #12241c;
+  --sky: #2d8a56;
+  --sand: #1f6b41;
+  --slate: #5a6e64;
+  --white: #ffffff;
+  --font-serif: var(--font-display);
+
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+}
+
+.proassistant *,
+.proassistant *::before,
+.proassistant *::after {
+  box-sizing: border-box;
+}
+
+.proassistant a {
+  color: inherit;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
