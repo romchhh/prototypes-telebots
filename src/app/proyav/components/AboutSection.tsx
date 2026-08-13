@@ -11,7 +11,7 @@ export default function AboutSection() {
           </h2>
           <div className={styles.imgWrap}>
             <Image
-              src="/images/about-proyav.jpg"
+              src="/images/proyav/about.jpg"
               alt="Атмосфера події PROяв"
               fill
               sizes="(max-width: 900px) 100vw, 50vw"

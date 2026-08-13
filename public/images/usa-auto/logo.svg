@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 120" fill="none">
+  <rect x="0" y="8" width="150" height="104" fill="#111111"/>
+  <rect x="0" y="8" width="150" height="6" fill="#E11D2E"/>
+  <text x="75" y="74" text-anchor="middle" font-family="Arial Black, Helvetica Neue, Arial, sans-serif" font-size="48" font-weight="900" fill="#FFFFFF">USA</text>
+  <rect x="160" y="8" width="400" height="104" stroke="#111111" stroke-width="4"/>
+  <rect x="542" y="8" width="18" height="6" fill="#E11D2E"/>
+  <text x="360" y="74" text-anchor="middle" font-family="Arial Black, Helvetica Neue, Arial, sans-serif" font-size="48" font-weight="900" fill="#111111">AUTO</text>
+</svg>

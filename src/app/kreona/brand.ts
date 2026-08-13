@@ -5,9 +5,9 @@ export const BRAND = {
   email: 'hello@kreona.ua',
   address: 'вул. Велика Васильківська 72',
   city: '03150 Київ',
-  heroDesktop: '/Gemini_Generated_Image_kdqn16kdqn16kdqn.png',
-  heroMobile: '/Gemini_Generated_Image_kdqn16kdqn16kdqn.png',
-  contactImage: '/Gemini_Generated_Image_kdqn16kdqn16kdqn.png',
+  heroDesktop: '/images/kreona/hero.png',
+  heroMobile: '/images/kreona/hero.png',
+  contactImage: '/images/kreona/hero.png',
 } as const
 
 export const PILLARS = ['Підбір', 'Покупка', 'Продаж'] as const

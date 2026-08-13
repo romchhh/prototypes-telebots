@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+.usa-auto {
+  --color-bg: #ffffff;
+  --color-bg-elevated: #f6f4f6;
+  --color-accent: #e11d2e;
+  --color-accent2: #b01020;
+  --color-text: #111111;
+  --color-muted: #5c5c5c;
+  --color-line: rgba(17, 17, 17, 0.1);
+  --color-black: #111111;
+  --font-display: 'Oswald', 'Arial Narrow', sans-serif;
+  --font-sans: 'Manrope', 'Helvetica Neue', sans-serif;
+  --radius-pill: 999px;
+  --hero-pad: clamp(20px, 4vw, 72px);
+
+  --deep: #111111;
+  --sky: #e11d2e;
+  --sand: #b01020;
+  --slate: #5c5c5c;
+  --white: #ffffff;
+  --font-serif: var(--font-display);
+
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+}
+
+.usa-auto *,
+.usa-auto *::before,
+.usa-auto *::after {
+  box-sizing: border-box;
+}
+
+.usa-auto a {
+  color: inherit;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

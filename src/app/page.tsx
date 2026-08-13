@@ -21,6 +21,12 @@ const PROTOTYPES = [
     tag: 'Освіта',
   },
   {
+    slug: 'usa-auto',
+    title: 'USA Auto',
+    desc: 'Авто з Америки під ключ — landing page (UA)',
+    tag: 'Авто',
+  },
+  {
     slug: 'proyav',
     title: 'PROяв',
     desc: 'Масштабна подія у Тернополі — event page (UA)',

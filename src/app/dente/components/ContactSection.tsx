@@ -45,7 +45,7 @@ export default function ContactSection() {
           </h2>
           <div className={styles.imgWrap}>
             <Image
-              src="/images/contact-dentist.jpg"
+              src="/images/dente/contact.jpg"
               alt="Lekarz stomatolog podczas zabiegu"
               fill
               sizes="(max-width: 900px) 100vw, 50vw"

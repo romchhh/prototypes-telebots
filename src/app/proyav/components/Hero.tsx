@@ -7,7 +7,7 @@ export default function Hero() {
     <section className={styles.hero}>
       <div className={styles.bg}>
         <Image
-          src="/images/e9d1d39c-0419-44c3-8b61-e250b6172b9c.jpg"
+          src="/images/proyav/hero.jpg"
           alt=""
           fill
           priority

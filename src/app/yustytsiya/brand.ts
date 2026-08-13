@@ -5,7 +5,7 @@ export const BRAND = {
   email: 'info@yustytsiya.ua',
   address: 'вул. Хрещатик 15',
   city: '01001 Київ',
-  heroImage: '/images/yustytsiya-hero.png',
+  heroImage: '/images/yustytsiya/hero.png',
 } as const
 
 export const SERVICES = [

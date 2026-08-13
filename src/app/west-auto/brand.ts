@@ -4,8 +4,8 @@ export const BRAND = {
   email: 'hello@westautoshipping.ua',
   address: 'вул. Богдана Хмельницького 17',
   city: '01030 Київ',
-  heroDesktop: '/Gemini_Generated_Image_kdqn16kdqn16kdqn.png',
-  heroMobile: '/Gemini_Generated_Image_kdqn16kdqn16kdqn.png',
+  heroDesktop: '/images/kreona/hero.png',
+  heroMobile: '/images/kreona/hero.png',
   contactImage:
     'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1200&q=80',
 } as const

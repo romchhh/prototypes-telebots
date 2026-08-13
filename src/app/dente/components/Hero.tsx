@@ -33,7 +33,7 @@ export default function Hero() {
     <section className={styles.hero}>
       <div className={styles.bg}>
         <Image
-          src="/images/Gemini_Generated_Image_eixfh7eixfh7eixf.png"
+          src="/images/dente/hero.png"
           alt=""
           fill
           priority
@@ -41,7 +41,7 @@ export default function Hero() {
           className={`${styles.bgImage} ${styles.bgDesktop}`}
         />
         <Image
-          src="/images/image.png"
+          src="/images/dente/secondary.png"
           alt=""
           fill
           priority

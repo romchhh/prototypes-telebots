@@ -6,8 +6,8 @@ export const BRAND = {
   email: 'hello@proassistant.ua',
   address: 'вул. Велика Васильківська 72',
   city: '03150 Київ',
-  heroImage: '/images/proassistant-hero.png',
-  logo: '/images/proassistant-logo.png',
+  heroImage: '/images/proassistant/hero.png',
+  logo: '/images/proassistant/logo.png',
 } as const
 
 export const STATS = [

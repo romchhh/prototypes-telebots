@@ -5,9 +5,9 @@ export const BRAND = {
   email: 'hello@hutjet.ua',
   address: 'вул. Хрещатик 22',
   city: '01001 Київ',
-  heroDesktop: '/images/lake-alpha-hero.jpg',
-  heroMobile: '/images/lake-alpha-hero.jpg',
-  contactImage: '/images/lake-alpha-hero.jpg',
+  heroDesktop: '/images/lake-alpha/hero.jpg',
+  heroMobile: '/images/lake-alpha/hero.jpg',
+  contactImage: '/images/lake-alpha/hero.jpg',
 } as const
 
 export const SERVICES = [
