@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@400;500;600;700&family=Unbounded:wght@700;800&display=swap');
+
+.differSport {
+  --differ-lime: #c8d400;
+  --differ-black: #0e0e0e;
+  --differ-surface: #1a1a1a;
+  --differ-orange: #e84c1e;
+  --differ-white: #f0f0f0;
+
+  --color-bg: #0e0e0e;
+  --color-bg-secondary: #1a1a1a;
+  --color-accent: #c8d400;
+  --color-accent-hover: #d6e314;
+  --color-accent-dark: #9aa300;
+  --color-light-card: #1a1a1a;
+  --color-text-primary: #f0f0f0;
+  --color-text-secondary: #8a8a8a;
+  --color-success: #c8d400;
+  --color-warning: #e84c1e;
+
+  --ink: #0e0e0e;
+  --navy: #1a1a1a;
+  --mist: #f0f0f0;
+  --stone: #8a8a8a;
+  --blue: #c8d400;
+  --blue-deep: #d6e314;
+  --blue-soft: #c8d400;
+  --orange: #e84c1e;
+  --orange-deep: #c93d14;
+  --orange-soft: #e84c1e;
+  --white: #f0f0f0;
+  --black: #0e0e0e;
+  --page-pad: 64px;
+  --page-pad-sm: 24px;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-pill: 999px;
+  --font-sans: 'Outfit', sans-serif;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-accent: 'Bebas Neue', sans-serif;
+  --font-logo: 'Unbounded', sans-serif;
+
+  font-family: var(--font-sans);
+  color: var(--differ-black);
+  background: #fff;
+}
+
+@media (max-width: 768px) {
+  .differSport {
+    --page-pad: var(--page-pad-sm);
+  }
+}
+
+.differBand {
+  background:
+    radial-gradient(ellipse 70% 55% at 85% 8%, rgba(200, 212, 0, 0.1), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 5% 92%, rgba(14, 14, 14, 0.04), transparent 50%),
+    linear-gradient(180deg, #f0f0f0 0%, #ffffff 100%);
+}

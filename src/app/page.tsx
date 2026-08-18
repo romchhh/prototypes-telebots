@@ -69,6 +69,12 @@ const PROTOTYPES = [
     tag: 'Освіта',
   },
   {
+    slug: 'differ-sport',
+    title: 'Differ Sport',
+    desc: 'Біговий клуб у Львові — тренування, підписка, цифрові продукти (UA)',
+    tag: 'Спорт',
+  },
+  {
     slug: 'liquid-glass',
     title: 'Kreona · Liquid Glass',
     desc: 'Повний liquid glass UI — авто з Європи (UA)',
