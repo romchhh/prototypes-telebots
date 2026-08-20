@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@700;800&display=swap');
+
+.lexi {
+  --graphite: #29292b;
+  --white: #ffffff;
+  --light-grey: #e7e5e5;
+  --dusty-pink: #d8c5c5;
+  --muted-rose: #a88989;
+
+  --color-bg: var(--white);
+  --color-bg-elevated: var(--light-grey);
+  --color-accent: var(--muted-rose);
+  --color-accent2: var(--dusty-pink);
+  --color-text: var(--graphite);
+  --color-muted: #7a7272;
+  --color-line: rgba(41, 41, 43, 0.1);
+  --font-display: 'Oswald', 'Arial Narrow', sans-serif;
+  --font-sans: 'Manrope', 'Helvetica Neue', sans-serif;
+  --font-logo: 'Unbounded', sans-serif;
+  --radius-pill: 999px;
+  --hero-pad: clamp(20px, 4vw, 72px);
+
+  --deep: var(--graphite);
+  --sky: var(--muted-rose);
+  --sand: var(--dusty-pink);
+  --slate: var(--color-muted);
+  --font-serif: var(--font-display);
+
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+}
+
+.lexi *,
+.lexi *::before,
+.lexi *::after {
+  box-sizing: border-box;
+}
+
+.lexi a {
+  text-decoration: none;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

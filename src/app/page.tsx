@@ -15,6 +15,12 @@ const PROTOTYPES = [
     tag: 'Юриспруденція',
   },
   {
+    slug: 'lexi',
+    title: 'LEXI.education',
+    desc: 'Школа іноземних мов для дітей — landing page (UA)',
+    tag: 'Освіта',
+  },
+  {
     slug: 'proassistant',
     title: 'ProAssistant',
     desc: 'Професійна підготовка майбутніх лідерів — landing page (UA)',
