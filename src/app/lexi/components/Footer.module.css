@@ -51,7 +51,7 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--graphite);
 }
 
 .col p,
@@ -73,7 +73,7 @@
   font-weight: 800;
   font-size: clamp(64px, 14vw, 160px);
   letter-spacing: -0.07em;
-  color: rgba(168, 137, 137, 0.18);
+  color: rgba(240, 210, 216, 0.55);
   line-height: 0.85;
   margin-top: 48px;
   text-align: center;
@@ -88,14 +88,14 @@
   flex-wrap: wrap;
   gap: 12px;
   padding: 22px 0;
-  border-top: 1px solid rgba(41, 41, 43, 0.08);
+  border-top: 1px solid rgba(41, 41, 41, 0.08);
   width: 100%;
 }
 
 .bottom span,
 .bottom a {
   font-size: 12px;
-  color: var(--muted-rose);
+  color: var(--color-muted);
   text-decoration: none;
 }
 

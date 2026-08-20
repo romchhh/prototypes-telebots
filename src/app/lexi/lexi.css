@@ -1,19 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@700;800&display=swap');
 
 .lexi {
-  --graphite: #29292b;
+  --graphite: #292929;
   --white: #ffffff;
-  --light-grey: #e7e5e5;
-  --dusty-pink: #d8c5c5;
-  --muted-rose: #a88989;
+  --warm-grey: #ede7e6;
+  --blush: #f0d2d8;
+  --rose: #d6768e;
+
+  /* aliases for existing component refs */
+  --light-grey: var(--warm-grey);
+  --dusty-pink: var(--blush);
+  --muted-rose: var(--rose);
 
   --color-bg: var(--white);
-  --color-bg-elevated: var(--light-grey);
-  --color-accent: var(--muted-rose);
-  --color-accent2: var(--dusty-pink);
+  --color-bg-elevated: var(--warm-grey);
+  --color-accent: var(--blush);
+  --color-accent2: var(--rose);
   --color-text: var(--graphite);
-  --color-muted: #7a7272;
-  --color-line: rgba(41, 41, 43, 0.1);
+  --color-muted: #8a7f7f;
+  --color-line: rgba(41, 41, 41, 0.1);
   --font-display: 'Oswald', 'Arial Narrow', sans-serif;
   --font-sans: 'Manrope', 'Helvetica Neue', sans-serif;
   --font-logo: 'Unbounded', sans-serif;
@@ -21,8 +26,8 @@
   --hero-pad: clamp(20px, 4vw, 72px);
 
   --deep: var(--graphite);
-  --sky: var(--muted-rose);
-  --sand: var(--dusty-pink);
+  --sky: var(--blush);
+  --sand: var(--warm-grey);
   --slate: var(--color-muted);
   --font-serif: var(--font-display);
 

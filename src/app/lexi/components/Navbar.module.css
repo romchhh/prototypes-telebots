@@ -75,11 +75,11 @@
   color: var(--white);
   text-decoration: none;
   transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-  box-shadow: 0 8px 26px rgba(41, 41, 43, 0.28);
+  box-shadow: 0 8px 26px rgba(41, 41, 41, 0.28);
 }
 
 .cta:hover {
-  background: var(--muted-rose);
+  background: var(--rose);
   color: var(--white);
   transform: translateY(-1px);
 }
@@ -167,7 +167,7 @@
 }
 
 .drawer a:hover {
-  color: var(--color-accent);
+  color: var(--rose);
 }
 
 .drawerCta {

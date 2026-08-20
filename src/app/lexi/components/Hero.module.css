@@ -21,20 +21,20 @@
     z-index: 1;
     pointer-events: none;
     background-image:
-      linear-gradient(rgba(168, 137, 137, 0.18) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(168, 137, 137, 0.18) 1px, transparent 1px);
+      linear-gradient(rgba(240, 210, 216, 0.55) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(240, 210, 216, 0.55) 1px, transparent 1px);
     background-size: 52px 52px;
     mask-image: linear-gradient(180deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
   }
   
-  /* Soft pink glow — left side */
+  /* Soft blush glow — left side */
   .bgGlow {
     position: absolute;
     top: -10%;
     left: -15%;
     width: 55vw;
     height: 80vh;
-    background: radial-gradient(ellipse at center, rgba(216, 197, 197, 0.55) 0%, transparent 65%);
+    background: radial-gradient(ellipse at center, rgba(240, 210, 216, 0.5) 0%, transparent 65%);
     z-index: 0;
     pointer-events: none;
   }
@@ -46,7 +46,7 @@
     right: -8%;
     width: 60vw;
     height: 85vh;
-    background: radial-gradient(ellipse at center, rgba(216, 197, 197, 0.4) 0%, rgba(168, 137, 137, 0.12) 40%, transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(237, 231, 230, 0.7) 0%, rgba(240, 210, 216, 0.28) 40%, transparent 70%);
     z-index: 0;
     pointer-events: none;
   }
@@ -62,7 +62,7 @@
     pointer-events: none;
     border-radius: 28px;
     overflow: hidden;
-    box-shadow: 0 24px 60px rgba(41, 41, 43, 0.14);
+    box-shadow: 0 24px 60px rgba(41, 41, 41, 0.14);
     animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
   }
 
@@ -76,7 +76,7 @@
     z-index: 0;
     border-radius: 50%;
     background:
-      radial-gradient(ellipse at center, rgba(216, 197, 197, 0.55) 0%, rgba(168, 137, 137, 0.22) 42%, transparent 72%);
+      radial-gradient(ellipse at center, rgba(240, 210, 216, 0.55) 0%, rgba(237, 231, 230, 0.35) 42%, transparent 72%);
     filter: blur(28px);
     pointer-events: none;
   }
@@ -132,15 +132,15 @@
   
   .headline em {
     font-family: inherit;
-    font-weight: 700;
+    font-weight: inherit;
     font-style: normal;
-    font-size: 0.78em;
+    font-size: inherit;
+    letter-spacing: inherit;
     color: var(--graphite);
-    background: var(--dusty-pink);
+    background: var(--blush);
     padding: 0.02em 0.16em;
     border-radius: 5px;
     white-space: nowrap;
-    vertical-align: middle;
   }
   
   /* ─── Role subtitle ─── */
@@ -168,10 +168,10 @@
     font-weight: 700;
     text-decoration: none;
     transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-    box-shadow: 0 8px 26px rgba(41, 41, 43, 0.28);
+    box-shadow: 0 8px 26px rgba(41, 41, 41, 0.28);
   }
   .heroCta:hover {
-    background: var(--muted-rose);
+    background: var(--rose);
     color: var(--white);
     transform: translateY(-1px);
   }
@@ -205,11 +205,11 @@
     padding: 16px 18px 14px;
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.92);
-    border: 1px solid rgba(41, 41, 43, 0.1);
+    border: 1px solid rgba(41, 41, 41, 0.1);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     box-shadow:
-      0 14px 36px rgba(41, 41, 43, 0.1),
+      0 14px 36px rgba(41, 41, 41, 0.1),
       inset 0 1px 0 rgba(255, 255, 255, 0.8);
     animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both;
   }
@@ -221,8 +221,8 @@
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    background: rgba(216, 197, 197, 0.55);
-    border: 1px solid rgba(168, 137, 137, 0.45);
+    background: var(--blush);
+    border: 1px solid rgba(240, 210, 216, 0.9);
   }
   
   .glassRow {
@@ -238,7 +238,7 @@
     font-weight: 700;
     line-height: 1;
     letter-spacing: -0.02em;
-    color: var(--color-accent);
+    color: var(--graphite);
     white-space: nowrap;
   }
   
