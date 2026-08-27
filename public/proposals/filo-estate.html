@@ -153,9 +153,8 @@
     margin:-24px 0 32px;
   }
 
-  .plan{display:none;}
-  .plan.active{display:block; animation:fade .35s ease;}
-  @keyframes fade{ from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);} }
+  .plan{display:block;}
+  .plan.active{display:block;}
 
   .plan-head{
     display:flex;
@@ -355,54 +354,17 @@
     <p class="eyebrow">TeleBots для Filo Estate</p>
     <h1 class="hero-title">Antalya real estate, <em>filtered.</em></h1>
     <p class="hero-sub">Доброго дня! Дякуємо за детальне технічне завдання — воно дає чітке розуміння продукту та його позиціонування як media × buyer advisory платформи, а не чергової дошки оголошень.</p>
-    <p class="hero-sub">Нижче — два шляхи реалізації, залежно від того, який темп запуску для вас пріоритетний зараз, поки оформлюється ліцензія.</p>
+    <p class="hero-sub">Нижче — пропозиція швидкого запуску: спрощена версія сайту, щоб представити компанію та отримати ліцензію без затримок, з можливістю поступово дорощувати продукт до повної платформи.</p>
   </section>
 
   <section id="options">
-    <h2 class="section-title">Оберіть варіант реалізації</h2>
-    <p class="section-sub">Так само, як на самому сайті Filo користувач перемикає ціль перегляду (Investment / Living), тут можна перемкнути погляд на пропозицію.</p>
+    <h2 class="section-title">Варіант реалізації</h2>
+    <p class="section-sub">Фокус на швидкому старті: компанія онлайн, каталог обʼєктів і канал заявок — без зайвої складності на першому етапі.</p>
 
-    <div class="switcher" role="tablist" aria-label="Варіант реалізації">
-      <button class="active" data-plan="full" role="tab" aria-selected="true">Повна платформа</button>
-      <button data-plan="mvp" role="tab" aria-selected="false">Швидкий запуск</button>
-    </div>
-
-    <!-- FULL PLATFORM -->
-    <div class="plan active" id="plan-full">
+    <div class="plan active" id="plan-mvp">
       <div class="plan-head">
         <div>
-          <div class="plan-name">Варіант 1 — Повна платформа</div>
-        </div>
-        <div class="plan-goal">Повноцінна реалізація продукту за ТЗ: каталог, редакційні добірки, Filo Score, калькулятори, CMS та інтеграції — усе, що перетворює сайт на самостійний інструмент прийняття рішення.</div>
-      </div>
-
-      <div class="stat-row">
-        <div class="stat">
-          <div class="stat-label">Термін розробки</div>
-          <div class="stat-value">12–20 робочих днів</div>
-        </div>
-        <div class="stat">
-          <div class="stat-label">Вартість</div>
-          <div class="stat-value">$900</div>
-        </div>
-      </div>
-
-      <ul class="checklist">
-        <li><span class="mark">→</span> Каталог проєктів з повним набором фільтрів та map-view</li>
-        <li><span class="mark">→</span> Сторінки проєктів, районів, Filo Picks та Filo Market (блог)</li>
-        <li><span class="mark">→</span> Filo Score, Filo Verdict, калькулятори розстрочки та повної вартості</li>
-        <li><span class="mark">→</span> Квіз «Personalized Shortlist» та збережені обʼєкти без реєстрації</li>
-        <li><span class="mark">→</span> CMS-адмінка для самостійного керування контентом і цінами</li>
-        <li><span class="mark">→</span> Інтеграція з CRM і автоматичний перехід у WhatsApp / Telegram з контекстом</li>
-        <li><span class="mark">→</span> RU/EN версії з окремими URL, hreflang, SEO-архітектура та аналітика подій</li>
-      </ul>
-    </div>
-
-    <!-- MVP -->
-    <div class="plan" id="plan-mvp">
-      <div class="plan-head">
-        <div>
-          <div class="plan-name">Варіант 2 — Швидкий запуск (MVP)</div>
+          <div class="plan-name">Швидкий запуск (MVP)</div>
         </div>
         <div class="plan-goal">Спрощена версія, щоб представити компанію та отримати ліцензію без затримок — з можливістю поступово дорощувати сайт до повної платформи.</div>
       </div>
@@ -430,8 +392,8 @@
   </section>
 
   <section id="included">
-    <h2 class="section-title">Що входить у вартість — незалежно від варіанту</h2>
-    <p class="section-sub">Ці роботи включені в обидва варіанти розробки.</p>
+    <h2 class="section-title">Що входить у вартість</h2>
+    <p class="section-sub">Ці роботи включені в розробку MVP.</p>
     <div class="included-grid">
       <div class="row"><span class="mark">＋</span> Проєктування структури сайту та UX, mobile-first</div>
       <div class="row"><span class="mark">＋</span> Адаптивний дизайн під фірмовий стиль, допомога з базовим брендбуком</div>
@@ -465,27 +427,13 @@
   <section id="next">
     <div class="cta-box">
       <h2>Наступні кроки</h2>
-      <p>Обговоримо, який з варіантів більше відповідає вашим термінам запуску, після чого узгодимо фінальну вартість, терміни та етапи оплати.</p>
+      <p>Обговоримо деталі MVP під ваші терміни запуску, після чого узгодимо фінальну вартість, терміни та етапи оплати.</p>
       <a class="cta-btn" href="https://telebots.site/uk" target="_blank" rel="noopener">Обговорити варіант →</a>
     </div>
   </section>
 
   <footer>TeleBots — розробка сайтів та Telegram-ботів під ключ</footer>
 </div>
-
-<script>
-  const buttons = document.querySelectorAll('.switcher button');
-  const plans = { full: document.getElementById('plan-full'), mvp: document.getElementById('plan-mvp') };
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      buttons.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
-      btn.classList.add('active');
-      btn.setAttribute('aria-selected','true');
-      Object.values(plans).forEach(p => p.classList.remove('active'));
-      plans[btn.dataset.plan].classList.add('active');
-    });
-  });
-</script>
 
 </body>
 </html>
