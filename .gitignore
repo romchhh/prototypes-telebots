@@ -1,6 +1,8 @@
 # dependencies
 /node_modules
 /litun/node_modules
+/lexi-education/node_modules
+/lexi-education/.next
 /.pnp
 .pnp.js
 .yarn/install-state.gz

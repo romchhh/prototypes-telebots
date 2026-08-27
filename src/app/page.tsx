@@ -60,6 +60,13 @@ const PROTOTYPES = [
     tag: 'Нерухомість',
   },
   {
+    slug: 'filo-estate',
+    title: 'Filo Estate',
+    desc: 'Нерухомість в Анталії — filtered platform (RU/EN)',
+    tag: 'Нерухомість',
+  },
+
+  {
     slug: 'marathon',
     title: 'Royal Academy School',
     desc: 'Марафон англійської — landing page (UA)',

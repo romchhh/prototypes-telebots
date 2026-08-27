@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Unbounded:wght@700;800&display=swap');
+
+.filo-estate {
+  --deep: #0e0e0e;
+  --ink: #111111;
+  --slate: #8a8a8a;
+  --stone: #6e6e6e;
+  --mist: #f4f4f2;
+  --sand: #e8e6e1;
+  --white: #ffffff;
+  --black: #050505;
+  --accent: #f5f5f3;
+  --accent-hover: #ffffff;
+  --glass: rgba(12, 12, 12, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.14);
+  --radius-btn: 999px;
+  --radius-sm: 10px;
+  --page-pad: 64px;
+  --page-pad-sm: 24px;
+  --font-sans: 'Montserrat', 'Helvetica Neue', sans-serif;
+  --font-logo: 'Unbounded', sans-serif;
+  --sky: #cfc9be;
+  --red: #cfc9be;
+  --red-hover: #e8e6e1;
+  color: var(--deep);
+  background: #fff;
+  font-family: var(--font-sans);
+}
+
+@media (max-width: 768px) {
+  .filo-estate {
+    --page-pad: var(--page-pad-sm);
+  }
+}
