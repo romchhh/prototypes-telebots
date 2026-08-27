@@ -376,7 +376,7 @@
   }
 
   .copy {
-    margin-bottom: 48px;
+    margin-bottom: 36px;
     gap: 12px;
   }
 
@@ -387,10 +387,6 @@
   .sideLine {
     font-size: 13px;
     max-width: 32ch;
-  }
-
-  .cards {
-    display: none;
   }
 }
 
