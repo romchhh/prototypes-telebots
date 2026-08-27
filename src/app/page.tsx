@@ -1,6 +1,15 @@
 import Link from 'next/link'
 import styles from './page.module.css'
 
+const PROPOSALS = [
+  {
+    href: '/proposals/filo-estate.html',
+    title: 'Filo Estate',
+    desc: 'Комерційна пропозиція TeleBots × Filo Estate',
+    tag: 'КП',
+  },
+]
+
 const PROTOTYPES = [
   {
     slug: 'dente',
@@ -131,6 +140,29 @@ export default function Home() {
             </Link>
           ))}
         </div>
+
+        <section className={styles.proposals}>
+          <p className={styles.proposalsEyebrow}>Окремо</p>
+          <h2 className={styles.proposalsTitle}>Комерційні пропозиції</h2>
+          <p className={styles.proposalsSub}>
+            Документи для клієнтів — не прототипи сайтів.
+          </p>
+          <div className={styles.proposalsGrid}>
+            {PROPOSALS.map((p) => (
+              <a key={p.href} href={p.href} className={styles.proposalCard}>
+                <span className={styles.proposalTag}>{p.tag}</span>
+                <h3 className={styles.proposalTitle}>{p.title}</h3>
+                <p className={styles.proposalDesc}>{p.desc}</p>
+                <span className={styles.cardLink}>
+                  Відкрити
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M2 14 L14 2 M6 2 H14 V10"/>
+                  </svg>
+                </span>
+              </a>
+            ))}
+          </div>
+        </section>
 
         <a href="https://telebots.site/uk" target="_blank" rel="noopener noreferrer" className={styles.siteLink}>
           telebots.site — розробка чат-ботів і сайтів під ключ

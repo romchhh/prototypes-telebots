@@ -144,6 +144,88 @@
 }
 .card:hover .cardLink { color: #E8B84B; }
 
+.proposals {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 0 56px;
+  padding-top: 48px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  text-align: left;
+}
+
+.proposalsEyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 12px;
+}
+
+.proposalsTitle {
+  font-size: clamp(24px, 3.5vw, 32px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 8px;
+}
+
+.proposalsSub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.55;
+  margin-bottom: 24px;
+}
+
+.proposalsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.proposalCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  background: rgba(232,184,75,0.06);
+  border: 1px solid rgba(232,184,75,0.22);
+  border-radius: 20px;
+  padding: 28px 24px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+.proposalCard:hover {
+  background: rgba(232,184,75,0.1);
+  border-color: rgba(232,184,75,0.4);
+  transform: translateY(-3px);
+}
+
+.proposalTag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: #E8B84B;
+  margin-bottom: 12px;
+}
+
+.proposalTitle {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 6px;
+}
+
+.proposalDesc {
+  font-size: 14px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+
+.proposalCard:hover .cardLink { color: #E8B84B; }
+
 .siteLink {
   display: inline-flex;
   align-items: center;

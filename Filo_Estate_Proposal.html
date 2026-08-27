@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TeleBots × Filo Estate — Комерційна пропозиція</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F7F3EE;
+    --bg-raised:#FFFFFF;
+    --ink:#1B1A17;
+    --grey:#6E6A62;
+    --line:#E3DCD1;
+    --coral:#E2542A;
+    --coral-soft:#F5DCCE;
+    --coral-dim:#F1E7DE;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--coral-soft);}
+
+  a{color:inherit;}
+
+  .wrap{
+    max-width:920px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* header */
+  header.top{
+    padding:28px 0 20px;
+    border-bottom:1px solid var(--line);
+  }
+  .top-row{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .brand{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;
+    font-size:14px;
+    letter-spacing:0.02em;
+  }
+  .brand .dot{color:var(--coral);}
+  .top-meta{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--grey);
+    text-align:right;
+  }
+
+  /* hero */
+  .hero{
+    padding:72px 0 48px;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--coral);
+    margin:0 0 18px;
+  }
+  h1.hero-title{
+    font-family:'Fraunces',serif;
+    font-optical-sizing:auto;
+    font-weight:500;
+    font-size:clamp(34px,6vw,58px);
+    line-height:1.08;
+    letter-spacing:-0.01em;
+    margin:0 0 22px;
+  }
+  h1.hero-title em{
+    font-style:italic;
+    color:var(--coral);
+  }
+  .hero-sub{
+    font-size:17px;
+    line-height:1.65;
+    color:#403E38;
+    max-width:640px;
+    margin:0 0 8px;
+  }
+  .hero-note{
+    font-size:14px;
+    color:var(--grey);
+    margin-top:18px;
+  }
+
+  section{
+    padding:56px 0;
+    border-top:1px solid var(--line);
+  }
+  h2.section-title{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-size:28px;
+    margin:0 0 8px;
+    letter-spacing:-0.01em;
+  }
+  .section-sub{
+    color:var(--grey);
+    font-size:15px;
+    margin:0 0 32px;
+    max-width:600px;
+    line-height:1.6;
+  }
+
+  /* mode switcher — echoes Filo's own "purpose" toggle (Investment / Living / ...) */
+  .switcher{
+    display:inline-flex;
+    background:var(--coral-dim);
+    border-radius:999px;
+    padding:4px;
+    margin-bottom:36px;
+    gap:2px;
+  }
+  .switcher button{
+    appearance:none;
+    border:none;
+    background:transparent;
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:14px;
+    color:var(--grey);
+    padding:11px 20px;
+    border-radius:999px;
+    cursor:pointer;
+    transition:background .25s ease, color .25s ease;
+  }
+  .switcher button.active{
+    background:var(--ink);
+    color:#fff;
+  }
+  .switcher-caption{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--grey);
+    margin:-24px 0 32px;
+  }
+
+  .plan{display:none;}
+  .plan.active{display:block; animation:fade .35s ease;}
+  @keyframes fade{ from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);} }
+
+  .plan-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:28px;
+  }
+  .plan-name{
+    font-family:'Fraunces',serif;
+    font-size:24px;
+    font-weight:500;
+  }
+  .plan-goal{
+    color:var(--grey);
+    font-size:14.5px;
+    max-width:420px;
+    line-height:1.55;
+  }
+
+  .stat-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:14px;
+    overflow:hidden;
+    margin-bottom:32px;
+  }
+  .stat{
+    background:var(--bg-raised);
+    padding:22px 24px;
+  }
+  .stat-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--grey);
+    margin-bottom:8px;
+  }
+  .stat-value{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:20px;
+    font-weight:600;
+    color:var(--coral);
+  }
+  .stat-value.placeholder{
+    color:var(--grey);
+    font-weight:500;
+    font-style:italic;
+    font-size:14px;
+  }
+
+  .checklist{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:grid;
+    gap:2px;
+  }
+  .checklist li{
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+    background:var(--bg-raised);
+    border:1px solid var(--line);
+    padding:14px 18px;
+    font-size:14.5px;
+    line-height:1.55;
+  }
+  .checklist li:first-child{border-radius:12px 12px 0 0;}
+  .checklist li:last-child{border-radius:0 0 12px 12px;}
+  .checklist li + li{border-top:none;}
+  .checklist .mark{
+    color:var(--coral);
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;
+    flex-shrink:0;
+  }
+
+  /* included grid (shared) */
+  .included-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px 28px;
+  }
+  .included-grid .row{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    padding:12px 0;
+    border-bottom:1px solid var(--line);
+    font-size:14.5px;
+    line-height:1.5;
+  }
+  .included-grid .row .mark{
+    color:var(--coral);
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;
+  }
+
+  /* extra costs */
+  .cost-table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14.5px;
+  }
+  .cost-table td{
+    padding:16px 4px;
+    border-bottom:1px solid var(--line);
+  }
+  .cost-table td:first-child{color:var(--grey);}
+  .cost-table td:last-child{
+    text-align:right;
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;
+  }
+  .cost-note{
+    font-size:13.5px;
+    color:var(--grey);
+    margin-top:14px;
+  }
+
+  /* CTA / next steps */
+  .cta-box{
+    background:var(--ink);
+    color:#F7F3EE;
+    border-radius:18px;
+    padding:40px;
+  }
+  .cta-box h2{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-size:26px;
+    margin:0 0 12px;
+    color:#fff;
+  }
+  .cta-box p{
+    color:#D8D4CB;
+    font-size:15px;
+    line-height:1.65;
+    max-width:560px;
+    margin:0 0 24px;
+  }
+  .cta-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--coral);
+    color:#fff;
+    font-weight:600;
+    font-size:14.5px;
+    padding:14px 24px;
+    border-radius:999px;
+    text-decoration:none;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .cta-btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 8px 20px rgba(226,84,42,.35);
+  }
+
+  footer{
+    padding:36px 0 60px;
+    color:var(--grey);
+    font-size:13px;
+    font-family:'IBM Plex Mono',monospace;
+  }
+
+  @media (max-width:640px){
+    .included-grid{grid-template-columns:1fr;}
+    .stat-row{grid-template-columns:1fr;}
+    .cta-box{padding:28px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .plan.active{animation:none;}
+    .cta-btn{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <div class="top-row">
+      <div class="brand">TeleBots<span class="dot">.</span></div>
+      <div class="top-meta">Комерційна пропозиція<br>Filo Estate — сайт нерухомості</div>
+    </div>
+  </header>
+
+  <section class="hero" style="border-top:none;">
+    <p class="eyebrow">TeleBots для Filo Estate</p>
+    <h1 class="hero-title">Antalya real estate, <em>filtered.</em></h1>
+    <p class="hero-sub">Доброго дня! Дякуємо за детальне технічне завдання — воно дає чітке розуміння продукту та його позиціонування як media × buyer advisory платформи, а не чергової дошки оголошень.</p>
+    <p class="hero-sub">Нижче — два шляхи реалізації, залежно від того, який темп запуску для вас пріоритетний зараз, поки оформлюється ліцензія.</p>
+  </section>
+
+  <section id="options">
+    <h2 class="section-title">Оберіть варіант реалізації</h2>
+    <p class="section-sub">Так само, як на самому сайті Filo користувач перемикає ціль перегляду (Investment / Living), тут можна перемкнути погляд на пропозицію.</p>
+
+    <div class="switcher" role="tablist" aria-label="Варіант реалізації">
+      <button class="active" data-plan="full" role="tab" aria-selected="true">Повна платформа</button>
+      <button data-plan="mvp" role="tab" aria-selected="false">Швидкий запуск</button>
+    </div>
+
+    <!-- FULL PLATFORM -->
+    <div class="plan active" id="plan-full">
+      <div class="plan-head">
+        <div>
+          <div class="plan-name">Варіант 1 — Повна платформа</div>
+        </div>
+        <div class="plan-goal">Повноцінна реалізація продукту за ТЗ: каталог, редакційні добірки, Filo Score, калькулятори, CMS та інтеграції — усе, що перетворює сайт на самостійний інструмент прийняття рішення.</div>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat">
+          <div class="stat-label">Термін розробки</div>
+          <div class="stat-value">12–20 робочих днів</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Вартість</div>
+          <div class="stat-value">$900</div>
+        </div>
+      </div>
+
+      <ul class="checklist">
+        <li><span class="mark">→</span> Каталог проєктів з повним набором фільтрів та map-view</li>
+        <li><span class="mark">→</span> Сторінки проєктів, районів, Filo Picks та Filo Market (блог)</li>
+        <li><span class="mark">→</span> Filo Score, Filo Verdict, калькулятори розстрочки та повної вартості</li>
+        <li><span class="mark">→</span> Квіз «Personalized Shortlist» та збережені обʼєкти без реєстрації</li>
+        <li><span class="mark">→</span> CMS-адмінка для самостійного керування контентом і цінами</li>
+        <li><span class="mark">→</span> Інтеграція з CRM і автоматичний перехід у WhatsApp / Telegram з контекстом</li>
+        <li><span class="mark">→</span> RU/EN версії з окремими URL, hreflang, SEO-архітектура та аналітика подій</li>
+      </ul>
+    </div>
+
+    <!-- MVP -->
+    <div class="plan" id="plan-mvp">
+      <div class="plan-head">
+        <div>
+          <div class="plan-name">Варіант 2 — Швидкий запуск (MVP)</div>
+        </div>
+        <div class="plan-goal">Спрощена версія, щоб представити компанію та отримати ліцензію без затримок — з можливістю поступово дорощувати сайт до повної платформи.</div>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat">
+          <div class="stat-label">Термін розробки</div>
+          <div class="stat-value">10–12 робочих днів</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Вартість</div>
+          <div class="stat-value">$500</div>
+        </div>
+      </div>
+
+      <ul class="checklist">
+        <li><span class="mark">→</span> Головна сторінка з описом компанії, послуг і позиціонування</li>
+        <li><span class="mark">→</span> Каталог обʼєктів без розширених фільтрів і карти</li>
+        <li><span class="mark">→</span> Сторінки проєктів у спрощеному форматі</li>
+        <li><span class="mark">→</span> Форма заявки з автоматичним переходом у WhatsApp / Telegram</li>
+        <li><span class="mark">→</span> Базова адмінка для додавання й редагування обʼєктів</li>
+        <li><span class="mark">→</span> RU/EN версії сайту</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="included">
+    <h2 class="section-title">Що входить у вартість — незалежно від варіанту</h2>
+    <p class="section-sub">Ці роботи включені в обидва варіанти розробки.</p>
+    <div class="included-grid">
+      <div class="row"><span class="mark">＋</span> Проєктування структури сайту та UX, mobile-first</div>
+      <div class="row"><span class="mark">＋</span> Адаптивний дизайн під фірмовий стиль, допомога з базовим брендбуком</div>
+      <div class="row"><span class="mark">＋</span> Адмін-панель для самостійного керування без розробника</div>
+      <div class="row"><span class="mark">＋</span> SEO-оптимізація: мета-теги, розмітка, sitemap, hreflang RU/EN</div>
+      <div class="row"><span class="mark">＋</span> Допомога з копірайтингом текстів ключових сторінок</div>
+      <div class="row"><span class="mark">＋</span> Налаштування медіа: оптимізація фото/відео, швидке завантаження</div>
+      <div class="row"><span class="mark">＋</span> Інтеграція з CRM та месенджерами (WhatsApp / Telegram)</div>
+      <div class="row"><span class="mark">＋</span> Базова аналітика: перегляди, кліки, форми</div>
+      <div class="row"><span class="mark">＋</span> Тестування на мобільних і десктоп пристроях</div>
+      <div class="row"><span class="mark">＋</span> Допомога із запуском: підключення домену та сервера</div>
+    </div>
+  </section>
+
+  <section id="costs">
+    <h2 class="section-title">Додаткові витрати</h2>
+    <p class="section-sub">Не входять у вартість розробки — потрібні для роботи самого сайту. Допоможемо придбати й налаштувати.</p>
+    <table class="cost-table">
+      <tr>
+        <td>Домен</td>
+        <td>$5–10 / рік</td>
+      </tr>
+      <tr>
+        <td>Сервер (хостинг)</td>
+        <td>$10–15 / місяць</td>
+      </tr>
+    </table>
+    <p class="cost-note">Вартість сервера залежить від навантаження — можемо порадити оптимальний варіант під ваш трафік.</p>
+  </section>
+
+  <section id="next">
+    <div class="cta-box">
+      <h2>Наступні кроки</h2>
+      <p>Обговоримо, який з варіантів більше відповідає вашим термінам запуску, після чого узгодимо фінальну вартість, терміни та етапи оплати.</p>
+      <a class="cta-btn" href="https://telebots.site/uk" target="_blank" rel="noopener">Обговорити варіант →</a>
+    </div>
+  </section>
+
+  <footer>TeleBots — розробка сайтів та Telegram-ботів під ключ</footer>
+</div>
+
+<script>
+  const buttons = document.querySelectorAll('.switcher button');
+  const plans = { full: document.getElementById('plan-full'), mvp: document.getElementById('plan-mvp') };
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected','true');
+      Object.values(plans).forEach(p => p.classList.remove('active'));
+      plans[btn.dataset.plan].classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
