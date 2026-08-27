@@ -38,7 +38,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className={styles.wordmark} aria-hidden="true">filo</div>
+      <div className={styles.wordmark} aria-hidden="true">filo estate</div>
 
       <div className={styles.bottom}>
         <span>© {new Date().getFullYear()} Filo Estate. Все права защищены.</span>

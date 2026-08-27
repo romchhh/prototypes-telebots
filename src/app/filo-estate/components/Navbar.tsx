@@ -20,7 +20,7 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
   return (
     <>
       <nav className={`${styles.nav} ${transparent && !scrolled ? styles.transparent : styles.solid}`}>
-        <a href="/filo-estate" className={styles.brand}>filo</a>
+        <a href="/filo-estate" className={styles.brand}>filo estate</a>
 
         <div className={styles.center}>
           <a href="#kontakt">Объекты</a>
@@ -56,7 +56,7 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
       <div className={`${styles.drawer} ${menuOpen ? styles.open : ''}`} role="dialog" aria-modal="true">
         <div className={styles.drawerTop}>
           <a href="/filo-estate" className={styles.drawerBrand} onClick={() => setMenuOpen(false)}>
-            filo
+            filo estate
           </a>
           <button className={styles.drawerClose} onClick={() => setMenuOpen(false)} aria-label="Закрыть">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">

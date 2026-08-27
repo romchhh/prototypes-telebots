@@ -22,8 +22,8 @@
 .brand {
   font-family: var(--font-logo);
   font-weight: 800;
-  font-size: 26px;
-  letter-spacing: -0.07em;
+  font-size: 22px;
+  letter-spacing: -0.06em;
   line-height: 1;
   color: #fff;
   text-decoration: none;
@@ -31,6 +31,7 @@
   flex-shrink: 0;
   position: relative;
   z-index: 2;
+  white-space: nowrap;
 }
 
 .center {
@@ -190,12 +191,13 @@
 .drawerBrand {
   font-family: var(--font-logo);
   font-weight: 800;
-  font-size: 26px;
-  letter-spacing: -0.07em;
+  font-size: 22px;
+  letter-spacing: -0.06em;
   line-height: 1;
   color: var(--deep);
   text-decoration: none;
   text-transform: lowercase;
+  white-space: nowrap;
 }
 
 .drawerNav {

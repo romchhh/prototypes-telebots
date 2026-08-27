@@ -57,13 +57,14 @@
 .wordmark {
   font-family: var(--font-logo);
   font-weight: 800;
-  font-size: clamp(48px, 12vw, 160px);
-  letter-spacing: -0.07em;
+  font-size: clamp(36px, 9vw, 120px);
+  letter-spacing: -0.06em;
   line-height: 0.9;
   margin-top: 56px;
   text-align: center;
   user-select: none;
   text-transform: lowercase;
+  white-space: nowrap;
   background: linear-gradient(180deg, #0e0e0e 28%, rgba(110, 110, 110, 0.55) 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -93,12 +94,12 @@
 @media (max-width: 768px) {
   .footer { padding: 56px var(--page-pad) 0; }
   .cols { grid-template-columns: 1fr 1fr; gap: 32px; }
-  .wordmark { font-size: clamp(28px, 9vw, 64px); }
+  .wordmark { font-size: clamp(22px, 8vw, 48px); }
 }
 
 @media (max-width: 480px) {
   .footer { padding: 48px var(--page-pad) 0; }
   .cols { grid-template-columns: 1fr; }
   .bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
-  .wordmark { font-size: clamp(24px, 8vw, 42px); }
+  .wordmark { font-size: clamp(18px, 7vw, 32px); }
 }
