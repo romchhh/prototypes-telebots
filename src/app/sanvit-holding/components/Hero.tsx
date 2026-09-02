@@ -6,7 +6,7 @@ const CARDS = [
   {
     title: 'Повний цикл пакування',
     text: 'Від гофроящика до плівки й скотчу — одне комплексне рішення.',
-    image: BRAND.heroDesktop,
+    image: BRAND.heroTablet,
   },
   {
     title: 'Власне виробництво',
@@ -26,6 +26,14 @@ export default function Hero() {
           priority
           sizes="100vw"
           className={`${styles.bgImage} ${styles.bgDesktop}`}
+        />
+        <Image
+          src={BRAND.heroTablet}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className={`${styles.bgImage} ${styles.bgTablet}`}
         />
         <Image
           src={BRAND.heroMobile}

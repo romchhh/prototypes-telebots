@@ -9,6 +9,7 @@ export const BRAND = {
   factory: 'м. Городище, вул. Чехова, 2',
   city: 'Київ',
   heroDesktop: '/images/sanvit-holding/hero-desktop.png',
+  heroTablet: '/images/sanvit-holding/hero-tablet.png',
   heroMobile: '/images/sanvit-holding/hero-mobile.png',
   contactImage: '/images/sanvit-holding/hero-desktop.png',
 } as const
