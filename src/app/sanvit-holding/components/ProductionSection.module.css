@@ -1,0 +1,150 @@
+.section {
+  margin: 24px var(--page-pad) 24px;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(26, 22, 18, 0.06);
+  box-shadow: 0 28px 80px rgba(26, 22, 18, 0.08);
+}
+
+.visual {
+  position: relative;
+  min-height: 560px;
+  background: #d8d5d0;
+}
+
+.img {
+  object-fit: cover;
+  object-position: 78% 50%;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: 64px 56px;
+  background: #fff;
+}
+
+.heading {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+  color: var(--deep);
+}
+
+.lead {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--slate);
+  max-width: 44ch;
+}
+
+.list {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.list li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--kraft);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  align-self: flex-start;
+  margin-top: 8px;
+  padding: 8px 8px 8px 22px;
+  border-radius: var(--radius-btn);
+  background: var(--deep);
+  color: #fff;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: transform 0.15s, background 0.2s;
+}
+
+.cta:hover {
+  transform: translateY(-1px);
+  background: #2a241e;
+}
+
+.ctaArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--deep);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cta:hover .ctaArrow {
+  transform: rotate(45deg);
+}
+
+@media (max-width: 980px) {
+  .section {
+    grid-template-columns: 1fr;
+    margin: 16px var(--page-pad);
+  }
+
+  .visual {
+    min-height: 280px;
+  }
+
+  .img {
+    object-position: center 70%;
+  }
+
+  .copy {
+    padding: 40px 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    margin: 8px var(--page-pad) 16px;
+    border-radius: 16px;
+  }
+
+  .visual {
+    min-height: 220px;
+  }
+
+  .copy {
+    padding: 32px 20px;
+  }
+}

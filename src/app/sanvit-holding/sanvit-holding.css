@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Unbounded:wght@700;800&display=swap');
+
+.sanvit-holding {
+  --deep: #1a1612;
+  --ink: #241f1a;
+  --slate: #7a736b;
+  --stone: #6b645c;
+  --mist: #f3f0eb;
+  --sand: #e8e2d8;
+  --white: #ffffff;
+  --black: #120f0c;
+  --kraft: #a67c52;
+  --kraft-deep: #8a623d;
+  --paper: #f7f4ef;
+  --accent: #f5f2ec;
+  --accent-hover: #ffffff;
+  --glass: rgba(26, 22, 18, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.14);
+  --radius-btn: 999px;
+  --radius-sm: 10px;
+  --page-pad: 64px;
+  --page-pad-sm: 24px;
+  --font-sans: 'Montserrat', 'Helvetica Neue', sans-serif;
+  --font-logo: 'Unbounded', sans-serif;
+  color: var(--deep);
+  background: #fff;
+  font-family: var(--font-sans);
+}
+
+.sanvit-holding section {
+  scroll-margin-top: 88px;
+}
+
+@media (max-width: 768px) {
+  .sanvit-holding {
+    --page-pad: var(--page-pad-sm);
+  }
+}

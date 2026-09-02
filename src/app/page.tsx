@@ -60,6 +60,12 @@ const PROTOTYPES = [
     tag: 'Нерухомість',
   },
   {
+    slug: 'sanvit-holding',
+    title: 'Санвіт-Холдинг',
+    desc: 'Повний цикл пакування для бізнесу — корпоративний B2B (UA)',
+    tag: 'B2B',
+  },
+  {
     slug: 'filo-estate',
     title: 'Filo Estate',
     desc: 'Нерухомість в Анталії — filtered platform (RU/EN)',
