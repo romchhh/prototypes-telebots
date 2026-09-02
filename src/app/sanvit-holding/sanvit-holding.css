@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Unbounded:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Unbounded:wght@700;800&display=swap');
 
 .sanvit-holding {
   --deep: #1a1612;
@@ -20,7 +20,7 @@
   --radius-sm: 10px;
   --page-pad: 64px;
   --page-pad-sm: 24px;
-  --font-sans: 'Montserrat', 'Helvetica Neue', sans-serif;
+  --font-sans: 'Inter', 'Helvetica Neue', sans-serif;
   --font-logo: 'Unbounded', sans-serif;
   color: var(--deep);
   background: #fff;

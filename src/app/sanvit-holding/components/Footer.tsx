@@ -39,8 +39,6 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className={styles.wordmark} aria-hidden="true">санвіт холдинг</div>
-
         <div className={styles.bottom}>
           <span>© {new Date().getFullYear()} Санвіт-Холдинг. Усі права захищено.</span>
           <a href="#">Політика конфіденційності</a>
