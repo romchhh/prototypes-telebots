@@ -3,8 +3,10 @@
 /litun/node_modules
 /lexi-education/node_modules
 /filo-estate/node_modules
+/sanvit-holding/node_modules
 /lexi-education/.next
 /filo-estate/.next
+/sanvit-holding/.next
 /.pnp
 .pnp.js
 .yarn/install-state.gz
@@ -13,6 +15,7 @@
 /.next/
 /litun/.next/
 /filo-estate/.next/
+/sanvit-holding/.next/
 /out/
 
 # production
@@ -35,8 +38,10 @@ yarn-error.log*
 *.tsbuildinfo
 /litun/*.tsbuildinfo
 /filo-estate/*.tsbuildinfo
+/sanvit-holding/*.tsbuildinfo
 
 # vercel
 .vercel
 /litun/.vercel
 /filo-estate/.vercel
+/sanvit-holding/.vercel

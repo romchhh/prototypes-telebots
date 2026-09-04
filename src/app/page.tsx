@@ -71,6 +71,12 @@ const PROTOTYPES = [
     desc: 'Нерухомість в Анталії — filtered platform (RU/EN)',
     tag: 'Нерухомість',
   },
+  {
+    slug: 'common-hospitality',
+    title: 'Commons Hospitality',
+    desc: 'Консалтинг і управління в HoReCa — landing page (UA)',
+    tag: 'HoReCa',
+  },
 
   {
     slug: 'marathon',

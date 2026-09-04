@@ -17,5 +17,5 @@
     "paths": { "@/*": ["./src/*"] }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules", "litun", "filo-estate"]
+  "exclude": ["node_modules", "litun", "filo-estate", "sanvit-holding"]
 }
