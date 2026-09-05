@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Unbounded:wght@700;800&family=Caveat:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap');
+
+.oleh-reznichenko {
+  --deep: #0e0e0e;
+  --ink: #111111;
+  --slate: #8a8a8a;
+  --stone: #6e6e6e;
+  --mist: #f4f4f2;
+  --sand: #e8e6e1;
+  --milk: #f7f3ec;
+  --milk-soft: #fbf8f3;
+  --white: #ffffff;
+  --black: #050505;
+  --accent: #f5f5f3;
+  --accent-hover: #ffffff;
+  --glass: rgba(12, 12, 12, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.14);
+  --radius-btn: 999px;
+  --radius-sm: 10px;
+  --radius-media: 28px;
+  --page-pad: 64px;
+  --page-pad-sm: 24px;
+  --font-sans: 'Montserrat', 'Helvetica Neue', sans-serif;
+  --font-logo: 'Unbounded', sans-serif;
+  --font-script: 'Caveat', cursive;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --sky: #cfc9be;
+  --red: #c62828;
+  --red-hover: #e8e6e1;
+  color: var(--deep);
+  background: var(--milk);
+  font-family: var(--font-sans);
+}
+
+@media (max-width: 768px) {
+  .oleh-reznichenko {
+    --page-pad: var(--page-pad-sm);
+  }
+}

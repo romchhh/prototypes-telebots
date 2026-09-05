@@ -1,0 +1,268 @@
+.section {
+  background: var(--milk);
+  padding: 48px var(--page-pad) 64px;
+}
+
+.inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.header {
+  max-width: 28rem;
+}
+
+.heading {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: clamp(28px, 3.6vw, 40px);
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  color: var(--deep);
+}
+
+.heading em {
+  font-family: var(--font-script);
+  font-style: normal;
+  font-weight: 600;
+  color: var(--red);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 340px;
+  border-radius: 18px;
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 48px rgba(14, 14, 14, 0.18);
+}
+
+.bg {
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card:hover .bg {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(8, 8, 8, 0.96) 0%,
+    rgba(8, 8, 8, 0.78) 40%,
+    rgba(8, 8, 8, 0.45) 100%
+  );
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+  justify-content: flex-end;
+  padding: 30px 28px;
+  color: #fff;
+}
+
+.num {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(20px, 2vw, 24px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.desc {
+  margin: 0;
+  flex: 1;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.moreBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  align-self: stretch;
+  margin-top: 4px;
+  padding: 12px 20px;
+  border: 1.5px solid transparent;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, border-color 0.2s, color 0.2s;
+}
+
+.moreBtn:hover {
+  transform: translateY(-1px);
+}
+
+.red {
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff;
+}
+
+.red:hover {
+  background: #a61f1f;
+  border-color: #a61f1f;
+}
+
+.white {
+  background: #fff;
+  border-color: #fff;
+  color: var(--deep);
+}
+
+.white:hover {
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.black {
+  background: var(--deep);
+  border-color: var(--deep);
+  color: #fff;
+}
+
+.black:hover {
+  background: #1c1c1c;
+  border-color: #1c1c1c;
+}
+
+.milk {
+  background: var(--milk);
+  border-color: var(--milk);
+  color: var(--deep);
+}
+
+.milk:hover {
+  background: #fff;
+  border-color: #fff;
+}
+
+.ctaWrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 10px 10px 26px;
+  border: none;
+  border-radius: 999px;
+  background: var(--deep);
+  color: #fff;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 10px 32px rgba(14, 14, 14, 0.18);
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.cta:hover {
+  background: #1c1c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(14, 14, 14, 0.26);
+}
+
+.ctaArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: #fff;
+  color: var(--deep);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cta:hover .ctaArrow {
+  transform: rotate(45deg);
+}
+
+@media (max-width: 980px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 32px var(--page-pad) 48px;
+  }
+
+  .header {
+    max-width: none;
+    text-align: center;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    min-height: 280px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .desc {
+    font-size: 15px;
+  }
+
+  .cta {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

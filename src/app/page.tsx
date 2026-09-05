@@ -77,6 +77,12 @@ const PROTOTYPES = [
     desc: 'Консалтинг і управління в HoReCa — landing page (UA)',
     tag: 'HoReCa',
   },
+  {
+    slug: 'oleh-reznichenko',
+    title: 'OLEH REZNICHENKO',
+    desc: 'Szef kuchni — portfolio i CV (PL)',
+    tag: 'HoReCa',
+  },
 
   {
     slug: 'marathon',
