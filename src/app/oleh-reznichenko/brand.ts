@@ -3,7 +3,7 @@ export const BRAND = {
   shortName: 'OLEH',
   subName: 'REZNICHENKO',
   title: 'Szef kuchni',
-  tagline: 'Stworzone przez ludzi.',
+  tagline: 'Szef kuchni',
   phone: '+48 512 659 312',
   email: 'chef.reznichenko.oleg@gmail.com',
   address: 'Polska',

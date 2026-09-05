@@ -1,6 +1,7 @@
 'use client'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import Quote from './components/Quote'
 import About from './components/About'
 import Services from './components/Services'
 import Experience from './components/Experience'
@@ -17,6 +18,7 @@ export default function OlehReznichenkoPage() {
       <Navbar />
       <main>
         <Hero />
+        <Quote />
         <About />
         <Services />
         <Experience />

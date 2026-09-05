@@ -1,8 +1,16 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { BRAND } from '../brand'
 import { useBooking } from './BookingContext'
 import styles from './Navbar.module.css'
+
+function Logo({ onClick }: { onClick?: () => void }) {
+  return (
+    <a href="/oleh-reznichenko" className={styles.brand} onClick={onClick}>
+      <span className={styles.brandRed}>Oleh</span>
+      <span className={styles.brandName}>Reznichenko</span>
+    </a>
+  )
+}
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -23,11 +31,7 @@ export default function Navbar() {
   return (
     <>
       <nav className={`${styles.nav} ${scrolled ? styles.solid : styles.top}`}>
-        <a href="/oleh-reznichenko" className={styles.brand}>
-          <span className={styles.brandName}>{BRAND.shortName}</span>
-          <span className={styles.brandSub}>{BRAND.subName}</span>
-          <span className={styles.brandScript}>{BRAND.tagline}</span>
-        </a>
+        <Logo />
 
         <div className={styles.center}>
           <a href="#o-mnie">O mnie</a>
@@ -64,11 +68,7 @@ export default function Navbar() {
 
       <div className={`${styles.drawer} ${menuOpen ? styles.open : ''}`} role="dialog" aria-modal="true">
         <div className={styles.drawerTop}>
-          <a href="/oleh-reznichenko" className={styles.brand} onClick={() => setMenuOpen(false)}>
-            <span className={styles.brandName}>{BRAND.shortName}</span>
-            <span className={styles.brandSub}>{BRAND.subName}</span>
-            <span className={styles.brandScript}>{BRAND.tagline}</span>
-          </a>
+          <Logo onClick={() => setMenuOpen(false)} />
           <button className={styles.drawerClose} onClick={() => setMenuOpen(false)} aria-label="Zamknij">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
               <path d="M4 4 L20 20 M20 4 L4 20"/>

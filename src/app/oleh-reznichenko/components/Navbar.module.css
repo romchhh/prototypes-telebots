@@ -22,9 +22,8 @@
 
 .brand {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0;
+  align-items: baseline;
+  gap: 8px;
   text-decoration: none;
   flex-shrink: 0;
   position: relative;
@@ -32,33 +31,21 @@
   line-height: 1;
 }
 
-.brandName {
-  font-family: var(--font-logo);
-  font-weight: 800;
-  font-size: 20px;
-  letter-spacing: -0.04em;
-  color: var(--deep);
-  text-transform: uppercase;
-}
-
-.brandSub {
-  font-family: var(--font-logo);
-  font-size: 20px;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-  color: var(--deep);
-  margin-top: 0;
-}
-
-.brandScript {
+.brandRed {
   font-family: var(--font-script);
-  font-size: 15px;
+  font-size: 22px;
   font-weight: 600;
   color: var(--red);
   letter-spacing: 0.01em;
-  margin-top: 2px;
-  line-height: 1;
+}
+
+.brandName {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  color: var(--deep);
+  text-transform: uppercase;
 }
 
 .center {
@@ -302,7 +289,6 @@
   .solid { padding: 12px var(--page-pad); }
   .right { display: none; }
   .menuBtn { display: inline-flex; }
-  .brandName { font-size: 18px; }
-  .brandSub { font-size: 18px; }
-  .brandScript { font-size: 13px; }
+  .brandRed { font-size: 20px; }
+  .brandName { font-size: 13px; }
 }
