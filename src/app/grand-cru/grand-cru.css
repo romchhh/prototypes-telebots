@@ -92,24 +92,36 @@
 
 .grand-cru .hamburger {
   display: none;
-  flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  gap: 8px;
   background: none;
   border: none;
   cursor: pointer;
   padding: 4px;
+  color: var(--red);
 }
 
-.grand-cru .hamburger span {
+.grand-cru .hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.grand-cru .hamburger-icon span {
   display: block;
   width: 20px;
-  height: 1.5px;
-  background: #fff;
-  transition: background 0.3s;
+  height: 2.5px;
+  background: var(--red);
+  border-radius: 1px;
 }
 
-.grand-cru header.scrolled .hamburger span {
-  background: var(--fg);
+.grand-cru .hamburger-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  color: var(--red);
+  line-height: 1;
 }
 
 .grand-cru .mobile-menu {
@@ -316,6 +328,11 @@
   align-items: stretch;
 }
 
+.grand-cru .project-text,
+.grand-cru .project-gallery {
+  min-width: 0;
+}
+
 .grand-cru .project-text {
   padding: clamp(48px, 6vw, 80px) clamp(24px, 5vw, 64px);
   display: flex;
@@ -323,6 +340,9 @@
   gap: 20px;
   justify-content: center;
   border-right: 1px solid var(--border);
+  background: var(--bg);
+  position: relative;
+  z-index: 1;
 }
 
 .grand-cru .project-text .t-title {
@@ -344,6 +364,8 @@
   background: var(--border);
   padding: 3px;
   min-height: 420px;
+  position: relative;
+  z-index: 0;
 }
 
 .grand-cru .project-gallery img {
@@ -542,36 +564,48 @@
   }
 
   .grand-cru .project-inner {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: none;
   }
 
   .grand-cru .project-text {
     padding: 48px 20px;
     border-right: none;
+    border-left: none;
     border-bottom: 1px solid var(--border);
+    order: 0 !important;
   }
 
   .grand-cru .project-gallery {
-    min-height: auto;
+    min-height: 0;
+    width: 100%;
     grid-template-columns: 1fr 1fr;
+    order: 1 !important;
+  }
+
+  .grand-cru .project-gallery img {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
   }
 
   .grand-cru .project-gallery img:first-child {
-    grid-row: span 1;
+    grid-row: auto;
   }
 
   .grand-cru .project:nth-child(even) .project-inner {
-    grid-template-columns: 1fr;
+    grid-template-columns: none;
   }
 
   .grand-cru .project:nth-child(even) .project-text {
-    order: unset;
+    order: 0 !important;
     border-left: none;
     border-bottom: 1px solid var(--border);
   }
 
   .grand-cru .project:nth-child(even) .project-gallery {
-    order: unset;
+    order: 1 !important;
   }
 
   .grand-cru .process-intro {

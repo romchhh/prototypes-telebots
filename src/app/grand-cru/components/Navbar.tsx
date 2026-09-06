@@ -56,7 +56,10 @@ export default function Navbar() {
           onClick={() => setMenuOpen(true)}
           aria-label="Menu"
         >
-          <span /><span /><span />
+          <span className="hamburger-icon" aria-hidden="true">
+            <span /><span /><span />
+          </span>
+          <span className="hamburger-label">menu</span>
         </button>
       </header>
     </>
