@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>outlander</title>
+<meta name="description" content="Outlander builds bespoke Land Rover Defenders by hand in Scotland.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:     #f5f2ec;
+    --fg:     #111111;
+    --muted:  #888888;
+    --border: #dedad3;
+    --red:    #b91c1c;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 clamp(20px, 5vw, 40px);
+    height: 80px;
+    transition: background 0.3s, border-color 0.3s, backdrop-filter 0.3s;
+  }
+  header.scrolled {
+    background: rgba(245, 242, 236, 0.92);
+    border-bottom-color: var(--border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  .header-logo {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  header.scrolled .header-logo { color: var(--fg); }
+  .header-nav { display: flex; gap: 28px; list-style: none; }
+  .header-nav a {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+  .header-nav a:hover { color: #fff; }
+  header.scrolled .header-nav a { color: var(--muted); }
+  header.scrolled .header-nav a:hover { color: var(--fg); }
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 1.5px;
+    background: #fff;
+    transition: background 0.3s;
+  }
+  header.scrolled .hamburger span { background: var(--fg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    z-index: 200;
+    flex-direction: column;
+    padding: 60px 40px 40px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-close {
+    position: absolute;
+    top: 14px; right: 40px;
+    background: none; border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--fg);
+    line-height: 1;
+    font-weight: 300;
+  }
+  .mobile-nav { list-style: none; margin-top: 16px; }
+  .mobile-nav li { border-bottom: 1px solid var(--border); }
+  .mobile-nav a {
+    display: block;
+    padding: 18px 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--fg);
+    text-decoration: none;
+  }
+
+  /* TYPE */
+  .t-title {
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: var(--fg);
+  }
+  .t-lead {
+    font-size: clamp(22px, 3.2vw, 34px);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.45;
+    color: var(--fg);
+    max-width: 900px;
+  }
+  .t-body {
+    font-size: clamp(17px, 1.5vw, 21px);
+    font-weight: 400;
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 680px;
+  }
+  .t-body.wide { max-width: 820px; }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    height: 100svh;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('hero.png');
+    background-size: cover;
+    background-position: center 40%;
+    filter: brightness(0.55) saturate(0.9);
+  }
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 50%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 clamp(20px, 5vw, 40px) 18vh;
+  }
+  .hero-title {
+    font-size: clamp(44px, 8vw, 96px);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    color: #fff;
+    margin-bottom: 16px;
+    text-transform: lowercase;
+  }
+  .hero-year {
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    opacity: 0.85;
+  }
+  .hero-subtitle {
+    font-size: clamp(16px, 2vw, 22px);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.72);
+    max-width: 520px;
+    margin-bottom: 32px;
+  }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 10px; }
+  .hero-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: 1px solid rgba(255,255,255,0.55);
+    color: #fff;
+    font-size: clamp(14px, 1.2vw, 16px);
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+    backdrop-filter: blur(4px);
+    background: rgba(255,255,255,0.06);
+  }
+  .hero-btn:hover { background: rgba(255,255,255,0.18); border-color: #fff; }
+
+  /* ABOUT */
+  .intro {
+    border-top: 1px solid var(--border);
+    padding: clamp(72px, 12vw, 140px) clamp(24px, 5vw, 80px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(28px, 4vw, 44px);
+  }
+  .intro-rule { width: 48px; height: 2px; background: var(--red); }
+
+  /* PROJECTS */
+  .projects-wrap { border-top: 1px solid var(--border); }
+  .section-intro {
+    padding: clamp(56px, 8vw, 96px) clamp(24px, 5vw, 80px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .project { border-bottom: 1px solid var(--border); }
+  .project:last-child { border-bottom: none; }
+  .project-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    align-items: stretch;
+  }
+  .project-text {
+    padding: clamp(48px, 6vw, 80px) clamp(24px, 5vw, 64px);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    border-right: 1px solid var(--border);
+  }
+  .project-text .t-title { font-size: clamp(26px, 3.2vw, 40px); }
+  .project-meta {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--red);
+  }
+  .project-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+    background: var(--border);
+    padding: 3px;
+    min-height: 420px;
+  }
+  .project-gallery img {
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+  .project-gallery img:first-child { grid-row: span 2; }
+  .project:nth-child(even) .project-inner { grid-template-columns: 1.4fr 1fr; }
+  .project:nth-child(even) .project-text {
+    order: 2;
+    border-right: none;
+    border-left: 1px solid var(--border);
+  }
+  .project:nth-child(even) .project-gallery { order: 1; }
+
+  /* PROCESS */
+  .process-wrap { border-top: 1px solid var(--border); }
+  .process-intro {
+    padding: clamp(56px, 8vw, 96px) clamp(24px, 5vw, 80px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 5vw, 80px);
+    align-items: start;
+    border-bottom: 1px solid var(--border);
+  }
+  .process-intro > div:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .process-steps { display: flex; flex-direction: column; gap: 20px; }
+  .process-step {
+    padding-left: 20px;
+    border-left: 2px solid var(--border);
+  }
+  .process-step strong {
+    display: block;
+    font-size: clamp(17px, 1.4vw, 20px);
+    font-weight: 600;
+    color: var(--fg);
+    margin-bottom: 6px;
+  }
+  .process-step .t-body { max-width: none; }
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3px;
+    background: var(--border);
+    padding: 3px;
+  }
+  .process-grid img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+  }
+  .process-caption {
+    padding: clamp(32px, 5vw, 48px) clamp(24px, 5vw, 80px) clamp(48px, 8vw, 80px);
+    border-top: 1px solid var(--border);
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    background: var(--fg);
+    color: #fff;
+    padding: clamp(48px, 8vw, 72px) clamp(24px, 5vw, 80px) clamp(32px, 5vw, 48px);
+  }
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .footer-brand .footer-logo {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    text-transform: lowercase;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 12px;
+  }
+  .footer-brand p {
+    font-size: clamp(16px, 1.4vw, 18px);
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+    max-width: 360px;
+  }
+  .footer-nav {
+    display: flex;
+    gap: clamp(24px, 4vw, 48px);
+    flex-wrap: wrap;
+  }
+  .footer-nav a {
+    font-size: clamp(16px, 1.4vw, 18px);
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-nav a:hover { color: #fff; }
+  .footer-contact a {
+    font-size: clamp(18px, 1.6vw, 22px);
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 3px;
+    transition: border-color 0.2s;
+  }
+  .footer-contact a:hover { border-color: #fff; }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .header-nav { display: none; }
+    .hamburger { display: flex; }
+    .hero-content { padding: 0 20px 16vh; }
+    .intro { padding: 64px 20px; }
+    .section-intro { padding: 56px 20px; }
+    .project-inner { grid-template-columns: 1fr; }
+    .project-text {
+      padding: 48px 20px;
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+    }
+    .project-gallery { min-height: auto; grid-template-columns: 1fr 1fr; }
+    .project-gallery img:first-child { grid-row: span 1; }
+    .project:nth-child(even) .project-inner { grid-template-columns: 1fr; }
+    .project:nth-child(even) .project-text {
+      order: unset;
+      border-left: none;
+      border-bottom: 1px solid var(--border);
+    }
+    .project:nth-child(even) .project-gallery { order: unset; }
+    .process-intro { grid-template-columns: 1fr; padding: 56px 20px; }
+    .process-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-caption { padding: 32px 20px 56px; }
+    .footer-top { flex-direction: column; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title { font-size: clamp(52px, 16vw, 80px); }
+    .hero-ctas { flex-direction: column; align-items: flex-start; }
+    .project-gallery { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: 1fr; }
+    .footer-nav { flex-direction: column; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose">×</button>
+  <ul class="mobile-nav">
+    <li><a href="#about" onclick="closeMobile()">About</a></li>
+    <li><a href="#projects" onclick="closeMobile()">Projects</a></li>
+    <li><a href="#process" onclick="closeMobile()">Process</a></li>
+    <li><a href="#contact" onclick="closeMobile()">Contact</a></li>
+  </ul>
+</div>
+
+<header>
+  <a href="#" class="header-logo">Outlander</a>
+  <ul class="header-nav">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">grandcru <span class="hero-year">1973</span></h1>
+    <p class="hero-subtitle">Bespoke Land Rover Defenders, restored and reimagined by hand in Scotland.</p>
+    <div class="hero-ctas">
+      <a href="#about" class="hero-btn">about us</a>
+      <a href="#projects" class="hero-btn">our projects</a>
+      <a href="#process" class="hero-btn">the process</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="intro" id="about">
+  <div class="intro-rule"></div>
+  <p class="t-lead">For fifteen years, Outlander has been the quiet reference point for those who understand what a Land Rover Defender can become — not a replica, not a trend, but a considered object built to last.</p>
+  <p class="t-body wide">We work from a workshop in Scotland, restoring and reimagining classic Defenders with the same materials and sensibility you might find in a tweed mill or a cabinet maker's bench: walnut, teak, tartan, leather, steel.</p>
+  <p class="t-body wide">Every commission begins with the vehicle itself — its history, its scars, its potential. Outlander does not publish a catalogue. We publish projects. Each one picks up where the last left off.</p>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects-wrap" id="projects">
+  <div class="section-intro">
+    <h2 class="t-title">Our projects</h2>
+    <p class="t-body wide">Every Outlander vehicle is a one-off commission — conceived, built and finished by hand in Scotland. Each with its own brief, its own character, and its own story on the road.</p>
+  </div>
+
+  <article class="project">
+    <div class="project-inner">
+      <div class="project-text">
+        <span class="project-meta">Commission · 2024</span>
+        <h3 class="t-title">The Highland Defender</h3>
+        <p class="t-body">A 110 built for long Scottish winters and longer Scottish summers. Matte olive paint, black steel wheels, a walnut and tweed interior woven to order. The brief was simple: a vehicle that belonged on a Highland track at dawn and outside a hotel in Edinburgh by evening.</p>
+        <p class="t-body">Six months from first conversation to keys in hand. Chassis stripped, galvanised, rebuilt. TD5 engine refreshed. Every panel aligned by eye, not machine.</p>
+      </div>
+      <div class="project-gallery">
+        <img src="https://images.squarespace-cdn.com/content/v1/5d581a2dc66cb10001cff270/1776972979730-32C9ZDYEESG0UCXJIHI6/9A5A8420.jpg" alt="Highland Defender exterior" loading="lazy">
+        <img src="https://images.squarespace-cdn.com/content/v1/5d581a2dc66cb10001cff270/1776973007027-QV5ASPANG7QEHVZWTKFN/9A5A8430.jpg" alt="Highland Defender detail" loading="lazy">
+        <img src="https://images.squarespace-cdn.com/content/v1/5d581a2dc66cb10001cff270/1776972988628-3693ED4PRWRJWRXGWT34/9A5A8433.jpg" alt="Highland Defender interior" loading="lazy">
+      </div>
+    </div>
+  </article>
+
+  <article class="project">
+    <div class="project-inner">
+      <div class="project-text">
+        <span class="project-meta">Commission · 2023</span>
+        <h3 class="t-title">The Coastal Build</h3>
+        <p class="t-body">Commissioned for a client who spends half the year on the Atlantic coast. Sand-resistant finishes, a teak rear deck, and an interior in pale leather and navy tartan — Registered Tartan no. 14107, woven exclusively for Outlander by Lochcarron of Scotland.</p>
+        <p class="t-body">The vehicle had to feel effortless at 20 mph on a beach track and entirely at home parked outside a harbour restaurant. That tension — rugged and refined — is where Outlander does its best work.</p>
+      </div>
+      <div class="project-gallery">
+        <img src="https://images.squarespace-cdn.com/content/v1/5d581a2dc66cb10001cff270/1766757801539-L7BJ5IDNG4GN8Q2U6S42/9A5A1817.JPG" alt="Coastal Defender" loading="lazy">
+        <img src="https://images.squarespace-cdn.com/content/v1/5d581a2dc66cb10001cff270/1766757801426-1N5RT0JSZLVS8SGHUEA5/9A5A4873.JPG" alt="Coastal Defender side view" loading="lazy">
+        <img src="https://images.squarespace-cdn.com/content/v1/5d581a2dc66cb10001cff270/1766757689272-RGHCLEP1UHKZ8HL32NTH/9A5A6596.jpg" alt="Coastal Defender rear" loading="lazy">
+      </div>
+    </div>
+  </article>
+
+  <article class="project">
+    <div class="project-inner">
+      <div class="project-text">
+        <span class="project-meta">Notable commission</span>
+        <h3 class="t-title">Trusted by those who know</h3>
+        <p class="t-body">"Then I found Graham Mann, this incredible craftsman based in Scotland, who's a dab hand at revamping them and to an incredibly high standard." — Country Life Magazine</p>
+        <p class="t-body">David Beckham is among the clients who have commissioned a bespoke Defender through Outlander. But the majority of our work is for people who simply want the best Defender that can be built — and are prepared to wait for it.</p>
+      </div>
+      <div class="project-gallery">
+        <img src="https://images.squarespace-cdn.com/content/v1/5d581a2dc66cb10001cff270/1716819541571-TL1LFDF1GB0523V2XUFB/IMG_9972.JPG" alt="Workshop finish" loading="lazy">
+        <img src="https://images.squarespace-cdn.com/content/v1/5d581a2dc66cb10001cff270/1716819553442-GCDXN5Z8QG5IKP47C669/IMG_9845.JPG" alt="Interior craftsmanship" loading="lazy">
+        <img src="https://images.squarespace-cdn.com/content/v1/5d581a2dc66cb10001cff270/1716819577018-ZBC4TPM2OERXCUM2A28H/9A5A9978.JPG" alt="Detail work" loading="lazy">
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- PROCESS -->
+<section class="process-wrap" id="process">
+  <div class="process-intro">
+    <div>
+      <h2 class="t-title">The restoration process</h2>
+      <p class="t-body wide">We do not restore Defenders to look new. We restore them to reveal what was always there — and to place inside them a standard of craftsmanship that did not exist when they left the factory.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <strong>Assessment</strong>
+        <p class="t-body">Every vehicle arrives with a history. We document chassis condition, previous repairs and original specification before a single panel is removed.</p>
+      </div>
+      <div class="process-step">
+        <strong>Stripping &amp; chassis</strong>
+        <p class="t-body">The body comes off. The chassis is media-blasted, inspected, repaired and hot-dip galvanised. This is the foundation everything else depends on.</p>
+      </div>
+      <div class="process-step">
+        <strong>Body &amp; paint</strong>
+        <p class="t-body">Panels are aligned by hand. Gaps are set by eye. Paint is applied in our own booth — not outsourced, not rushed.</p>
+      </div>
+      <div class="process-step">
+        <strong>Interior &amp; trim</strong>
+        <p class="t-body">Walnut consoles, tweed seat panels, tartan headlinings, teak load floors — made in-house or by the same Scottish suppliers we have used for fifteen years.</p>
+      </div>
+      <div class="process-step">
+        <strong>Final assembly</strong>
+        <p class="t-body">Engine, drivetrain, electrics, weather seals. Then a road test on Scottish roads before the vehicle is signed off.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="process-grid">
+    <img src="https://images.squarespace-cdn.com/content/v1/5d581a2dc66cb10001cff270/1674053941708-RHIHH60WVVVE8RMYGSS3/IMG_7518.JPG" alt="Chassis restoration" loading="lazy">
+    <img src="https://images.squarespace-cdn.com/content/v1/5d581a2dc66cb10001cff270/1654020606090-NSUZ44ROX05LN7J5WUDN/IMG_2034.JPG" alt="Interior trim work" loading="lazy">
+    <img src="https://images.squarespace-cdn.com/content/v1/5d581a2dc66cb10001cff270/1654020611560-K8W9B90MLMAOB3Q5IH18/IMG_2012.JPG" alt="Walnut console" loading="lazy">
+    <img src="https://images.squarespace-cdn.com/content/v1/5d581a2dc66cb10001cff270/1676902553124-GS30S12Y6F831U6DFCGJ/IMG_2577.JPG" alt="Seat upholstery" loading="lazy">
+    <img src="https://images.squarespace-cdn.com/content/v1/5d581a2dc66cb10001cff270/1654020627322-5F2QCSIY7T1AQBG56ZG9/IMG_2042.JPG" alt="Dashboard detail" loading="lazy">
+    <img src="https://images.squarespace-cdn.com/content/v1/5d581a2dc66cb10001cff270/1674054309158-CWZSQT5XJPC2YNL8FSNJ/IMG_9410.jpg" alt="Bodywork in progress" loading="lazy">
+    <img src="https://images.squarespace-cdn.com/content/v1/5d581a2dc66cb10001cff270/1762184835894-3KRSPJG48OR3CQRQP80Y/9A5A0205.JPG" alt="Tartan interior" loading="lazy">
+    <img src="https://images.squarespace-cdn.com/content/v1/5d581a2dc66cb10001cff270/1674054312573-7OQEX87WO70BO4IZD9A4/IMG_9435.JPG" alt="Paint and finish" loading="lazy">
+  </div>
+
+  <div class="process-caption">
+    <p class="t-body wide">A typical commission takes between six and eighteen months. We keep clients informed throughout — photographs from the workshop, decisions on materials, progress at every stage.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="footer-logo">outlander</a>
+        <p>Bespoke Land Rover Defenders, built by hand in Scotland since 2009.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#process">Process</a>
+      </nav>
+      <div class="footer-contact">
+        <a href="mailto:info@outlandervehicles.com">info@outlandervehicles.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© Outlander Vehicles</span>
+      <span>Scotland · outlandervehicles.com</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const btn  = document.getElementById('hamburgerBtn');
+  const menu = document.getElementById('mobileMenu');
+  const close = document.getElementById('mobileClose');
+  const header = document.querySelector('header');
+  btn.addEventListener('click',  () => menu.classList.add('open'));
+  close.addEventListener('click', () => menu.classList.remove('open'));
+  function closeMobile() { menu.classList.remove('open'); }
+  function onScroll() {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
+</body>
+</html>

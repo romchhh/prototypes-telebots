@@ -126,6 +126,12 @@ const PROTOTYPES = [
     desc: 'Косметологічна клініка — landing page (UA)',
     tag: 'Клініка',
   },
+  {
+    slug: 'grand-cru',
+    title: 'Grand Cru',
+    desc: 'Bespoke Land Rover Defenders — landing page (EN)',
+    tag: 'Авто',
+  },
 ]
 
 export default function Home() {
