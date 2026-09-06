@@ -5,7 +5,7 @@
   --fg: #111111;
   --muted: #888888;
   --border: #dedad3;
-  --red: #b91c1c;
+  --accent: #1c3a2e; /* old money green */
 
   background: var(--bg);
   color: var(--fg);
@@ -58,7 +58,7 @@
 }
 
 .grand-cru header.scrolled .header-logo {
-  color: var(--fg);
+  color: var(--accent);
 }
 
 .grand-cru .header-nav {
@@ -98,7 +98,12 @@
   border: none;
   cursor: pointer;
   padding: 4px;
-  color: var(--red);
+  color: #fff;
+  transition: color 0.3s;
+}
+
+.grand-cru header.scrolled .hamburger {
+  color: var(--accent);
 }
 
 .grand-cru .hamburger-icon {
@@ -111,8 +116,13 @@
   display: block;
   width: 20px;
   height: 2.5px;
-  background: var(--red);
+  background: #fff;
   border-radius: 1px;
+  transition: background 0.3s;
+}
+
+.grand-cru header.scrolled .hamburger-icon span {
+  background: var(--accent);
 }
 
 .grand-cru .hamburger-label {
@@ -120,7 +130,7 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: lowercase;
-  color: var(--red);
+  color: inherit;
   line-height: 1;
 }
 
@@ -269,13 +279,17 @@
 }
 
 .grand-cru .hero-btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 168px;
   padding: 12px 24px;
   border: 1px solid rgba(255, 255, 255, 0.55);
   color: #fff;
   font-size: clamp(14px, 1.2vw, 16px);
   font-weight: 500;
   text-decoration: none;
+  text-align: center;
   transition: background 0.2s, border-color 0.2s;
   backdrop-filter: blur(4px);
   background: rgba(255, 255, 255, 0.06);
@@ -298,7 +312,7 @@
 .grand-cru .intro-rule {
   width: 48px;
   height: 2px;
-  background: var(--red);
+  background: var(--accent);
 }
 
 /* PROJECTS */
@@ -354,7 +368,7 @@
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--red);
+  color: var(--accent);
 }
 
 .grand-cru .project-gallery {
@@ -460,7 +474,7 @@
 /* FOOTER */
 .grand-cru footer {
   border-top: 1px solid var(--border);
-  background: var(--fg);
+  background: var(--accent);
   color: #fff;
   padding: clamp(48px, 8vw, 72px) clamp(24px, 5vw, 80px) clamp(32px, 5vw, 48px);
 }
