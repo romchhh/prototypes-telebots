@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>U.SHOP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#000;
+    --white:#fff;
+    --ink:#111;
+    --muted:#6b6b6b;
+    --line:#e8e8e8;
+    --blush:#c98a96;
+    --blush-soft:#f6eef0;
+    --blush-deep:#a85f6d;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Montserrat',Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+  ul{list-style:none;}
+  button{font:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+  .page{display:none;}
+  .page.active{display:block;}
+
+  /* ========== STICKY CHROME ========== */
+  .site-bar{
+    position:sticky;
+    top:0;
+    z-index:100;
+  }
+  .home-announce{
+    background:var(--black);
+    color:var(--white);
+    text-align:center;
+    font-size:12px;
+    letter-spacing:.06em;
+    padding:10px 16px;
+    border-bottom:1px solid rgba(201,138,150,.35);
+  }
+  .site-header{
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+    gap:24px;
+    padding:22px 40px 18px;
+    color:var(--white);
+    background:transparent;
+    transition:background .25s ease, backdrop-filter .25s ease;
+  }
+  body.catalog-on .site-header,
+  body.product-on .site-header,
+  .site-bar.is-stuck .site-header{
+    background:rgba(0,0,0,.94);
+    backdrop-filter:blur(10px);
+  }
+  .site-logo{
+    justify-self:start;
+    display:block;
+    width:148px;
+  }
+  .site-logo img{width:100%;height:auto;}
+  .site-nav{
+    display:flex;
+    gap:28px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .site-nav a{
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    opacity:.92;
+    transition:opacity .2s;
+  }
+  .site-nav a:hover{opacity:.55;}
+  .site-icons{
+    justify-self:end;
+    display:flex;
+    align-items:center;
+    gap:18px;
+  }
+  .site-icons button,
+  .site-icons a{
+    display:flex;
+    color:var(--white);
+  }
+  .site-icons svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.5;}
+  .site-burger{display:none;}
+
+  /* Home: header overlays hero until stuck */
+  body.home-on .site-bar{
+    position:fixed;
+    inset:0 0 auto;
+    width:100%;
+  }
+  body.home-on .site-bar.is-stuck .site-header,
+  body.catalog-on .site-header{
+    background:rgba(0,0,0,.94);
+    backdrop-filter:blur(10px);
+  }
+  body.catalog-on .site-bar,
+  body.product-on .site-bar{
+    position:sticky;
+    top:0;
+  }
+
+  /* ========== HOME ========== */
+  .home-shell{
+    position:relative;
+    min-height:100vh;
+    color:var(--white);
+    background:#0a0a0a;
+  }
+  .home-hero{
+    position:absolute;
+    inset:0;
+    z-index:0;
+  }
+  .home-hero img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 18%;
+  }
+  .home-hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.08) 35%, rgba(0,0,0,.55) 100%),
+      linear-gradient(90deg, rgba(0,0,0,.45) 0%, transparent 45%),
+      linear-gradient(160deg, rgba(201,138,150,.12) 0%, transparent 42%);
+    pointer-events:none;
+  }
+  .home-content{
+    position:relative;
+    z-index:5;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    padding:0 48px 56px;
+  }
+  .home-bottom{
+    display:grid;
+    grid-template-columns:1.1fr 1fr auto;
+    align-items:end;
+    gap:40px;
+  }
+  .home-copy .eyebrow{
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    margin-bottom:14px;
+    color:#f0c8d0;
+    animation:rise .8s ease both;
+  }
+  .home-copy p{
+    max-width:340px;
+    font-size:11px;
+    line-height:1.7;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    opacity:.9;
+    animation:rise .8s .12s ease both;
+  }
+  .home-cta-wrap{
+    display:flex;
+    justify-content:center;
+    margin-bottom:36px;
+    animation:rise .8s .22s ease both;
+  }
+  .home-cta{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:220px;
+    padding:18px 48px;
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--ink);
+    border:1px solid var(--white);
+    background:var(--white);
+    transition:background .25s ease, color .25s ease, transform .25s ease;
+  }
+  .home-cta:hover{
+    background:transparent;
+    color:var(--white);
+    transform:translateY(-1px);
+  }
+  .home-title{
+    font-size:clamp(56px, 9vw, 104px);
+    font-weight:800;
+    letter-spacing:.02em;
+    line-height:.9;
+    text-align:center;
+    justify-self:center;
+    animation:rise .9s .18s ease both;
+  }
+  .home-barcode{
+    width:88px;
+    height:52px;
+    opacity:.95;
+    justify-self:end;
+    animation:rise .8s .28s ease both;
+  }
+  @keyframes rise{
+    from{opacity:0;transform:translateY(18px);}
+    to{opacity:1;transform:none;}
+  }
+  .sub-badge{
+    position:fixed;
+    left:22px;
+    bottom:22px;
+    z-index:40;
+    background:#1a1113;
+    color:var(--white);
+    font-size:12px;
+    letter-spacing:.02em;
+    padding:10px 14px;
+    border-radius:6px;
+    border:1px solid rgba(201,138,150,.45);
+    box-shadow:0 8px 24px rgba(0,0,0,.35);
+  }
+  body.catalog-on .sub-badge,
+  body.product-on .sub-badge{display:none;}
+
+  /* ========== CATALOG ========== */
+  body.catalog-on,
+  body.product-on{
+    background:linear-gradient(180deg, var(--blush-soft) 0%, var(--white) 220px);
+  }
+  .cat-intro{
+    text-align:center;
+    padding:64px 24px 40px;
+    max-width:720px;
+    margin:0 auto;
+  }
+  .cat-intro h1{
+    font-size:clamp(28px, 3.4vw, 40px);
+    font-weight:700;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    margin-bottom:18px;
+  }
+  .cat-intro p{
+    font-size:14px;
+    line-height:1.65;
+    color:#333;
+    margin-bottom:8px;
+  }
+  .cat-intro .tagline{
+    font-weight:500;
+    margin-bottom:22px;
+    color:var(--blush-deep);
+  }
+  .cat-intro-links{
+    display:flex;
+    justify-content:center;
+    gap:28px;
+    flex-wrap:wrap;
+  }
+  .cat-intro-links a{
+    font-size:13px;
+    text-decoration:underline;
+    text-underline-offset:4px;
+    text-decoration-color:rgba(201,138,150,.55);
+  }
+  .cat-intro-links a:hover{color:var(--blush-deep);}
+  .cat-toolbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    max-width:1480px;
+    margin:0 auto;
+    padding:18px 40px;
+    border-top:1px solid var(--line);
+  }
+  .filter-btn,
+  .sort-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:13px;
+    letter-spacing:.02em;
+  }
+  .filter-btn svg,
+  .sort-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.6;}
+
+  .products{
+    max-width:1480px;
+    margin:0 auto;
+    padding:8px 40px 100px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+  }
+  .product{position:relative;}
+  .product-img{
+    position:relative;
+    aspect-ratio:3/4.2;
+    overflow:hidden;
+    background:#efefef;
+  }
+  .product-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .55s ease;
+  }
+  .product:hover .product-img img{transform:scale(1.03);}
+  .wish{
+    position:absolute;
+    top:12px;
+    right:12px;
+    z-index:2;
+    color:#111;
+    opacity:.85;
+    transition:color .2s, opacity .2s;
+  }
+  .wish:hover{color:var(--blush-deep);opacity:1;}
+  .wish svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.5;}
+  .product-info{
+    padding:12px 2px 4px;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    align-items:baseline;
+    opacity:0;
+    transform:translateY(4px);
+    transition:opacity .25s ease, transform .25s ease;
+  }
+  .product:hover .product-info{opacity:1;transform:none;}
+  .product-name{font-size:12.5px;font-weight:500;letter-spacing:.02em;}
+  .product-price{font-size:12.5px;color:var(--blush-deep);}
+
+  .chat-fab{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    z-index:40;
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    background:#2b2b2b;
+    color:var(--white);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 10px 28px rgba(0,0,0,.25);
+  }
+  body.catalog-on .chat-fab,
+  body.product-on .chat-fab{display:flex;}
+  .chat-fab svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.6;}
+
+  /* ========== PRODUCT ========== */
+  .pdp{
+    max-width:1280px;
+    margin:0 auto;
+    padding:28px 40px 100px;
+  }
+  .pdp-crumb{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    margin-bottom:28px;
+    font-size:12px;
+    letter-spacing:.02em;
+    color:#555;
+  }
+  .pdp-crumb-path{display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .pdp-crumb-path a{text-decoration:underline;text-underline-offset:3px;}
+  .pdp-crumb-path span{opacity:.45;}
+  .pdp-crumb-nav{display:flex;gap:18px;white-space:nowrap;}
+  .pdp-crumb-nav a{opacity:.7;}
+  .pdp-crumb-nav a:hover{opacity:1;}
+
+  .pdp-grid{
+    display:grid;
+    grid-template-columns:minmax(0,1.35fr) minmax(280px,.75fr);
+    gap:48px;
+    align-items:start;
+  }
+  .pdp-gallery{
+    display:grid;
+    grid-template-columns:72px 1fr;
+    gap:14px;
+    align-items:start;
+  }
+  .pdp-thumbs{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .pdp-thumb{
+    width:72px;
+    aspect-ratio:3/4;
+    overflow:hidden;
+    background:#f3f3f3;
+    border:1px solid transparent;
+    padding:0;
+    opacity:.85;
+    transition:opacity .2s, border-color .2s;
+  }
+  .pdp-thumb.is-active,
+  .pdp-thumb:hover{opacity:1;border-color:#111;}
+  .pdp-thumb img{width:100%;height:100%;object-fit:cover;}
+
+  .pdp-main{
+    position:relative;
+    background:#f5f5f5;
+    aspect-ratio:3/4;
+    overflow:hidden;
+  }
+  .pdp-main img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .pdp-next{
+    position:absolute;
+    right:14px;
+    top:50%;
+    transform:translateY(-50%);
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:rgba(255,255,255,.92);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#111;
+  }
+  .pdp-next svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;}
+
+  .pdp-info{padding-top:8px;}
+  .pdp-title{
+    font-size:clamp(20px, 2vw, 26px);
+    font-weight:700;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    line-height:1.25;
+    margin-bottom:14px;
+  }
+  .pdp-color-label{
+    font-size:13px;
+    color:#444;
+    margin-bottom:10px;
+  }
+  .pdp-price{
+    font-size:20px;
+    font-weight:500;
+    margin-bottom:22px;
+  }
+  .pdp-swatches{
+    display:flex;
+    gap:10px;
+    margin-bottom:28px;
+  }
+  .pdp-swatch{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    overflow:hidden;
+    border:1px solid transparent;
+    padding:2px;
+    background:transparent;
+  }
+  .pdp-swatch.is-active{border-color:var(--blush-deep);}
+  .pdp-swatch span{
+    display:block;
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    overflow:hidden;
+    background:#eee;
+  }
+  .pdp-swatch img{width:100%;height:100%;object-fit:cover;}
+
+  .pdp-material{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:14px 0;
+    font-size:13px;
+    margin-bottom:22px;
+  }
+  .pdp-size-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-bottom:12px;
+    font-size:13px;
+  }
+  .pdp-size-help{
+    text-decoration:underline;
+    text-underline-offset:3px;
+    color:#555;
+  }
+  .pdp-sizes{
+    display:flex;
+    gap:8px;
+    margin-bottom:16px;
+  }
+  .pdp-size{
+    min-width:48px;
+    height:42px;
+    padding:0 14px;
+    border:1px solid #ddd;
+    font-size:13px;
+    font-weight:500;
+    color:#bbb;
+  }
+  .pdp-size.is-active{
+    border-color:var(--blush-deep);
+    color:#111;
+  }
+  .pdp-size:not(.is-active):hover{border-color:#999;color:#666;}
+  .pdp-stock{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:13px;
+    color:#333;
+    margin-bottom:22px;
+  }
+  .pdp-stock svg{width:16px;height:16px;stroke:var(--blush);fill:none;stroke-width:1.6;}
+  .pdp-cart{
+    width:100%;
+    background:#111;
+    color:#fff;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    padding:16px 20px;
+    transition:background .2s, box-shadow .2s;
+  }
+  .pdp-cart:hover{
+    background:var(--blush-deep);
+    box-shadow:0 8px 20px rgba(168,95,109,.25);
+  }
+
+  .product{cursor:pointer;}
+  .product a.product-link{
+    display:block;
+    color:inherit;
+  }
+
+  @media (max-width:1100px){
+    .site-header{
+      grid-template-columns:1fr auto;
+      padding:18px 22px;
+    }
+    .site-nav{display:none;}
+    .site-burger{display:flex;}
+    .home-content{padding:0 24px 40px;}
+    .home-bottom{
+      grid-template-columns:1fr;
+      gap:28px;
+    }
+    .home-title{justify-self:start;text-align:left;font-size:64px;}
+    .home-barcode{justify-self:start;}
+    .products{grid-template-columns:repeat(2,1fr);padding:8px 16px 80px;gap:12px;}
+    .cat-toolbar{padding:14px 16px;}
+    .pdp{padding:20px 16px 80px;}
+    .pdp-grid{grid-template-columns:1fr;gap:28px;}
+    .pdp-gallery{grid-template-columns:56px 1fr;gap:10px;}
+    .pdp-thumb{width:56px;}
+  }
+  @media (max-width:560px){
+    .site-logo{width:110px;}
+    .cat-intro{padding:40px 16px 28px;}
+    .product-info{flex-direction:column;gap:4px;opacity:1;transform:none;}
+    .pdp-thumbs{flex-direction:row;overflow-x:auto;}
+    .pdp-gallery{grid-template-columns:1fr;}
+    .pdp-thumbs{order:2;}
+  }
+</style>
+</head>
+<body class="home-on">
+
+<div class="site-bar" id="site-bar">
+  <div class="home-announce">29 офлайн магазинів</div>
+  <header class="site-header">
+    <a href="#home" class="site-logo" data-nav="home" aria-label="U.SHOP">
+      <img src="/store-assets/logo-transparent.png" alt="U.SHOP">
+    </a>
+    <nav class="site-nav" aria-label="Головне меню">
+      <a href="#catalog" data-nav="catalog">Каталог</a>
+      <a href="#home" data-nav="home">Колекції</a>
+      <a href="#home" data-nav="home">Code XI</a>
+      <a href="#home" data-nav="home">Dress Code</a>
+      <a href="#home" data-nav="home">The Daily</a>
+      <a href="#catalog" data-nav="catalog">Новинки</a>
+      <a href="#home" data-nav="home">Магазини</a>
+    </nav>
+    <div class="site-icons">
+      <button aria-label="Пошук"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
+      <button aria-label="Кабінет"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg></button>
+      <button aria-label="Обране"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.5 8 2 4 6 4c2 0 3.5 1 4 2.5C10.5 5 12 4 14 4c4 0 5.5 4 3.5 8-2.5 4.5-9.5 9-9.5 9z"/></svg></button>
+      <button aria-label="Кошик"><svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg></button>
+      <button class="site-burger" aria-label="Меню"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </header>
+</div>
+
+<!-- ========== HOME ========== -->
+<section class="page active" id="page-home" data-page="home">
+  <div class="home-shell">
+    <div class="home-hero">
+      <img src="/store-assets/hero.jpg" alt="Кампанія CODE XI">
+    </div>
+    <div class="home-content">
+      <div class="home-cta-wrap">
+        <a href="#catalog" class="home-cta" data-nav="catalog">Каталог</a>
+      </div>
+      <div class="home-bottom">
+        <div class="home-copy">
+          <div class="eyebrow">Новий дроп</div>
+          <p>Шкіра як код сили. Чисті лінії, точні силуети й текстура, що говорить сама за себе. Code XI — впевненість без зайвого.</p>
+        </div>
+        <div class="home-title">CODE XI</div>
+        <svg class="home-barcode" viewBox="0 0 120 70" aria-hidden="true">
+          <rect x="2" y="4" width="3" height="52" fill="#fff"/>
+          <rect x="8" y="4" width="2" height="52" fill="#fff"/>
+          <rect x="13" y="4" width="4" height="52" fill="#fff"/>
+          <rect x="20" y="4" width="2" height="52" fill="#fff"/>
+          <rect x="25" y="4" width="5" height="52" fill="#fff"/>
+          <rect x="33" y="4" width="2" height="52" fill="#fff"/>
+          <rect x="38" y="4" width="3" height="52" fill="#fff"/>
+          <rect x="44" y="4" width="2" height="52" fill="#fff"/>
+          <rect x="49" y="4" width="6" height="52" fill="#fff"/>
+          <rect x="58" y="4" width="2" height="52" fill="#fff"/>
+          <rect x="63" y="4" width="3" height="52" fill="#fff"/>
+          <rect x="69" y="4" width="2" height="52" fill="#fff"/>
+          <rect x="74" y="4" width="5" height="52" fill="#fff"/>
+          <rect x="82" y="4" width="2" height="52" fill="#fff"/>
+          <rect x="87" y="4" width="4" height="52" fill="#fff"/>
+          <rect x="94" y="4" width="2" height="52" fill="#fff"/>
+          <rect x="99" y="4" width="3" height="52" fill="#fff"/>
+          <rect x="105" y="4" width="2" height="52" fill="#fff"/>
+          <rect x="110" y="4" width="6" height="52" fill="#fff"/>
+          <text x="2" y="68" fill="#fff" font-size="7" font-family="monospace" letter-spacing="1">XI · 0926</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CATALOG ========== -->
+<section class="page" id="page-catalog" data-page="catalog">
+  <div class="cat-intro">
+    <h1>Нові колекції U.SHOP</h1>
+    <p>Останні місячні та сезонні надходження — щоб легко комбінувати й носити щодня.</p>
+    <p class="tagline">Міксуй. Поєднуй. Насолоджуйся.</p>
+    <div class="cat-intro-links">
+      <a href="#catalog">Що нового цього місяця</a>
+      <a href="#catalog">Що нового цього сезону</a>
+    </div>
+  </div>
+
+  <div class="cat-toolbar">
+    <button class="filter-btn" type="button">
+      Фільтр
+      <svg viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/><circle cx="9" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="18" r="1.5" fill="currentColor" stroke="none"/></svg>
+    </button>
+    <button class="sort-btn" type="button">
+      Дата: від нових до старих
+      <svg viewBox="0 0 12 8"><path d="M1 1l5 5 5-5"/></svg>
+    </button>
+  </div>
+
+  <div class="products">
+    <article class="product">
+      <a href="#product/puffer" class="product-link" data-nav="product" data-product="puffer">
+        <div class="product-img">
+          <img src="/store-assets/products/blue-puffer.jpg" alt="Глянцевий пуховик">
+          <button class="wish" type="button" aria-label="В обране"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.5 8 2 4 6 4c2 0 3.5 1 4 2.5C10.5 5 12 4 14 4c4 0 5.5 4 3.5 8-2.5 4.5-9.5 9-9.5 9z"/></svg></button>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Глянцевий пуховик</div>
+          <div class="product-price">4 890 ₴</div>
+        </div>
+      </a>
+    </article>
+
+    <article class="product">
+      <a href="#product/jeans" class="product-link" data-nav="product" data-product="jeans">
+        <div class="product-img">
+          <img src="/store-assets/products/crossover-jeans.jpg" alt="Джинси з перехрестям">
+          <button class="wish" type="button" aria-label="В обране"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.5 8 2 4 6 4c2 0 3.5 1 4 2.5C10.5 5 12 4 14 4c4 0 5.5 4 3.5 8-2.5 4.5-9.5 9-9.5 9z"/></svg></button>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Джинси Crossover</div>
+          <div class="product-price">2 650 ₴</div>
+        </div>
+      </a>
+    </article>
+
+    <article class="product">
+      <a href="#product/satin" class="product-link" data-nav="product" data-product="satin">
+        <div class="product-img">
+          <img src="/store-assets/products/satin-set.jpg" alt="Атласний костюм">
+          <button class="wish" type="button" aria-label="В обране"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.5 8 2 4 6 4c2 0 3.5 1 4 2.5C10.5 5 12 4 14 4c4 0 5.5 4 3.5 8-2.5 4.5-9.5 9-9.5 9z"/></svg></button>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Атласний сет Chocolate</div>
+          <div class="product-price">5 290 ₴</div>
+        </div>
+      </a>
+    </article>
+
+    <article class="product">
+      <a href="#product/rib" class="product-link" data-nav="product" data-product="rib">
+        <div class="product-img">
+          <img src="/store-assets/products/red-rib-top.jpg" alt="Топ у рубчик">
+          <button class="wish" type="button" aria-label="В обране"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.5 8 2 4 6 4c2 0 3.5 1 4 2.5C10.5 5 12 4 14 4c4 0 5.5 4 3.5 8-2.5 4.5-9.5 9-9.5 9z"/></svg></button>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Топ Scarlet у рубчик</div>
+          <div class="product-price">1 490 ₴</div>
+        </div>
+      </a>
+    </article>
+
+    <article class="product">
+      <a href="#product/zip" class="product-link" data-nav="product" data-product="zip">
+        <div class="product-img">
+          <img src="/store-assets/products/red-zip-knit.jpg" alt="Светр на блискавці">
+          <button class="wish" type="button" aria-label="В обране"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.5 8 2 4 6 4c2 0 3.5 1 4 2.5C10.5 5 12 4 14 4c4 0 5.5 4 3.5 8-2.5 4.5-9.5 9-9.5 9z"/></svg></button>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Светр на блискавці</div>
+          <div class="product-price">2 190 ₴</div>
+        </div>
+      </a>
+    </article>
+
+    <article class="product">
+      <a href="#product/pink" class="product-link" data-nav="product" data-product="pink">
+        <div class="product-img">
+          <img src="/store-assets/products/pink-crop.jpg" alt="Топ Blush">
+          <button class="wish" type="button" aria-label="В обране"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-9.5-9C.5 8 2 4 6 4c2 0 3.5 1 4 2.5C10.5 5 12 4 14 4c4 0 5.5 4 3.5 8-2.5 4.5-9.5 9-9.5 9z"/></svg></button>
+        </div>
+        <div class="product-info">
+          <div class="product-name">Топ Blush</div>
+          <div class="product-price">1 290 ₴</div>
+        </div>
+      </a>
+    </article>
+  </div>
+</section>
+
+<!-- ========== PRODUCT ========== -->
+<section class="page" id="page-product" data-page="product">
+  <div class="pdp">
+    <div class="pdp-crumb">
+      <div class="pdp-crumb-path">
+        <a href="#catalog" data-nav="catalog">Новинки місяця</a>
+        <span>›</span>
+        <span id="pdp-crumb-name">Джинси Crossover</span>
+      </div>
+      <div class="pdp-crumb-nav">
+        <a href="#product" id="pdp-prev">‹ Попередній</a>
+        <a href="#product" id="pdp-next-link">Наступний ›</a>
+      </div>
+    </div>
+
+    <div class="pdp-grid">
+      <div class="pdp-gallery">
+        <div class="pdp-thumbs" id="pdp-thumbs"></div>
+        <div class="pdp-main">
+          <img id="pdp-main-img" src="/store-assets/products/crossover-jeans.jpg" alt="Джинси Crossover">
+          <button class="pdp-next" id="pdp-next-btn" type="button" aria-label="Наступне фото">
+            <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="pdp-info">
+        <h1 class="pdp-title" id="pdp-title">Джинси Crossover</h1>
+        <div class="pdp-color-label">Колір: <span id="pdp-color">Синій денім</span></div>
+        <div class="pdp-price" id="pdp-price">2 650 ₴</div>
+
+        <div class="pdp-swatches" id="pdp-swatches" role="listbox" aria-label="Колір"></div>
+
+        <div class="pdp-material" id="pdp-material">Преміальний денім</div>
+
+        <div class="pdp-size-row">
+          <div>Розмір: <strong id="pdp-size-label">S</strong></div>
+          <a href="#product" class="pdp-size-help">Як обрати розмір?</a>
+        </div>
+        <div class="pdp-sizes" id="pdp-sizes">
+          <button class="pdp-size is-active" type="button" data-size="S">S</button>
+          <button class="pdp-size" type="button" data-size="M">M</button>
+          <button class="pdp-size" type="button" data-size="L">L</button>
+        </div>
+
+        <div class="pdp-stock">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+          <span>1 у наявності</span>
+        </div>
+
+        <button class="pdp-cart" type="button">Додати в кошик</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<a href="#catalog" class="sub-badge" data-nav="catalog">−7% за підписку</a>
+
+<button class="chat-fab" id="chat-fab" aria-label="Чат">
+  <svg viewBox="0 0 24 24"><path d="M5 5h14a2 2 0 012 2v8a2 2 0 01-2 2H9l-4 3v-3H5a2 2 0 01-2-2V7a2 2 0 012-2z"/></svg>
+</button>
+
+<script>
+  const siteBar = document.getElementById('site-bar');
+  const PRODUCTS = [
+    {
+      id: 'puffer',
+      name: 'Глянцевий пуховик',
+      color: 'Крижаний блакитний',
+      price: '4 890 ₴',
+      material: 'Глянцевий нейлон',
+      images: [
+        '/store-assets/products/blue-puffer.jpg',
+        '/store-assets/products/01-puffer.png',
+        '/store-assets/products/crossover-jeans.jpg',
+        '/store-assets/products/satin-set.jpg',
+        '/store-assets/products/red-rib-top.jpg',
+        '/store-assets/products/pink-crop.jpg'
+      ],
+      swatches: [
+        {img:'/store-assets/products/blue-puffer.jpg', label:'Крижаний блакитний'},
+        {img:'/store-assets/products/satin-set.jpg', label:'Шоколадний'},
+        {img:'/store-assets/products/red-zip-knit.jpg', label:'Червоний'},
+        {img:'/store-assets/products/pink-crop.jpg', label:'Ніжно-рожевий'}
+      ]
+    },
+    {
+      id: 'jeans',
+      name: 'Джинси Crossover',
+      color: 'Синій денім',
+      price: '2 650 ₴',
+      material: 'Преміальний денім',
+      images: [
+        '/store-assets/products/crossover-jeans.jpg',
+        '/store-assets/products/02-denim.png',
+        '/store-assets/products/pink-crop.jpg',
+        '/store-assets/products/red-rib-top.jpg',
+        '/store-assets/products/satin-set.jpg',
+        '/store-assets/products/blue-puffer.jpg'
+      ],
+      swatches: [
+        {img:'/store-assets/products/pink-crop.jpg', label:'Ніжно-рожевий'},
+        {img:'/store-assets/products/red-rib-top.jpg', label:'Червоний'},
+        {img:'/store-assets/products/crossover-jeans.jpg', label:'Синій денім'},
+        {img:'/store-assets/products/satin-set.jpg', label:'Шоколадний'}
+      ]
+    },
+    {
+      id: 'satin',
+      name: 'Атласний сет Chocolate',
+      color: 'Шоколадний',
+      price: '5 290 ₴',
+      material: 'Атласна фактура',
+      images: [
+        '/store-assets/products/satin-set.jpg',
+        '/store-assets/products/03-satin.png',
+        '/store-assets/products/crossover-jeans.jpg',
+        '/store-assets/products/blue-puffer.jpg',
+        '/store-assets/products/red-zip-knit.jpg',
+        '/store-assets/products/pink-crop.jpg'
+      ],
+      swatches: [
+        {img:'/store-assets/products/satin-set.jpg', label:'Шоколадний'},
+        {img:'/store-assets/products/blue-puffer.jpg', label:'Крижаний блакитний'},
+        {img:'/store-assets/products/red-rib-top.jpg', label:'Червоний'},
+        {img:'/store-assets/products/pink-crop.jpg', label:'Ніжно-рожевий'}
+      ]
+    },
+    {
+      id: 'rib',
+      name: 'Топ Scarlet у рубчик',
+      color: 'Червоний',
+      price: '1 490 ₴',
+      material: 'Органічна бавовна',
+      images: [
+        '/store-assets/products/red-rib-top.jpg',
+        '/store-assets/products/04-red-top.png',
+        '/store-assets/products/red-zip-knit.jpg',
+        '/store-assets/products/crossover-jeans.jpg',
+        '/store-assets/products/pink-crop.jpg',
+        '/store-assets/products/satin-set.jpg'
+      ],
+      swatches: [
+        {img:'/store-assets/products/pink-crop.jpg', label:'Ніжно-рожевий'},
+        {img:'/store-assets/products/crossover-jeans.jpg', label:'Синій денім'},
+        {img:'/store-assets/products/red-rib-top.jpg', label:'Червоний'},
+        {img:'/store-assets/products/satin-set.jpg', label:'Шоколадний'}
+      ]
+    },
+    {
+      id: 'zip',
+      name: 'Светр на блискавці',
+      color: 'Червоний',
+      price: '2 190 ₴',
+      material: 'Трикотаж у рубчик',
+      images: [
+        '/store-assets/products/red-zip-knit.jpg',
+        '/store-assets/products/05-red-zip.png',
+        '/store-assets/products/red-rib-top.jpg',
+        '/store-assets/products/blue-puffer.jpg',
+        '/store-assets/products/crossover-jeans.jpg',
+        '/store-assets/products/pink-crop.jpg'
+      ],
+      swatches: [
+        {img:'/store-assets/products/red-zip-knit.jpg', label:'Червоний'},
+        {img:'/store-assets/products/blue-puffer.jpg', label:'Крижаний блакитний'},
+        {img:'/store-assets/products/satin-set.jpg', label:'Шоколадний'},
+        {img:'/store-assets/products/pink-crop.jpg', label:'Ніжно-рожевий'}
+      ]
+    },
+    {
+      id: 'pink',
+      name: 'Топ Blush',
+      color: 'Ніжно-рожевий',
+      price: '1 290 ₴',
+      material: 'Атласна суміш',
+      images: [
+        '/store-assets/products/pink-crop.jpg',
+        '/store-assets/products/06-pink-top.png',
+        '/store-assets/products/crossover-jeans.jpg',
+        '/store-assets/products/red-rib-top.jpg',
+        '/store-assets/products/satin-set.jpg',
+        '/store-assets/products/blue-puffer.jpg'
+      ],
+      swatches: [
+        {img:'/store-assets/products/pink-crop.jpg', label:'Ніжно-рожевий'},
+        {img:'/store-assets/products/red-rib-top.jpg', label:'Червоний'},
+        {img:'/store-assets/products/crossover-jeans.jpg', label:'Синій денім'},
+        {img:'/store-assets/products/satin-set.jpg', label:'Шоколадний'}
+      ]
+    }
+  ];
+
+  let currentProductIndex = 1;
+  let currentImageIndex = 0;
+
+  function updateStuck(){
+    const stuck = window.scrollY > 8;
+    const solid = document.body.classList.contains('catalog-on') || document.body.classList.contains('product-on');
+    siteBar.classList.toggle('is-stuck', stuck || solid);
+  }
+
+  function renderProduct(index){
+    const p = PRODUCTS[index];
+    if (!p) return;
+    currentProductIndex = index;
+    currentImageIndex = 0;
+
+    document.getElementById('pdp-title').textContent = p.name;
+    document.getElementById('pdp-crumb-name').textContent = p.name;
+    document.getElementById('pdp-color').textContent = p.color;
+    document.getElementById('pdp-price').textContent = p.price;
+    document.getElementById('pdp-material').textContent = p.material;
+    document.getElementById('pdp-main-img').src = p.images[0];
+    document.getElementById('pdp-main-img').alt = p.name;
+
+    const thumbs = document.getElementById('pdp-thumbs');
+    thumbs.innerHTML = p.images.map((src, i) =>
+      `<button class="pdp-thumb${i===0?' is-active':''}" type="button" data-index="${i}" aria-label="Фото ${i+1}">
+        <img src="${src}" alt="">
+      </button>`
+    ).join('');
+
+    const swatches = document.getElementById('pdp-swatches');
+    const activeSwatch = Math.max(0, p.swatches.findIndex(s => s.label === p.color));
+    swatches.innerHTML = p.swatches.map((s, i) =>
+      `<button class="pdp-swatch${i===activeSwatch?' is-active':''}" type="button" data-swatch="${i}" aria-label="${s.label}">
+        <span><img src="${s.img}" alt="${s.label}"></span>
+      </button>`
+    ).join('');
+
+    document.getElementById('pdp-prev').onclick = (e) => {
+      e.preventDefault();
+      renderProduct((index - 1 + PRODUCTS.length) % PRODUCTS.length);
+    };
+    document.getElementById('pdp-next-link').onclick = (e) => {
+      e.preventDefault();
+      renderProduct((index + 1) % PRODUCTS.length);
+    };
+  }
+
+  function setImage(i){
+    const p = PRODUCTS[currentProductIndex];
+    currentImageIndex = (i + p.images.length) % p.images.length;
+    document.getElementById('pdp-main-img').src = p.images[currentImageIndex];
+    document.querySelectorAll('.pdp-thumb').forEach((el, idx) => {
+      el.classList.toggle('is-active', idx === currentImageIndex);
+    });
+  }
+
+  function showPage(name){
+    document.querySelectorAll('.page').forEach(p => p.classList.toggle('active', p.dataset.page === name));
+    document.body.classList.toggle('catalog-on', name === 'catalog');
+    document.body.classList.toggle('product-on', name === 'product');
+    document.body.classList.toggle('home-on', name === 'home');
+    updateStuck();
+    window.scrollTo(0, 0);
+  }
+
+  function route(){
+    const hash = (location.hash || '#home').replace('#','');
+    if (hash === 'catalog') showPage('catalog');
+    else if (hash === 'product' || hash.startsWith('product/')) {
+      const id = hash.includes('/') ? hash.split('/')[1] : null;
+      const idx = id ? PRODUCTS.findIndex(p => p.id === id) : currentProductIndex;
+      renderProduct(idx >= 0 ? idx : 1);
+      showPage('product');
+    } else showPage('home');
+  }
+
+  document.querySelectorAll('[data-nav]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      const page = el.getAttribute('data-nav');
+      if (!page) return;
+      e.preventDefault();
+      if (page === 'product') {
+        const id = el.getAttribute('data-product');
+        const idx = id ? PRODUCTS.findIndex(p => p.id === id) : -1;
+        if (idx >= 0) currentProductIndex = idx;
+        else {
+          const img = el.querySelector('img');
+          if (img) {
+            const found = PRODUCTS.findIndex(p => p.images.some(src => img.src.includes(src.split('/').pop())));
+            if (found >= 0) currentProductIndex = found;
+          }
+        }
+        location.hash = 'product/' + PRODUCTS[currentProductIndex].id;
+      } else {
+        location.hash = page;
+      }
+    });
+  });
+
+  document.getElementById('pdp-thumbs').addEventListener('click', (e) => {
+    const btn = e.target.closest('.pdp-thumb');
+    if (!btn) return;
+    setImage(Number(btn.dataset.index));
+  });
+
+  document.getElementById('pdp-next-btn').addEventListener('click', () => setImage(currentImageIndex + 1));
+
+  document.getElementById('pdp-swatches').addEventListener('click', (e) => {
+    const btn = e.target.closest('.pdp-swatch');
+    if (!btn) return;
+    document.querySelectorAll('.pdp-swatch').forEach(s => s.classList.remove('is-active'));
+    btn.classList.add('is-active');
+    const p = PRODUCTS[currentProductIndex];
+    const sw = p.swatches[Number(btn.dataset.swatch)];
+    if (sw) {
+      document.getElementById('pdp-color').textContent = sw.label;
+      document.getElementById('pdp-main-img').src = sw.img;
+    }
+  });
+
+  document.getElementById('pdp-sizes').addEventListener('click', (e) => {
+    const btn = e.target.closest('.pdp-size');
+    if (!btn) return;
+    document.querySelectorAll('.pdp-size').forEach(s => s.classList.remove('is-active'));
+    btn.classList.add('is-active');
+    document.getElementById('pdp-size-label').textContent = btn.dataset.size;
+  });
+
+  window.addEventListener('scroll', updateStuck, {passive:true});
+  window.addEventListener('hashchange', route);
+  route();
+</script>
+</body>
+</html>

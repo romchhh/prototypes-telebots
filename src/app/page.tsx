@@ -12,6 +12,13 @@ const PROPOSALS = [
 
 const PROTOTYPES = [
   {
+    slug: 'ushop',
+    href: '/store.html',
+    title: 'U.SHOP',
+    desc: 'Fashion store — головна та каталог (UA)',
+    tag: 'E-commerce',
+  },
+  {
     slug: 'dente',
     title: 'Denté',
     desc: 'Stomatologia — landing page (PL)',
@@ -157,19 +164,33 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-          {PROTOTYPES.map((p) => (
-            <Link key={p.slug} href={`/${p.slug}`} className={styles.card}>
-              <span className={styles.tag}>{p.tag}</span>
-              <h2 className={styles.cardTitle}>{p.title}</h2>
-              <p className={styles.cardDesc}>{p.desc}</p>
-              <span className={styles.cardLink}>
-                Переглянути
-                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M2 14 L14 2 M6 2 H14 V10"/>
-                </svg>
-              </span>
-            </Link>
-          ))}
+          {PROTOTYPES.map((p) => {
+            const content = (
+              <>
+                <span className={styles.tag}>{p.tag}</span>
+                <h2 className={styles.cardTitle}>{p.title}</h2>
+                <p className={styles.cardDesc}>{p.desc}</p>
+                <span className={styles.cardLink}>
+                  Переглянути
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M2 14 L14 2 M6 2 H14 V10"/>
+                  </svg>
+                </span>
+              </>
+            )
+            if ('href' in p && p.href) {
+              return (
+                <a key={p.slug} href={p.href} className={styles.card}>
+                  {content}
+                </a>
+              )
+            }
+            return (
+              <Link key={p.slug} href={`/${p.slug}`} className={styles.card}>
+                {content}
+              </Link>
+            )
+          })}
         </div>
 
         <section className={styles.proposals}>
