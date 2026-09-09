@@ -15,7 +15,7 @@ const PROTOTYPES = [
     slug: 'ushop',
     href: '/store.html',
     title: 'U.SHOP',
-    desc: 'Fashion store — головна та каталог (UA)',
+    desc: 'Магазин одягу — головна, каталог і товар (UA)',
     tag: 'E-commerce',
   },
   {
