@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Royal Academy School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#050a14;
+    --navy-2:#0b1530;
+    --burgundy:#7a0a17;
+    --burgundy-2:#8f1f2c;
+    --gold:#c9a24a;
+    --cream:#f5f6f8;
+    --text:#eef0f5;
+    --muted:#b7c0d8;
+    --ink:#14151a;
+    --gray:#6b7280;
+    --line:#e5e7eb;
+    --kids:#d4a017;
+    --adults:#7b4fc7;
+    --corporate:#2aa3b5;
+    --font-display:'Playfair Display',serif;
+    --font-body:'Outfit',sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--font-body);
+    background:var(--cream);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{text-decoration:none;color:inherit;}
+  button{font:inherit;border:none;background:none;cursor:pointer;color:inherit;}
+  .wrap{max-width:1320px;margin:0 auto;padding:0 40px;}
+
+  /* ========== HEADER ========== */
+  header{
+    position:absolute;
+    inset:0 0 auto;
+    z-index:30;
+    padding:26px 0 0;
+  }
+  .nav-row{
+    max-width:1320px;
+    margin:0 auto;
+    padding:0 40px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+  }
+  .logo{display:flex;align-items:center;gap:12px;}
+  .logo img{
+    height:52px;
+    width:auto;
+    display:block;
+  }
+  .nav-links{display:flex;align-items:center;gap:28px;}
+  .nav-links a{
+    font-size:14px;
+    color:rgba(255,255,255,.92);
+    transition:color .2s;
+    white-space:nowrap;
+  }
+  .nav-links a:hover{color:var(--gold);}
+  .nav-right{display:flex;align-items:center;gap:16px;}
+  .lang-switch{
+    display:flex;align-items:center;gap:6px;
+    color:#fff;font-size:14px;
+  }
+  .lang-switch svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.6;}
+  .btn-cta{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--burgundy);
+    color:#fff;
+    padding:12px 22px;
+    border-radius:999px;
+    font-size:12.5px;
+    font-weight:600;
+    letter-spacing:.8px;
+    transition:background .25s, transform .25s;
+  }
+  .btn-cta:hover{background:var(--burgundy-2);transform:translateY(-1px);}
+  .burger{
+    display:none;width:26px;height:20px;position:relative;
+  }
+  .burger span{
+    position:absolute;left:0;right:0;height:2px;background:#fff;transition:.3s;
+  }
+  .burger span:nth-child(1){top:0;}
+  .burger span:nth-child(2){top:9px;}
+  .burger span:nth-child(3){top:18px;}
+  .burger.open span:nth-child(1){transform:translateY(9px) rotate(45deg);}
+  .burger.open span:nth-child(2){opacity:0;}
+  .burger.open span:nth-child(3){transform:translateY(-9px) rotate(-45deg);}
+
+  /* ========== HERO ========== */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    min-height:100dvh;
+    color:#fff;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+  }
+  .hero-bg{
+    position:absolute;
+    inset:0;
+    z-index:0;
+  }
+  .hero-bg picture,
+  .hero-bg img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center center;
+  }
+  .hero-bg::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(90deg, rgba(5,10,20,.72) 0%, rgba(5,10,20,.35) 42%, rgba(5,10,20,.08) 68%, transparent 100%),
+      linear-gradient(180deg, rgba(5,10,20,.35) 0%, transparent 28%, rgba(5,10,20,.25) 100%);
+    pointer-events:none;
+  }
+  .hero-inner{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:1320px;
+    margin:0 auto;
+    padding:140px 40px 70px;
+  }
+  .hero-text{max-width:560px;}
+  .hero-title{
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:clamp(34px, 4.6vw, 56px);
+    line-height:1.12;
+    letter-spacing:-.4px;
+    margin-bottom:22px;
+  }
+  .hero-desc{
+    color:rgba(238,240,245,.88);
+    font-size:16px;
+    line-height:1.7;
+    max-width:460px;
+    margin-bottom:34px;
+  }
+  .hero-actions{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-bottom:48px;
+  }
+  .btn-primary{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--burgundy);
+    color:#fff;
+    padding:15px 28px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.4px;
+    transition:background .25s, transform .25s;
+  }
+  .btn-primary:hover{background:var(--burgundy-2);transform:translateY(-1px);}
+  .btn-ghost{
+    display:inline-flex;align-items:center;gap:12px;
+    color:#fff;
+    font-size:13.5px;
+    font-weight:500;
+    padding:12px 20px;
+    border-radius:999px;
+    border:1.5px solid rgba(255,255,255,.45);
+    transition:border-color .25s, background .25s;
+  }
+  .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.06);}
+  .btn-ghost .play-circle{
+    width:28px;height:28px;
+    border-radius:50%;
+    border:1.5px solid rgba(255,255,255,.55);
+    display:flex;align-items:center;justify-content:center;
+    font-size:10px;
+  }
+  .hero-footline{
+    display:flex;align-items:center;gap:14px;
+    color:rgba(255,255,255,.7);
+    font-size:11px;
+    letter-spacing:2.4px;
+  }
+  .hero-footline::before{
+    content:"";
+    width:32px;height:1px;
+    background:rgba(255,255,255,.35);
+  }
+  .hero-side-label{
+    position:absolute;
+    right:28px;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:2;
+    color:rgba(255,255,255,.5);
+    font-size:10px;
+    letter-spacing:2.2px;
+    line-height:1.85;
+    text-align:right;
+    font-weight:500;
+    writing-mode:horizontal-tb;
+  }
+  .hero-side-label .mark{color:var(--gold);font-size:12px;}
+
+  /* ========== PROGRAMS ========== */
+  .programs{
+    background:
+      radial-gradient(ellipse 80% 50% at 80% 20%, rgba(11,21,48,.04), transparent 60%),
+      linear-gradient(180deg, #eef1f5 0%, #fff 120px, #fff 100%);
+    padding:96px 0 88px;
+    position:relative;
+    overflow:hidden;
+  }
+  .programs-head{
+    display:grid;
+    grid-template-columns:1.15fr 1fr;
+    gap:48px;
+    align-items:end;
+    margin-bottom:52px;
+  }
+  .programs-title{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:clamp(30px, 3.4vw, 44px);
+    line-height:1.2;
+    color:var(--navy-2);
+  }
+  .programs-desc{
+    color:var(--gray);
+    font-size:15.5px;
+    line-height:1.75;
+    max-width:440px;
+    justify-self:end;
+  }
+  .programs-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .program-card{
+    position:relative;
+    height:460px;
+    border-radius:14px;
+    overflow:hidden;
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:28px 24px 26px;
+    isolation:isolate;
+    background-size:cover;
+    background-position:center;
+    box-shadow:0 12px 40px rgba(11,21,48,.1);
+    transition:transform .4s ease;
+  }
+  .program-card:hover{transform:translateY(-6px);}
+  .program-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:-1;
+    background:linear-gradient(180deg, rgba(8,10,18,.15) 0%, rgba(8,10,18,.35) 40%, rgba(6,8,14,.88) 100%);
+  }
+  .program-card::before{
+    content:"";
+    position:absolute;
+    top:0;left:0;right:0;
+    height:5px;
+    z-index:1;
+  }
+  .program-card.kids::before{background:var(--kids);}
+  .program-card.adults::before{background:var(--adults);}
+  .program-card.corporate::before{background:var(--corporate);}
+
+  .program-card.kids{
+    background-color:#7a5a2a;
+    background-image:url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=900&q=80');
+  }
+  .program-card.adults{
+    background-color:#2a1a45;
+    background-image:url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=80');
+  }
+  .program-card.corporate{
+    background-color:#152535;
+    background-image:url('https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=900&q=80');
+  }
+
+  .program-head{padding-top:8px;}
+  .program-tag{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:28px;
+    letter-spacing:.5px;
+    margin-bottom:10px;
+    padding-left:14px;
+    border-left:3px solid currentColor;
+    line-height:1.1;
+    width:fit-content;
+  }
+  .program-card.kids .program-tag{border-color:var(--kids);color:#fff;}
+  .program-card.adults .program-tag{border-color:var(--adults);}
+  .program-card.corporate .program-tag{border-color:var(--corporate);}
+  .program-sub{
+    font-size:10.5px;
+    letter-spacing:1.8px;
+    color:rgba(255,255,255,.78);
+    margin-left:17px;
+    font-weight:600;
+    text-transform:uppercase;
+  }
+  .program-footer{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:14px;
+  }
+  .program-desc{
+    font-size:15px;
+    line-height:1.45;
+    max-width:72%;
+  }
+  .program-arrow{
+    width:42px;height:42px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+    font-size:18px;
+    transition:background .25s, color .25s, transform .25s, border-color .25s;
+  }
+  .program-card.kids .program-arrow{border:1.5px solid var(--kids);color:var(--kids);}
+  .program-card.adults .program-arrow{border:1.5px solid var(--adults);color:var(--adults);}
+  .program-card.corporate .program-arrow{border:1.5px solid var(--corporate);color:var(--corporate);}
+  .program-card:hover .program-arrow{
+    background:#fff;
+    color:var(--navy-2);
+    border-color:#fff;
+    transform:rotate(45deg);
+  }
+
+  .programs-footline{
+    display:flex;align-items:center;justify-content:center;gap:16px;
+    margin-top:60px;
+    color:var(--gray);
+    font-size:11px;
+    letter-spacing:3px;
+    font-weight:600;
+  }
+  .programs-footline::before,
+  .programs-footline::after{
+    content:"";
+    width:44px;height:1px;
+    background:var(--line);
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width:1200px){
+    .hero-side-label{display:none;}
+    .nav-links{gap:18px;}
+    .nav-links a{font-size:13px;}
+  }
+  @media (max-width:980px){
+    .nav-links{display:none;}
+    .burger{display:block;}
+    .nav-right .lang-switch{display:none;}
+    .nav-links{
+      display:flex;
+      flex-direction:column;
+      position:fixed;
+      top:0;right:0;
+      width:78%;
+      max-width:320px;
+      height:100vh;
+      background:var(--navy-2);
+      padding:110px 36px 40px;
+      gap:26px;
+      transform:translateX(100%);
+      transition:transform .35s ease;
+      z-index:40;
+      align-items:flex-start;
+    }
+    .nav-links.open{transform:translateX(0);}
+    .nav-links a{font-size:17px;}
+    .nav-overlay{
+      position:fixed;inset:0;
+      background:rgba(0,0,0,.5);
+      z-index:35;
+      opacity:0;pointer-events:none;
+      transition:opacity .3s;
+    }
+    .nav-overlay.open{opacity:1;pointer-events:auto;}
+  }
+  @media (max-width:900px){
+    .wrap,.nav-row,.hero-inner{padding-left:22px;padding-right:22px;}
+    header{padding-top:18px;}
+    .hero-inner{padding-top:120px;padding-bottom:48px;}
+    .hero-bg::after{
+      background:
+        linear-gradient(180deg, rgba(5,10,20,.55) 0%, rgba(5,10,20,.2) 35%, rgba(5,10,20,.55) 100%);
+    }
+    .hero-bg img{object-position:center 22%;}
+    .hero-text{max-width:100%;}
+    .programs{padding:64px 0 64px;}
+    .programs-head{
+      grid-template-columns:1fr;
+      gap:16px;
+      margin-bottom:32px;
+    }
+    .programs-desc{justify-self:start;max-width:100%;}
+    .programs-grid{grid-template-columns:1fr;gap:16px;}
+    .program-card{height:400px;}
+  }
+  @media (max-width:520px){
+    .logo img{height:44px;}
+    .btn-cta{padding:10px 16px;font-size:11.5px;}
+    .hero-desc{font-size:15px;max-width:78%;}
+    .hero-title{max-width:85%;}
+    .hero-text{max-width:72%;}
+    .hero-actions{
+      gap:10px;
+      flex-direction:column;
+      align-items:flex-start;
+      max-width:68%;
+    }
+    .btn-primary,.btn-ghost{
+      width:auto;
+      max-width:100%;
+      justify-content:center;
+      padding:13px 18px;
+      font-size:12px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="nav-overlay" id="navOverlay"></div>
+
+<header>
+  <div class="nav-row">
+    <a href="#home" class="logo" aria-label="Royal Academy School">
+      <img src="/school-assets/logo.png" alt="Royal Academy School">
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">Про нас</a>
+      <a href="#programs">Програми</a>
+      <a href="#programs">Для дітей</a>
+      <a href="#programs">Для дорослих</a>
+      <a href="#programs">Корпоративним клієнтам</a>
+      <a href="#programs">Контакти</a>
+    </nav>
+
+    <div class="nav-right">
+      <div class="lang-switch">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>
+        UA <span style="font-size:9px;">▼</span>
+      </div>
+      <a href="#programs" class="btn-cta">ЗАПИСАТИСЬ →</a>
+      <button class="burger" id="burgerBtn" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <picture>
+      <source media="(max-width:900px)" srcset="/school-assets/hero-mobile.png">
+      <img src="/school-assets/hero-desktop.png" alt="Royal Academy School">
+    </picture>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1 class="hero-title">Світ відкритий,<br>коли ти знаєш мови</h1>
+      <p class="hero-desc">
+        Royal Academy School — преміальна освіта, яка відкриває нові можливості,
+        дозволяє подорожувати, розвиватися та досягати більшого.
+      </p>
+      <div class="hero-actions">
+        <a href="#programs" class="btn-primary">РОЗПОЧАТИ СВІЙ ШЛЯХ →</a>
+        <a href="#programs" class="btn-ghost">
+          <span class="play-circle">▶</span>
+          ДІЗНАТИСЬ БІЛЬШЕ
+        </a>
+      </div>
+      <div class="hero-footline">PEOPLE · COMMUNICATION · A BRIGHTER TOMORROW</div>
+    </div>
+  </div>
+
+  <div class="hero-side-label">
+    A<br><span class="mark">◆</span><br>BRIGHTER<br>TOMORROW<br>BEGINS<br>WITH<br>LANGUAGES
+  </div>
+</section>
+
+<section class="programs" id="programs">
+  <div class="wrap">
+    <div class="programs-head">
+      <h2 class="programs-title">Одна школа.<br>Більше можливостей.</h2>
+      <p class="programs-desc">
+        Ми створюємо програми, які відповідають різним цілям, віку та стилю життя.
+        Оберіть свій напрям і відкрийте світ можливостей разом із Royal Academy School.
+      </p>
+    </div>
+
+    <div class="programs-grid">
+      <a href="#programs" class="program-card kids">
+        <div class="program-head">
+          <div class="program-tag">KIDS</div>
+          <div class="program-sub">Великі можливості з дитинства</div>
+        </div>
+        <div class="program-footer">
+          <p class="program-desc">Англійська, яка надихає досліджувати світ</p>
+          <span class="program-arrow">→</span>
+        </div>
+      </a>
+
+      <a href="#programs" class="program-card adults">
+        <div class="program-head">
+          <div class="program-tag">ADULTS</div>
+          <div class="program-sub">Впевненість у будь-якій ситуації</div>
+        </div>
+        <div class="program-footer">
+          <p class="program-desc">Реальне спілкування для реального життя</p>
+          <span class="program-arrow">→</span>
+        </div>
+      </a>
+
+      <a href="#programs" class="program-card corporate">
+        <div class="program-head">
+          <div class="program-tag">CORPORATE</div>
+          <div class="program-sub">Сильні команди без кордонів</div>
+        </div>
+        <div class="program-footer">
+          <p class="program-desc">Англійська для зростання вашого бізнесу</p>
+          <span class="program-arrow">→</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="programs-footline">EDUCATION WITHOUT BORDERS</div>
+  </div>
+</section>
+
+<script>
+  const burgerBtn = document.getElementById('burgerBtn');
+  const navLinks = document.getElementById('navLinks');
+  const navOverlay = document.getElementById('navOverlay');
+
+  function toggleMenu(){
+    burgerBtn.classList.toggle('open');
+    navLinks.classList.toggle('open');
+    navOverlay.classList.toggle('open');
+  }
+
+  burgerBtn.addEventListener('click', toggleMenu);
+  navOverlay.addEventListener('click', toggleMenu);
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    if (navLinks.classList.contains('open')) toggleMenu();
+  }));
+</script>
+</body>
+</html>

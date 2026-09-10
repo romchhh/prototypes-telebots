@@ -19,6 +19,13 @@ const PROTOTYPES = [
     tag: 'E-commerce',
   },
   {
+    slug: 'royal-academy',
+    href: '/school.html',
+    title: 'Royal Academy School',
+    desc: 'Школа англійської — головна з напрямами (UA)',
+    tag: 'Освіта',
+  },
+  {
     slug: 'dente',
     title: 'Denté',
     desc: 'Stomatologia — landing page (PL)',
