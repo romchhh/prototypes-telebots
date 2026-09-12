@@ -117,6 +117,12 @@ const PROTOTYPES = [
     tag: 'Авто',
   },
   {
+    slug: 'emaro',
+    title: 'Emaro Premium Auto Care',
+    desc: 'Мобільний детейлінг у Варшаві (UA / PL)',
+    tag: 'Авто',
+  },
+  {
     slug: 'litun',
     title: 'Ілля Літун',
     desc: 'Освітній бізнес — консалтинг, страт сесії, клуб (UA)',

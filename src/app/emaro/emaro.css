@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+.emaro {
+  /* Dark blue + orange */
+  --ink: #050b14;
+  --navy: #0a1424;
+  --mist: #f2f4f7;
+  --stone: #6b7785;
+  --orange: #e87722;
+  --orange-deep: #cf6515;
+  --orange-soft: #f0a05a;
+  --white: #ffffff;
+  --black: #0a0a0a;
+  --page-pad: 64px;
+  --page-pad-sm: 24px;
+  --radius: 22px;
+  --radius-sm: 14px;
+  --radius-pill: 999px;
+  --font-sans: 'Manrope', 'Helvetica Neue', sans-serif;
+  --font-display: 'Montserrat', 'Helvetica Neue', sans-serif;
+
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--white);
+}
+
+@media (max-width: 768px) {
+  .emaro {
+    --page-pad: var(--page-pad-sm);
+  }
+}
