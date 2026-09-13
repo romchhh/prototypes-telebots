@@ -1,30 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Unbounded:wght@700;800&display=swap');
 
 .cartel {
-  --deep: #0e0e0e;
-  --ink: #111111;
-  --slate: #8a8a8a;
-  --stone: #6e6e6e;
-  --mist: #f4f4f2;
-  --sand: #e8e6e1;
+  --deep: #121212;
+  --ink: #1a1a1a;
+  --slate: #7a7a7a;
+  --stone: #6a6a6a;
+  --mist: #f7f6f4;
+  --sand: #ebe8e3;
   --white: #ffffff;
   --black: #050505;
-  --accent: #7a1f2b;
-  --accent-hover: #5e1621;
-  --glass: rgba(12, 12, 12, 0.55);
+  --accent: #6f1c28;
+  --accent-hover: #54141e;
+  --glass: rgba(12, 12, 12, 0.5);
   --glass-border: rgba(255, 255, 255, 0.14);
   --radius-btn: 999px;
-  --radius-sm: 10px;
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 24px;
   --page-pad: 64px;
   --page-pad-sm: 24px;
   --font-sans: 'Montserrat', 'Helvetica Neue', sans-serif;
   --font-logo: 'Unbounded', sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --sky: #cfc9be;
   --red: var(--accent);
   --red-hover: var(--accent-hover);
   color: var(--deep);
   background: var(--white);
   font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 @media (max-width: 768px) {

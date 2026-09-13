@@ -1,29 +1,30 @@
 .section {
   background: transparent;
-  padding: 96px var(--page-pad);
+  padding: 104px var(--page-pad);
 }
 
 .inner {
   width: 100%;
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
-  gap: 56px;
+  gap: 64px;
   align-items: stretch;
 }
 
 .copy {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 20px;
+  justify-content: center;
 }
 
 .heading {
   margin: 0;
   font-family: var(--font-sans);
-  font-weight: 800;
-  font-size: clamp(36px, 5vw, 56px);
-  line-height: 0.95;
-  letter-spacing: -0.045em;
+  font-weight: 700;
+  font-size: clamp(36px, 5vw, 54px);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
   color: var(--deep);
 }
 
@@ -35,24 +36,25 @@
 .body {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 
 .body p {
   margin: 0;
   font-size: 15px;
-  line-height: 1.65;
+  line-height: 1.7;
+  font-weight: 400;
   color: var(--slate);
   max-width: 52ch;
 }
 
 .credo {
-  margin: 8px 0 0;
-  padding-top: 20px;
-  border-top: 1px solid rgba(14, 14, 14, 0.1);
+  margin: 10px 0 0;
+  padding-top: 22px;
+  border-top: 1px solid rgba(14, 14, 14, 0.08);
   font-size: 16px;
-  font-weight: 600;
-  line-height: 1.5;
+  font-weight: 500;
+  line-height: 1.55;
   letter-spacing: -0.01em;
   color: var(--deep);
   max-width: 42ch;
@@ -63,10 +65,10 @@
   width: 100%;
   min-height: 100%;
   align-self: stretch;
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
   background: #0e0e0e;
-  box-shadow: 0 24px 60px rgba(14, 14, 14, 0.12);
+  box-shadow: 0 28px 64px rgba(14, 14, 14, 0.1);
 }
 
 .video,
@@ -117,17 +119,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 72px;
-  height: 72px;
+  width: 76px;
+  height: 76px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.94);
   color: var(--accent);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
-  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+  transition: transform 0.4s var(--ease), background 0.25s;
 }
 
 .preview:hover .play {
-  transform: translate(-50%, -50%) scale(1.06);
+  transform: translate(-50%, -50%) scale(1.05);
   background: #fff;
 }
 
