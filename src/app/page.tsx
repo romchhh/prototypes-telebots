@@ -86,6 +86,13 @@ const PROTOTYPES = [
     tag: 'Нерухомість',
   },
   {
+    slug: 'cartel',
+    title: 'Cartel',
+    desc: 'Холдинг у Буковелі — ресторани, готелі, SPA (UA)',
+    tag: 'HoReCa',
+  },
+
+  {
     slug: 'common-hospitality',
     title: 'Commons Hospitality',
     desc: 'Консалтинг і управління в HoReCa — landing page (UA)',
