@@ -23,7 +23,7 @@
   display: flex;
   flex-direction: column;
   font-family: var(--font-sans);
-  font-weight: 700;
+  font-weight: 600;
   font-size: clamp(36px, 5.5vw, 62px);
   line-height: 0.94;
   letter-spacing: -0.04em;
@@ -31,9 +31,12 @@
 }
 
 .heading em {
-  font-style: normal;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.12em;
+  letter-spacing: -0.03em;
   color: var(--accent);
-  font-weight: 700;
 }
 
 .introAside {
@@ -382,9 +385,16 @@
 .hotelsBody h3 {
   margin: 0;
   font-size: clamp(28px, 3vw, 38px);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.035em;
   line-height: 1.08;
+}
+
+.hotelsBody h3 em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.12em;
 }
 
 .hotelsBody p {

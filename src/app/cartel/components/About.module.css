@@ -21,7 +21,7 @@
 .heading {
   margin: 0;
   font-family: var(--font-sans);
-  font-weight: 700;
+  font-weight: 600;
   font-size: clamp(36px, 5vw, 54px);
   line-height: 0.96;
   letter-spacing: -0.04em;
@@ -29,7 +29,11 @@
 }
 
 .heading em {
-  font-style: normal;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.14em;
+  letter-spacing: -0.03em;
   color: var(--accent);
 }
 
@@ -48,16 +52,38 @@
   max-width: 52ch;
 }
 
-.credo {
-  margin: 10px 0 0;
-  padding-top: 22px;
-  border-top: 1px solid rgba(14, 14, 14, 0.08);
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.55;
-  letter-spacing: -0.01em;
-  color: var(--deep);
+.quote {
+  position: relative;
+  margin: 16px 0 0;
+  padding: 28px 0 0 22px;
+  border-left: 2px solid var(--accent);
   max-width: 42ch;
+}
+
+.quote::before {
+  content: '“';
+  position: absolute;
+  top: -4px;
+  left: 16px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 52px;
+  line-height: 1;
+  color: var(--accent);
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.quote p {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(20px, 2.2vw, 26px);
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: var(--deep);
 }
 
 .visual {

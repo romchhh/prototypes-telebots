@@ -31,9 +31,11 @@ export default function About() {
               SPA-комплекс VODA club, lounge-zone VERANDA, автентичну «Банька на дровах» та інші проєкти.
             </p>
           </div>
-          <p className={styles.credo}>
-            Наша ідея — дати українцям можливість доступно відпочивати вдома, з якістю послуг європейського рівня.
-          </p>
+          <blockquote className={styles.quote}>
+            <p>
+              Наша ідея — дати українцям можливість доступно відпочивати вдома, з якістю послуг європейського рівня.
+            </p>
+          </blockquote>
         </div>
 
         <div className={styles.visual}>

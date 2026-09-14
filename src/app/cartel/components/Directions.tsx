@@ -129,7 +129,7 @@ export default function Directions() {
             <div className={styles.hotelsShade} />
           </div>
           <div className={styles.hotelsBody}>
-            <h3>Готелі CARTEL у Буковелі</h3>
+            <h3>Готелі CARTEL у <em>Буковелі</em></h3>
             <p>
               Комфорт біля схилів і повний сервіс холдингу: від сніданку до SPA.
               Бронюйте проживання в атмосфері Карпат.

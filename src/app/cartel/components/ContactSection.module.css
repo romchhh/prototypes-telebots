@@ -23,7 +23,7 @@
 
 .heading {
   font-family: var(--font-sans);
-  font-weight: 700;
+  font-weight: 600;
   font-size: clamp(36px, 5vw, 58px);
   line-height: 0.96;
   letter-spacing: -0.04em;
@@ -31,10 +31,11 @@
 }
 
 .heading em {
-  font-family: inherit;
-  font-style: normal;
-  font-weight: inherit;
-  letter-spacing: inherit;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.14em;
+  letter-spacing: -0.03em;
   color: var(--accent);
 }
 
@@ -284,8 +285,10 @@
 }
 
 .success h3 {
-  font-family: 'Noto Serif Display', serif;
-  font-size: 36px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 40px;
   letter-spacing: -0.02em;
   color: var(--deep);
 }

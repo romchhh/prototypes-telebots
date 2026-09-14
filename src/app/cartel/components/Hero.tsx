@@ -46,7 +46,7 @@ export default function Hero() {
           <div className={styles.titleRow}>
             <h1 className={styles.headline}>
               <span>Відпочинок</span>
-              <span>нового рівня</span>
+              <em>нового рівня</em>
               <span className={styles.headlinePlace}>
                 у Буковелі
                 <Image
