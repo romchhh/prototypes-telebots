@@ -124,6 +124,12 @@ const PROTOTYPES = [
     tag: 'Авто',
   },
   {
+    slug: 'muaythai',
+    title: 'Київська федерація муайтай',
+    desc: 'Клуби, тренери, змагання та запис на пробне заняття (UA)',
+    tag: 'Спорт',
+  },
+  {
     slug: 'emaro',
     title: 'Emaro Premium Auto Care',
     desc: 'Мобільний детейлінг у Варшаві (UA / PL)',

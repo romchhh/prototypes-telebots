@@ -1,0 +1,144 @@
+.section {
+  background: transparent;
+  padding: 40px var(--page-pad) 96px;
+}
+
+.inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 44px;
+}
+
+.intro {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.heading {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(36px, 5.5vw, 62px);
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+  color: var(--deep);
+}
+
+.heading em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.lead {
+  margin: 0;
+  max-width: 360px;
+  padding-bottom: 8px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--slate);
+}
+
+.grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(14, 14, 14, 0.05);
+  box-shadow: 0 12px 40px rgba(14, 14, 14, 0.04);
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  background: #141414;
+}
+
+.img {
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+.body {
+  padding: 16px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.body h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--deep);
+}
+
+.body p {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+
+.body span {
+  font-size: 12px;
+  color: var(--slate);
+}
+
+.more {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  align-self: flex-start;
+  padding: 14px 18px 14px 22px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.more:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.more svg {
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.more:hover svg {
+  transform: rotate(45deg);
+}
+
+@media (max-width: 1100px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 800px) {
+  .section { padding: 24px var(--page-pad) 64px; }
+  .intro {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .lead { max-width: none; padding-bottom: 0; }
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}

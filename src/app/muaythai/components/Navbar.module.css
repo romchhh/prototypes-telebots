@@ -1,0 +1,427 @@
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px var(--page-pad);
+  transition: background 0.35s, backdrop-filter 0.35s, padding 0.35s;
+}
+
+.transparent {
+  background: transparent;
+}
+
+.solid {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  padding: 14px var(--page-pad);
+  box-shadow: 0 1px 0 rgba(14, 14, 14, 0.05);
+}
+
+.solid .brand {
+  color: var(--deep);
+}
+
+.solid .center a {
+  color: var(--deep);
+}
+
+.solid .langBtn {
+  background: rgba(14, 14, 14, 0.06);
+  color: var(--deep);
+  border-color: rgba(14, 14, 14, 0.1);
+}
+
+.solid .langBtn:hover,
+.solid .langBtnOpen {
+  background: rgba(14, 14, 14, 0.1);
+  border-color: rgba(14, 14, 14, 0.16);
+}
+
+.solid .langMenu {
+  background: #fff;
+  border: 1px solid rgba(14, 14, 14, 0.08);
+  box-shadow: 0 16px 40px rgba(14, 14, 14, 0.12);
+}
+
+.solid .langMenu button {
+  color: var(--stone);
+}
+
+.solid .langMenu button:hover {
+  background: rgba(14, 14, 14, 0.05);
+  color: var(--deep);
+}
+
+.solid .langActive {
+  background: rgba(122, 31, 43, 0.1) !important;
+  color: var(--accent) !important;
+}
+
+.solid .ctaPrimary {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.solid .ctaPrimary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.solid .ctaArrow {
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+}
+
+.solid .menuBtn {
+  color: var(--deep);
+}
+
+.solid .menuArrow {
+  background: var(--accent);
+  color: #fff;
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  text-decoration: none;
+  font-family: var(--font-logo);
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: -0.04em;
+  color: #fff;
+  line-height: 1;
+}
+
+.brand span {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-left: 8px;
+  color: rgba(255,255,255,0.7);
+}
+
+.solid .brand span {
+  color: var(--accent);
+}
+
+.brandLogo {
+  width: auto;
+  height: 32px;
+  object-fit: contain;
+}
+
+.center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2vw, 36px);
+}
+.center a {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.3s var(--ease);
+}
+.center a:hover { opacity: 0.65; }
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.langWrap {
+  position: relative;
+}
+
+.langBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  cursor: pointer;
+  padding: 0;
+  backdrop-filter: blur(10px);
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.langBtn:hover,
+.langBtnOpen {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.langMenu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 88px;
+  padding: 6px;
+  border-radius: 14px;
+  background: rgba(12, 12, 12, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+  z-index: 20;
+}
+
+.langMenu button {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.55);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.langMenu button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.langActive {
+  background: rgba(122, 31, 43, 0.35) !important;
+  color: #fff !important;
+}
+
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 8px 8px 22px;
+  border-radius: var(--radius-btn);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(10px);
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.ctaPrimary:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+.ctaArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--accent);
+  color: #fff;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s;
+}
+
+.ctaPrimary:hover .ctaArrow {
+  transform: rotate(45deg);
+  background: var(--accent-hover);
+}
+
+.menuBtn {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 6px 0;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  color: #fff;
+  line-height: 1;
+}
+
+.menuArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: #fff;
+  color: var(--deep);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.menuBtn:hover .menuArrow {
+  transform: rotate(45deg);
+}
+
+.drawer {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: #fff;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  font-family: var(--font-sans);
+}
+.drawer.open { opacity: 1; pointer-events: all; }
+
+.drawerTop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+}
+
+.drawerBrand {
+  display: flex;
+  align-items: baseline;
+  text-decoration: none;
+  font-family: var(--font-logo);
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -0.04em;
+  color: var(--deep);
+}
+
+.drawerBrand span {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-left: 8px;
+  color: var(--accent);
+}
+
+.drawerNav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.drawerNav a {
+  font-family: var(--font-sans);
+  font-size: clamp(28px, 6vw, 40px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--deep);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.drawerNav a:hover { opacity: 0.55; }
+
+.drawerCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 28px;
+  padding: 8px 8px 8px 24px;
+  border-radius: var(--radius-btn);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background: var(--accent);
+  color: #fff;
+  transition: transform 0.15s, background 0.2s;
+}
+.drawerCta:hover {
+  transform: translateY(-1px);
+  background: var(--accent-hover);
+}
+
+.drawerCtaArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: #fff;
+  color: var(--accent);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.drawerCta:hover .drawerCtaArrow {
+  transform: rotate(45deg);
+}
+
+.drawerClose {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: var(--deep);
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .center { display: none; }
+}
+
+@media (max-width: 768px) {
+  .nav { padding: 18px var(--page-pad); }
+  .solid { padding: 14px var(--page-pad); }
+  .right { display: none; }
+  .menuBtn { display: inline-flex; }
+}
