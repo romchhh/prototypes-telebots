@@ -1,10 +1,8 @@
-import PrototypeBanner from '../../components/PrototypeBanner'
 import { BRAND, NAV } from '../brand'
 import styles from './Footer.module.css'
 
 export default function Footer() {
   return (
-    <>
     <footer className={styles.footer}>
       <div className={styles.top}>
         <nav className={styles.links} aria-label="Навігація в підвалі">
@@ -45,7 +43,5 @@ export default function Footer() {
         <a href="#kontakt">Пробне заняття</a>
       </div>
     </footer>
-    <PrototypeBanner />
-    </>
   )
 }
