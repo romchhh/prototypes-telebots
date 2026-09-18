@@ -26,6 +26,13 @@ const PROTOTYPES = [
     tag: 'Освіта',
   },
   {
+    slug: 'portal',
+    href: '/news.html',
+    title: 'Портал',
+    desc: 'Новинний портал — головна й сторінка статті (UA)',
+    tag: 'Медіа',
+  },
+  {
     slug: 'dente',
     title: 'Denté',
     desc: 'Stomatologia — landing page (PL)',

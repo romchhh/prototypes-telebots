@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Стаття — Портал</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#e11d2e;
+  --ink:#0c0c0e;
+  --muted:#5c5c66;
+  --line:rgba(12,12,14,.1);
+  --bg:#f7f5f2;
+  --bg-deep:#ebe7e1;
+  --paper:#fffcf8;
+  --glow:rgba(225,29,46,.12);
+  --font-display:"Instrument Serif",Georgia,serif;
+  --font-body:"Manrope",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#f4f2ee; --muted:#9a9aa3; --line:rgba(244,242,238,.12);
+    --bg:#0e0e10; --bg-deep:#16161a; --paper:#151519; --glow:rgba(225,29,46,.18);
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#f4f2ee; --muted:#9a9aa3; --line:rgba(244,242,238,.12);
+  --bg:#0e0e10; --bg-deep:#16161a; --paper:#151519; --glow:rgba(225,29,46,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{
+  font-family:var(--font-body);
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 70% 45% at 80% -5%, var(--glow), transparent 55%),
+    radial-gradient(ellipse 50% 35% at 0% 30%, rgba(12,12,14,.04), transparent 50%);
+}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;height:auto;}
+button{font:inherit;border:none;background:none;cursor:pointer;color:inherit;}
+.wrap{max-width:1280px;margin:0 auto;padding:0 28px;position:relative;z-index:1;}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;}
+}
+
+.topbar{
+  position:sticky;top:0;z-index:40;
+  backdrop-filter:blur(14px);
+  background:color-mix(in srgb, var(--bg) 82%, transparent);
+  border-bottom:1px solid var(--line);
+}
+.topbar .wrap{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;padding:14px 28px;
+}
+.brand{
+  font-family:var(--font-display);
+  font-size:clamp(28px,3.5vw,40px);
+  line-height:1;letter-spacing:-.02em;
+}
+.brand span{color:var(--red);}
+.top-actions{display:flex;align-items:center;gap:10px;}
+.icon-btn{
+  width:42px;height:42px;border-radius:50%;
+  border:1px solid var(--line);
+  display:grid;place-items:center;
+}
+.icon-btn svg{width:18px;height:18px;}
+.icon-btn .icon-sun{display:none;}
+:root[data-theme="dark"] .icon-btn .icon-moon{display:none;}
+:root[data-theme="dark"] .icon-btn .icon-sun{display:block;}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .icon-btn .icon-moon{display:none;}
+  :root:not([data-theme="light"]) .icon-btn .icon-sun{display:block;}
+}
+.lang{
+  display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-size:12px;font-weight:700;
+}
+.lang a{padding:10px 12px;color:var(--muted);}
+.lang a.active{background:var(--ink);color:var(--bg);}
+
+.article-shell{padding:28px 0 64px;animation:rise .65s ease both;}
+@keyframes rise{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
+
+.back{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:700;color:var(--muted);margin-bottom:22px;
+}
+.back:hover{color:var(--red);}
+.crumbs{font-size:13px;color:var(--muted);margin-bottom:14px;font-weight:600;}
+.crumbs b{color:var(--red);}
+
+.badge{
+  display:inline-block;background:var(--red);color:#fff;
+  font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  padding:7px 12px;border-radius:2px;margin-bottom:16px;
+}
+
+.article-title{
+  font-family:var(--font-display);
+  font-size:clamp(34px,5.5vw,62px);
+  line-height:1.05;letter-spacing:-.025em;font-weight:400;
+  max-width:920px;margin-bottom:18px;
+}
+.article-lead{
+  font-size:clamp(17px,2vw,21px);
+  color:var(--muted);max-width:720px;line-height:1.45;margin-bottom:22px;
+}
+.topmeta{
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  padding-bottom:20px;border-bottom:1px solid var(--line);margin-bottom:28px;
+  font-size:13px;font-weight:600;color:var(--muted);
+}
+.translate{color:var(--red);font-weight:800;cursor:pointer;}
+
+.hero-photo{
+  width:100%;aspect-ratio:16/8;border-radius:4px;overflow:hidden;
+  margin-bottom:14px;background:var(--bg-deep);
+}
+.hero-photo img{width:100%;height:100%;object-fit:cover;}
+.hero-caption{
+  font-size:13px;color:var(--muted);margin-bottom:34px;max-width:820px;
+}
+
+.layout{
+  display:grid;grid-template-columns:minmax(0,720px) minmax(0,1fr);
+  gap:48px;align-items:start;
+}
+.article-body{font-size:18.5px;line-height:1.75;}
+.article-body p{margin-bottom:22px;}
+.article-body blockquote{
+  border-left:3px solid var(--red);
+  padding:6px 0 6px 22px;margin:30px 0;
+  font-family:var(--font-display);font-size:26px;line-height:1.25;
+  color:var(--ink);font-style:italic;
+}
+.article-body ul{margin:0 0 22px 22px;}
+.article-body li{margin-bottom:10px;}
+.pull-img{
+  margin:32px 0;border-radius:4px;overflow:hidden;
+}
+.pull-img img{width:100%;aspect-ratio:16/10;object-fit:cover;}
+.pull-img figcaption{font-size:12.5px;color:var(--muted);padding-top:8px;}
+
+.author-box{
+  display:flex;align-items:center;gap:14px;
+  margin:34px 0 22px;padding:18px 0;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.author-box img{width:52px;height:52px;border-radius:50%;object-fit:cover;}
+.author-box strong{display:block;font-size:15px;}
+.author-box span{font-size:12.5px;color:var(--muted);}
+
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;}
+.tag{
+  border:1px solid var(--line);border-radius:999px;
+  padding:7px 14px;font-size:12.5px;color:var(--muted);font-weight:600;
+}
+.tag:hover{color:var(--red);border-color:var(--red);}
+
+.share{display:flex;gap:10px;margin-bottom:8px;}
+.share-btn{
+  width:40px;height:40px;border-radius:50%;border:1px solid var(--line);
+  display:grid;place-items:center;
+}
+.share-btn:hover{border-color:var(--red);color:var(--red);}
+
+.aside-card{
+  position:sticky;top:88px;
+  background:var(--paper);border:1px solid var(--line);
+  border-radius:4px;padding:22px;
+}
+.aside-card h3{
+  font-family:var(--font-display);font-size:24px;font-weight:400;margin-bottom:16px;
+}
+.aside-item{
+  display:grid;grid-template-columns:88px 1fr;gap:12px;
+  padding:12px 0;border-bottom:1px solid var(--line);
+}
+.aside-item:last-child{border-bottom:none;}
+.aside-item img{width:88px;height:68px;object-fit:cover;border-radius:3px;}
+.aside-item strong{
+  font-family:var(--font-display);font-size:17px;line-height:1.2;font-weight:400;
+  display:block;margin-top:4px;
+}
+.aside-item span{font-size:12px;color:var(--muted);font-weight:700;}
+
+.more{margin-top:64px;}
+.more h2{
+  font-family:var(--font-display);font-size:clamp(28px,3vw,38px);
+  font-weight:400;margin-bottom:22px;
+}
+.more-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.more-card{display:block;transition:transform .25s;}
+.more-card:hover{transform:translateY(-4px);}
+.more-card .media{aspect-ratio:16/10;overflow:hidden;border-radius:4px;margin-bottom:12px;}
+.more-card img{width:100%;height:100%;object-fit:cover;transition:transform .7s;}
+.more-card:hover img{transform:scale(1.05);}
+.more-card h3{
+  font-family:var(--font-display);font-size:22px;line-height:1.18;font-weight:400;margin:8px 0;
+}
+.meta-line{font-size:13px;font-weight:600;color:var(--muted);}
+.meta-line .rubric{color:var(--red);font-weight:800;}
+
+.missing{
+  max-width:640px;margin:80px auto;text-align:center;padding:40px 20px;
+}
+.missing h1{font-family:var(--font-display);font-size:42px;font-weight:400;margin-bottom:12px;}
+.missing p{color:var(--muted);margin-bottom:22px;}
+.missing a{
+  display:inline-flex;background:var(--red);color:#fff;
+  padding:12px 20px;border-radius:999px;font-weight:700;font-size:14px;
+}
+
+footer{
+  padding:40px 0 28px;border-top:1px solid var(--line);position:relative;z-index:1;
+}
+.footer-bottom{text-align:center;font-size:12px;color:var(--muted);}
+
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr;}
+  .aside-card{position:static;}
+  .more-grid{grid-template-columns:1fr 1fr;}
+  .hero-photo{aspect-ratio:16/10;}
+}
+@media (max-width:640px){
+  .wrap,.topbar .wrap{padding-left:16px;padding-right:16px;}
+  .more-grid{grid-template-columns:1fr;}
+  .article-body{font-size:17px;}
+  .article-body blockquote{font-size:22px;}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a href="news.html" class="brand">Портал<span>.</span></a>
+    <div class="top-actions">
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Перемкнути тему">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+      </button>
+      <div class="lang"><a href="#" class="active">UA</a><a href="#">RU</a></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap article-shell" id="articleRoot"></main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-bottom">© 2026 Портал — прототип</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  try{
+    var saved = localStorage.getItem('portal-theme');
+    if(saved === 'light' || saved === 'dark') document.documentElement.setAttribute('data-theme', saved);
+  }catch(e){}
+  var btn = document.getElementById('themeToggle');
+  if(btn){
+    btn.addEventListener('click', function(){
+      var current = document.documentElement.getAttribute('data-theme');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var effectiveDark = current ? current === 'dark' : prefersDark;
+      var next = effectiveDark ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try{ localStorage.setItem('portal-theme', next); }catch(e){}
+    });
+  }
+})();
+
+var ARTICLES = {
+  bjudzhet: {
+    type:'Новини', rubric:'Політика', badge:true, meta:'Сьогодні · 18:20 · 6 хв',
+    title:'Уряд представив проєкт бюджету з рекордними видатками на оборону',
+    lead:'Профільний комітет розпочинає розгляд документа наступного тижня — очікується гостра дискусія щодо соціальних статей.',
+    image:'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=1600&q=80',
+    caption:'Засідання в парламентській залі. Фото: стокове зображення для прототипу',
+    author:'Олена Ковальчук', role:'Кореспондентка політичного відділу',
+    avatar:'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&q=80',
+    tags:['бюджет','парламент','оборона','фінанси'],
+    body:[
+      'Кабінет міністрів передав до парламенту проєкт бюджету на наступний рік, у якому оборонні видатки становлять найбільшу частку за останнє десятиліття. Профільний комітет розпочне розгляд документа вже наступного тижня.',
+      'За словами представників уряду, пріоритетом залишається фінансування армії та відновлення інфраструктури в регіонах, що постраждали найбільше. Водночас соціальний блок бюджету зазнав перерозподілу — частину програм пропонують скоротити або відкласти.',
+      '«Це бюджет складних компромісів, а не бюджет бажань», — зазначили в комітеті з питань фінансів під час брифінгу.',
+      {img:'https://images.unsplash.com/photo-1436450412740-6b988f486c6b?auto=format&fit=crop&w=1200&q=80', cap:'Обговорення бюджетних пріоритетів триватиме кілька тижнів'},
+      'Опозиційні фракції вже заявили про намір внести альтернативні поправки. Голосування щодо прийняття документа в першому читанні очікується протягом місяця.',
+      'Експерти звертають увагу, що фінальний баланс між обороною та соціальними витратами стане головним політичним тестом сезону.'
+    ]
+  },
+  stavka: {
+    type:'Новини', rubric:'Економіка', badge:false, meta:'Сьогодні · 17:05 · 5 хв',
+    title:'Нацбанк втретє поспіль зберіг облікову ставку — що це означає для кредитів',
+    lead:'Регулятор залишає політику стриманою, щоб утримати інфляційні очікування під контролем.',
+    image:'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1600&q=80',
+    caption:'Фінансові ринки очікують сигналів щодо подальшої політики. Фото: сток',
+    author:'Максим Гриценко', role:'Економічний оглядач',
+    avatar:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=160&q=80',
+    tags:['Нацбанк','ставка','кредити','інфляція'],
+    body:[
+      'Національний банк ухвалив рішення залишити облікову ставку без змін третій місяць поспіль, пояснивши це необхідністю стабілізувати інфляційні очікування.',
+      'У прес-релізі регулятора зазначається, що поточний рівень ставки залишається стримувальним фактором для споживчого кредитування, але водночас підтримує курсову стабільність.',
+      '«Ми бачимо поступове охолодження інфляційного тиску, проте ризики залишаються асиметричними», — цитує заяву пресслужба банку.',
+      'Банківські аналітики очікують, що найближчим часом суттєвих змін у вартості іпотечних та споживчих кредитів не відбудеться.',
+      'Наступне засідання правління щодо облікової ставки заплановане за півтора місяця.'
+    ]
+  },
+  park: {
+    type:'Новини', rubric:'Події', badge:false, meta:'Сьогодні · 18:13 · 3 хв',
+    title:'У сквері на околиці міста відкрили оновлену дитячу зону відпочинку',
+    lead:'Після кількох місяців реконструкції мешканці району отримали новий простір для сімейного відпочинку.',
+    image:'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1600&q=80',
+    caption:'Оновлений громадський простір уже приймає відвідувачів. Фото: сток',
+    author:'Ірина Бондар', role:'Кореспондентка міського відділу',
+    avatar:'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=160&q=80',
+    tags:['благоустрій','місто','реконструкція'],
+    body:[
+      'Після кількох місяців реконструкції у сквері відкрили нову дитячу зону з ігровими майданчиками та зонами для активного відпочинку.',
+      'Роботи фінансувалися частково з міського бюджету, частково — за рахунок грантової підтримки. Мешканці району вже відзначають зростання кількості відвідувачів у вихідні дні.',
+      'Міська адміністрація обіцяє продовжити оновлення сусідніх зелених зон протягом року.'
+    ]
+  },
+  samit: {
+    type:'Новини', rubric:'За кордоном', badge:false, meta:'Сьогодні · 17:40 · 5 хв',
+    title:'Саміт країн-партнерів завершився домовленістю про новий формат співпраці',
+    lead:'Учасники погодили регулярні консультації, які мають зробити діалог менш залежним від разових зустрічей.',
+    image:'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1600&q=80',
+    caption:'Підсумки дводенного саміту оголосили на фінальній пресконференції. Фото: сток',
+    author:'Ірина Бондар', role:'Аналітикиня міжнародних відносин',
+    avatar:'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=160&q=80',
+    tags:['дипломатія','саміт','співпраця'],
+    body:[
+      'Учасники дводенного саміту погодили новий формат регулярних консультацій, який передбачає щоквартальні зустрічі на рівні профільних міністерств.',
+      'Сторони назвали переговори «конструктивними», однак деталі фінансового виміру домовленостей поки не розголошуються.',
+      {img:'https://images.unsplash.com/photo-1517245386807-bb43f82c60c4?auto=format&fit=crop&w=1200&q=80', cap:'Робочі групи продовжать узгодження технічних деталей'},
+      'Наступний раунд перемовин заплановано провести вже восени.'
+    ]
+  },
+  psy: {
+    type:'Новини', rubric:'Суспільство', badge:false, meta:'Сьогодні · 17:02 · 4 хв',
+    title:'Попит на консультації психологів зріс удвічі за півроку',
+    lead:'Зростання повʼязують із кращою обізнаністю про ментальне здоровʼя та доступнішими онлайн-форматами.',
+    image:'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1600&q=80',
+    caption:'Експерти фіксують зростання звернень у великих містах. Фото: сток',
+    author:'Олена Ковальчук', role:'Кореспондентка соціального відділу',
+    avatar:'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&q=80',
+    tags:["здоров'я",'суспільство','психологія'],
+    body:[
+      'За даними профільних асоціацій, кількість звернень до психологів та психотерапевтів зросла вдвічі порівняно з попереднім півріччям.',
+      'Фахівці повʼязують тенденцію зі зростанням суспільної обізнаності про ментальне здоровʼя та появою доступніших онлайн-форматів консультацій.',
+      'Водночас експерти звертають увагу на нерівномірний доступ до таких послуг у різних регіонах.'
+    ]
+  },
+  doroga: {
+    type:'Новини', rubric:'Події', badge:false, meta:'Сьогодні · 16:41 · 3 хв',
+    title:"Ремонт об'їзної дороги завершать із випередженням графіка",
+    lead:'Підрядник планує відкрити рух на два тижні раніше завдяки додатковим змінам і погоді.',
+    image:'https://images.unsplash.com/photo-1545558014-8692077e9b5c?auto=format&fit=crop&w=1600&q=80',
+    caption:'Роботи на ключовій ділянці йдуть із випередженням. Фото: сток',
+    author:'Максим Гриценко', role:'Кореспондент відділу інфраструктури',
+    avatar:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=160&q=80',
+    tags:['дороги','інфраструктура','ремонт'],
+    body:[
+      "Підрядник повідомив, що роботи з ремонту ключової об'їзної дороги вдасться завершити на два тижні раніше запланованого терміну.",
+      'Прискорення повʼязують зі сприятливими погодними умовами та додатковими змінами бригад у денний час.',
+      'Місцева влада обіцяє оприлюднити точну дату відкриття руху протягом тижня.'
+    ]
+  },
+  grant: {
+    type:'Новини', rubric:'Економіка', badge:false, meta:'Вчора · 15:34 · 4 хв',
+    title:'Стартував прийом заявок на грантову підтримку малого бізнесу',
+    lead:'Максимальний розмір підтримки — до півмільйона гривень. Пріоритет — виробництво та відновлення громад.',
+    image:'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=80',
+    caption:'Підприємці вже готують перші пакети документів. Фото: сток',
+    author:'Максим Гриценко', role:'Економічний оглядач',
+    avatar:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=160&q=80',
+    tags:['гранти','малий бізнес','підтримка'],
+    body:[
+      'Розпочався прийом заявок на новий раунд грантової програми для малого та середнього бізнесу. Максимальний розмір підтримки — до півмільйона гривень на проєкт.',
+      'Пріоритет надаватиметься проєктам у виробничій сфері та у громадах, що найбільше постраждали від бойових дій.',
+      'Подати заявку можна протягом наступних шести тижнів через електронний кабінет програми.'
+    ]
+  },
+  tech: {
+    type:'Новини', rubric:'Технології', badge:true, meta:'Сьогодні · 15:58 · 5 хв',
+    title:'Перший публічний дата-центр на зеленій енергії запрацював у пілотному режимі',
+    lead:'Оператор обіцяє знизити вуглецевий слід хмарних сервісів і відкрити доступ для державних і приватних клієнтів.',
+    image:'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=80',
+    caption:'Новий обʼєкт працюватиме в тестовому режимі до кінця кварталу. Фото: сток',
+    author:'Олена Ковальчук', role:'Кореспондентка технологічного відділу',
+    avatar:'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&q=80',
+    tags:['технології','енергетика','дата-центри'],
+    body:[
+      'У країні запустили перший публічний дата-центр, який живиться переважно від відновлюваних джерел енергії. Пілотний режим триватиме кілька місяців.',
+      'Оператор заявляє про потенційне зниження вуглецевого сліду хмарних сервісів до 40% порівняно з типовими майданчиками.',
+      '«Це не лише про ефективність, а про нову стандартну планку для індустрії», — сказали на презентації.',
+      {img:'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80', cap:'Інфраструктура розрахована на масштабування протягом наступних двох років'},
+      'Першими клієнтами стануть державні реєстри та кілька приватних компаній із сектору фінтеху.'
+    ]
+  },
+  culture: {
+    type:'Новини', rubric:'Культура', badge:false, meta:'Сьогодні · 14:20 · 4 хв',
+    title:'У столиці відкрили найбільшу виставку сучасного мистецтва за десятиліття',
+    lead:'Експозиція обʼєднала понад 120 робіт українських і європейських авторів.',
+    image:'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=1600&q=80',
+    caption:'Відкриття зібрало митців, кураторів і відвідувачів з кількох міст. Фото: сток',
+    author:'Ірина Бондар', role:'Оглядачка культури',
+    avatar:'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=160&q=80',
+    tags:['культура','виставка','мистецтво'],
+    body:[
+      'У столичному музеї відкрили масштабну виставку сучасного мистецтва — найбільшу за останні десять років за кількістю експонатів і площею залу.',
+      'Куратори кажуть, що хотіли показати діалог між локальними й європейськими практиками без навʼязливого поділу на «своє» і «чуже».',
+      'Виставка триватиме до кінця сезону, квитки вже доступні онлайн.'
+    ]
+  },
+  sport: {
+    type:'Новини', rubric:'Спорт', badge:false, meta:'Вчора · 21:10 · 3 хв',
+    title:'Національна збірна вийшла у фінал континентального турніру',
+    lead:'Матч-відповідь завершився перемогою з рахунком 2:1 після напруженої другої половини.',
+    image:'https://images.unsplash.com/photo-1461896836934-ffe607ba6851?auto=format&fit=crop&w=1600&q=80',
+    caption:'Стадіон зустрів вирішальний гол оваціями. Фото: сток',
+    author:'Максим Гриценко', role:'Спортивний оглядач',
+    avatar:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=160&q=80',
+    tags:['спорт','збірна','фінал'],
+    body:[
+      'Національна збірна пробилася до фіналу континентального турніру після вольової перемоги в матчі-відповіді.',
+      'Вирішальний мʼяч було забито на 78-й хвилині. Тренерський штаб назвав гру «командною» і подякував уболівальникам за підтримку.',
+      'Фінал відбудеться наступної середи на нейтральному полі.'
+    ]
+  },
+  kolonka1: {
+    type:'Думки', rubric:'Політика', badge:false, meta:'Сьогодні · колонка',
+    title:'Чому бюджетна дискусія цього року буде складнішою, ніж здається',
+    lead:'За оборонними цифрами ховається головне політичне питання сезону — хто заплатить за компроміс.',
+    image:'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=1600&q=80',
+    caption:'Колонка. Ілюстративне фото',
+    author:'Олена Ковальчук', role:'Колумністка, оглядачка політики',
+    avatar:'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&q=80',
+    tags:['думка','бюджет','політика'],
+    body:[
+      'Щороку бюджетний процес перетворюється на випробування для коаліції, але цього разу ставки вищі: одночасно потрібно закрити оборонні потреби та втримати соціальну стабільність.',
+      'Компроміс, який запропонував уряд, навряд чи задовольнить усі фракції — і саме тому найцікавіше почнеться вже після першого читання.',
+      'Питання не в тому, чи пройде документ. Питання в тому, яку ціну політичної довіри доведеться заплатити за кожну правку.'
+    ]
+  },
+  kolonka2: {
+    type:'Думки', rubric:'Економіка', badge:false, meta:'Сьогодні · колонка',
+    title:'Стабільна ставка — це ще не стабільна економіка',
+    lead:'Незмінна цифра Нацбанку виглядає як спокій, але бізнес чує в ній інше повідомлення.',
+    image:'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1600&q=80',
+    caption:'Колонка. Ілюстративне фото',
+    author:'Максим Гриценко', role:'Економічний оглядач',
+    avatar:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=160&q=80',
+    tags:['думка','економіка','Нацбанк'],
+    body:[
+      'Незмінна облікова ставка виглядає як ознака стабільності, але за цифрою ховається обережність регулятора, який не готовий ризикувати заради стимулювання росту.',
+      'Питання в тому, чи вистачить бізнесу терпіння чекати на помʼякшення політики, чи інвестиційні рішення відкладатимуть і надалі.'
+    ]
+  },
+  kolonka3: {
+    type:'Думки', rubric:'За кордоном', badge:false, meta:'Сьогодні · колонка',
+    title:'Новий формат перемовин: що насправді змінюється',
+    lead:'Щоквартальні консультації — технічна деталь на папері й потенційно важлива інституційна зміна на практиці.',
+    image:'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1600&q=80',
+    caption:'Колонка. Ілюстративне фото',
+    author:'Ірина Бондар', role:'Аналітикиня міжнародних відносин',
+    avatar:'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=160&q=80',
+    tags:['думка','дипломатія','міжнародні відносини'],
+    body:[
+      'Щоквартальні консультації звучать як технічна деталь, але насправді це спроба зробити діалог менш залежним від політичної конʼюнктури окремих зустрічей.',
+      'Питання ефективності нового формату стане зрозумілим не раніше ніж після другого-третього раунду.'
+    ]
+  }
+};
+
+function esc(s){
+  return String(s).replace(/[&<>"']/g, function(c){
+    return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]);
+  });
+}
+
+function renderBody(list){
+  return list.map(function(p){
+    if(typeof p === 'object' && p.img){
+      return '<figure class="pull-img"><img src="'+esc(p.img)+'" alt=""><figcaption>'+esc(p.cap||'')+'</figcaption></figure>';
+    }
+    if(String(p).charAt(0) === '«') return '<blockquote>'+esc(p)+'</blockquote>';
+    return '<p>'+esc(p)+'</p>';
+  }).join('');
+}
+
+function renderArticle(id, a){
+  var moreKeys = Object.keys(ARTICLES).filter(function(k){ return k !== id; }).slice(0, 3);
+  var asideKeys = Object.keys(ARTICLES).filter(function(k){ return k !== id; }).slice(3, 7);
+
+  var aside = asideKeys.map(function(k){
+    var m = ARTICLES[k];
+    return '<a class="aside-item" href="article.html?id='+esc(k)+'">'+
+      '<img src="'+esc(m.image)+'" alt="">'+
+      '<div><span>'+esc(m.rubric)+'</span><strong>'+esc(m.title)+'</strong></div></a>';
+  }).join('');
+
+  var more = moreKeys.map(function(k){
+    var m = ARTICLES[k];
+    return '<a class="more-card" href="article.html?id='+esc(k)+'">'+
+      '<div class="media"><img src="'+esc(m.image)+'" alt=""></div>'+
+      '<div class="meta-line"><span class="rubric">'+esc(m.rubric)+'</span> · '+esc(m.meta)+'</div>'+
+      '<h3>'+esc(m.title)+'</h3></a>';
+  }).join('');
+
+  return ''+
+    '<a class="back" href="news.html">'+
+      '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>'+
+      'До головної</a>'+
+    '<div class="crumbs"><b>'+esc(a.type)+'</b> → '+esc(a.rubric)+'</div>'+
+    (a.badge ? '<div class="badge">В фокусі</div>' : '')+
+    '<h1 class="article-title">'+esc(a.title)+'</h1>'+
+    '<p class="article-lead">'+esc(a.lead)+'</p>'+
+    '<div class="topmeta"><span>'+esc(a.meta)+'</span><span class="translate" id="translateSwitch">Читать на русском</span></div>'+
+    '<div class="hero-photo"><img src="'+esc(a.image)+'" alt=""></div>'+
+    '<div class="hero-caption">'+esc(a.caption)+'</div>'+
+    '<div class="layout">'+
+      '<div>'+
+        '<div class="article-body">'+renderBody(a.body)+'</div>'+
+        '<div class="author-box">'+
+          '<img src="'+esc(a.avatar)+'" alt="">'+
+          '<div><strong>'+esc(a.author)+'</strong><span>'+esc(a.role)+'</span></div>'+
+        '</div>'+
+        '<div class="tags">'+a.tags.map(function(t){ return '<a class="tag" href="#">#'+esc(t)+'</a>'; }).join('')+'</div>'+
+        '<div class="share">'+
+          '<button class="share-btn" type="button" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></button>'+
+          '<button class="share-btn" type="button" aria-label="Telegram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg></button>'+
+        '</div>'+
+      '</div>'+
+      '<aside class="aside-card"><h3>Читайте також</h3>'+aside+'</aside>'+
+    '</div>'+
+    '<section class="more"><h2>Більше матеріалів</h2><div class="more-grid">'+more+'</div></section>';
+}
+
+(function(){
+  var params = new URLSearchParams(window.location.search);
+  var id = params.get('id') || 'bjudzhet';
+  var root = document.getElementById('articleRoot');
+  var a = ARTICLES[id];
+
+  if(!a){
+    root.innerHTML = '<div class="missing"><h1>Матеріал не знайдено</h1><p>Цієї новини немає в прототипі.</p><a href="news.html">На головну</a></div>';
+    document.title = 'Не знайдено — Портал';
+    return;
+  }
+
+  document.title = a.title + ' — Портал';
+  root.innerHTML = renderArticle(id, a);
+
+  var tr = document.getElementById('translateSwitch');
+  if(tr){
+    tr.addEventListener('click', function(){
+      this.textContent = this.textContent.indexOf('русском') > -1 ? 'Читати українською' : 'Читать на русском';
+    });
+  }
+})();
+</script>
+</body>
+</html>
