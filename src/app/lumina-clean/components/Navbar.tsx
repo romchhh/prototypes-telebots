@@ -82,9 +82,8 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
             <span>{phoneDisplay}</span>
           </a>
           <button className={styles.menuBtn} onClick={() => setMenuOpen(true)} aria-label={t.nav.openMenu}>
-            [menu]
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M2 14 L14 2 M6 2 H14 V10" />
+            <svg width="22" height="16" viewBox="0 0 22 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
+              <path d="M1 2h20M1 8h20M1 14h20" />
             </svg>
           </button>
         </div>
