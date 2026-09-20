@@ -14,7 +14,7 @@ export const SERVICE_IMAGES: Record<string, string> = {
   recurring:
     'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=80',
   standard:
-    'https://images.unsplash.com/photo-1556911220-bff31c875dbf?auto=format&fit=crop&w=900&q=80',
+    'https://images.unsplash.com/photo-1556912173-46c336c7fd55?auto=format&fit=crop&w=900&q=80',
   deep:
     'https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=900&q=80',
   move:
