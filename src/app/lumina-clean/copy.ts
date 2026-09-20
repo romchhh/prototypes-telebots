@@ -1,0 +1,81 @@
+export type ServiceItem = {
+  id: string
+  title: string
+  desc: string
+}
+
+export const t = {
+  nav: {
+    services: 'Services',
+    areas: 'Service areas',
+    about: 'About',
+    cta: 'Get a quote',
+    openMenu: 'Open menu',
+    closeMenu: 'Close',
+    mobileNav: 'Mobile navigation',
+  },
+  hero: {
+    lines: [
+      'Premium home cleaning',
+      'for apartments & homes',
+      'across South Florida',
+    ],
+    accent: 'cleaning',
+    pillars: ['Recurring', 'Deep clean', 'Move-out'] as [string, string, string],
+    cardLabel: 'South Florida',
+    cardTitle: 'Book a cleaning',
+    cardSub: 'Choose a service, leave contacts\nand your ZIP — we handle the rest',
+  },
+  services: {
+    heading: 'Choose your',
+    headingEm: 'cleaning',
+    lead: 'Pick the service that fits your home or office — then we’ll confirm a time in your ZIP.',
+    cta: 'Book this',
+    items: [
+      { id: 'recurring', title: 'Recurring cleaning', desc: 'Weekly or biweekly upkeep so the home stays guest-ready.' },
+      { id: 'standard', title: 'One-time standard', desc: 'A full reset of kitchens, baths, floors, and living spaces.' },
+      { id: 'deep', title: 'Deep cleaning', desc: 'Baseboards, appliances, grout, and the spots regular cleans skip.' },
+      { id: 'move', title: 'Move-in / move-out', desc: 'Empty-home detail before keys change hands.' },
+      { id: 'office', title: 'Office & commercial', desc: 'Studios, suites, and small offices after hours.' },
+      { id: 'airbnb', title: 'Airbnb turnover', desc: 'Same-day guest-ready resets between bookings.' },
+    ] as ServiceItem[],
+  },
+  contact: {
+    heading: 'Book your',
+    headingEm: 'visit',
+    lead: 'Choose a cleaning type, add your contacts and ZIP — we’ll confirm a slot that works.',
+    visualLabel: 'Lumina Cleaning Co.',
+    visualText: 'Residential & commercial cleaning · Miami',
+    visualAlt: 'Professional house cleaning in a modern city apartment',
+    formTitle: 'Request a visit',
+    name: 'Full name',
+    namePh: 'Your name',
+    phone: 'Phone',
+    phonePh: '(305) 555-0148',
+    email: 'Email',
+    emailPh: 'you@email.com',
+    zip: 'ZIP code',
+    zipPh: '33101',
+    service: 'Cleaning type',
+    servicePh: 'Select a service',
+    comment: 'Notes',
+    commentPh: 'Home size, pets, preferred day or time…',
+    consent: 'By sending this form you agree to the processing of your personal data',
+    submit: 'Request a quote',
+    submitting: 'Sending…',
+    successTitle: 'Thank you!',
+    successText: 'We’ll reach out shortly to confirm availability in your ZIP.',
+    zipError: 'Enter a valid 5-digit US ZIP',
+  },
+  footer: {
+    navLabel: 'Footer navigation',
+    links: ['About the company', 'Services', 'Service areas', 'Pricing', 'Reviews'] as [string, string, string, string, string],
+    hours: 'Hours',
+    hoursWeek: 'Mon–Sat: 8:00 AM – 7:00 PM',
+    hoursSun: 'Sunday — by appointment',
+    contactsTitle: 'Contact',
+    social: 'Social',
+    rights: 'All rights reserved.',
+    privacy: 'Privacy policy',
+  },
+} as const

@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+.lumina-clean {
+  --ink: #050b14;
+  --navy: #0a1424;
+  --mist: #f2f4f7;
+  --stone: #6b7785;
+  --accent: #12a494;
+  --accent-deep: #0e8a7d;
+  --accent-soft: #5ecfc4;
+  --white: #ffffff;
+  --black: #0a0a0a;
+  --page-pad: 64px;
+  --page-pad-sm: 24px;
+  --radius: 22px;
+  --radius-sm: 14px;
+  --radius-pill: 999px;
+  --font-sans: 'Manrope', 'Helvetica Neue', sans-serif;
+  --font-display: 'Montserrat', 'Helvetica Neue', sans-serif;
+
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--white);
+}
+
+.lumina-clean #book,
+.lumina-clean #services {
+  scroll-margin-top: 88px;
+}
+
+@media (max-width: 768px) {
+  .lumina-clean {
+    --page-pad: var(--page-pad-sm);
+  }
+}

@@ -143,6 +143,12 @@ const PROTOTYPES = [
     tag: 'Авто',
   },
   {
+    slug: 'lumina-clean',
+    title: 'Lumina Cleaning Co.',
+    desc: 'Клінінг у США — тип послуги, контакти та ZIP (EN)',
+    tag: 'Сервіс',
+  },
+  {
     slug: 'litun',
     title: 'Ілля Літун',
     desc: 'Освітній бізнес — консалтинг, страт сесії, клуб (UA)',
