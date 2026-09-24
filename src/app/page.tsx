@@ -33,6 +33,13 @@ const PROTOTYPES = [
     tag: 'Медіа',
   },
   {
+    slug: '12feet',
+    href: '/12feet.html',
+    title: '12 FEET',
+    desc: "Billiard Club & Gentlemen's Lounge — Bratislava (RU)",
+    tag: 'HoReCa',
+  },
+  {
     slug: 'dente',
     title: 'Denté',
     desc: 'Stomatologia — landing page (PL)',
