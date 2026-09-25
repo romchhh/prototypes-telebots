@@ -40,6 +40,27 @@ const PROTOTYPES = [
     tag: 'HoReCa',
   },
   {
+    slug: 'home-hub',
+    href: '/home-hub.html',
+    title: 'Home Hub',
+    desc: 'Scandinavian interior doors — Bergen (EN)',
+    tag: 'E-commerce',
+  },
+  {
+    slug: 'hub-studio',
+    href: '/danapris.html',
+    title: 'Hub Studio',
+    desc: 'Interior doors — каталоговий layout, зелений акцент (EN)',
+    tag: 'E-commerce',
+  },
+  {
+    slug: 'home-hub-edition',
+    href: '/home-hub-edition.html',
+    title: 'Home Hub — Edition',
+    desc: 'Двері — split hero, bento, конфігуратор (EN)',
+    tag: 'E-commerce',
+  },
+  {
     slug: 'dente',
     title: 'Denté',
     desc: 'Stomatologia — landing page (PL)',

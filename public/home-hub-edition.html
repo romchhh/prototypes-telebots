@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>home hub — doors edition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #eceae6;
+      --surface: #f7f6f3;
+      --ink: #0c0c0c;
+      --muted: #5c5c5c;
+      --line: rgba(12, 12, 12, 0.12);
+      --radius: 4px;
+      --max: 1480px;
+      --pad: clamp(16px, 3vw, 32px);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; border: none; background: none; }
+    img { display: block; max-width: 100%; height: auto; }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+
+    /* Header */
+    .top {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+    }
+    .top-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      gap: 24px;
+    }
+    .logo {
+      font-size: 1.125rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      text-transform: lowercase;
+    }
+    .nav {
+      display: none;
+      gap: 32px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .nav a { color: var(--muted); transition: color 0.2s; }
+    .nav a:hover { color: var(--ink); }
+    .top-actions { display: flex; align-items: center; gap: 12px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .btn-fill {
+      background: var(--ink);
+      color: var(--surface);
+    }
+    .btn-fill:hover { background: #2a2a2a; }
+    .btn-line {
+      border: 1px solid var(--ink);
+      color: var(--ink);
+    }
+    .btn-line:hover { background: var(--ink); color: var(--surface); }
+    .cart-dot {
+      min-width: 18px;
+      height: 18px;
+      padding: 0 5px;
+      background: var(--ink);
+      color: var(--surface);
+      font-size: 10px;
+      font-weight: 700;
+      border-radius: 99px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (min-width: 900px) {
+      .nav { display: flex; }
+      .menu-btn { display: none; }
+    }
+
+    /* Split hero — no text on photo */
+    .hero-split {
+      display: grid;
+      min-height: min(88vh, 820px);
+      border-bottom: 1px solid var(--line);
+    }
+    @media (min-width: 900px) {
+      .hero-split { grid-template-columns: 1fr 1.05fr; }
+    }
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: var(--pad);
+      padding-top: clamp(48px, 8vh, 80px);
+      padding-bottom: clamp(40px, 6vh, 64px);
+      background: var(--surface);
+      border-right: 1px solid var(--line);
+    }
+    .hero-copy h1 {
+      font-size: clamp(3.5rem, 11vw, 7.5rem);
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      line-height: 0.92;
+      text-transform: lowercase;
+    }
+    .hero-lead {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: var(--muted);
+      max-width: 28ch;
+      margin-top: 28px;
+      line-height: 1.55;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 24px;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    .hero-visual {
+      position: relative;
+      min-height: 360px;
+      background: #ddd;
+    }
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: inherit;
+      position: absolute;
+      inset: 0;
+    }
+    .hero-visual figcaption {
+      position: absolute;
+      bottom: var(--pad);
+      right: var(--pad);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--surface);
+      background: var(--ink);
+      padding: 10px 14px;
+    }
+
+    /* Floating marquee */
+    .marquee-float {
+      position: relative;
+      z-index: 25;
+      padding: 0 var(--pad);
+      margin-top: clamp(-36px, -4vw, -24px);
+      margin-bottom: clamp(40px, 6vh, 64px);
+      pointer-events: none;
+    }
+    .marquee {
+      overflow: hidden;
+      background: var(--ink);
+      color: var(--surface);
+      border-radius: 2px;
+      padding: 15px 0;
+      box-shadow:
+        0 20px 50px rgba(12, 12, 12, 0.14),
+        0 0 0 1px rgba(12, 12, 12, 0.06);
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee-drift 42s linear infinite;
+    }
+    .marquee-group {
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+      gap: 1.5rem;
+      padding-right: 3rem;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+    .marquee-group .dot {
+      opacity: 0.35;
+      user-select: none;
+    }
+    @keyframes marquee-drift {
+      to { transform: translateX(-50%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-track {
+        animation: none;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem 1.25rem;
+        padding: 0 var(--pad);
+      }
+      .marquee-group:last-child { display: none; }
+    }
+
+    /* Bento */
+    .section { padding: clamp(64px, 10vh, 100px) 0; }
+    .section-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px 24px;
+      margin-bottom: 32px;
+    }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 0;
+      max-width: 20ch;
+    }
+    .section-head .section-title { margin-bottom: 0; }
+    .section-lead {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 36ch;
+      line-height: 1.55;
+    }
+    .text-link {
+      font-size: 14px;
+      font-weight: 600;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 2px;
+      transition: opacity 0.2s;
+    }
+    .text-link:hover { opacity: 0.65; }
+    .bento {
+      display: grid;
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    @media (min-width: 768px) {
+      .bento { grid-template-columns: repeat(4, 1fr); grid-template-rows: auto auto; }
+      .bento-a { grid-column: span 2; grid-row: span 2; }
+      .bento-b { grid-column: span 2; }
+    }
+    .bento > * {
+      background: var(--surface);
+      min-height: 200px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+    .bento-img {
+      padding: 0;
+      min-height: 280px;
+      position: relative;
+      overflow: hidden;
+    }
+    .bento-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 280px;
+      position: absolute;
+      inset: 0;
+      transition: transform 0.6s ease;
+    }
+    .bento-img:hover img { transform: scale(1.03); }
+    .bento h3 { font-size: 1.125rem; font-weight: 600; letter-spacing: -0.02em; }
+    .bento p { font-size: 13px; color: var(--muted); }
+    .bento .price { font-size: 1.25rem; font-weight: 700; margin-top: 8px; }
+    .bento-dark {
+      background: var(--ink);
+      color: var(--surface);
+    }
+    .bento-dark p { color: rgba(247, 246, 243, 0.55); }
+
+    /* Horizontal scroll collection */
+    .scroll-row {
+      display: flex;
+      gap: 1px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      background: var(--line);
+      border: 1px solid var(--line);
+      -webkit-overflow-scrolling: touch;
+    }
+    .scroll-row::-webkit-scrollbar { height: 4px; }
+    .scroll-row::-webkit-scrollbar-thumb { background: var(--ink); }
+    .scroll-item {
+      flex: 0 0 min(85vw, 380px);
+      scroll-snap-align: start;
+      background: var(--surface);
+      border-right: 1px solid var(--line);
+      transition: background 0.25s;
+    }
+    .scroll-item:hover { background: var(--bg); }
+    .scroll-item img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+    }
+    .scroll-item div { padding: 24px; }
+    .scroll-item h3 { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+    .scroll-item span { font-size: 13px; color: var(--muted); }
+    .scroll-item button.scroll-add {
+      margin-top: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .scroll-item button.scroll-add:hover { opacity: 0.6; }
+
+    /* Studio block */
+    .studio {
+      display: grid;
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    @media (min-width: 900px) {
+      .studio { grid-template-columns: 1.2fr 1fr; }
+    }
+    .studio-media {
+      min-height: 400px;
+      position: relative;
+      overflow: hidden;
+    }
+    .studio-media img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .studio-text {
+      background: var(--ink);
+      color: var(--surface);
+      padding: clamp(40px, 6vw, 72px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .studio-text p { color: rgba(247, 246, 243, 0.65); margin-top: 16px; max-width: 40ch; line-height: 1.6; }
+    .studio-text h2 {
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    /* Configurator teaser — unique to v3 */
+    .config {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: clamp(32px, 5vw, 56px);
+      display: grid;
+      gap: 32px;
+    }
+    @media (min-width: 768px) {
+      .config { grid-template-columns: 1fr auto; align-items: center; }
+    }
+    .config-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .chip {
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      border: 1px solid var(--line);
+      background: var(--bg);
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+    .chip.is-on {
+      background: var(--ink);
+      color: var(--surface);
+      border-color: var(--ink);
+    }
+
+    /* Footer */
+    .foot {
+      border-top: 1px solid var(--line);
+      padding: 48px 0 32px;
+      background: var(--surface);
+    }
+    .foot-grid {
+      display: grid;
+      gap: 32px;
+    }
+    @media (min-width: 768px) {
+      .foot-grid { grid-template-columns: 2fr 1fr 1fr; }
+    }
+    .foot-bottom {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    /* Modal */
+    .modal-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(12, 12, 12, 0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .modal-bg.open { display: flex; }
+    .modal {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      max-width: 420px;
+      width: 100%;
+      padding: 32px;
+    }
+    .modal h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; }
+    .modal p { font-size: 14px; color: var(--muted); margin-bottom: 24px; }
+    .field { margin-bottom: 16px; }
+    .field label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--muted);
+    }
+    .field input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      background: var(--bg);
+      font: inherit;
+      outline: none;
+    }
+    .field input:focus { border-color: var(--ink); }
+    ::selection {
+      background: var(--ink);
+      color: var(--surface);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--ink);
+      color: var(--surface);
+      font-size: 13px;
+      padding: 12px 20px;
+      z-index: 110;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top">
+    <div class="wrap top-inner">
+      <a href="#" class="logo">home hub</a>
+      <nav class="nav">
+        <a href="#pieces">Doors</a>
+        <a href="#studio">Workshop</a>
+        <a href="#build">Configure</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="top-actions">
+        <button type="button" class="btn btn-line" onclick="toggleCart()" style="padding:10px 14px;">
+          Cart <span class="cart-dot" id="cartCount">0</span>
+        </button>
+        <button type="button" class="btn btn-fill" onclick="openModal()">Consult</button>
+        <button type="button" class="menu-btn btn btn-line" style="padding:10px 14px;">Menu</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero-split">
+    <div class="hero-copy">
+      <div>
+        <h1>home hub</h1>
+        <p class="hero-lead">Interior doors in solid oak — measured on site, built and hung in Bergen.</p>
+        <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;">
+          <a href="#pieces" class="btn btn-fill">View models</a>
+          <button type="button" class="btn btn-line" onclick="openModal()">Book visit</button>
+        </div>
+      </div>
+      <div class="hero-meta">
+        <span>Est. 2022</span>
+        <span>Interior doors only</span>
+        <span>Measure &amp; fit</span>
+      </div>
+    </div>
+    <figure class="hero-visual">
+      <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=85&w=1400" alt="Flush oak doors in a minimal interior" width="1400" height="1000">
+      <figcaption>Flush oak doors · Oslo 2025</figcaption>
+    </figure>
+  </section>
+
+  <div class="marquee-float" aria-hidden="true">
+    <div class="marquee">
+      <div class="marquee-track">
+        <span class="marquee-group">
+          Flush <span class="dot">·</span> Panel <span class="dot">·</span> Sliding <span class="dot">·</span> Glazed <span class="dot">·</span> Custom sizes <span class="dot">·</span> Bergen <span class="dot">·</span> Oslo <span class="dot">·</span> Stockholm <span class="dot">·</span>
+        </span>
+        <span class="marquee-group">
+          Flush <span class="dot">·</span> Panel <span class="dot">·</span> Sliding <span class="dot">·</span> Glazed <span class="dot">·</span> Custom sizes <span class="dot">·</span> Bergen <span class="dot">·</span> Oslo <span class="dot">·</span> Stockholm <span class="dot">·</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <section id="pieces" class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="section-title">Core models</h2>
+        <a href="#build" class="text-link">Configure a door</a>
+      </div>
+      <div class="bento">
+        <article class="bento-img bento-a">
+          <img src="https://images.unsplash.com/photo-1569527839195-ba98908367bc?auto=format&fit=crop&q=80&w=1000" alt="Bergen flush door">
+        </article>
+        <article>
+          <h3>Bergen flush door</h3>
+          <p>Full-height oak leaf, concealed hinges.</p>
+          <span class="price">$890</span>
+          <button type="button" class="btn btn-line" style="margin-top:16px;width:100%;" onclick="addCart('Bergen flush door')">Add to quote</button>
+        </article>
+        <article>
+          <h3>Nordic panel door</h3>
+          <p>Vertical panels, rebated frame.</p>
+          <span class="price">$1,050</span>
+          <button type="button" class="btn btn-line" style="margin-top:16px;width:100%;" onclick="addCart('Nordic panel door')">Add to quote</button>
+        </article>
+        <article class="bento-b bento-dark">
+          <h3>Oslo sliding door</h3>
+          <p>Top track, oak frame, soft-close kit.</p>
+          <span class="price">$1,480</span>
+        </article>
+        <article class="bento-img">
+          <img src="https://images.unsplash.com/photo-1545823812-db292ff51ca7?auto=format&fit=crop&q=80&w=800" alt="Glazed door">
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="section-title" style="font-size:clamp(1.5rem,3vw,2rem);">More models</h2>
+        <p class="section-lead">Glazed leaves, double doors, and hardware options from the workshop.</p>
+      </div>
+      <div class="scroll-row" id="scrollRow">
+        <article class="scroll-item">
+          <img src="https://images.unsplash.com/photo-1545823812-db292ff51ca7?auto=format&fit=crop&q=80&w=600" alt="Harbor glazed door">
+          <div>
+            <h3>Harbor glazed door</h3>
+            <span>$1,320</span>
+            <button type="button" class="scroll-add" onclick="addCart('Harbor glazed door')">Add to quote</button>
+          </div>
+        </article>
+        <article class="scroll-item">
+          <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&q=80&w=600" alt="Double door set">
+          <div>
+            <h3>Double door set</h3>
+            <span>$2,100</span>
+            <button type="button" class="scroll-add" onclick="addCart('Double door set')">Add to quote</button>
+          </div>
+        </article>
+        <article class="scroll-item">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=600" alt="Pocket sliding door">
+          <div>
+            <h3>Pocket sliding door</h3>
+            <span>$1,750</span>
+            <button type="button" class="scroll-add" onclick="addCart('Pocket sliding door')">Add to quote</button>
+          </div>
+        </article>
+        <article class="scroll-item">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=600" alt="Rebated frame kit">
+          <div>
+            <h3>Rebated frame kit</h3>
+            <span>$420</span>
+            <button type="button" class="scroll-add" onclick="addCart('Rebated frame kit')">Add to quote</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="studio" class="section">
+    <div class="wrap studio">
+      <div class="studio-media">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=1200" alt="Door workshop">
+      </div>
+      <div class="studio-text">
+        <h2>Door workshop</h2>
+        <p>We measure openings on site, build leaves and frames in oak, then hang and adjust on delivery day.</p>
+        <button type="button" class="btn btn-fill" style="margin-top:28px;align-self:flex-start;background:var(--surface);color:var(--ink);" onclick="openModal()">Book a measure</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="build" class="section">
+    <div class="wrap config">
+      <div>
+        <h2 class="section-title" style="margin-bottom:0;font-size:clamp(1.5rem,3vw,2.25rem);">Configure your door</h2>
+        <p style="color:var(--muted);margin-top:12px;max-width:42ch;">Choose a starting point — exact opening size is confirmed on site.</p>
+        <div class="config-options" id="chips">
+          <button type="button" class="chip is-on" data-chip>70 cm leaf</button>
+          <button type="button" class="chip" data-chip>90 cm leaf</button>
+          <button type="button" class="chip is-on" data-chip>Natural oil</button>
+          <button type="button" class="chip" data-chip>Smoked oak</button>
+          <button type="button" class="chip" data-chip>Frosted glass</button>
+        </div>
+      </div>
+      <div style="text-align:left;">
+        <p style="font-size:2.5rem;font-weight:700;letter-spacing:-0.03em;" id="configPrice">$1,050</p>
+        <p style="font-size:13px;color:var(--muted);margin-top:8px;">Estimated · excl. delivery</p>
+        <button type="button" class="btn btn-fill" style="margin-top:24px;width:100%;" onclick="openModal()">Request quote</button>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact" class="foot">
+    <div class="wrap foot-grid">
+      <div>
+        <p class="logo" style="margin-bottom:12px;">home hub</p>
+        <p style="color:var(--muted);font-size:14px;max-width:32ch;">Interior doors — built and fitted in Bergen.</p>
+      </div>
+      <div>
+        <p style="font-size:13px;font-weight:600;margin-bottom:8px;">Visit</p>
+        <p style="font-size:14px;">Strandgaten 12, Bergen</p>
+        <p style="font-size:14px;margin-top:4px;">Karl Johans gate 24, Oslo</p>
+      </div>
+      <div>
+        <p style="font-size:13px;font-weight:600;margin-bottom:8px;">Contact</p>
+        <p style="font-size:14px;">hello@homehub.no</p>
+        <p style="font-size:14px;margin-top:4px;">+47 55 552 000</p>
+      </div>
+    </div>
+    <div class="wrap foot-bottom">
+      <span>© 2026 Home Hub</span>
+      <span>Privacy · Terms</span>
+    </div>
+  </footer>
+
+  <div class="modal-bg" id="modal">
+    <div class="modal">
+      <h3>Book a visit</h3>
+      <p>Site measure in Bergen or send opening sizes by email.</p>
+      <form onsubmit="submitForm(event)">
+        <div class="field"><label>Name</label><input type="text" required></div>
+        <div class="field"><label>Email</label><input type="email" required></div>
+        <button type="submit" class="btn btn-fill" style="width:100%;margin-top:8px;">Send request</button>
+      </form>
+      <button type="button" onclick="closeModal()" style="margin-top:16px;font-size:12px;color:var(--muted);width:100%;">Close</button>
+    </div>
+  </div>
+
+  <script>
+    let cart = 0;
+    const prices = { '70 cm leaf': 1050, '90 cm leaf': 1180, 'Natural oil': 0, 'Smoked oak': 120, 'Frosted glass': 280 };
+    let selected = new Set(['70 cm leaf', 'Natural oil']);
+
+    function updateConfigPrice() {
+      let total = 1050;
+      if (selected.has('90 cm leaf')) total = 1180;
+      else if (selected.has('70 cm leaf')) total = 1050;
+      if (selected.has('Smoked oak')) total += 120;
+      if (selected.has('Frosted glass')) total += 280;
+      document.getElementById('configPrice').textContent = '$' + total.toLocaleString();
+    }
+
+    document.querySelectorAll('[data-chip]').forEach((chip) => {
+      chip.addEventListener('click', () => {
+        const label = chip.textContent.trim();
+        if (label === '70 cm leaf' || label === '90 cm leaf') {
+          selected.delete('70 cm leaf');
+          selected.delete('90 cm leaf');
+          document.querySelectorAll('[data-chip]').forEach((c) => {
+            const t = c.textContent.trim();
+            if (t === '70 cm leaf' || t === '90 cm leaf') c.classList.remove('is-on');
+          });
+          selected.add(label);
+          chip.classList.add('is-on');
+        } else {
+          chip.classList.toggle('is-on');
+          if (chip.classList.contains('is-on')) selected.add(label);
+          else selected.delete(label);
+        }
+        updateConfigPrice();
+      });
+    });
+
+    function addCart(name) {
+      cart++;
+      document.getElementById('cartCount').textContent = cart;
+      const t = document.createElement('div');
+      t.className = 'toast';
+      t.textContent = 'Added ' + name;
+      document.body.appendChild(t);
+      setTimeout(() => t.remove(), 2000);
+    }
+
+    function toggleCart() {
+      alert(cart ? `Cart: ${cart} item(s)` : 'Cart is empty');
+    }
+
+    function openModal() {
+      document.getElementById('modal').classList.add('open');
+    }
+    function closeModal() {
+      document.getElementById('modal').classList.remove('open');
+    }
+    function submitForm(e) {
+      e.preventDefault();
+      closeModal();
+      e.target.reset();
+    }
+    document.getElementById('modal').addEventListener('click', (e) => {
+      if (e.target.id === 'modal') closeModal();
+    });
+  </script>
+</body>
+</html>
