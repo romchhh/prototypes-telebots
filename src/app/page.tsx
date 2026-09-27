@@ -19,6 +19,13 @@ const PROTOTYPES = [
     tag: 'E-commerce',
   },
   {
+    slug: 'logic-clothes',
+    href: '/logic-clothes.html',
+    title: 'Logic Clothes',
+    desc: 'Жіночий одяг — головна, каталог і товар за прикладом U.SHOP (UA)',
+    tag: 'E-commerce',
+  },
+  {
     slug: 'royal-academy',
     href: '/school.html',
     title: 'Royal Academy School',
