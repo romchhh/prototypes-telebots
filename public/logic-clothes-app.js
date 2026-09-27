@@ -1,5 +1,5 @@
 (function () {
-  const LC = 'https://www.logicclothes.com/wp-content/uploads';
+  const productImg = (id) => `/logic-clothes-assets/products/${id}.png`;
 
   const PRODUCTS = [
     {
@@ -13,8 +13,8 @@
       material: 'Еко-шкіра (поліестер + еластан)',
       description:
         'Міді-спідниця з еластичної еко-шкіри. Можна пошити у понад 20 кольорах.',
-      images: [`${LC}/2026/05/photo_2026-04-01_12-07-47-480x705.jpg`],
-      swatches: [{ img: `${LC}/2026/05/photo_2026-04-01_12-07-47-480x705.jpg`, label: 'Чорний' }],
+      images: [productImg('skirtfauxleather')],
+      swatches: [{ img: productImg('skirtfauxleather'), label: 'Чорний' }],
     },
     {
       id: 'plakhta',
@@ -27,8 +27,8 @@
       material: '50% поліестер, 50% бавовна',
       description:
         'Сучасна версія традиційної української спідниці-запаху. Регульований знімний пояс. Різні кольори й тканини.',
-      images: [`${LC}/2026/05/photo_2026-04-01_12-10-48-480x705.jpg`],
-      swatches: [{ img: `${LC}/2026/05/photo_2026-04-01_12-10-48-480x705.jpg`, label: 'Яскравий принт' }],
+      images: [productImg('plakhta')],
+      swatches: [{ img: productImg('plakhta'), label: 'Яскравий принт' }],
     },
     {
       id: 'denim-jacket',
@@ -41,8 +41,8 @@
       material: '100% бавовна',
       description:
         'Жакет-бомбер із щільного деніму без підкладки. Дві нагрудні кишені, пояс на резинці. Можливі інші кольори.',
-      images: [`${LC}/2026/04/photo_2026-04-01_12-06-24-480x705.jpg`],
-      swatches: [{ img: `${LC}/2026/04/photo_2026-04-01_12-06-24-480x705.jpg`, label: 'Денім' }],
+      images: [productImg('denim-jacket')],
+      swatches: [{ img: productImg('denim-jacket'), label: 'Денім' }],
     },
     {
       id: 'raincoat',
@@ -55,8 +55,8 @@
       material: 'Підкладка 100% бавовна, верх 100% поліестер',
       description:
         'Легкий довгий дощовик із водонепроникної тканини з металізованим ламе. Знімний капюшон, великі кишені.',
-      images: [`${LC}/2026/04/photo_2026-04-01_12-09-22-480x705.jpg`],
-      swatches: [{ img: `${LC}/2026/04/photo_2026-04-01_12-09-22-480x705.jpg`, label: 'Сріблястий' }],
+      images: [productImg('raincoat')],
+      swatches: [{ img: productImg('raincoat'), label: 'Сріблястий' }],
     },
     {
       id: 'light-coat',
@@ -69,8 +69,8 @@
       material: '100% поліестер',
       description:
         'Оверсайз пальто з легкої еко-шкіри. Підкладка, дві бокові кишені, знімний капюшон і пояс.',
-      images: [`${LC}/2026/04/photo_2026-04-01_12-08-57-480x705.jpg`],
-      swatches: [{ img: `${LC}/2026/04/photo_2026-04-01_12-08-57-480x705.jpg`, label: 'Чорний' }],
+      images: [productImg('light-coat')],
+      swatches: [{ img: productImg('light-coat'), label: 'Чорний' }],
     },
     {
       id: 'bomber',
@@ -82,8 +82,8 @@
       color: 'Чорний',
       material: '100% поліестер',
       description: 'Укорочений бомбер із сітчастого неопрену. Без підкладки, застібка на ґудзики.',
-      images: [`${LC}/2026/04/photo_2026-04-01_12-10-17-Copy-480x705.jpg`],
-      swatches: [{ img: `${LC}/2026/04/photo_2026-04-01_12-10-17-Copy-480x705.jpg`, label: 'Чорний' }],
+      images: [productImg('bomber')],
+      swatches: [{ img: productImg('bomber'), label: 'Чорний' }],
     },
     {
       id: 'hoodie',
@@ -96,8 +96,8 @@
       material: '95% бавовна, 5% еластан',
       description:
         'Оверсайз худі з довгим кроєм, великим капюшоном і довгими рукавами. Зріст моделі: 175 см.',
-      images: [`${LC}/2023/02/IMG_0268-%E2%80%94-%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F-scaled.jpg`],
-      swatches: [{ img: `${LC}/2023/02/IMG_0268-%E2%80%94-%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F-scaled.jpg`, label: 'Сірий меланж' }],
+      images: [productImg('hoodie')],
+      swatches: [{ img: productImg('hoodie'), label: 'Сірий меланж' }],
     },
   ];
 
@@ -206,7 +206,7 @@
     <article class="product">
       <a href="#product/${p.id}" class="product-link" data-nav="product" data-product="${p.id}">
         <div class="product-img">
-          <img src="${p.images[0]}" alt="${p.name}" loading="lazy" referrerpolicy="no-referrer">
+          <img src="${p.images[0]}" alt="${p.name}" loading="lazy">
           <button class="wish" type="button" data-wish-id="${p.id}" aria-label="У вішлист"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 011 1v17l-7-4.5L5 21V4a1 1 0 011-1z" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linejoin="round"/></svg></button>
         </div>
         <div class="product-info">
@@ -250,7 +250,7 @@
       .map(
         (item, i) => `
       <div class="panel-item">
-        <img src="${item.image}" alt="" width="56" height="70" referrerpolicy="no-referrer">
+        <img src="${item.image}" alt="" width="56" height="70">
         <div class="panel-item-body">
           <p class="panel-item-name">${item.name}</p>
           <p class="panel-item-meta">${item.size} · ${item.price}</p>
@@ -276,7 +276,7 @@
       .map(
         (item) => `
       <div class="panel-item">
-        <img src="${item.image}" alt="" width="56" height="70" referrerpolicy="no-referrer">
+        <img src="${item.image}" alt="" width="56" height="70">
         <div class="panel-item-body">
           <p class="panel-item-name">${item.name}</p>
           <p class="panel-item-meta">${item.price}</p>
@@ -371,7 +371,7 @@
         .map(
           (s, i) => `
         <button class="pdp-swatch${i === 0 ? ' is-active' : ''}" type="button" data-swatch="${i}" aria-label="${s.label}">
-          <span><img src="${s.img}" alt="${s.label}" referrerpolicy="no-referrer"></span>
+          <span><img src="${s.img}" alt="${s.label}"></span>
         </button>`
         )
         .join('');
