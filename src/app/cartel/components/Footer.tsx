@@ -50,6 +50,7 @@ export default function Footer() {
 
       <div className={styles.bottom}>
         <span>© Ambikom Ltd. {new Date().getFullYear()}</span>
+        <a href="/cartel-v2">Версія 2</a>
         <a href="#kontakt">Приєднуйся</a>
       </div>
     </footer>

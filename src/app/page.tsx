@@ -133,6 +133,19 @@ const PROTOTYPES = [
     desc: 'Холдинг у Буковелі — ресторани, готелі, SPA (UA)',
     tag: 'HoReCa',
   },
+  {
+    slug: 'cartel-v2',
+    title: 'Cartel v2',
+    desc: 'Cartel — luxury hospitality лендінг, референс Paris Society (UA)',
+    tag: 'HoReCa',
+  },
+  {
+    slug: 'cartel-v3',
+    href: '/cartel.html',
+    title: 'Cartel v3',
+    desc: 'CARTEL — static Lexend/Cormorant landing, brand photos (EN)',
+    tag: 'HoReCa',
+  },
 
   {
     slug: 'common-hospitality',

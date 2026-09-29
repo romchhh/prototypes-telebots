@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Onest:wght@400;500&display=swap');
+
+.cartel.cartel-v2 {
+  --deep: #141414;
+  --ink: #1a1a1a;
+  --muted: #5a5a5a;
+  --stone: #3d3d3d;
+  --line: rgba(0, 0, 0, 0.1);
+  --surface: #f4f2ee;
+  --surface-elevated: #ffffff;
+  --white: #ffffff;
+  --black: #0a0a0a;
+  --accent: #6f1c28;
+  --accent-hover: #54141e;
+  --page-pad: clamp(20px, 5vw, 56px);
+  --font-sans: 'Onest', system-ui, sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --ls-caps: 0.11em;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  color: var(--ink);
+  background: var(--surface-elevated);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.cartel.cartel-v2 button,
+.cartel.cartel-v2 input,
+.cartel.cartel-v2 select,
+.cartel.cartel-v2 textarea {
+  font-family: var(--font-sans);
+}
