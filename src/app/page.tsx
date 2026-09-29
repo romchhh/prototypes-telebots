@@ -54,6 +54,13 @@ const PROTOTYPES = [
     tag: 'E-commerce',
   },
   {
+    slug: 'hype-smm',
+    href: '/hype-smm.html',
+    title: 'HYPE SMM',
+    desc: 'Full-cycle marketing agency — SMM, content, ads (EN)',
+    tag: 'Маркетинг',
+  },
+  {
     slug: 'hub-studio',
     href: '/danapris.html',
     title: 'Hub Studio',
