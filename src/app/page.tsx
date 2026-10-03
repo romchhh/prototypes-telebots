@@ -166,6 +166,12 @@ const PROTOTYPES = [
     desc: 'Szef kuchni — portfolio i CV (PL)',
     tag: 'HoReCa',
   },
+  {
+    slug: 'dr-hladun',
+    title: 'Dr. Taras Hladun',
+    desc: 'Urologist — educational profile & consultation links (UA/PL/EN)',
+    tag: 'Медицина',
+  },
 
   {
     slug: 'marathon',
