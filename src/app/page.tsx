@@ -174,12 +174,6 @@ const PROTOTYPES = [
   },
 
   {
-    slug: 'marathon',
-    title: 'Royal Academy School',
-    desc: 'Марафон англійської — landing page (UA)',
-    tag: 'Освіта',
-  },
-  {
     slug: 'west-auto',
     title: 'West Auto Shipping',
     desc: 'Пригін авто з США — landing page (UA)',
