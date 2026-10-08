@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ATLAS — Design Studio</title>
+  <title>ATLAS — Furniture Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -693,6 +693,34 @@
       font-size: 13px;
       color: rgba(244, 240, 234, 0.5);
     }
+    .footer-contact a {
+      color: inherit;
+      transition: color 0.2s ease;
+    }
+    .footer-contact a:hover { color: var(--cream); }
+    .footer-socials {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .footer-socials a {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 999px;
+      color: var(--cream);
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .footer-socials a:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+    .footer-socials svg {
+      width: 16px;
+      height: 16px;
+    }
     .footer h4 {
       font-size: 11px;
       font-weight: 600;
@@ -925,8 +953,8 @@
       </a>
       <nav class="nav" aria-label="Main">
         <a href="#collection">Gallery</a>
-        <a href="#about">About</a>
-        <a href="#spaces">Projects</a>
+        <a href="#about">About us</a>
+        <a href="#spaces">Our projects</a>
         <a href="#contact">Contacts</a>
       </nav>
       <div class="header-end">
@@ -942,8 +970,8 @@
     </div>
     <div class="mobile-drawer" id="mobileNav">
       <a href="#collection" onclick="toggleMenu()">Gallery</a>
-      <a href="#about" onclick="toggleMenu()">About</a>
-      <a href="#spaces" onclick="toggleMenu()">Projects</a>
+      <a href="#about" onclick="toggleMenu()">About us</a>
+      <a href="#spaces" onclick="toggleMenu()">Our projects</a>
       <a href="#contact" onclick="toggleMenu()">Contacts</a>
     </div>
   </header>
@@ -957,7 +985,7 @@
         playsinline
         preload="metadata"
         poster="https://framerusercontent.com/images/WAK48TJ9HyoQ9MKEY4MAlOFAUcc.png?scale-down-to=1024"
-        aria-label="ATLAS Design Studio showreel"
+        aria-label="ATLAS Furniture Studio showreel"
       >
         <source src="https://framerusercontent.com/assets/uY2fPzA8V8iBoumIAdaRcQHDEWw.mp4" type="video/mp4">
       </video>
@@ -965,9 +993,9 @@
     </div>
     <div class="hero-inner">
       <h1 class="hero-title">atlas</h1>
-      <p class="hero-lead">Where an idea turns into excellence — bespoke kitchens and furniture in Bratislava.</p>
+      <p class="hero-lead">Where an idea turns into excellence.</p>
       <div class="hero-actions">
-        <a href="#collection" class="btn-fill">View collections</a>
+        <a href="#collection" class="btn-fill">View gallery</a>
         <button type="button" class="btn-line" onclick="openModal('consult')">Book a consultation</button>
       </div>
     </div>
@@ -977,33 +1005,33 @@
     <div class="wrap">
       <div class="editorial-grid">
         <div class="editorial-intro">
-          <h2>Design studio</h2>
-          <p>Interior solutions and furniture — from the first sketches to installation of finished products.</p>
+          <h2>Furniture Studio ATLAS</h2>
+          <p>Kitchens, wardrobes, and complete interior furnishings — from design project to manufacture, delivery, assembly, and guarantee.</p>
         </div>
         <div class="stat-cell">
-          <p>Design, production, and project implementation in one place.</p>
+          <p>Comfort in the details — where every element is created for you.</p>
           <div class="stat-row">
             <span class="stat-num">08</span>
-            <span class="stat-label">Work stages</span>
+            <span class="stat-label">Work process</span>
           </div>
         </div>
         <div class="stat-cell">
-          <p>Accuracy, materials, and comfort in every detail we deliver.</p>
+          <p>We cooperate with designers — modern production methods and proven standards.</p>
           <div class="stat-row">
             <span class="stat-num">01</span>
             <span class="stat-label">Partner team</span>
           </div>
         </div>
         <div class="stat-cell">
-          <p>Kitchens, wardrobes, living rooms, and full interior furniture sets.</p>
+          <p>Sustainable development — raising standards with every project.</p>
           <div class="stat-row">
-            <span class="stat-num">08+</span>
-            <span class="stat-label">Categories</span>
+            <span class="stat-num">03</span>
+            <span class="stat-label">Core focus</span>
           </div>
         </div>
         <div class="stat-cell stat-dark">
-          <p>Every stage, every detail, every result — quality control without compromise.</p>
-          <a href="#spaces">See projects →</a>
+          <p>Quality control — every stage, every detail, every result.</p>
+          <a href="#spaces">Our projects →</a>
         </div>
       </div>
     </div>
@@ -1013,14 +1041,14 @@
     <div class="wrap">
       <div class="section-head">
         <div>
-          <h2>Collections</h2>
-          <p>Premium bespoke kitchens and furniture — individual design, quality materials, precise craftsmanship.</p>
+          <h2>Gallery</h2>
+          <p>Kitchens · wardrobes · complete interior furnishings — perfectly thought-out for your space.</p>
         </div>
         <div class="filters">
           <button type="button" class="is-active" data-f="all" onclick="filterProducts('all')">All</button>
           <button type="button" data-f="kitchens" onclick="filterProducts('kitchens')">Kitchens</button>
           <button type="button" data-f="wardrobes" onclick="filterProducts('wardrobes')">Wardrobes</button>
-          <button type="button" data-f="living" onclick="filterProducts('living')">Living</button>
+          <button type="button" data-f="living" onclick="filterProducts('living')">Interiors</button>
         </div>
       </div>
       <div class="products" id="productGrid">
@@ -1030,11 +1058,11 @@
           </div>
           <div class="product-body">
             <div class="product-top">
-              <h3>Bespoke kitchen</h3>
+              <h3>Kitchen project</h3>
               <span class="product-price">from €4,800</span>
             </div>
-            <p>Custom layout, premium materials, appliances and fittings chosen with you.</p>
-            <button type="button" class="add" onclick="addToCart('Bespoke kitchen', 4800)">Add to quote</button>
+            <p>You tell us your wishes — we create a design project and choose materials, fittings and appliances with you.</p>
+            <button type="button" class="add" onclick="addToCart('Kitchen project', 4800)">Request a quote</button>
           </div>
         </article>
         <article class="product" data-category="wardrobes">
@@ -1043,11 +1071,11 @@
           </div>
           <div class="product-body">
             <div class="product-top">
-              <h3>Sliding wardrobe</h3>
+              <h3>Wardrobe systems</h3>
               <span class="product-price">from €2,200</span>
             </div>
-            <p>Floor-to-ceiling storage with soft-close tracks and tailored interiors.</p>
-            <button type="button" class="add" onclick="addToCart('Sliding wardrobe', 2200)">Add to quote</button>
+            <p>Comfort in the details — storage designed around how you live, from measurement to assembly.</p>
+            <button type="button" class="add" onclick="addToCart('Wardrobe systems', 2200)">Request a quote</button>
           </div>
         </article>
         <article class="product" data-category="living">
@@ -1056,11 +1084,11 @@
           </div>
           <div class="product-body">
             <div class="product-top">
-              <h3>Living room set</h3>
+              <h3>Complete interiors</h3>
               <span class="product-price">from €3,100</span>
             </div>
-            <p>Media walls and modular storage built around your room and lifestyle.</p>
-            <button type="button" class="add" onclick="addToCart('Living room set', 3100)">Add to quote</button>
+            <p>Full interior furnishings — from preliminary calculation and contract to production, delivery and warranty.</p>
+            <button type="button" class="add" onclick="addToCart('Complete interiors', 3100)">Request a quote</button>
           </div>
         </article>
       </div>
@@ -1071,7 +1099,7 @@
   <div class="quote-band">
     <img class="brand-logo" src="atlas-logo.avif" alt="" width="160" height="44" aria-hidden="true">
     <blockquote>Where an idea turns into excellence.</blockquote>
-    <a href="#about" class="quote-cta">Our philosophy</a>
+    <a href="#about" class="quote-cta">Our Philosophy</a>
   </div>
   </section>
 
@@ -1110,48 +1138,56 @@
         <div class="brand">
           <img class="brand-logo" src="atlas-logo.avif" alt="ATLAS" width="160" height="44">
         </div>
-        <p class="footer-copy">Premium bespoke kitchens and furniture — design, production, and installation from our Bratislava studio.</p>
+        <p class="footer-copy">Furniture Studio ATLAS — kitchens, wardrobes, and complete interior furnishings in Bratislava.</p>
         <div class="footer-contact">
-          <p>+421 952 199 707</p>
-          <p>info@atlas-pro.sk</p>
-          <p>Mon–Fri: 9:00 am – 6:00 pm</p>
+          <p><a href="tel:+421952199707">+421952199707</a></p>
+          <p><a href="mailto:info@atlas-pro.sk">info@atlas-pro.sk</a></p>
+          <p>Mon-Fri: 9:00 am - 6:00 pm</p>
+          <p>Mierová 27, 821 05 Bratislava, Slovakia</p>
+        </div>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/atlas.pro.sk/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.facebook.com/atlas.pro.sk" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H8v3h3v7h3v-7h3l1-3h-4V9c0-.6.4-1 1-1Z"/></svg>
+          </a>
         </div>
       </div>
       <div>
-        <h4>Studio</h4>
+        <h4>Furniture</h4>
         <ul>
-          <li>Mierová 27, 821 05</li>
-          <li>Bratislava, Slovakia</li>
-          <li>Accuracy · Materials · Comfort</li>
+          <li>Kitchens</li>
+          <li>Wardrobes</li>
+          <li>Complete interiors</li>
         </ul>
       </div>
       <div>
-        <h4>Newsletter</h4>
-        <p class="footer-copy">Project news and studio updates.</p>
+        <h4>Cooperation</h4>
+        <p class="footer-copy">We cooperate with designers. Order a project — or send yours for a quote.</p>
         <form class="newsletter" onsubmit="handleNewsletter(event)">
-          <input type="email" required placeholder="Email" aria-label="Email">
-          <button type="submit">Join</button>
+          <input type="email" required placeholder="Email address" aria-label="Email address">
+          <button type="submit">For a consultation</button>
         </form>
       </div>
     </div>
     <div class="wrap footer-bottom">
-      <p>© 2026 ATLAS Design Studio</p>
-      <p>Privacy · Terms</p>
+      <p>© 2026 ATLAS</p>
+      <p>Accuracy · Materials · Comfort</p>
     </div>
   </footer>
 
   <div class="overlay" id="consult" role="dialog" aria-modal="true">
     <div class="modal">
       <button type="button" class="modal-close" onclick="closeModal('consult')" aria-label="Close">✕</button>
-      <h3>Book a consultation</h3>
-      <p>Tell us your wishes — we’ll prepare a project structure and preliminary calculation.</p>
+      <h3>Book an appointment</h3>
+      <p>We will listen to your wishes, offer solutions, and create a project structure that leads to comfort.</p>
       <form onsubmit="handleConsult(event)">
-        <div class="field"><label for="n">Name</label><input id="n" type="text" required></div>
-        <div class="field"><label for="e">Email</label><input id="e" type="email" required></div>
-        <div class="field"><label for="s">Scope</label>
-          <select id="s"><option>Full kitchen project</option><option>Wardrobes / storage</option><option>Living rooms &amp; interiors</option><option>I already have a project</option></select>
-        </div>
-        <button type="submit" class="submit">Request appointment</button>
+        <div class="field"><label for="n">Enter name</label><input id="n" type="text" required></div>
+        <div class="field"><label for="p">Phone number</label><input id="p" type="tel" required></div>
+        <div class="field"><label for="e">Email address</label><input id="e" type="email" required></div>
+        <div class="field"><label for="c">Comment</label><input id="c" type="text"></div>
+        <button type="submit" class="submit">For a consultation</button>
       </form>
     </div>
   </div>
