@@ -1,0 +1,715 @@
+[
+  {
+    "id": "peplum",
+    "name": "Eco-leather Peplum Belt",
+    "sizes": "S · M · L",
+    "sizeOptions": [
+      "S",
+      "M",
+      "L"
+    ],
+    "price": "1 100 ₴",
+    "priceNum": 1100,
+    "color": "Logic Clothes",
+    "material": "Деталі складу уточнюйте у менеджера",
+    "description": "Long peplum belt with ribbon folds on a belt tape. Adjustable to the waist. Made of soft flexible eco-leather with eco-suede lining. Does not require dry cleaning. You can literally wear it literally with anything, complementing threadbare sets. Fabric: 100% polyester",
+    "longDescription": "Long peplum belt with ribbon folds on a belt tape. Adjustable to the waist. Made of soft flexible eco-leather with eco-suede lining. Does not require dry cleaning. You can literally wear it literally with anything, complementing threadbare sets. Fabric: 100% polyester",
+    "images": [
+      "/logic-clothes-assets/products/peplum_1.jpg",
+      "/logic-clothes-assets/products/peplum_2.jpg",
+      "/logic-clothes-assets/products/peplum_3.jpg",
+      "/logic-clothes-assets/products/peplum_4.jpg"
+    ],
+    "swatches": [
+      {
+        "img": "/logic-clothes-assets/products/peplum_1.jpg",
+        "label": "Основний"
+      }
+    ],
+    "inStock": true,
+    "sku": 12348
+  },
+  {
+    "id": "skirtbuttons",
+    "name": "Skirt",
+    "sizes": "S · M · L",
+    "sizeOptions": [
+      "S",
+      "M",
+      "L"
+    ],
+    "price": "2 500 ₴",
+    "priceNum": 2500,
+    "color": "Logic Clothes",
+    "material": "Деталі складу уточнюйте у менеджера",
+    "description": "A mid-length skirt that buttons up, giving it a vintage touch and ease of wear. Composition: 40% cotton, 60% polyester.",
+    "longDescription": "A mid-length skirt that buttons up, giving it a vintage touch and ease of wear. Composition: 40% cotton, 60% polyester.",
+    "images": [
+      "/logic-clothes-assets/products/skirtbuttons_1.jpg",
+      "/logic-clothes-assets/products/skirtbuttons_2.jpg",
+      "/logic-clothes-assets/products/skirtbuttons_3.jpg",
+      "/logic-clothes-assets/products/skirtbuttons_4.jpg"
+    ],
+    "swatches": [
+      {
+        "img": "/logic-clothes-assets/products/skirtbuttons_1.jpg",
+        "label": "Основний"
+      }
+    ],
+    "inStock": true,
+    "sku": 249785
+  },
+  {
+    "id": "meshdress",
+    "name": "Mesh Dress",
+    "sizes": "S · M · L",
+    "sizeOptions": [
+      "S",
+      "M",
+      "L"
+    ],
+    "price": "1 600 ₴",
+    "priceNum": 1600,
+    "color": "Logic Clothes",
+    "material": "Деталі складу уточнюйте у менеджера",
+    "description": "Mesh dress with puff sleeves. Composition: 100% polyester",
+    "longDescription": "Mesh dress with puff sleeves. Composition: 100% polyester",
+    "images": [
+      "/logic-clothes-assets/products/meshdress_1.jpg",
+      "/logic-clothes-assets/products/meshdress_2.jpg",
+      "/logic-clothes-assets/products/meshdress_3.jpg"
+    ],
+    "swatches": [
+      {
+        "img": "/logic-clothes-assets/products/meshdress_1.jpg",
+        "label": "Основний"
+      }
+    ],
+    "inStock": true,
+    "sku": 179426
+  },
+  {
+    "id": "jacket",
+    "name": "Eco leather Jacket",
+    "sizes": "S · M · L",
+    "sizeOptions": [
+      "S",
+      "M",
+      "L"
+    ],
+    "price": "3 200 ₴",
+    "priceNum": 3200,
+    "color": "Logic Clothes",
+    "material": "Деталі складу уточнюйте у менеджера",
+    "description": "Loose jacket made of vegan leather with two pockets and a belt.",
+    "longDescription": "Loose jacket made of vegan leather with two pockets and a belt.",
+    "images": [
+      "/logic-clothes-assets/products/jacket_1.jpg",
+      "/logic-clothes-assets/products/jacket_2.jpg",
+      "/logic-clothes-assets/products/jacket_3.jpg"
+    ],
+    "swatches": [
+      {
+        "img": "/logic-clothes-assets/products/jacket_1.jpg",
+        "label": "Основний"
+      }
+    ],
+    "inStock": true,
+    "sku": 11815
+  },
+  {
+    "id": "duncancupra",
+    "name": "Light Trenchcoat",
+    "sizes": "S · M · L",
+    "sizeOptions": [
+      "S",
+      "M",
+      "L"
+    ],
+    "price": "3 950 ₴",
+    "priceNum": 3950,
+    "color": "Logic Clothes",
+    "material": "Деталі складу уточнюйте у менеджера",
+    "description": "Trenchcoat made of soft touch fabric, oversize cut. Long sleeves, two side pockets, tie waist belt Composition: 20% viscose 80% polyester.",
+    "longDescription": "Trenchcoat made of soft touch fabric, oversize cut. Long sleeves, two side pockets, tie waist belt Composition: 20% viscose 80% polyester.",
+    "images": [
+      "/logic-clothes-assets/products/duncancupra_1.jpg",
+      "/logic-clothes-assets/products/duncancupra_2.jpg"
+    ],
+    "swatches": [
+      {
+        "img": "/logic-clothes-assets/products/duncancupra_1.jpg",
+        "label": "Основний"
+      }
+    ],
+    "inStock": true,
+    "sku": 249864
+  },
+  {
+    "id": "yellowshirt",
+    "name": "Shirt-dress",
+    "sizes": "S · M · L",
+    "sizeOptions": [
+      "S",
+      "M",
+      "L"
+    ],
+    "price": "2 950 ₴",
+    "priceNum": 2950,
+    "color": "Logic Clothes",
+    "material": "Деталі складу уточнюйте у менеджера",
+    "description": "Oversized shirt made of tensel. Long enough to be worn as a dress or a cardigan. Composition : 100% tensel",
+    "longDescription": "Oversized shirt made of tensel. Long enough to be worn as a dress or a cardigan. Composition : 100% tensel",
+    "images": [
+      "/logic-clothes-assets/products/yellowshirt_1.jpg",
+      "/logic-clothes-assets/products/yellowshirt_2.jpg"
+    ],
+    "swatches": [
+      {
+        "img": "/logic-clothes-assets/products/yellowshirt_1.jpg",
+        "label": "Основний"
+      }
+    ],
+    "inStock": true,
+    "sku": 249830
+  },
+  {
+    "id": "shirtdress",
+    "name": "Long Shirt",
+    "sizes": "S · M · L",
+    "sizeOptions": [
+      "S",
+      "M",
+      "L"
+    ],
+    "price": "2 950 ₴",
+    "priceNum": 2950,
+    "color": "Logic Clothes",
+    "material": "Деталі складу уточнюйте у менеджера",
+    "description": "Oversized shirt made of tensel. Long enough to be worn as a dress or a cardigan. Composition : 100% tensel",
+    "longDescription": "Oversized shirt made of tensel. Long enough to be worn as a dress or a cardigan. Composition : 100% tensel",
+    "images": [
+      "/logic-clothes-assets/products/shirtdress_1.jpg",
+      "/logic-clothes-assets/products/shirtdress_2.jpg"
+    ],
+    "swatches": [
+      {
+        "img": "/logic-clothes-assets/products/shirtdress_1.jpg",
+        "label": "Основний"
+      }
+    ],
+    "inStock": true,
+    "sku": 249828
+  },
+  {
+    "id": "sarecopl",
+    "name": "Faux leather dress",
+    "sizes": "S · M · L",
+    "sizeOptions": [
+      "S",
+      "M",
+      "L"
+    ],
+    "price": "2 400 ₴",
+    "priceNum": 2400,
+    "color": "Logic Clothes",
+    "material": "Деталі складу уточнюйте у менеджера",
+    "description": "Asymmetrical dress made of eco leather. With the help of strap you can adjust the height for different heights, with the help of puffs at the waist - the width for different waist sizes. Model height 170 cm, size S.",
+    "longDescription": "Asymmetrical dress made of eco leather. With the help of strap you can adjust the height for different heights, with the help of puffs at the waist - the width for different waist sizes. Model height 170 cm, size S.",
+    "images": [
+      "/logic-clothes-assets/products/sarecopl_1.jpg",
+      "/logic-clothes-assets/products/sarecopl_2.jpg"
+    ],
+    "swatches": [
+      {
+        "img": "/logic-clothes-assets/products/sarecopl_1.jpg",
+        "label": "Основний"
+      }
+    ],
+    "inStock": true,
+    "sku": 249771
+  },
+  {
+    "id": "skdress",
+    "name": "Long dress",
+    "sizes": "XL · S · M · L",
+    "sizeOptions": [
+      "XL",
+      "S",
+      "M",
+      "L"
+    ],
+    "price": "2 700 ₴",
+    "priceNum": 2700,
+    "color": "Logic Clothes",
+    "material": "Деталі складу уточнюйте у менеджера",
+    "description": "Maxi dress made of tensel with an open back and adjustable straps. Composition: 100% tensel",
+    "longDescription": "Maxi dress made of tensel with an open back and adjustable straps. Composition: 100% tensel",
+    "images": [
+      "/logic-clothes-assets/products/skdress_1.jpg",
+      "/logic-clothes-assets/products/skdress_2.jpg"
+    ],
+    "swatches": [
+      {
+        "img": "/logic-clothes-assets/products/skdress_1.jpg",
+        "label": "Основний"
+      }
+    ],
+    "inStock": true,
+    "sku": 249713
+  },
+  {
+    "id": "wrapskirt",
+    "name": "Wrap Skirt",
+    "sizes": "S · M · L",
+    "sizeOptions": [
+      "S",
+      "M",
+      "L"
+    ],
+    "price": "2 200 ₴",
+    "priceNum": 2200,
+    "color": "Logic Clothes",
+    "material": "Деталі складу уточнюйте у менеджера",
+    "description": "Midi wrap skirt made of eco leather. We can sew it in more than 20 different colors of our eco leather. Composition: eco leather (polyester + elastane)",
+    "longDescription": "Midi wrap skirt made of eco leather. We can sew it in more than 20 different colors of our eco leather. Composition: eco leather (polyester + elastane)",
+    "images": [
+      "/logic-clothes-assets/products/wrapskirt_1.jpg",
+      "/logic-clothes-assets/products/wrapskirt_2.jpg"
+    ],
+    "swatches": [
+      {
+        "img": "/logic-clothes-assets/products/wrapskirt_1.jpg",
+        "label": "Основний"
+      }
+    ],
+    "inStock": true,
+    "sku": 222225
+  },
+  {
+    "id": "cropvest",
+    "name": "Warm hooded short vest",
+    "sizes": "S · M · L",
+    "sizeOptions": [
+      "S",
+      "M",
+      "L"
+    ],
+    "price": "1 950 ₴",
+    "priceNum": 1950,
+    "color": "Logic Clothes",
+    "material": "Деталі складу уточнюйте у менеджера",
+    "description": "Warm short hooded vest, made of waterproof fabrics and silicon filing. Can we worn under a coat, trench or on top of it. We make this vests in a big variety of colours.",
+    "longDescription": "Warm short hooded vest, made of waterproof fabrics and silicon filing. Can we worn under a coat, trench or on top of it. We make this vests in a big variety of colours.",
+    "images": [
+      "/logic-clothes-assets/products/cropvest_1.jpg",
+      "/logic-clothes-assets/products/cropvest_2.jpg"
+    ],
+    "swatches": [
+      {
+        "img": "/logic-clothes-assets/products/cropvest_1.jpg",
+        "label": "Основний"
+      }
+    ],
+    "inStock": true,
+    "sku": 221439
+  },
+  {
+    "id": "set_home",
+    "name": "Two pieces set",
+    "sizes": "S · M · L",
+    "sizeOptions": [
+      "S",
+      "M",
+      "L"
+    ],
+    "price": "2 600 ₴",
+    "priceNum": 2600,
+    "color": "Logic Clothes",
+    "material": "Деталі складу уточнюйте у менеджера",
+    "description": "Two pieces set made of a thick high quality cotton: pants with pockets and loose top. Composition: 100% cotton",
+    "longDescription": "Two pieces set made of a thick high quality cotton: pants with pockets and loose top. Composition: 100% cotton",
+    "images": [
+      "/logic-clothes-assets/products/set_home_1.jpg",
+      "/logic-clothes-assets/products/set_home_2.jpg"
+    ],
+    "swatches": [
+      {
+        "img": "/logic-clothes-assets/products/set_home_1.jpg",
+        "label": "Основний"
+      }
+    ],
+    "inStock": true,
+    "sku": "костюм удобство-1-1"
+  },
+  {
+    "id": "eco_leather_trench",
+    "name": "Eco Leather Trench",
+    "sizes": "S · M · L",
+    "sizeOptions": [
+      "S",
+      "M",
+      "L"
+    ],
+    "price": "3 200 ₴",
+    "priceNum": 3200,
+    "color": "Logic Clothes",
+    "material": "Деталі складу уточнюйте у менеджера",
+    "description": "Trench made of high quality vegan (eco) leather. With a solid collar and wide sleeves with cuffs. Has a belt and pockets on the side. Our eco leather doesn't require any special cleaning, it can be washed in a washine machine on a delicate mode.",
+    "longDescription": "Trench made of high quality vegan (eco) leather. With a solid collar and wide sleeves with cuffs. Has a belt and pockets on the side. Our eco leather doesn't require any special cleaning, it can be washed in a washine machine on a delicate mode.",
+    "images": [
+      "/logic-clothes-assets/products/eco_leather_trench_1.jpg",
+      "/logic-clothes-assets/products/eco_leather_trench_2.jpg"
+    ],
+    "swatches": [
+      {
+        "img": "/logic-clothes-assets/products/eco_leather_trench_1.jpg",
+        "label": "Основний"
+      }
+    ],
+    "inStock": true,
+    "sku": 74653
+  },
+  {
+    "id": "warm_dress",
+    "name": "Warm dress",
+    "sizes": "S · M · L",
+    "sizeOptions": [
+      "S",
+      "M",
+      "L"
+    ],
+    "price": "2 200 ₴",
+    "priceNum": 2200,
+    "color": "Logic Clothes",
+    "material": "Деталі складу уточнюйте у менеджера",
+    "description": "Warm loose dress with made of a thick cotton with a fleece inside. Composition: 95% cotton, 5% elastane",
+    "longDescription": "Warm loose dress with made of a thick cotton with a fleece inside. Composition: 95% cotton, 5% elastane",
+    "images": [
+      "/logic-clothes-assets/products/warm_dress_1.jpg",
+      "/logic-clothes-assets/products/warm_dress_2.jpg"
+    ],
+    "swatches": [
+      {
+        "img": "/logic-clothes-assets/products/warm_dress_1.jpg",
+        "label": "Основний"
+      }
+    ],
+    "inStock": true,
+    "sku": 13184
+  },
+  {
+    "id": "mini-skirt",
+    "name": "Mini skirt",
+    "sizes": "XS · S · M · L",
+    "sizeOptions": [
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "price": "1 200 ₴",
+    "priceNum": 1200,
+    "color": "Logic Clothes",
+    "material": "Деталі складу уточнюйте у менеджера",
+    "description": "Mini skirt made of eco leather. Zipper on the side. We can sew it in more than 20 different colors of our eco leather.",
+    "longDescription": "Mini skirt made of eco leather. Zipper on the side. We can sew it in more than 20 different colors of our eco leather.",
+    "images": [
+      "/logic-clothes-assets/products/mini-skirt_1.jpg",
+      "/logic-clothes-assets/products/mini-skirt_2.jpg"
+    ],
+    "swatches": [
+      {
+        "img": "/logic-clothes-assets/products/mini-skirt_1.jpg",
+        "label": "Основний"
+      }
+    ],
+    "inStock": true,
+    "sku": 12169
+  },
+  {
+    "id": "two-pieces-set",
+    "name": "Two pieces set",
+    "sizes": "S · M · L",
+    "sizeOptions": [
+      "S",
+      "M",
+      "L"
+    ],
+    "price": "2 400 ₴",
+    "priceNum": 2400,
+    "color": "Logic Clothes",
+    "material": "Деталі складу уточнюйте у менеджера",
+    "description": "Two pieces set made of a thick high quality cotton: pants with pockets and loose top. Composition: 100% cotton",
+    "longDescription": "Two pieces set made of a thick high quality cotton: pants with pockets and loose top. Composition: 100% cotton",
+    "images": [
+      "/logic-clothes-assets/products/two-pieces-set_1.jpg",
+      "/logic-clothes-assets/products/two-pieces-set_2.jpg"
+    ],
+    "swatches": [
+      {
+        "img": "/logic-clothes-assets/products/two-pieces-set_1.jpg",
+        "label": "Основний"
+      }
+    ],
+    "inStock": true,
+    "sku": 12079
+  },
+  {
+    "id": "scarf",
+    "name": "Blanket-scarf",
+    "sizes": "S · M · L",
+    "sizeOptions": [
+      "S",
+      "M",
+      "L"
+    ],
+    "price": "1 600 ₴",
+    "priceNum": 1600,
+    "color": "Logic Clothes",
+    "material": "Деталі складу уточнюйте у менеджера",
+    "description": "Headscarf-blanket made of a waterproof fabric with silicone filling. We make them in a variery of colours. Can be wached in a waching machine on a delicate mode.",
+    "longDescription": "Headscarf-blanket made of a waterproof fabric with silicone filling. We make them in a variery of colours. Can be wached in a waching machine on a delicate mode.",
+    "images": [
+      "/logic-clothes-assets/products/scarf_1.jpg",
+      "/logic-clothes-assets/products/scarf_2.jpg"
+    ],
+    "swatches": [
+      {
+        "img": "/logic-clothes-assets/products/scarf_1.jpg",
+        "label": "Основний"
+      }
+    ],
+    "inStock": true,
+    "sku": 11622
+  },
+  {
+    "id": "trench-eco",
+    "name": "Eco Leather Trench",
+    "sizes": "S · M · L",
+    "sizeOptions": [
+      "S",
+      "M",
+      "L"
+    ],
+    "price": "3 200 ₴",
+    "priceNum": 3200,
+    "color": "Logic Clothes",
+    "material": "Деталі складу уточнюйте у менеджера",
+    "description": "(UA) Тренч-сукня на затин з пластичної еко шкіри. Окремий пасок , кишені в бокових швах. Широка палітра кольорів шкіри на вибір. Склад: 100% еко шкіра (поліестр, еластан)",
+    "longDescription": "(UA) Тренч-сукня на затин з пластичної еко шкіри. Окремий пасок , кишені в бокових швах. Широка палітра кольорів шкіри на вибір. Склад: 100% еко шкіра (поліестр, еластан)",
+    "images": [
+      "/logic-clothes-assets/products/trench-eco_1.jpg",
+      "/logic-clothes-assets/products/trench-eco_2.jpg"
+    ],
+    "swatches": [
+      {
+        "img": "/logic-clothes-assets/products/trench-eco_1.jpg",
+        "label": "Основний"
+      }
+    ],
+    "inStock": true,
+    "sku": 11222
+  },
+  {
+    "id": "trousers_culottes",
+    "name": "Trousers style culottes",
+    "sizes": "S · M · L",
+    "sizeOptions": [
+      "S",
+      "M",
+      "L"
+    ],
+    "price": "2 100 ₴",
+    "priceNum": 2100,
+    "color": "Logic Clothes",
+    "material": "Деталі складу уточнюйте у менеджера",
+    "description": "Trendy trousers style culottes. Hight waist. Made of eco (vegan) leather, which has a soft suede inside. Available for order in many colours and required size. Composition: polyester, elastan",
+    "longDescription": "Trendy trousers style culottes. Hight waist. Made of eco (vegan) leather, which has a soft suede inside. Available for order in many colours and required size. Composition: polyester, elastan",
+    "images": [
+      "/logic-clothes-assets/products/trousers_culottes_1.jpg",
+      "/logic-clothes-assets/products/trousers_culottes_2.jpg"
+    ],
+    "swatches": [
+      {
+        "img": "/logic-clothes-assets/products/trousers_culottes_1.jpg",
+        "label": "Основний"
+      }
+    ],
+    "inStock": true,
+    "sku": 6017
+  },
+  {
+    "id": "trousers",
+    "name": "Trousers",
+    "sizes": "S · M · L",
+    "sizeOptions": [
+      "S",
+      "M",
+      "L"
+    ],
+    "price": "1 800 ₴",
+    "priceNum": 1800,
+    "color": "Logic Clothes",
+    "material": "Деталі складу уточнюйте у менеджера",
+    "description": "Trousers made of eco leather, with a soft eco suede reverse side.",
+    "longDescription": "Trousers made of eco leather, with a soft eco suede reverse side.",
+    "images": [
+      "/logic-clothes-assets/products/trousers_1.jpg",
+      "/logic-clothes-assets/products/trousers_2.jpg",
+      "/logic-clothes-assets/products/trousers_3.jpg",
+      "/logic-clothes-assets/products/trousers_4.jpg"
+    ],
+    "swatches": [
+      {
+        "img": "/logic-clothes-assets/products/trousers_1.jpg",
+        "label": "Основний"
+      }
+    ],
+    "inStock": true,
+    "sku": 11604
+  },
+  {
+    "id": "skirt",
+    "name": "Skirt",
+    "sizes": "XL · XS · S · M · L",
+    "sizeOptions": [
+      "XL",
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "price": "1 700 ₴",
+    "priceNum": 1700,
+    "color": "Logic Clothes",
+    "material": "Деталі складу уточнюйте у менеджера",
+    "description": "Midi skirt made of eco leather with eco suede pockets in front. We can sew it in more than 20 different colors of our eco leather. Composition: eco leather (polyester + elastane)",
+    "longDescription": "Midi skirt made of eco leather with eco suede pockets in front. We can sew it in more than 20 different colors of our eco leather. Composition: eco leather (polyester + elastane)",
+    "images": [
+      "/logic-clothes-assets/products/skirt_1.jpg",
+      "/logic-clothes-assets/products/skirt_2.jpg",
+      "/logic-clothes-assets/products/skirt_3.jpg"
+    ],
+    "swatches": [
+      {
+        "img": "/logic-clothes-assets/products/skirt_1.jpg",
+        "label": "Основний"
+      }
+    ],
+    "inStock": true,
+    "sku": 12242
+  },
+  {
+    "id": "shopper",
+    "name": "Shopper bag",
+    "sizes": "S · M · L",
+    "sizeOptions": [
+      "S",
+      "M",
+      "L"
+    ],
+    "price": "1 150 ₴",
+    "priceNum": 1150,
+    "color": "Logic Clothes",
+    "material": "Деталі складу уточнюйте у менеджера",
+    "description": "Shopper bag made of a high quality soft vegan leather. Has very solid handles.",
+    "longDescription": "Shopper bag made of a high quality soft vegan leather. Has very solid handles.",
+    "images": [
+      "/logic-clothes-assets/products/shopper_1.jpg",
+      "/logic-clothes-assets/products/shopper_2.jpg"
+    ],
+    "swatches": [
+      {
+        "img": "/logic-clothes-assets/products/shopper_1.jpg",
+        "label": "Основний"
+      }
+    ],
+    "inStock": true,
+    "sku": 156537
+  },
+  {
+    "id": "mesh-dress",
+    "name": "Mesh Dress",
+    "sizes": "S · M · L",
+    "sizeOptions": [
+      "S",
+      "M",
+      "L"
+    ],
+    "price": "1 700 ₴",
+    "priceNum": 1700,
+    "color": "Logic Clothes",
+    "material": "Деталі складу уточнюйте у менеджера",
+    "description": "Mesh dress with puff sleeves. Composition: 100% polyester",
+    "longDescription": "Mesh dress with puff sleeves. Composition: 100% polyester",
+    "images": [
+      "/logic-clothes-assets/products/mesh-dress_1.jpg",
+      "/logic-clothes-assets/products/mesh-dress_2.jpg"
+    ],
+    "swatches": [
+      {
+        "img": "/logic-clothes-assets/products/mesh-dress_1.jpg",
+        "label": "Основний"
+      }
+    ],
+    "inStock": true,
+    "sku": 11877
+  },
+  {
+    "id": "skirtfauxleather",
+    "name": "Faux Leather Skirt",
+    "sizes": "XL · XS · S · M · L",
+    "sizeOptions": [
+      "XL",
+      "XS",
+      "S",
+      "M",
+      "L"
+    ],
+    "price": "1 850 ₴",
+    "priceNum": 1850,
+    "color": "Logic Clothes",
+    "material": "Деталі складу уточнюйте у менеджера",
+    "description": "Midi skirt made of elastic faux leather. We can sew it in more than 20 different colors. Composition: faux leather (polyester + elastane)",
+    "longDescription": "Midi skirt made of elastic faux leather. We can sew it in more than 20 different colors. Composition: faux leather (polyester + elastane)",
+    "images": [
+      "/logic-clothes-assets/products/skirtfauxleather_1.jpg"
+    ],
+    "swatches": [
+      {
+        "img": "/logic-clothes-assets/products/skirtfauxleather_1.jpg",
+        "label": "Основний"
+      }
+    ],
+    "inStock": true,
+    "sku": 250088
+  },
+  {
+    "id": "plakhta",
+    "name": "Plakhta",
+    "sizes": "S · M · L",
+    "sizeOptions": [
+      "S",
+      "M",
+      "L"
+    ],
+    "price": "2 400 ₴",
+    "priceNum": 2400,
+    "color": "Logic Clothes",
+    "material": "Деталі складу уточнюйте у менеджера",
+    "description": "New modern version of ukrainian traditional wrap skirt - plakhta. A practical and bright accessory. Adjustable removable belt. We make them in different colours and fabrics. Composition : 50% polyester 50% cotton",
+    "longDescription": "New modern version of ukrainian traditional wrap skirt - plakhta. A practical and bright accessory. Adjustable removable belt. We make them in different colours and fabrics. Composition : 50% polyester 50% cotton",
+    "images": [
+      "/logic-clothes-assets/products/plakhta_1.jpg"
+    ],
+    "swatches": [
+      {
+        "img": "/logic-clothes-assets/products/plakhta_1.jpg",
+        "label": "Основний"
+      }
+    ],
+    "inStock": true,
+    "sku": 250086
+  }
+]

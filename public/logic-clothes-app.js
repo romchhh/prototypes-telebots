@@ -1,105 +1,5 @@
 (function () {
-  const productImg = (id) => `/logic-clothes-assets/products/${id}.png`;
-
-  const PRODUCTS = [
-    {
-      id: 'skirtfauxleather',
-      name: 'Спідниця з еко-шкіри',
-      sizes: 'S · M · L',
-      sizeOptions: ['S', 'M', 'L'],
-      price: '1 850 ₴',
-      priceNum: 1850,
-      color: 'Чорний',
-      material: 'Еко-шкіра (поліестер + еластан)',
-      description:
-        'Міді-спідниця з еластичної еко-шкіри. Можна пошити у понад 20 кольорах.',
-      images: [productImg('skirtfauxleather')],
-      swatches: [{ img: productImg('skirtfauxleather'), label: 'Чорний' }],
-    },
-    {
-      id: 'plakhta',
-      name: 'Плахта',
-      sizes: 'S · M · L',
-      sizeOptions: ['S', 'M', 'L'],
-      price: '2 400 ₴',
-      priceNum: 2400,
-      color: 'Яскравий принт',
-      material: '50% поліестер, 50% бавовна',
-      description:
-        'Сучасна версія традиційної української спідниці-запаху. Регульований знімний пояс. Різні кольори й тканини.',
-      images: [productImg('plakhta')],
-      swatches: [{ img: productImg('plakhta'), label: 'Яскравий принт' }],
-    },
-    {
-      id: 'denim-jacket',
-      name: 'Денімовий жакет',
-      sizes: 'S · M · L',
-      sizeOptions: ['S', 'M', 'L'],
-      price: '3 200 ₴',
-      priceNum: 3200,
-      color: 'Денім',
-      material: '100% бавовна',
-      description:
-        'Жакет-бомбер із щільного деніму без підкладки. Дві нагрудні кишені, пояс на резинці. Можливі інші кольори.',
-      images: [productImg('denim-jacket')],
-      swatches: [{ img: productImg('denim-jacket'), label: 'Денім' }],
-    },
-    {
-      id: 'raincoat',
-      name: 'Дощовик',
-      sizes: 'S · M · L',
-      sizeOptions: ['S', 'M', 'L'],
-      price: '4 200 ₴',
-      priceNum: 4200,
-      color: 'Сріблястий',
-      material: 'Підкладка 100% бавовна, верх 100% поліестер',
-      description:
-        'Легкий довгий дощовик із водонепроникної тканини з металізованим ламе. Знімний капюшон, великі кишені.',
-      images: [productImg('raincoat')],
-      swatches: [{ img: productImg('raincoat'), label: 'Сріблястий' }],
-    },
-    {
-      id: 'light-coat',
-      name: 'Легке пальто з еко-шкіри',
-      sizes: 'S · M · L',
-      sizeOptions: ['S', 'M', 'L'],
-      price: '4 800 ₴',
-      priceNum: 4800,
-      color: 'Чорний',
-      material: '100% поліестер',
-      description:
-        'Оверсайз пальто з легкої еко-шкіри. Підкладка, дві бокові кишені, знімний капюшон і пояс.',
-      images: [productImg('light-coat')],
-      swatches: [{ img: productImg('light-coat'), label: 'Чорний' }],
-    },
-    {
-      id: 'bomber',
-      name: 'Бомбер з неопрену',
-      sizes: 'S · M · L',
-      sizeOptions: ['S', 'M', 'L'],
-      price: '3 600 ₴',
-      priceNum: 3600,
-      color: 'Чорний',
-      material: '100% поліестер',
-      description: 'Укорочений бомбер із сітчастого неопрену. Без підкладки, застібка на ґудзики.',
-      images: [productImg('bomber')],
-      swatches: [{ img: productImg('bomber'), label: 'Чорний' }],
-    },
-    {
-      id: 'hoodie',
-      name: 'Теплий худі',
-      sizes: 'Onesize',
-      sizeOptions: ['Onesize'],
-      price: '2 500 ₴',
-      priceNum: 2500,
-      color: 'Сірий меланж',
-      material: '95% бавовна, 5% еластан',
-      description:
-        'Оверсайз худі з довгим кроєм, великим капюшоном і довгими рукавами. Зріст моделі: 175 см.',
-      images: [productImg('hoodie')],
-      swatches: [{ img: productImg('hoodie'), label: 'Сірий меланж' }],
-    },
-  ];
+  let PRODUCTS = [];
 
   const siteBar = document.getElementById('site-bar');
   const productsGrid = document.getElementById('products-grid');
@@ -112,7 +12,7 @@
   let wishlist = [];
   let currentProductIndex = 0;
   let currentImageIndex = 0;
-  let selectedSize = 'S';
+  let selectedSize = null;
 
   try {
     const saved = JSON.parse(localStorage.getItem('lc-cart') || '[]');
@@ -201,19 +101,28 @@
     return n.toLocaleString('uk-UA') + ' ₴';
   }
 
+  function escapeHtml(s) {
+    return String(s || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
   function productCardMarkup(p) {
     return `
     <article class="product">
-      <a href="#product/${p.id}" class="product-link" data-nav="product" data-product="${p.id}">
+      <a href="#product/${escapeHtml(p.id)}" class="product-link" data-nav="product" data-product="${escapeHtml(p.id)}">
         <div class="product-img">
-          <img src="${p.images[0]}" alt="${p.name}" loading="lazy">
-          <button class="wish" type="button" data-wish-id="${p.id}" aria-label="У вішлист"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 011 1v17l-7-4.5L5 21V4a1 1 0 011-1z" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linejoin="round"/></svg></button>
+          <img src="${escapeHtml(p.images[0])}" alt="${escapeHtml(p.name)}" loading="lazy">
+          <button class="wish" type="button" data-wish-id="${escapeHtml(p.id)}" aria-label="У вішлист"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 011 1v17l-7-4.5L5 21V4a1 1 0 011-1z" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linejoin="round"/></svg></button>
         </div>
         <div class="product-info">
-          <div class="product-name">${p.name}</div>
-          <div class="product-price">${p.price}</div>
+          <div class="product-name">${escapeHtml(p.name)}</div>
+          <div class="product-price">${escapeHtml(p.price)}</div>
         </div>
       </a>
+      <button class="product-cart" type="button" data-add-cart="${escapeHtml(p.id)}">В кошик</button>
     </article>`;
   }
 
@@ -225,16 +134,51 @@
     syncWishButtons();
   }
 
+  function bindAddCartButtons(root) {
+    if (!root) return;
+    root.querySelectorAll('[data-add-cart]').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        addToCart(btn.dataset.addCart);
+      });
+    });
+  }
+
+  function bindProductNav(root) {
+    if (!root) return;
+    root.querySelectorAll('[data-nav="product"]').forEach((el) => {
+      el.addEventListener('click', (e) => {
+        if (e.target.closest('[data-wish-id], [data-add-cart]')) return;
+        e.preventDefault();
+        const id = el.getAttribute('data-product');
+        const idx = id ? PRODUCTS.findIndex((p) => p.id === id) : -1;
+        if (idx >= 0) currentProductIndex = idx;
+        location.hash = 'product/' + PRODUCTS[currentProductIndex].id;
+      });
+    });
+  }
+
+  function bindProductCards(root) {
+    bindWishButtons(root);
+    bindAddCartButtons(root);
+    bindProductNav(root);
+  }
+
   function renderHomeFeatured() {
     if (!homeProductsGrid) return;
-    homeProductsGrid.innerHTML = PRODUCTS.slice(0, 4).map((p) => productCardMarkup(p)).join('');
-    bindWishButtons(homeProductsGrid);
+    homeProductsGrid.innerHTML = PRODUCTS.slice(0, 8).map((p) => productCardMarkup(p)).join('');
+    bindProductCards(homeProductsGrid);
   }
 
   function renderCatalog() {
     if (!productsGrid) return;
     productsGrid.innerHTML = PRODUCTS.map((p) => productCardMarkup(p)).join('');
-    bindWishButtons(productsGrid);
+    bindProductCards(productsGrid);
+    const count = document.getElementById('cat-count');
+    if (count) {
+      count.innerHTML = `Показано <strong>${PRODUCTS.length}</strong> моделей`;
+    }
   }
 
   function renderCartDrawer() {
@@ -250,10 +194,10 @@
       .map(
         (item, i) => `
       <div class="panel-item">
-        <img src="${item.image}" alt="" width="56" height="70">
+        <img src="${escapeHtml(item.image)}" alt="" width="56" height="70">
         <div class="panel-item-body">
-          <p class="panel-item-name">${item.name}</p>
-          <p class="panel-item-meta">${item.size} · ${item.price}</p>
+          <p class="panel-item-name">${escapeHtml(item.name)}</p>
+          <p class="panel-item-meta">${escapeHtml(item.size)} · ${escapeHtml(item.price)}</p>
         </div>
         <button type="button" class="panel-remove" data-cart-remove="${i}" aria-label="Видалити">×</button>
       </div>`
@@ -276,13 +220,13 @@
       .map(
         (item) => `
       <div class="panel-item">
-        <img src="${item.image}" alt="" width="56" height="70">
+        <img src="${escapeHtml(item.image)}" alt="" width="56" height="70">
         <div class="panel-item-body">
-          <p class="panel-item-name">${item.name}</p>
-          <p class="panel-item-meta">${item.price}</p>
-          <button type="button" class="panel-add" data-wish-to-cart="${item.id}">У кошик</button>
+          <p class="panel-item-name">${escapeHtml(item.name)}</p>
+          <p class="panel-item-meta">${escapeHtml(item.price)}</p>
+          <button type="button" class="panel-add" data-wish-to-cart="${escapeHtml(item.id)}">У кошик</button>
         </div>
-        <button type="button" class="panel-remove" data-wish-remove="${item.id}" aria-label="Прибрати">×</button>
+        <button type="button" class="panel-remove" data-wish-remove="${escapeHtml(item.id)}" aria-label="Прибрати">×</button>
       </div>`
       )
       .join('');
@@ -342,6 +286,33 @@
     }
   }
 
+  function renderThumbs(p) {
+    const thumbs = document.getElementById('pdp-thumbs');
+    if (!thumbs) return;
+    if (!p.images || p.images.length < 2) {
+      thumbs.innerHTML = '';
+      thumbs.hidden = true;
+      return;
+    }
+    thumbs.hidden = false;
+    thumbs.innerHTML = p.images
+      .map(
+        (src, i) => `
+      <button type="button" class="pdp-thumb${i === currentImageIndex ? ' is-active' : ''}" data-thumb="${i}" aria-label="Фото ${i + 1}">
+        <img src="${escapeHtml(src)}" alt="">
+      </button>`
+      )
+      .join('');
+  }
+
+  function renderRelated(index) {
+    const grid = document.getElementById('pdp-related-grid');
+    if (!grid) return;
+    const related = PRODUCTS.filter((_, i) => i !== index).slice(0, 4);
+    grid.innerHTML = related.map((p) => productCardMarkup(p)).join('');
+    bindProductCards(grid);
+  }
+
   function renderProduct(index) {
     const p = PRODUCTS[index];
     if (!p) return;
@@ -353,39 +324,59 @@
     document.getElementById('pdp-crumb-name').textContent = p.name;
     document.getElementById('pdp-color').textContent = p.color;
     document.getElementById('pdp-price').textContent = p.price;
-    document.getElementById('pdp-material').textContent = p.material;
+    const materialEl = document.getElementById('pdp-material');
+    if (materialEl) materialEl.textContent = p.material || '';
+    const fabricBlock = document.getElementById('pdp-fabric-block');
+    if (fabricBlock) fabricBlock.hidden = !p.material;
+
     const descEl = document.getElementById('pdp-desc');
-    if (descEl) descEl.textContent = p.description;
+    if (descEl) descEl.textContent = p.longDescription || p.description;
+
+    const stock = document.getElementById('pdp-stock');
+    if (stock) {
+      const ok = p.inStock !== false;
+      stock.textContent = ok ? 'В наявності' : 'Під замовлення';
+      stock.classList.toggle('is-out', !ok);
+    }
+
+    const sku = document.getElementById('pdp-sku');
+    if (sku) {
+      if (p.sku) {
+        sku.hidden = false;
+        sku.textContent = 'SKU ' + p.sku;
+      } else {
+        sku.hidden = true;
+      }
+    }
+
     document.getElementById('pdp-main-img').src = p.images[0];
     document.getElementById('pdp-main-img').alt = p.name;
 
     const showNav = p.images.length > 1;
     document.getElementById('pdp-prev-img')?.classList.toggle('is-hidden', !showNav);
     document.getElementById('pdp-next-btn')?.classList.toggle('is-hidden', !showNav);
+    renderThumbs(p);
 
     const colorBlock = document.getElementById('pdp-color-block');
     const swatches = document.getElementById('pdp-swatches');
-    if (p.swatches.length > 0) {
+    if (p.swatches && p.swatches.length > 1) {
       if (colorBlock) colorBlock.style.display = 'block';
       swatches.innerHTML = p.swatches
         .map(
           (s, i) => `
-        <button class="pdp-swatch${i === 0 ? ' is-active' : ''}" type="button" data-swatch="${i}" aria-label="${s.label}">
-          <span><img src="${s.img}" alt="${s.label}"></span>
+        <button class="pdp-swatch${i === 0 ? ' is-active' : ''}" type="button" data-swatch="${i}" aria-label="${escapeHtml(s.label)}">
+          <span><img src="${escapeHtml(s.img)}" alt="${escapeHtml(s.label)}"></span>
         </button>`
         )
         .join('');
     } else {
       if (colorBlock) colorBlock.style.display = 'none';
-      swatches.innerHTML = '';
+      if (swatches) swatches.innerHTML = '';
     }
 
     const sizesEl = document.getElementById('pdp-sizes');
-    sizesEl.innerHTML = p.sizeOptions
-      .map(
-        (sz) => `
-      <button class="pdp-size" type="button" data-size="${sz}">${sz}</button>`
-      )
+    sizesEl.innerHTML = (p.sizeOptions || ['S', 'M', 'L'])
+      .map((sz) => `<button class="pdp-size" type="button" data-size="${escapeHtml(sz)}">${escapeHtml(sz)}</button>`)
       .join('');
 
     const wishBtn = document.getElementById('pdp-wish');
@@ -393,6 +384,8 @@
       wishBtn.dataset.wishId = p.id;
       syncWishButtons();
     }
+
+    renderRelated(index);
   }
 
   function setImage(i) {
@@ -400,6 +393,9 @@
     if (!p?.images?.length) return;
     currentImageIndex = (i + p.images.length) % p.images.length;
     document.getElementById('pdp-main-img').src = p.images[currentImageIndex];
+    document.querySelectorAll('.pdp-thumb').forEach((btn) => {
+      btn.classList.toggle('is-active', Number(btn.dataset.thumb) === currentImageIndex);
+    });
   }
 
   function addProductToCart() {
@@ -439,117 +435,138 @@
     } else showPage('home');
   }
 
-  document.querySelectorAll('[data-nav]').forEach((el) => {
-    el.addEventListener('click', (e) => {
-      const page = el.getAttribute('data-nav');
-      if (!page) return;
-      e.preventDefault();
-      if (page === 'cart') {
-        location.hash = 'cart';
-        return;
-      }
-      if (page === 'wish') {
-        location.hash = 'wish';
-        return;
-      }
-      if (page === 'product') {
-        const id = el.getAttribute('data-product');
-        const idx = id ? PRODUCTS.findIndex((p) => p.id === id) : -1;
-        if (idx >= 0) currentProductIndex = idx;
-        location.hash = 'product/' + PRODUCTS[currentProductIndex].id;
-      } else {
-        location.hash = page;
+  function bindStaticUi() {
+    document.querySelectorAll('[data-nav]').forEach((el) => {
+      if (el.closest('#home-products-grid') || el.closest('#products-grid') || el.closest('#pdp-related-grid')) return;
+      el.addEventListener('click', (e) => {
+        const page = el.getAttribute('data-nav');
+        if (!page) return;
+        e.preventDefault();
+        if (page === 'cart') {
+          location.hash = 'cart';
+          return;
+        }
+        if (page === 'wish') {
+          location.hash = 'wish';
+          return;
+        }
+        if (page === 'product') {
+          const id = el.getAttribute('data-product');
+          const idx = id ? PRODUCTS.findIndex((p) => p.id === id) : -1;
+          if (idx >= 0) currentProductIndex = idx;
+          location.hash = 'product/' + PRODUCTS[currentProductIndex].id;
+        } else {
+          location.hash = page;
+        }
+      });
+    });
+
+    document.getElementById('pdp-prev-img')?.addEventListener('click', () => setImage(currentImageIndex - 1));
+    document.getElementById('pdp-next-btn')?.addEventListener('click', () => setImage(currentImageIndex + 1));
+
+    document.getElementById('pdp-thumbs')?.addEventListener('click', (e) => {
+      const btn = e.target.closest('.pdp-thumb');
+      if (!btn) return;
+      setImage(Number(btn.dataset.thumb));
+    });
+
+    document.getElementById('pdp-swatches')?.addEventListener('click', (e) => {
+      const btn = e.target.closest('.pdp-swatch');
+      if (!btn) return;
+      document.querySelectorAll('.pdp-swatch').forEach((s) => s.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      const p = PRODUCTS[currentProductIndex];
+      const sw = p.swatches[Number(btn.dataset.swatch)];
+      if (sw) {
+        document.getElementById('pdp-color').textContent = sw.label;
+        document.getElementById('pdp-main-img').src = sw.img;
       }
     });
-  });
 
-  document.getElementById('pdp-prev-img')?.addEventListener('click', () => setImage(currentImageIndex - 1));
-  document.getElementById('pdp-next-btn')?.addEventListener('click', () => setImage(currentImageIndex + 1));
+    document.getElementById('pdp-sizes')?.addEventListener('click', (e) => {
+      const btn = e.target.closest('.pdp-size');
+      if (!btn) return;
+      document.querySelectorAll('.pdp-size').forEach((s) => s.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      selectedSize = btn.dataset.size;
+    });
 
-  document.getElementById('pdp-swatches')?.addEventListener('click', (e) => {
-    const btn = e.target.closest('.pdp-swatch');
-    if (!btn) return;
-    document.querySelectorAll('.pdp-swatch').forEach((s) => s.classList.remove('is-active'));
-    btn.classList.add('is-active');
-    const p = PRODUCTS[currentProductIndex];
-    const sw = p.swatches[Number(btn.dataset.swatch)];
-    if (sw) {
-      document.getElementById('pdp-color').textContent = sw.label;
-      document.getElementById('pdp-main-img').src = sw.img;
+    document.getElementById('pdp-add-cart')?.addEventListener('click', addProductToCart);
+    document.getElementById('pdp-add-cart-mobile')?.addEventListener('click', addProductToCart);
+
+    const sizeModal = document.getElementById('pdp-size-modal');
+    document.getElementById('pdp-size-guide')?.addEventListener('click', () => {
+      sizeModal?.classList.add('open');
+      sizeModal?.setAttribute('aria-hidden', 'false');
+    });
+    document.getElementById('pdp-size-modal-close')?.addEventListener('click', () => {
+      sizeModal?.classList.remove('open');
+      sizeModal?.setAttribute('aria-hidden', 'true');
+    });
+    sizeModal?.addEventListener('click', (e) => {
+      if (e.target === sizeModal) {
+        sizeModal.classList.remove('open');
+        sizeModal.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    document.getElementById('pdp-wish')?.addEventListener('click', (e) => {
+      toggleWish(PRODUCTS[currentProductIndex].id, e);
+    });
+
+    document.getElementById('btn-cart')?.addEventListener('click', () => openCart());
+    document.getElementById('btn-wish')?.addEventListener('click', () => openWish());
+    document.getElementById('btn-search')?.addEventListener('click', () => {
+      location.hash = 'catalog';
+    });
+    document.getElementById('btn-menu')?.addEventListener('click', () => toggleMenu());
+    document.getElementById('panel-backdrop')?.addEventListener('click', closePanels);
+    document.getElementById('cart-close')?.addEventListener('click', closePanels);
+    document.getElementById('wish-close')?.addEventListener('click', closePanels);
+    document.querySelectorAll('[data-close-menu]').forEach((el) => {
+      el.addEventListener('click', closePanels);
+    });
+
+    document.getElementById('cart-checkout')?.addEventListener('click', () => {
+      if (!cart.length) return;
+      alert('Дякуємо! Замовлення надіслано — менеджер зв’яжеться з вами.');
+      cart = [];
+      persist();
+      renderCartDrawer();
+      closePanels();
+    });
+
+    window.addEventListener('scroll', updateStuck, { passive: true });
+    window.addEventListener('resize', updateStuck, { passive: true });
+    if (typeof IntersectionObserver !== 'undefined') {
+      const heroStage = document.querySelector('.home-hero-stage');
+      if (heroStage) {
+        new IntersectionObserver(
+          () => {
+            if (document.body.classList.contains('home-on')) updateStuck();
+          },
+          { root: null, threshold: [0, 0.02, 0.1, 0.25, 0.5, 0.75, 1] }
+        ).observe(heroStage);
+      }
     }
-  });
-
-  document.getElementById('pdp-sizes')?.addEventListener('click', (e) => {
-    const btn = e.target.closest('.pdp-size');
-    if (!btn) return;
-    document.querySelectorAll('.pdp-size').forEach((s) => s.classList.remove('is-active'));
-    btn.classList.add('is-active');
-    selectedSize = btn.dataset.size;
-  });
-
-  document.getElementById('pdp-add-cart')?.addEventListener('click', addProductToCart);
-  document.getElementById('pdp-add-cart-mobile')?.addEventListener('click', addProductToCart);
-
-  const sizeModal = document.getElementById('pdp-size-modal');
-  document.getElementById('pdp-size-guide')?.addEventListener('click', () => {
-    sizeModal?.classList.add('open');
-    sizeModal?.setAttribute('aria-hidden', 'false');
-  });
-  document.getElementById('pdp-size-modal-close')?.addEventListener('click', () => {
-    sizeModal?.classList.remove('open');
-    sizeModal?.setAttribute('aria-hidden', 'true');
-  });
-  sizeModal?.addEventListener('click', (e) => {
-    if (e.target === sizeModal) {
-      sizeModal.classList.remove('open');
-      sizeModal.setAttribute('aria-hidden', 'true');
-    }
-  });
-
-  document.getElementById('pdp-wish')?.addEventListener('click', (e) => {
-    toggleWish(PRODUCTS[currentProductIndex].id, e);
-  });
-
-  document.getElementById('btn-cart')?.addEventListener('click', () => openCart());
-  document.getElementById('btn-wish')?.addEventListener('click', () => openWish());
-  document.getElementById('btn-search')?.addEventListener('click', () => {
-    location.hash = 'catalog';
-  });
-  document.getElementById('btn-menu')?.addEventListener('click', () => toggleMenu());
-  document.getElementById('panel-backdrop')?.addEventListener('click', closePanels);
-  document.getElementById('cart-close')?.addEventListener('click', closePanels);
-  document.getElementById('wish-close')?.addEventListener('click', closePanels);
-  document.querySelectorAll('[data-close-menu]').forEach((el) => {
-    el.addEventListener('click', closePanels);
-  });
-
-  document.getElementById('cart-checkout')?.addEventListener('click', () => {
-    if (!cart.length) return;
-    alert('Дякуємо! Замовлення надіслано — менеджер зв’яжеться з вами.');
-    cart = [];
-    persist();
-    renderCartDrawer();
-    closePanels();
-  });
-
-  renderHomeFeatured();
-  renderCatalog();
-  renderCartDrawer();
-  renderWishDrawer();
-  updateBadges();
-  window.addEventListener('scroll', updateStuck, { passive: true });
-  window.addEventListener('resize', updateStuck, { passive: true });
-  if (typeof IntersectionObserver !== 'undefined') {
-    const heroStage = document.querySelector('.home-hero-stage');
-    if (heroStage) {
-      new IntersectionObserver(
-        () => {
-          if (document.body.classList.contains('home-on')) updateStuck();
-        },
-        { root: null, threshold: [0, 0.02, 0.1, 0.25, 0.5, 0.75, 1] }
-      ).observe(heroStage);
-    }
+    window.addEventListener('hashchange', route);
   }
-  window.addEventListener('hashchange', route);
-  route();
+
+  fetch('/logic-clothes-products.json')
+    .then((r) => r.json())
+    .then((data) => {
+      PRODUCTS = Array.isArray(data) ? data : [];
+      bindStaticUi();
+      renderHomeFeatured();
+      renderCatalog();
+      renderCartDrawer();
+      renderWishDrawer();
+      updateBadges();
+      route();
+    })
+    .catch((err) => {
+      console.error('Failed to load products', err);
+      bindStaticUi();
+      route();
+    });
 })();
