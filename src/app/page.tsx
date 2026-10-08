@@ -12,6 +12,13 @@ const PROPOSALS = [
 
 const PROTOTYPES = [
   {
+    slug: 'stoplab',
+    href: '/stoplab.html',
+    title: 'Stoplab',
+    desc: 'Brake systems — discs, pads, calipers, 3D hero (EN)',
+    tag: 'Automotive',
+  },
+  {
     slug: 'ushop',
     href: '/store.html',
     title: 'U.SHOP',
