@@ -109,20 +109,44 @@
       .replace(/"/g, '&quot;');
   }
 
+  function formatCardPrice(p) {
+    if (typeof p.priceNum === 'number') {
+      return p.priceNum.toLocaleString('uk-UA') + ' грн';
+    }
+    return String(p.price || '').replace('₴', 'грн').trim();
+  }
+
   function productCardMarkup(p) {
+    const sizes =
+      p.sizeOptions && p.sizeOptions.length
+        ? p.sizeOptions.join(' ')
+        : String(p.sizes || '')
+            .replace(/·/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim();
+    const swatches = (p.swatches || [])
+      .slice(0, 4)
+      .map(
+        (s) =>
+          `<span class="product-swatch" style="background-image:url('${escapeHtml(s.img)}')" title="${escapeHtml(s.label || '')}"></span>`
+      )
+      .join('');
     return `
     <article class="product">
       <a href="#product/${escapeHtml(p.id)}" class="product-link" data-nav="product" data-product="${escapeHtml(p.id)}">
         <div class="product-img">
           <img src="${escapeHtml(p.images[0])}" alt="${escapeHtml(p.name)}" loading="lazy">
-          <button class="wish" type="button" data-wish-id="${escapeHtml(p.id)}" aria-label="У вішлист"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 011 1v17l-7-4.5L5 21V4a1 1 0 011-1z" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linejoin="round"/></svg></button>
+          <button class="wish" type="button" data-wish-id="${escapeHtml(p.id)}" aria-label="У вішлист"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.2l-1.45-1.32C5.4 14.36 2 11.28 2 7.5 2 4.42 4.42 2 7.5 2c1.74 0 3.41.81 4.5 2.09C13.09 2.81 14.76 2 16.5 2 19.58 2 22 4.42 22 7.5c0 3.78-3.4 6.86-8.55 11.38L12 20.2z"/></svg></button>
         </div>
         <div class="product-info">
+          <div class="product-sizes">${escapeHtml(sizes)}</div>
           <div class="product-name">${escapeHtml(p.name)}</div>
-          <div class="product-price">${escapeHtml(p.price)}</div>
+          <div class="product-meta">
+            <div class="product-price">${escapeHtml(formatCardPrice(p))}</div>
+            <div class="product-swatches">${swatches}</div>
+          </div>
         </div>
       </a>
-      <button class="product-cart" type="button" data-add-cart="${escapeHtml(p.id)}">В кошик</button>
     </article>`;
   }
 
@@ -323,7 +347,7 @@
     document.getElementById('pdp-title').textContent = p.name;
     document.getElementById('pdp-crumb-name').textContent = p.name;
     document.getElementById('pdp-color').textContent = p.color;
-    document.getElementById('pdp-price').textContent = p.price;
+    document.getElementById('pdp-price').textContent = formatCardPrice(p);
     const materialEl = document.getElementById('pdp-material');
     if (materialEl) materialEl.textContent = p.material || '';
     const fabricBlock = document.getElementById('pdp-fabric-block');
@@ -343,7 +367,7 @@
     if (sku) {
       if (p.sku) {
         sku.hidden = false;
-        sku.textContent = 'SKU ' + p.sku;
+        sku.textContent = 'Модель: ' + p.sku;
       } else {
         sku.hidden = true;
       }
@@ -463,6 +487,10 @@
 
     document.getElementById('pdp-prev-img')?.addEventListener('click', () => setImage(currentImageIndex - 1));
     document.getElementById('pdp-next-btn')?.addEventListener('click', () => setImage(currentImageIndex + 1));
+    document.getElementById('pdp-main-img')?.addEventListener('click', () => {
+      const p = PRODUCTS[currentProductIndex];
+      if (p?.images?.length > 1) setImage(currentImageIndex + 1);
+    });
 
     document.getElementById('pdp-thumbs')?.addEventListener('click', (e) => {
       const btn = e.target.closest('.pdp-thumb');
