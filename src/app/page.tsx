@@ -68,6 +68,13 @@ const PROTOTYPES = [
     tag: 'Маркетинг',
   },
   {
+    slug: 'king-kong-lab',
+    href: '/king-kong-lab.html',
+    title: 'KING•KONG.Lab',
+    desc: 'Сайти, боти, AI-агенти, SEO і реклама — worldwide (UA)',
+    tag: 'Digital lab',
+  },
+  {
     slug: 'hub-studio',
     href: '/danapris.html',
     title: 'Hub Studio',
