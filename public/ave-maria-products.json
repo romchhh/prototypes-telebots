@@ -3,12 +3,14 @@
     "id": "bakery",
     "name": "Крем для рук BAKERY",
     "category": "Догляд за тілом",
-    "badge": "1+1=3",
+    "badge": null,
     "isNew": true,
     "rating": 5.0,
     "reviews": 18,
     "volume": "30 мл",
-    "volumeOptions": ["30 мл"],
+    "volumeOptions": [
+      "30 мл"
+    ],
     "price": "359 ₴",
     "priceNum": 359,
     "description": "Зволожувальний smart-крем зі ароматом свіжоспеченого хліба.",
@@ -24,30 +26,36 @@
     "id": "pomodori",
     "name": "Крем для рук POMODORI",
     "category": "Догляд за тілом",
-    "badge": "1+1=3",
+    "badge": null,
     "isNew": true,
     "rating": 4.9,
     "reviews": 12,
     "volume": "30 мл",
-    "volumeOptions": ["30 мл"],
+    "volumeOptions": [
+      "30 мл"
+    ],
     "price": "359 ₴",
     "priceNum": 359,
     "description": "Зволожувальний smart-крем зі свіжим зеленим ароматом томатного листя.",
     "longDescription": "Свіжий зелений аромат томатного листя, гальбануму та томленого цукру. Живить шкіру рук і дарує відчуття саду після дощу.",
     "material": "Зволожувальний комплекс + гальбанум",
-    "images": ["/ave-maria-assets/products/pomodori.webp"],
+    "images": [
+      "/ave-maria-assets/products/pomodori.webp"
+    ],
     "inStock": true
   },
   {
     "id": "coco",
     "name": "Крем для рук COCO BABY",
     "category": "Догляд за тілом",
-    "badge": "1+1=3",
+    "badge": null,
     "isNew": false,
     "rating": 5.0,
     "reviews": 2,
     "volume": "30 мл",
-    "volumeOptions": ["30 мл"],
+    "volumeOptions": [
+      "30 мл"
+    ],
     "price": "359 ₴",
     "priceNum": 359,
     "description": "Зволожувальний smart-крем із вершково-кокосовим ароматом.",
@@ -63,72 +71,88 @@
     "id": "vanilla",
     "name": "Крем для рук VANILLA",
     "category": "Догляд за тілом",
-    "badge": "1+1=3",
+    "badge": null,
     "isNew": false,
     "rating": 4.8,
     "reviews": 10,
     "volume": "30 мл",
-    "volumeOptions": ["30 мл"],
+    "volumeOptions": [
+      "30 мл"
+    ],
     "price": "359 ₴",
     "priceNum": 359,
     "description": "З Вітаміном E для захисту та пом’якшення шкіри рук.",
     "longDescription": "Ніжний ванільний аромат і вітамін E для щоденного захисту шкіри рук. М’яка текстура, швидке вбирання.",
     "material": "Вітамін E",
-    "images": ["/ave-maria-assets/products/vanilla.webp"],
+    "images": [
+      "/ave-maria-assets/products/vanilla.webp"
+    ],
     "inStock": true
   },
   {
     "id": "cherry",
     "name": "Крем для рук CHERRY ME",
     "category": "Догляд за тілом",
-    "badge": "1+1=3",
+    "badge": null,
     "isNew": false,
     "rating": 4.9,
     "reviews": 24,
     "volume": "30 мл",
-    "volumeOptions": ["30 мл"],
+    "volumeOptions": [
+      "30 мл"
+    ],
     "price": "359 ₴",
     "priceNum": 359,
     "description": "З Провітаміном B5 для заспокоєння шкіри та зменшення сухості.",
     "longDescription": "Соковитий вишневий аромат і провітамін B5 допомагають заспокоїти суху шкіру рук після дня.",
     "material": "Провітамін B5",
-    "images": ["/ave-maria-assets/products/cherry.webp"],
+    "images": [
+      "/ave-maria-assets/products/cherry.webp"
+    ],
     "inStock": true
   },
   {
     "id": "seasalt",
     "name": "Крем для рук Морська сіль",
     "category": "Догляд за тілом",
-    "badge": "1+1=3",
+    "badge": null,
     "isNew": false,
     "rating": 4.7,
     "reviews": 22,
     "volume": "30 мл",
-    "volumeOptions": ["30 мл"],
+    "volumeOptions": [
+      "30 мл"
+    ],
     "price": "359 ₴",
     "priceNum": 359,
     "description": "З Молочною Кислотою для гладкості шкіри.",
     "longDescription": "Мінеральний аромат морської солі та молочна кислота для гладкішої, доглянутої шкіри рук.",
     "material": "Молочна кислота",
-    "images": ["/ave-maria-assets/products/seasalt.webp"],
+    "images": [
+      "/ave-maria-assets/products/seasalt.webp"
+    ],
     "inStock": true
   },
   {
     "id": "sugar",
     "name": "Крем для рук SUGAR PORN",
     "category": "Догляд за тілом",
-    "badge": "1+1=3",
+    "badge": null,
     "isNew": false,
     "rating": 5.0,
     "reviews": 11,
     "volume": "30 мл",
-    "volumeOptions": ["30 мл"],
+    "volumeOptions": [
+      "30 мл"
+    ],
     "price": "359 ₴",
     "priceNum": 359,
     "description": "З Олією Макадамії для живлення та пом’якшення шкіри.",
     "longDescription": "Культовий аромат паленого цукру, рожевого перцю та кашеміру. Олія макадамії глибоко живить шкіру рук.",
     "material": "Олія макадамії",
-    "images": ["/ave-maria-assets/products/sugar.webp"],
+    "images": [
+      "/ave-maria-assets/products/sugar.webp"
+    ],
     "inStock": true
   },
   {
@@ -140,13 +164,17 @@
     "rating": 4.8,
     "reviews": 6,
     "volume": "100 мл",
-    "volumeOptions": ["100 мл"],
+    "volumeOptions": [
+      "100 мл"
+    ],
     "price": "949 ₴",
     "priceNum": 949,
     "description": "Іскристий цитрусовий аромат із зеленими нотами.",
     "longDescription": "Дифузор із іскристим цитрусовим ароматом і зеленими акцентами. Наповнює кімнату легким, грайливим настроєм.",
     "material": "Аромадифузор для простору",
-    "images": ["/ave-maria-assets/products/gummy.webp"],
+    "images": [
+      "/ave-maria-assets/products/gummy.webp"
+    ],
     "inStock": true
   },
   {
@@ -158,13 +186,17 @@
     "rating": 4.9,
     "reviews": 4,
     "volume": "100 мл",
-    "volumeOptions": ["100 мл"],
+    "volumeOptions": [
+      "100 мл"
+    ],
     "price": "949 ₴",
     "priceNum": 949,
     "description": "Теплий аромат кави з карамеллю, прянощами та цитрусом.",
     "longDescription": "Ранок у пляшці: кава, карамель, прянощі та легкий цитрус. Для кухні, кабінету чи улюбленого куточка.",
     "material": "Аромадифузор для простору",
-    "images": ["/ave-maria-assets/products/coffee.webp"],
+    "images": [
+      "/ave-maria-assets/products/coffee.webp"
+    ],
     "inStock": true
   },
   {
@@ -176,13 +208,17 @@
     "rating": 4.7,
     "reviews": 3,
     "volume": "100 мл",
-    "volumeOptions": ["100 мл"],
+    "volumeOptions": [
+      "100 мл"
+    ],
     "price": "949 ₴",
     "priceNum": 949,
     "description": "Аромат стиглого банана з квітковими та деревними нотами.",
     "longDescription": "Соковитий тропічний шлейф стиглого банана, квітів і теплої деревини. М’який і трохи ностальгічний.",
     "material": "Аромадифузор для простору",
-    "images": ["/ave-maria-assets/products/banana.webp"],
+    "images": [
+      "/ave-maria-assets/products/banana.webp"
+    ],
     "inStock": true
   },
   {
@@ -194,13 +230,17 @@
     "rating": 5.0,
     "reviews": 5,
     "volume": "200 мл",
-    "volumeOptions": ["200 мл"],
+    "volumeOptions": [
+      "200 мл"
+    ],
     "price": "1 599 ₴",
     "priceNum": 1599,
     "description": "Соковитий тропічний аромат із фруктовими та мускусними нотами.",
     "longDescription": "Відчуття готелю біля океану: фрукти, квіти, мускус. Глибокий і атмосферний аромат для вітальні.",
     "material": "Аромадифузор для простору",
-    "images": ["/ave-maria-assets/products/casa.webp"],
+    "images": [
+      "/ave-maria-assets/products/casa.webp"
+    ],
     "inStock": true
   },
   {
@@ -212,13 +252,18 @@
     "rating": 4.9,
     "reviews": 15,
     "volume": "50 мл",
-    "volumeOptions": ["50 мл", "150 мл"],
+    "volumeOptions": [
+      "50 мл",
+      "150 мл"
+    ],
     "price": "499 ₴",
     "priceNum": 499,
     "description": "Спрей для тіла з ароматом паленого цукру, перцю та кашеміру.",
     "longDescription": "Парфумований міст для тіла та волосся. Легкий спосіб носити культовий аромат SUGAR PORN цілий день.",
     "material": "Парфумований міст",
-    "images": ["/ave-maria-assets/products/mist-sugar.webp"],
+    "images": [
+      "/ave-maria-assets/products/mist-sugar.webp"
+    ],
     "inStock": true
   },
   {
@@ -230,13 +275,17 @@
     "rating": 4.6,
     "reviews": 1,
     "volume": "10 мл",
-    "volumeOptions": ["10 мл"],
+    "volumeOptions": [
+      "10 мл"
+    ],
     "price": "749 ₴",
     "priceNum": 749,
     "description": "Глибокий східний аромат з нотами деревини та коньяку.",
     "longDescription": "Чоловічий travel-парфум зі східним характером: деревина, коньяк, квітково-ягідні відтінки. Компактний формат для подорожей.",
     "material": "Парфумована вода",
-    "images": ["/ave-maria-assets/products/noguilty.webp"],
+    "images": [
+      "/ave-maria-assets/products/noguilty.webp"
+    ],
     "inStock": true
   },
   {
@@ -248,14 +297,18 @@
     "rating": 4.8,
     "reviews": 10,
     "volume": "100 мл",
-    "volumeOptions": ["100 мл"],
+    "volumeOptions": [
+      "100 мл"
+    ],
     "price": "559 ₴",
     "priceNum": 559,
     "oldPrice": "699 ₴",
     "description": "Спрей для простору та текстилю з ароматом цитрусів і деревини.",
     "longDescription": "Свіжий тосканський лимон із деревною базою. Освіжає кімнату, штори та постіль одним розпиленням.",
     "material": "Room spray",
-    "images": ["/ave-maria-assets/products/tuscan.webp"],
+    "images": [
+      "/ave-maria-assets/products/tuscan.webp"
+    ],
     "inStock": true
   }
 ]
