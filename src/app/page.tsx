@@ -33,6 +33,13 @@ const PROTOTYPES = [
     tag: 'E-commerce',
   },
   {
+    slug: 'ave-maria',
+    href: '/ave-maria.html',
+    title: 'Ave Maria Beauty Lab',
+    desc: 'Мультибрендова косметика — головна, каталог і товар (UA)',
+    tag: 'E-commerce',
+  },
+  {
     slug: 'royal-academy',
     href: '/school.html',
     title: 'Royal Academy School',
