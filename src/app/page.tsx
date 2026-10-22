@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link'
+import { useState } from 'react'
 import styles from './page.module.css'
 
 const PROPOSALS = [
@@ -7,6 +10,21 @@ const PROPOSALS = [
     title: 'Filo Estate',
     desc: 'Комерційна пропозиція TeleBots × Filo Estate',
     tag: 'КП',
+  },
+]
+
+const EMAILS = [
+  {
+    href: '/emails/eliminal-welcome.html',
+    title: 'Eliminal — Welcome',
+    desc: 'Вітальний лист: турбота про кишківник, симптоми та продукт',
+    tag: 'Welcome',
+  },
+  {
+    href: '/emails/eliminal-abandoned-cart.html',
+    title: 'Eliminal — Abandoned cart',
+    desc: 'Лист про покинутий кошик з нагадуванням про замовлення',
+    tag: 'Cart',
   },
 ]
 
@@ -174,7 +192,6 @@ const PROTOTYPES = [
     desc: 'CARTEL — static Lexend/Cormorant landing, brand photos (EN)',
     tag: 'HoReCa',
   },
-
   {
     slug: 'common-hospitality',
     title: 'Commons Hospitality',
@@ -193,7 +210,6 @@ const PROTOTYPES = [
     desc: 'Urologist — educational profile & consultation links (UA/PL/EN)',
     tag: 'Медицина',
   },
-
   {
     slug: 'west-auto',
     title: 'West Auto Shipping',
@@ -256,7 +272,17 @@ const PROTOTYPES = [
   },
 ]
 
+type Tab = 'prototypes' | 'emails' | 'proposals'
+
+const TABS: { id: Tab; label: string }[] = [
+  { id: 'prototypes', label: 'Прототипи' },
+  { id: 'emails', label: 'Email' },
+  { id: 'proposals', label: 'КП' },
+]
+
 export default function Home() {
+  const [tab, setTab] = useState<Tab>('prototypes')
+
   return (
     <div className={styles.page}>
       <header className={styles.header}>
@@ -274,62 +300,106 @@ export default function Home() {
           Демо-проєкти<br /><em>TeleBots</em>
         </h1>
         <p className={styles.sub}>
-          Інтерактивні прототипи для презентації клієнтам.
-          Оберіть проєкт, щоб переглянути.
+          Інтерактивні прототипи, HTML-листи та КП для клієнтів.
+          Оберіть розділ і відкрийте потрібний матеріал.
         </p>
 
-        <div className={styles.grid}>
-          {PROTOTYPES.map((p) => {
-            const content = (
-              <>
-                <span className={styles.tag}>{p.tag}</span>
-                <h2 className={styles.cardTitle}>{p.title}</h2>
-                <p className={styles.cardDesc}>{p.desc}</p>
-                <span className={styles.cardLink}>
-                  Переглянути
-                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M2 14 L14 2 M6 2 H14 V10"/>
-                  </svg>
-                </span>
-              </>
-            )
-            if ('href' in p && p.href) {
-              return (
-                <a key={p.slug} href={p.href} className={styles.card}>
-                  {content}
-                </a>
-              )
-            }
-            return (
-              <Link key={p.slug} href={`/${p.slug}`} className={styles.card}>
-                {content}
-              </Link>
-            )
-          })}
+        <div className={styles.tabs} role="tablist" aria-label="Розділи">
+          {TABS.map((t) => (
+            <button
+              key={t.id}
+              type="button"
+              role="tab"
+              aria-selected={tab === t.id}
+              className={`${styles.tab} ${tab === t.id ? styles.tabActive : ''}`}
+              onClick={() => setTab(t.id)}
+            >
+              {t.label}
+            </button>
+          ))}
         </div>
 
-        <section className={styles.proposals}>
-          <p className={styles.proposalsEyebrow}>Окремо</p>
-          <h2 className={styles.proposalsTitle}>Комерційні пропозиції</h2>
-          <p className={styles.proposalsSub}>
-            Документи для клієнтів — не прототипи сайтів.
-          </p>
-          <div className={styles.proposalsGrid}>
-            {PROPOSALS.map((p) => (
-              <a key={p.href} href={p.href} className={styles.proposalCard}>
-                <span className={styles.proposalTag}>{p.tag}</span>
-                <h3 className={styles.proposalTitle}>{p.title}</h3>
-                <p className={styles.proposalDesc}>{p.desc}</p>
-                <span className={styles.cardLink}>
-                  Відкрити
-                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M2 14 L14 2 M6 2 H14 V10"/>
-                  </svg>
-                </span>
-              </a>
-            ))}
+        {tab === 'prototypes' && (
+          <div className={styles.grid}>
+            {PROTOTYPES.map((p) => {
+              const content = (
+                <>
+                  <span className={styles.tag}>{p.tag}</span>
+                  <h2 className={styles.cardTitle}>{p.title}</h2>
+                  <p className={styles.cardDesc}>{p.desc}</p>
+                  <span className={styles.cardLink}>
+                    Переглянути
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M2 14 L14 2 M6 2 H14 V10"/>
+                    </svg>
+                  </span>
+                </>
+              )
+              if ('href' in p && p.href) {
+                return (
+                  <a key={p.slug} href={p.href} className={styles.card}>
+                    {content}
+                  </a>
+                )
+              }
+              return (
+                <Link key={p.slug} href={`/${p.slug}`} className={styles.card}>
+                  {content}
+                </Link>
+              )
+            })}
           </div>
-        </section>
+        )}
+
+        {tab === 'emails' && (
+          <section className={styles.emails}>
+            <p className={styles.proposalsEyebrow}>HTML-листи</p>
+            <h2 className={styles.proposalsTitle}>Email</h2>
+            <p className={styles.proposalsSub}>
+              Готові листи для перегляду в браузері за прямим посиланням.
+            </p>
+            <div className={styles.proposalsGrid}>
+              {EMAILS.map((e) => (
+                <a key={e.href} href={e.href} target="_blank" rel="noopener noreferrer" className={styles.emailCard}>
+                  <span className={styles.proposalTag}>{e.tag}</span>
+                  <h3 className={styles.proposalTitle}>{e.title}</h3>
+                  <p className={styles.proposalDesc}>{e.desc}</p>
+                  <span className={styles.cardLink}>
+                    Відкрити лист
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M2 14 L14 2 M6 2 H14 V10"/>
+                    </svg>
+                  </span>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {tab === 'proposals' && (
+          <section className={styles.proposals}>
+            <p className={styles.proposalsEyebrow}>Окремо</p>
+            <h2 className={styles.proposalsTitle}>Комерційні пропозиції</h2>
+            <p className={styles.proposalsSub}>
+              Документи для клієнтів — не прототипи сайтів.
+            </p>
+            <div className={styles.proposalsGrid}>
+              {PROPOSALS.map((p) => (
+                <a key={p.href} href={p.href} className={styles.proposalCard}>
+                  <span className={styles.proposalTag}>{p.tag}</span>
+                  <h3 className={styles.proposalTitle}>{p.title}</h3>
+                  <p className={styles.proposalDesc}>{p.desc}</p>
+                  <span className={styles.cardLink}>
+                    Відкрити
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M2 14 L14 2 M6 2 H14 V10"/>
+                    </svg>
+                  </span>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
 
         <a href="https://telebots.site/uk" target="_blank" rel="noopener noreferrer" className={styles.siteLink}>
           telebots.site — розробка чат-ботів і сайтів під ключ

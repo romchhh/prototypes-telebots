@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="x-apple-disable-message-reformatting">
+<meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light only">
+<!--[if mso]>
+<noscript><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript>
+<![endif]-->
+<title>Eliminal — твій кошик чекає</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<!--
+  ТЕМА A: [Ім'я], здається, нас щось відволікло 👀
+  ТЕМА B: Здається, ти дещо забуваєш. І ні, це не ключі
+  ПРЕХЕДЕР: Твій Eliminal досі в кошику. Ми все зберегли.
+
+  ЗАМІНИТИ ПЕРЕД ВІДПРАВКОЮ:
+  1. [Ім'я]                  → тег імені клієнта
+  2. Блок .cart-item          → цикл по товарах кошика (фото, назва, кількість, ціна)
+  3. [сума]                   → тег суми кошика
+  4. https://eliminal.ua/cart → посилання відновлення кошика (тег ESP)
+  5. [умови доставки]         → підтверджені умови доставки
+  6. media/logo blue.svg, media/Frame 1261152643.png → URL на CDN/ESP
+  7. #unsubscribe             → тег відписки ESP
+-->
+
+<style>
+  body, table, td, a { -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
+  table, td { mso-table-lspace:0pt; mso-table-rspace:0pt; }
+  img { -ms-interpolation-mode:bicubic; border:0; outline:none; text-decoration:none; display:block; }
+  body { margin:0 !important; padding:0 !important; width:100% !important; background-color:#F6F1E6; background-image:linear-gradient(180deg,#FBF7F0 0%,#E8DFD2 100%); }
+  a { color:#2F5D44; }
+  a[x-apple-data-detectors] { color:inherit !important; text-decoration:none !important; }
+
+  @media only screen and (max-width:620px) {
+    .container { width:100% !important; max-width:100% !important; }
+    .shell-pad { padding-left:16px !important; padding-right:16px !important; }
+    .px { padding-left:22px !important; padding-right:22px !important; }
+    .hero-title { font-size:22px !important; line-height:28px !important; }
+    .block-title { font-size:20px !important; line-height:26px !important; }
+    .cart-img { width:80px !important; }
+    .hero-banner { height:220px !important; max-height:220px !important; background-size:118% auto !important; }
+    .footer-icon { display:table-cell !important; width:33.33% !important; padding:0 4px !important; }
+    .footer-icon img { width:32px !important; height:32px !important; }
+    .footer-icon p { font-size:11px !important; line-height:14px !important; }
+  }
+</style>
+</head>
+
+<body style="margin:0;padding:0;background-color:#F6F1E6;background-image:linear-gradient(180deg,#FBF7F0 0%,#E8DFD2 100%);">
+
+<div style="display:none;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;mso-hide:all;">
+  Твій Eliminal досі в кошику. Ми все зберегли.
+  &#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;
+</div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F6F1E6" style="background-color:#F6F1E6;">
+<tr><td align="center" class="shell-pad" style="padding:28px 16px 36px 16px;background-color:#F6F1E6;background-image:linear-gradient(180deg,#FBF7F0 0%,#E8DFD2 100%);">
+
+<!--[if mso]><table role="presentation" width="600" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td><![endif]-->
+<table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;">
+
+  <tr>
+    <td align="center" style="padding:0 0 28px 0;">
+      <a href="https://eliminal.ua/" target="_blank">
+        <img src="media/logo%20blue.svg" width="132" alt="Eliminal" style="width:132px;height:auto;margin:0 auto;">
+      </a>
+    </td>
+  </tr>
+
+  <!-- БЛОК 1. Hero -->
+  <tr>
+    <td bgcolor="#FFFFFF" style="background-color:#FFFFFF;background-image:linear-gradient(180deg,#FFFFFF 0%,#F7F1E7 100%);border-radius:20px;box-shadow:0 14px 32px rgba(72,52,28,0.12);overflow:hidden;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td
+            class="hero-banner"
+            height="268"
+            background="https://eliminal.ua/cdn/shop/files/Eliminal_Hero3.avif?v=1787348715&amp;width=1200&amp;format=jpg"
+            style="height:268px;max-height:268px;padding:0;line-height:0;font-size:0;background-color:#E8E0D6;background-image:url('https://eliminal.ua/cdn/shop/files/Eliminal_Hero3.avif?v=1787348715&amp;width=1200&amp;format=jpg');background-repeat:no-repeat;background-position:center 42%;background-size:115% auto;border-radius:20px 20px 0 0;"
+          >
+            <!--[if gte mso 9]>
+            <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:600px;height:268px;">
+              <v:fill type="frame" src="https://eliminal.ua/cdn/shop/files/Eliminal_Hero3.avif?v=1787348715&amp;width=1200" color="#E8E0D6"/>
+              <v:textbox inset="0,0,0,0" style="mso-fit-shape-to-text:true">&nbsp;</v:textbox>
+            </v:rect>
+            <![endif]-->
+            &nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td class="px" style="padding:26px 28px 28px 28px;">
+            <h1 class="hero-title" style="margin:0 0 16px 0;font-family:Lora,Georgia,'Times New Roman',serif;font-size:26px;line-height:34px;font-weight:500;color:#1C2822;text-align:center;">
+              Хотілося подбати про себе? Але життя мало інші плани.
+            </h1>
+            <p style="margin:0 0 14px 0;font-family:'IBM Plex Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;line-height:26px;color:#3D4540;text-align:center;">
+              [Ім'я], знайома історія: відкриваєш десять вкладок, відповідаєш на одне повідомлення, потім ще на три. А замовлення так і залишається на останньому кроці.
+            </p>
+            <p style="margin:0;font-family:'IBM Plex Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;line-height:26px;color:#3D4540;text-align:center;">
+              <span style="display:inline;background-color:#D4E4D0;padding:2px 8px;color:#1C2822;">Хороша новина: починати спочатку не доведеться.</span>
+            </p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr><td height="18" style="height:18px;font-size:0;line-height:0;">&nbsp;</td></tr>
+
+  <!-- БЛОК 2. Твій кошик -->
+  <tr>
+    <td bgcolor="#FFFFFF" style="background-color:#FFFFFF;background-image:linear-gradient(180deg,#FFFFFF 0%,#F7F1E7 100%);border-radius:20px;box-shadow:0 14px 32px rgba(72,52,28,0.12);">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="px" style="padding:28px 28px 24px 28px;">
+            <p class="block-title" style="margin:0 0 20px 0;font-family:Lora,Georgia,'Times New Roman',serif;font-size:22px;line-height:30px;font-weight:500;color:#1C2822;">
+              Ось що лишилося у твоєму кошику:
+            </p>
+
+            <!-- ПОЧАТОК ЦИКЛУ cart-item -->
+            <table role="presentation" class="cart-item" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F5F0E8" style="background-color:#F5F0E8;background-image:linear-gradient(180deg,#FBF7F0 0%,#EDE4D6 100%);border-radius:16px;box-shadow:0 6px 16px rgba(72,52,28,0.08);">
+              <tr>
+                <td width="104" valign="middle" style="padding:16px 0 16px 16px;">
+                  <img class="cart-img" src="https://eliminal.ua/cdn/shop/files/Slim_63067cc2-5250-4cb3-bbd9-11970e0b4fa0.avif?v=1786613051&amp;width=400&amp;format=jpg" width="88" alt="Eliminal gel® Clean&amp;Slim" style="width:88px;height:auto;border-radius:12px;">
+                </td>
+                <td valign="middle" style="padding:16px 18px 16px 10px;font-family:'IBM Plex Sans','Helvetica Neue',Helvetica,Arial,sans-serif;">
+                  <p style="margin:0 0 6px 0;font-size:16px;line-height:22px;font-weight:600;color:#1C2822;">Eliminal gel® Clean&amp;Slim</p>
+                  <p style="margin:0 0 8px 0;font-size:14px;line-height:20px;color:#5A655F;">1 шт</p>
+                  <p style="margin:0;font-family:Lora,Georgia,serif;font-size:18px;line-height:24px;font-weight:500;color:#2F5D44;">999&nbsp;грн</p>
+                </td>
+              </tr>
+            </table>
+            <!-- КІНЕЦЬ ЦИКЛУ -->
+
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:18px;">
+              <tr>
+                <td style="padding-top:4px;font-family:'IBM Plex Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;line-height:24px;color:#5A655F;">Разом:</td>
+                <td align="right" style="padding-top:4px;font-family:Lora,Georgia,serif;font-size:24px;line-height:30px;font-weight:500;color:#1C2822;">[сума]</td>
+              </tr>
+            </table>
+
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin-top:26px;">
+              <tr>
+                <td align="center" bgcolor="#2F6B45" style="background-color:#2F6B45;background-image:linear-gradient(180deg,#4D8F6C 0%,#2F6B45 52%,#234836 100%);border-radius:999px;box-shadow:0 10px 22px rgba(35,72,54,0.3),0 3px 8px rgba(47,107,69,0.2);">
+                  <a href="https://eliminal.ua/cart" target="_blank" style="display:inline-block;padding:12px 12px 12px 22px;font-family:'IBM Plex Sans',sans-serif;font-size:16px;line-height:20px;font-weight:600;color:#FFFFFF;text-decoration:none;">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+                      <td style="padding-right:10px;color:#FFFFFF;">Продовжити оформлення</td>
+                      <td width="28" height="28" align="center" valign="middle" bgcolor="#FFFFFF" style="width:28px;height:28px;background-color:#FFFFFF;background-image:linear-gradient(180deg,#FFFFFF 0%,#EEF3EF 100%);border-radius:50%;box-shadow:0 2px 6px rgba(35,72,54,0.18);color:#2F6B45;font-size:15px;line-height:28px;font-weight:700;">&#8594;</td>
+                    </tr></table>
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr><td height="18" style="height:18px;font-size:0;line-height:0;">&nbsp;</td></tr>
+
+  <!-- БЛОК 3. Доставка -->
+  <tr>
+    <td bgcolor="#FFFFFF" style="background-color:#FFFFFF;background-image:linear-gradient(180deg,#FFFFFF 0%,#F7F1E7 100%);border-radius:20px;box-shadow:0 14px 32px rgba(72,52,28,0.12);">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="px" style="padding:28px 28px 28px 28px;">
+            <p class="block-title" style="margin:0 0 16px 0;font-family:Lora,Georgia,'Times New Roman',serif;font-size:22px;line-height:30px;font-weight:500;color:#1C2822;">
+              А з доставкою що?
+            </p>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#F5F0E8" style="background-color:#F5F0E8;background-image:linear-gradient(180deg,#FBF7F0 0%,#EDE4D6 100%);border-radius:14px;">
+              <tr>
+                <td style="padding:18px 20px;font-family:'IBM Plex Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:26px;color:#3D4540;">
+                  [умови доставки]
+                </td>
+              </tr>
+            </table>
+            <p style="margin:20px 0 0 0;font-family:'IBM Plex Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:26px;color:#3D4540;">
+              Якщо щось незрозуміло, просто відповідай на цей лист. Розберемося разом.
+            </p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr><td height="18" style="height:18px;font-size:0;line-height:0;">&nbsp;</td></tr>
+
+  <!-- БЛОК 4. Довіра -->
+  <tr>
+    <td bgcolor="#F6F1E6" style="background-color:#F6F1E6;border-radius:20px;box-shadow:0 14px 32px rgba(72,52,28,0.12);overflow:hidden;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="px" align="center" bgcolor="#F6F1E6" style="padding:28px 28px 20px 28px;background-color:#F6F1E6;">
+            <p style="margin:0 0 14px 0;font-family:Lora,Georgia,'Times New Roman',serif;font-size:22px;line-height:30px;font-weight:500;color:#1C2822;text-align:center;">
+              До речі, ми не вчора з'явилися :)
+            </p>
+            <p style="margin:0 0 22px 0;font-family:'IBM Plex Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;line-height:26px;color:#3D4540;text-align:center;">
+              За Eliminal стоїть український виробник Орісіл-Фарм із понад 20 роками досвіду.
+            </p>
+            <p style="margin:0 0 20px 0;font-family:'IBM Plex Sans',sans-serif;font-size:16px;line-height:24px;font-weight:600;color:#1C2822;text-align:center;">
+              Команда Eliminal &#128154;
+            </p>
+            <a href="https://eliminal.ua/" target="_blank">
+              <img src="media/logo%20blue.svg" width="108" alt="Eliminal" style="width:108px;height:auto;margin:0 auto 18px auto;">
+            </a>
+            <p style="margin:0;font-family:'IBM Plex Sans',sans-serif;font-size:13px;line-height:20px;color:#7A847E;text-align:center;max-width:480px;">
+              Дієтична добавка. Не є лікарським засобом. Перед застосуванням рекомендована консультація лікаря.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" bgcolor="#F6F1E6" style="padding:0;background-color:#F6F1E6;line-height:0;font-size:0;">
+            <img src="media/Frame%201261152643.png" width="560" height="153" alt="" style="width:100%;max-width:600px;height:auto;display:block;margin:0 auto;border-radius:0 0 20px 20px;">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr><td height="22" style="height:22px;font-size:0;line-height:0;">&nbsp;</td></tr>
+
+  <tr>
+    <td>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="footer-icon" width="33%" align="center" valign="top" style="font-family:'IBM Plex Sans',sans-serif;padding:0 6px;">
+            <img src="https://eliminal.ua/cdn/shop/files/Promotion-Icon-1.svg?v=1786006910&amp;width=80" width="36" height="36" alt="" style="width:36px;height:36px;margin:0 auto 8px auto;">
+            <p style="margin:0;font-size:12px;line-height:16px;color:#6A746E;">Унікальні<br>пропозиції</p>
+          </td>
+          <td class="footer-icon" width="33%" align="center" valign="top" style="font-family:'IBM Plex Sans',sans-serif;padding:0 6px;">
+            <img src="https://eliminal.ua/cdn/shop/files/Promotion-Icon-2.svg?v=1786006910&amp;width=80" width="36" height="36" alt="" style="width:36px;height:36px;margin:0 auto 8px auto;">
+            <p style="margin:0;font-size:12px;line-height:16px;color:#6A746E;">Оплата<br>онлайн</p>
+          </td>
+          <td class="footer-icon" width="33%" align="center" valign="top" style="font-family:'IBM Plex Sans',sans-serif;padding:0 6px;">
+            <img src="https://eliminal.ua/cdn/shop/files/Promotion-Icon-3.svg?v=1786006910&amp;width=80" width="36" height="36" alt="" style="width:36px;height:36px;margin:0 auto 8px auto;">
+            <p style="margin:0;font-size:12px;line-height:16px;color:#6A746E;">Безкоштовна<br>доставка</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td align="center" style="padding:22px 8px 0 8px;font-family:'IBM Plex Sans',sans-serif;">
+      <p style="margin:0 0 8px 0;font-size:14px;line-height:20px;color:#1C2822;">
+        <a href="tel:+380677425395" style="color:#1C2822;text-decoration:none;font-weight:600;">+38 (067) 742 53 95</a>
+        &nbsp;&middot;&nbsp;
+        <a href="https://eliminal.ua/" target="_blank" style="color:#2F5D44;text-decoration:none;">eliminal.ua</a>
+      </p>
+      <p style="margin:0 0 14px 0;font-size:13px;line-height:20px;">
+        <a href="https://eliminal.ua/pages/faq" target="_blank" style="color:#2F5D44;text-decoration:none;">Часті питання</a>
+        &nbsp;&middot;&nbsp;
+        <a href="https://eliminal.ua/policies/shipping-policy" target="_blank" style="color:#2F5D44;text-decoration:none;">Доставка та оплата</a>
+      </p>
+      <p style="margin:0 0 12px 0;font-size:11px;line-height:17px;color:#8A948E;">
+        Дієтична добавка. Не є лікарським засобом. Перед застосуванням рекомендована консультація лікаря.
+      </p>
+      <p style="margin:0;font-size:12px;line-height:18px;">
+        <a href="#unsubscribe" style="color:#8A948E;text-decoration:underline;">Відписатися від розсилки</a>
+      </p>
+    </td>
+  </tr>
+
+</table>
+<!--[if mso]></td></tr></table><![endif]-->
+
+</td></tr>
+</table>
+</body>
+</html>
