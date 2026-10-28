@@ -15,15 +15,39 @@ const PROPOSALS = [
 
 const EMAILS = [
   {
+    href: '/emails/index.html',
+    title: 'Усі листи Eliminal',
+    desc: 'Індекс усіх HTML-листів з прямими посиланнями',
+    tag: 'Index',
+  },
+  {
     href: '/emails/eliminal-welcome.html',
     title: 'Eliminal — Welcome',
     desc: 'Вітальний лист: турбота про кишківник, симптоми та продукт',
     tag: 'Welcome',
   },
   {
+    href: '/emails/eliminal-bestsellers.html',
+    title: 'Eliminal — Bestsellers',
+    desc: 'Топ-4 формули: Gastro, Slim, Verde та Smart Choice 1+1=3',
+    tag: 'Welcome 4',
+  },
+  {
+    href: '/emails/eliminal-welcome-5.html',
+    title: 'Eliminal — Welcome 5',
+    desc: 'Нагадування про −100 грн: промокод, підказка старту, довіра',
+    tag: 'Welcome 5',
+  },
+  {
     href: '/emails/eliminal-abandoned-cart.html',
     title: 'Eliminal — Abandoned cart',
     desc: 'Лист про покинутий кошик з нагадуванням про замовлення',
+    tag: 'Cart',
+  },
+  {
+    href: '/emails/eliminal-abandoned-cart-return.html',
+    title: 'Eliminal — Abandoned cart (return)',
+    desc: 'Повернення клієнта: кошик збережено, безкоштовна доставка від 2000 грн',
     tag: 'Cart',
   },
 ]
