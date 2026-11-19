@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eliminal — прев’ю листів</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;0,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F0EBE3;
+    --bg2: #E8DFD2;
+    --card: #FFFFFF;
+    --ink: #1C2822;
+    --muted: #5A655F;
+    --green: #2F5D44;
+    --line: #E4D9C8;
+    --thumb-scale: 0.42;
+    --email-w: 600px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: var(--ink);
+    background: linear-gradient(180deg, #FBF7F0 0%, var(--bg2) 100%);
+  }
+  .wrap {
+    width: min(1180px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 40px 0 64px;
+  }
+  .top {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  .logo {
+    display: block;
+    width: 112px;
+    height: auto;
+    margin: 0 auto 20px;
+  }
+  h1 {
+    margin: 0 0 8px;
+    font-family: Lora, Georgia, serif;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.25;
+  }
+  .sub {
+    margin: 0 auto;
+    max-width: 520px;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+  .toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .toolbar a {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--card);
+    color: var(--green);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(72, 52, 28, 0.06);
+  }
+  .toolbar a:hover { background: #E8F0EA; }
+  h2 {
+    margin: 36px 0 16px;
+    font-family: Lora, Georgia, serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--ink);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+  }
+  h2:first-of-type { margin-top: 8px; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 24px rgba(72, 52, 28, 0.08);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(72, 52, 28, 0.12);
+  }
+  .thumb-link {
+    position: relative;
+    display: block;
+    height: calc(var(--email-w) * var(--thumb-scale) * 1.35);
+    overflow: hidden;
+    background: #F6F1E6;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+  }
+  .thumb-link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(180deg, transparent 55%, rgba(28, 40, 34, 0.04) 100%);
+  }
+  .thumb-wrap {
+    width: calc(var(--email-w) * var(--thumb-scale));
+    height: calc(var(--email-w) * var(--thumb-scale) * 1.35);
+    overflow: hidden;
+  }
+  .thumb-wrap iframe {
+    width: var(--email-w);
+    height: 1400px;
+    border: 0;
+    transform: scale(var(--thumb-scale));
+    transform-origin: 0 0;
+    pointer-events: none;
+  }
+  .body {
+    padding: 14px 16px 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .tag {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #E8F0EA;
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .title {
+    margin: 0;
+    font-family: Lora, Georgia, serif;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+  .desc {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--muted);
+    flex: 1;
+  }
+  .actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .btn {
+    flex: 1;
+    text-align: center;
+    padding: 10px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.15s ease;
+  }
+  .btn-primary {
+    background: var(--green);
+    color: #fff;
+  }
+  .btn-primary:hover { background: #234836; }
+  .btn-ghost {
+    background: #F5F0E8;
+    color: var(--ink);
+    border: 1px solid var(--line);
+  }
+  .btn-ghost:hover { background: #EDE4D6; }
+  .foot {
+    margin: 40px 0 0;
+    text-align: center;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .foot a { color: var(--green); text-decoration: none; font-weight: 600; }
+  @media (max-width: 640px) {
+    :root { --thumb-scale: 0.38; }
+    h1 { font-size: 26px; }
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="top">
+      <img class="logo" src="media-library/бренд/logo-blue.svg" alt="Eliminal">
+      <h1>Прев’ю email-листів</h1>
+      <p class="sub">Натисни на мініатюру або «Відкрити» — лист відкриється в новій вкладці. Змінні SendPulse: <code>sendpulse-vars.md</code>.</p>
+      <nav class="toolbar" aria-label="Навігація">
+        <a href="index.html">Список без прев’ю</a>
+        <a href="sendpulse-vars.md">Змінні API</a>
+      </nav>
+    </header>
+
+    <h2>Welcome-серія</h2>
+    <div class="grid">
+      <article class="card">
+        <a class="thumb-link" href="welcome-3/welcome-3.html" target="_blank" rel="noopener" title="Відкрити Welcome 3">
+          <div class="thumb-wrap"><iframe src="welcome-3/welcome-3.html" title="Прев’ю Welcome 3" loading="lazy"></iframe></div>
+        </a>
+        <div class="body">
+          <span class="tag">Welcome 3</span>
+          <p class="title">Кишківник, Gastro + Verde</p>
+          <p class="desc">Фактори, бандл, знижка</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="welcome-3/welcome-3.html" target="_blank" rel="noopener">Відкрити</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <a class="thumb-link" href="bestsellers/bestsellers.html" target="_blank" rel="noopener" title="Відкрити бестселери">
+          <div class="thumb-wrap"><iframe src="bestsellers/bestsellers.html" title="Прев’ю Welcome 4" loading="lazy"></iframe></div>
+        </a>
+        <div class="body">
+          <span class="tag">Welcome 4</span>
+          <p class="title">Бестселери</p>
+          <p class="desc">Gastro, Slim, Verde, Smart Choice</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="bestsellers/bestsellers.html" target="_blank" rel="noopener">Відкрити</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <a class="thumb-link" href="welcome-5/welcome-5.html" target="_blank" rel="noopener" title="Відкрити Welcome 5">
+          <div class="thumb-wrap"><iframe src="welcome-5/welcome-5.html" title="Прев’ю Welcome 5" loading="lazy"></iframe></div>
+        </a>
+        <div class="body">
+          <span class="tag">Welcome 5</span>
+          <p class="title">Знижка ще діє</p>
+          <p class="desc">Промокод, підбір продуктів</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="welcome-5/welcome-5.html" target="_blank" rel="noopener">Відкрити</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <h2>Покинутий кошик</h2>
+    <div class="grid">
+      <article class="card">
+        <a class="thumb-link" href="abandoned-cart/abandoned-cart.html" target="_blank" rel="noopener">
+          <div class="thumb-wrap"><iframe src="abandoned-cart/abandoned-cart.html" title="Прев’ю кошик" loading="lazy"></iframe></div>
+        </a>
+        <div class="body">
+          <span class="tag">Cart</span>
+          <p class="title">Покинутий кошик</p>
+          <p class="desc">Нагадування · динамічні товари</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="abandoned-cart/abandoned-cart.html" target="_blank" rel="noopener">Відкрити</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <a class="thumb-link" href="abandoned-cart-return/abandoned-cart-return.html" target="_blank" rel="noopener">
+          <div class="thumb-wrap"><iframe src="abandoned-cart-return/abandoned-cart-return.html" title="Прев’ю повернення" loading="lazy"></iframe></div>
+        </a>
+        <div class="body">
+          <span class="tag">Cart return</span>
+          <p class="title">Повернення до кошика</p>
+          <p class="desc">Кошик збережено</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="abandoned-cart-return/abandoned-cart-return.html" target="_blank" rel="noopener">Відкрити</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <h2>PP — після покупки</h2>
+    <div class="grid">
+      <article class="card">
+        <a class="thumb-link" href="pp-01/pp-01.html" target="_blank" rel="noopener">
+          <div class="thumb-wrap"><iframe src="pp-01/pp-01.html" title="Прев’ю PP-01" loading="lazy"></iframe></div>
+        </a>
+        <div class="body">
+          <span class="tag">PP-01</span>
+          <p class="title">З чого почати</p>
+          <p class="desc">День доставки · повний курс · 1 / 3 / 1 год</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="pp-01/pp-01.html" target="_blank" rel="noopener">Відкрити</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <a class="thumb-link" href="pp-02/pp-02.html" target="_blank" rel="noopener">
+          <div class="thumb-wrap"><iframe src="pp-02/pp-02.html" title="Прев’ю PP-02" loading="lazy"></iframe></div>
+        </a>
+        <div class="body">
+          <span class="tag">PP-02</span>
+          <p class="title">Склад формули</p>
+          <p class="desc">+3 дні · formula_variant_html</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="pp-02/pp-02.html" target="_blank" rel="noopener">Відкрити</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <a class="thumb-link" href="pp-03/pp-03.html" target="_blank" rel="noopener">
+          <div class="thumb-wrap"><iframe src="pp-03/pp-03.html" title="Прев’ю PP-03" loading="lazy"></iframe></div>
+        </a>
+        <div class="body">
+          <span class="tag">PP-03</span>
+          <p class="title">Знайомство з Verde</p>
+          <p class="desc">+10 днів · порція 10 г</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="pp-03/pp-03.html" target="_blank" rel="noopener">Відкрити</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <a class="thumb-link" href="pp-04/pp-04.html" target="_blank" rel="noopener">
+          <div class="thumb-wrap"><iframe src="pp-04/pp-04.html" title="Прев’ю PP-04" loading="lazy"></iframe></div>
+        </a>
+        <div class="body">
+          <span class="tag">PP-04</span>
+          <p class="title">Відгук і −10%</p>
+          <p class="desc">+22 дні · Loox</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="pp-04/pp-04.html" target="_blank" rel="noopener">Відкрити</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <a class="thumb-link" href="pp-05/pp-05.html" target="_blank" rel="noopener">
+          <div class="thumb-wrap"><iframe src="pp-05/pp-05.html" title="Прев’ю PP-05" loading="lazy"></iframe></div>
+        </a>
+        <div class="body">
+          <span class="tag">PP-05</span>
+          <p class="title">Частковий курс — старт</p>
+          <p class="desc">День доставки · 20 / 60 стіків</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="pp-05/pp-05.html" target="_blank" rel="noopener">Відкрити</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <a class="thumb-link" href="pp-06/pp-06.html" target="_blank" rel="noopener">
+          <div class="thumb-wrap"><iframe src="pp-06/pp-06.html" title="Прев’ю PP-06" loading="lazy"></iframe></div>
+        </a>
+        <div class="body">
+          <span class="tag">PP-06</span>
+          <p class="title">Запас + Smart Choice</p>
+          <p class="desc">+4 дні · 20/40/60 · 1+1=3</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="pp-06/pp-06.html" target="_blank" rel="noopener">Відкрити</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <a class="thumb-link" href="pp-07/pp-07.html" target="_blank" rel="noopener">
+          <div class="thumb-wrap"><iframe src="pp-07/pp-07.html" title="Прев’ю PP-07" loading="lazy"></iframe></div>
+        </a>
+        <div class="body">
+          <span class="tag">PP-07</span>
+          <p class="title">Verde — як приготувати</p>
+          <p class="desc">День доставки · 1 / 2 / 3</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="pp-07/pp-07.html" target="_blank" rel="noopener">Відкрити</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <a class="thumb-link" href="pp-08/pp-08.html" target="_blank" rel="noopener">
+          <div class="thumb-wrap"><iframe src="pp-08/pp-08.html" title="Прев’ю PP-08" loading="lazy"></iframe></div>
+        </a>
+        <div class="body">
+          <span class="tag">PP-08</span>
+          <p class="title">Verde — тиждень знайомства</p>
+          <p class="desc">+7 днів · вода / сік / смузі</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="pp-08/pp-08.html" target="_blank" rel="noopener">Відкрити</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <a class="thumb-link" href="pp-09/pp-09.html" target="_blank" rel="noopener">
+          <div class="thumb-wrap"><iframe src="pp-09/pp-09.html" title="Прев’ю PP-09" loading="lazy"></iframe></div>
+        </a>
+        <div class="body">
+          <span class="tag">PP-09</span>
+          <p class="title">Verde — поповнення запасу</p>
+          <p class="desc">200 г = 20 порцій по 10 г</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="pp-09/pp-09.html" target="_blank" rel="noopener">Відкрити</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <h2>R — replenishment</h2>
+    <div class="grid">
+      <article class="card">
+        <a class="thumb-link" href="r-01/r-01.html" target="_blank" rel="noopener">
+          <div class="thumb-wrap"><iframe src="r-01/r-01.html" title="Прев’ю R-01" loading="lazy"></iframe></div>
+        </a>
+        <div class="body">
+          <span class="tag">R-01</span>
+          <p class="title">Курс на паузі</p>
+          <p class="desc">Частковий курс · START15</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="r-01/r-01.html" target="_blank" rel="noopener">Відкрити</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <a class="thumb-link" href="r-02/r-02.html" target="_blank" rel="noopener">
+          <div class="thumb-wrap"><iframe src="r-02/r-02.html" title="Прев’ю R-02" loading="lazy"></iframe></div>
+        </a>
+        <div class="body">
+          <span class="tag">R-02</span>
+          <p class="title">Спробуйте Verde</p>
+          <p class="desc">Після R-01 · порція 10 г</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="r-02/r-02.html" target="_blank" rel="noopener">Відкрити</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <a class="thumb-link" href="r-03/r-03.html" target="_blank" rel="noopener">
+          <div class="thumb-wrap"><iframe src="r-03/r-03.html" title="Прев’ю R-03" loading="lazy"></iframe></div>
+        </a>
+        <div class="body">
+          <span class="tag">R-03</span>
+          <p class="title">Наступний курс</p>
+          <p class="desc">Повний курс · KURS15</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="r-03/r-03.html" target="_blank" rel="noopener">Відкрити</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <a class="thumb-link" href="r-04/r-04.html" target="_blank" rel="noopener">
+          <div class="thumb-wrap"><iframe src="r-04/r-04.html" title="Прев’ю R-04" loading="lazy"></iframe></div>
+        </a>
+        <div class="body">
+          <span class="tag">R-04</span>
+          <p class="title">Інші формули</p>
+          <p class="desc">1+1=3 · KURS15</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="r-04/r-04.html" target="_blank" rel="noopener">Відкрити</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <a class="thumb-link" href="r-05/r-05.html" target="_blank" rel="noopener">
+          <div class="thumb-wrap"><iframe src="r-05/r-05.html" title="Прев’ю R-05" loading="lazy"></iframe></div>
+        </a>
+        <div class="body">
+          <span class="tag">R-05</span>
+          <p class="title">Оновіть Verde</p>
+          <p class="desc">20 склянок · VERDE10</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="r-05/r-05.html" target="_blank" rel="noopener">Відкрити</a>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <a class="thumb-link" href="r-06/r-06.html" target="_blank" rel="noopener">
+          <div class="thumb-wrap"><iframe src="r-06/r-06.html" title="Прев’ю R-06" loading="lazy"></iframe></div>
+        </a>
+        <div class="body">
+          <span class="tag">R-06</span>
+          <p class="title">Verde + Gel</p>
+          <p class="desc">Smart Choice · VERDE10</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="r-06/r-06.html" target="_blank" rel="noopener">Відкрити</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <p class="foot">
+      <a href="index.html">← Компактний список</a>
+      &nbsp;·&nbsp;
+      <a href="/">До прототипів</a>
+    </p>
+  </main>
+</body>
+</html>

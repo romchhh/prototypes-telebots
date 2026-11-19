@@ -9,7 +9,7 @@ description: >-
 
 # Eliminal email
 
-Build a single self-contained HTML file. Working copies live in `emails/`; public links in `public/emails/`. Put every local asset in `emails/media/` (and mirror to `public/emails/media/`). Reference as `media/filename` (encode spaces as `%20`). Product photos may also stay as absolute `https://eliminal.ua/cdn/shop/files/…&format=jpg` URLs.
+Each letter is a SendPulse package: `emails/<slug>/email.html` + `emails/<slug>/media/` (mirrored in `public/emails/<slug>/`). Shared asset library: `emails/media-library/` (`бренд`, `гель`, `verde`, `іконки`). Catalog: `emails/media-library/README.md`. Copy the files a letter uses into that letter’s folder. Product photos for API vars may stay as absolute CDN URLs.
 
 ## Copy
 
@@ -25,14 +25,14 @@ Language is Ukrainian. No uppercase eyebrow labels (`У КОШИКУ`, letter-sp
 - Body: IBM Plex Sans, 15–16px, line-height ~26px, color `#5A655F`.
 - Buttons: `#2F5D44`, white text, pill (`border-radius:999px`), label then `→`.
 - One image per idea. Full-bleed photo, then text under it. Do not stack two photos beside a headline.
-- Wave graphic `media/Frame 1261152643.png` only as the bottom of the closing card. Text/disclaimer above the wave use `position:relative;z-index:2` so they sit over the PNG. Not on the page wrapper.
+- Wave graphic `media-library/бренд/хвиля.png` only as the bottom of the closing card. Text/disclaimer above the wave use `position:relative;z-index:2` so they sit over the PNG. Not on the page wrapper.
 - Footer trust row (icons + two-line labels) stays one row on mobile. Free shipping label: `Безкоштовна доставка / від 2000 грн`.
 
 Mobile (`max-width: 620px`): one side gutter for every card (20–22px). Columns that should stack get `display:block; width:100%`. Product cards go one under another. Do not add extra horizontal padding inside a card that already has the gutter.
 
-## Media library (`emails/media/`)
+## Media library (`emails/media-library/`)
 
-Prefer these named studio/lifestyle assets. Do not invent packshots when a matching file exists.
+Prefer a file from `гель/` or `verde/` over a generated image. The names below now sit in those folders. Full captions and the PP letters that already use each file are in `README.md`.
 
 | File | What it shows | Best for |
 |------|----------------|----------|
