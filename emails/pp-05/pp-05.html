@@ -12,8 +12,8 @@
   ТЕМА B: Ваш Eliminal: що важливо знати на старті
   ПРЕХЕДЕР: Коротка інструкція та простий розрахунок кількості стіків.
 
-  API: product_image, instruction_url, unsubscribe_url
-  Локальне прев’ю: hero-fallback.jpg. У zip: {{product_image}}
+  API: instruction_url, gel_sku, unsubscribe_url
+  Packshot: packshot_{{gel_sku}}.png. Локальне превʼю: hero-pack.jpg / pack-gastro.png.
 -->
 <style>
   body, table, td, a { -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
@@ -37,7 +37,8 @@
       <table role="presentation" width="100%">
         <tr>
           <td align="center" style="padding:0;line-height:0;font-size:0;">
-            <img class="product-shot" src="hero-pack.jpg" width="600" alt="Eliminal Gel" style="width:100%;max-width:600px;height:auto;margin:0 auto;display:block;">
+            <!-- локальне превʼю: hero-pack.jpg -->
+            <img class="product-shot" src="packshot_{{gel_sku}}.png" width="600" alt="Eliminal Gel" style="width:100%;max-width:600px;height:auto;margin:0 auto;display:block;">
           </td>
         </tr>
         <tr>
@@ -99,7 +100,8 @@
       <table role="presentation" width="100%"><tr>
         <td class="px" style="padding:8px 28px 28px 28px;">
           <!-- pack-gastro.png — коробка Clean & Gastro. Для інших формул замінити. -->
-          <img src="pack-gastro.png" width="220" alt="Упаковка Eliminal Gel, 20 стіків" style="width:220px;height:auto;margin:0 auto 6px auto;">
+          <!-- локальне превʼю: pack-gastro.png -->
+          <img src="packshot_{{gel_sku}}.png" width="220" alt="Упаковка Eliminal Gel, 20 стіків" style="width:220px;height:auto;margin:0 auto 6px auto;">
           <p style="margin:0 0 16px 0;font-family:Lora,Georgia,serif;font-size:24px;line-height:32px;font-weight:500;color:#1C2822;text-align:center;">Одна упаковка — 20 стіків</p>
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 18px 0;"><tr>
             <td class="count-col" width="42%" valign="top">
@@ -155,7 +157,7 @@
     <td bgcolor="#F6F1E6" style="border-radius:20px;box-shadow:0 14px 32px rgba(72,52,28,0.12);overflow:hidden;">
       <table role="presentation" width="100%">
         <tr><td class="px" align="center" style="padding:24px 28px 0;position:relative;z-index:2;">
-          <p style="margin:0 0 12px 0;font-family:'IBM Plex Sans',sans-serif;font-size:15px;line-height:22px;color:#3D4540;">З турботою, Команда Eliminal</p>
+          <p style="margin:0 0 12px 0;font-family:'IBM Plex Sans',sans-serif;font-size:15px;line-height:22px;color:#3D4540;">З турботою, Команда Eliminal 💚</p>
           <img src="logo-blue.png" width="100" alt="Eliminal" style="width:100px;margin:0 auto 10px auto;">
           <p style="margin:0;font-size:13px;line-height:20px;color:#7A847E;position:relative;z-index:2;">Дієтична добавка. Не є лікарським засобом. Перед застосуванням рекомендована консультація лікаря.</p>
         </td></tr>

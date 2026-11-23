@@ -2,7 +2,8 @@
 
 Тексти з ТЗ **захардкоджені**. Через API підставляється лише персоналізація та динамічні дані.
 
-**Завантаження:** бери готовий `*.zip` → Templates → Upload a file → увімкни **Upload images to the server SendPulse**.
+**Завантаження:** бери готовий `*.zip` → Templates → Upload a file → увімкни **Upload images to the server SendPulse**.  
+У архіві HTML і картинки лежать **у корені** (не в підпапці) — інакше SendPulse покаже `HTM(L) file not found into archive`.
 
 Синтаксис у шаблоні: `{{variable}}`. У запиті API — `template.variables`.
 
@@ -88,12 +89,13 @@
 
 | Змінна | Опис |
 |--------|------|
-| `name` | Імʼя |
-| `product_image` | Packshot купленої формули (URL) |
+| `first_name` | Імʼя (перше слово `full_name` з KeyCRM) |
 | `product_name` | Назва купленої формули |
-| `product_url` | Сторінка продукту |
 | `instruction_url` | Інструкція / сторінка продукту |
+| `gel_sku` | `gastro` / `slim` / `skin` / `classic` → `packshot_{{gel_sku}}.png` |
 | `unsubscribe_url` | Відписка |
+
+У HTML: `src="packshot_{{gel_sku}}.png"`. У zip також лежать `packshot_gastro.png`, `packshot_slim.png`, `packshot_skin.png`, `packshot_classic.png`.
 
 ---
 
@@ -102,10 +104,10 @@
 
 | Змінна | Опис |
 |--------|------|
-| `product_image` | Packshot формули |
 | `product_name` | Назва формули |
-| `product_url` | Сторінка продукту |
+| `product_url` | Сторінка продукту (CTA) |
 | `formula_variant_html` | Один рядок особливості, напр. `Gastro Health: ромашка, бромелайн і папаїн.` |
+| `gel_sku` | Packshot `packshot_{{gel_sku}}.png` (hero + блок формули) |
 | `unsubscribe_url` | Відписка |
 
 ---
@@ -124,9 +126,11 @@
 
 | Змінна | Опис |
 |--------|------|
-| `name` | Імʼя |
+| `first_name` | Імʼя |
 | `product_url` | Сторінка купленого товару (для `#loox-review`) |
 | `unsubscribe_url` | Відписка |
+
+CTA: `{{product_url}}#loox-review`
 
 ---
 
@@ -135,8 +139,8 @@
 
 | Змінна | Опис |
 |--------|------|
-| `product_image` | Packshot формули |
 | `instruction_url` | Інструкція / сторінка продукту |
+| `gel_sku` | Packshot `packshot_{{gel_sku}}.png` |
 | `unsubscribe_url` | Відписка |
 
 ---
@@ -168,7 +172,7 @@
 
 | Змінна | Опис |
 |--------|------|
-| `product_url` | Сторінка Verde, CTA веде на `{{product_url}}#loox-review` |
+| `product_url` | Сторінка Verde, CTA → `{{product_url}}#loox-review` |
 | `unsubscribe_url` | Відписка |
 
 Тригер: +7 днів, `verde_qty` ≥ 1.
@@ -202,15 +206,15 @@
 | PP-08 | +7 днів | Verde ≥ 1 |
 | PP-09 | 20 × банок − 6 днів | Verde ≥ 1 |
 
-Поля події: `email`, `phone`, `first_name`, `gel_qty`, `verde_qty`, `gel_sku` (`gastro` / `slim` / `skin` / `classic`), `product_url`.
+Поля події: `email`, `phone`, `first_name`, `gel_qty`, `verde_qty`, `gel_sku` (`gastro` / `slim` / `skin` / `classic`), `product_url`, `product_name`, `product_price`, `instruction_url`, `formula_variant_html`.
 
-Packshot гелю: `packshot_{{gel_sku}}.png` (`packshot_gastro.png`, `packshot_slim.png`, `packshot_skin.png`, `packshot_classic.png`).
+Packshot гелю (як у ТЗ): у файлах SendPulse / у zip — `packshot_gastro.png`, `packshot_slim.png`, `packshot_skin.png`, `packshot_classic.png`; у листі `src="packshot_{{gel_sku}}.png"`.
 
 ---
 
 ## R-01–R-06 — поповнення після PP
 
-Промокод у листі текстом, строк 7 днів від дати листа. Підпис: «Команда Eliminal». Юрособу продавця підставити в футер на дату запуску.
+Промокод у листі текстом, строк 7 днів від дати листа. Підпис: «Команда Eliminal 💚». Юрособу продавця підставити в футер на дату запуску.
 
 | Лист | Коли | Умова | Промокод |
 |------|------|--------|----------|
@@ -221,17 +225,23 @@ Packshot гелю: `packshot_{{gel_sku}}.png` (`packshot_gastro.png`, `packshot_
 | R-05 | 1 банка +30, 2 банки +50 | Verde, немає нового замовлення | VERDE10 −10% |
 | R-06 | R-05 + 4 дні | Verde, гель ніколи не купували | VERDE10, лишилося 3 дні |
 
-Спільні поля: `first_name`, `product_name`, `product_url`, `product_price`, `gel_sku`, `unsubscribe_url`.
+### Змінні R
 
-R-03 у zip: `src="packshot_{{gel_sku}}.png"`. Локальне прев’ю: `pack.jpg`.
+| Лист | Змінні |
+|------|--------|
+| R-01 | `first_name`, `product_name`, `unsubscribe_url` |
+| R-02 | `first_name`, `unsubscribe_url` |
+| R-03 | `first_name`, `product_name`, `product_price`, `product_url`, `gel_sku` → `packshot_{{gel_sku}}.png`, `unsubscribe_url` |
+| R-04 | `first_name`, `product_name`, `gel_sku` → hero `packshot_{{gel_sku}}.png`, `unsubscribe_url` |
+| R-05 | `first_name`, `verde_shaker_url`, `unsubscribe_url` |
+| R-06 | `first_name`, `unsubscribe_url` |
 
-R-05 друга кнопка: `{{verde_shaker_url}}` — URL пропозиції «2 банки + шейкер». Блок відгуку Verde не зібраний: на сайті не знайдено окремого відгуку, вигадувати не стали.
-
-R-01 відгуки — три цитати з eliminal.ua (Тарас, Дарина, Катерина). Міста на сайті немає.
+R-05 друга кнопка: `{{verde_shaker_url}}` — URL пропозиції «2 банки + шейкер».
 
 ---
 
 ## Приклад API
+Приклад API
 
 ```json
 {

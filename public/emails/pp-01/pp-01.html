@@ -14,8 +14,8 @@
   ТЕМА B: Ваш перший день з Eliminal — коротка інструкція
   ПРЕХЕДЕР: Як приймати гель, підлаштувати його під свій ритм і не загубити стік у щоденних справах.
 
-  API variables: name, product_image, product_name, product_url, instruction_url, unsubscribe_url
-  Прев’ю: product_image — CDN packshot; instruction_url — сторінка продукту / FAQ
+  API: first_name, product_name, instruction_url, gel_sku, unsubscribe_url
+  Packshot у SendPulse: packshot_{{gel_sku}}.png (gastro/slim/skin/classic). Локальне превʼю: hero-pack.jpg.
 -->
 <style>
   body, table, td, a { -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
@@ -46,7 +46,8 @@
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td align="center" style="padding:0;line-height:0;font-size:0;">
-            <img class="product-shot" src="hero-pack.jpg" width="600" alt="{{product_name}}" style="width:100%;max-width:600px;height:auto;display:block;">
+            <!-- локальне превʼю: hero-pack.jpg -->
+            <img class="product-shot" src="packshot_{{gel_sku}}.png" width="600" alt="{{product_name}}" style="width:100%;max-width:600px;height:auto;display:block;">
           </td>
         </tr>
         <tr>
@@ -54,7 +55,7 @@
             <p style="margin:0 0 14px 0;font-family:Lora,Georgia,serif;font-size:20px;line-height:28px;font-weight:500;color:#1C2822;text-align:center;">{{product_name}}</p>
             <p style="margin:0 0 8px 0;font-family:Lora,Georgia,serif;font-size:22px;line-height:30px;font-weight:500;color:#1C2822;text-align:center;">З чого почати</p>
             <p style="margin:0 0 22px 0;font-family:'IBM Plex Sans',sans-serif;font-size:16px;line-height:26px;color:#3D4540;text-align:center;">
-              {{name}}, Eliminal уже у вас. Зібрали найважливіше для першого знайомства: кілька практичних кроків, які не потребують ідеального розкладу.
+              {{first_name}}, Eliminal уже у вас. Зібрали найважливіше для першого знайомства: кілька практичних кроків, які не потребують ідеального розкладу.
             </p>
             <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center">
               <tr>
@@ -145,7 +146,7 @@
             <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#E8F0EA" style="background-color:#E8F0EA;border-radius:14px;margin-bottom:18px;">
               <tr><td style="padding:18px 20px;font-family:'IBM Plex Sans',sans-serif;font-size:16px;line-height:24px;font-weight:600;color:#1C2822;text-align:center;">Є питання?</td></tr>
             </table>
-            <p style="margin:0 0 12px 0;font-family:'IBM Plex Sans',sans-serif;font-size:15px;line-height:22px;color:#3D4540;text-align:center;">З турботою, Команда Eliminal</p>
+            <p style="margin:0 0 12px 0;font-family:'IBM Plex Sans',sans-serif;font-size:15px;line-height:22px;color:#3D4540;text-align:center;">З турботою, Команда Eliminal 💚</p>
             <a href="https://eliminal.ua/" target="_blank"><img src="logo-blue.png" width="100" alt="Eliminal" style="width:100px;height:auto;margin:0 auto 10px auto;"></a>
             <p style="margin:0;font-family:'IBM Plex Sans',sans-serif;font-size:13px;line-height:20px;color:#7A847E;text-align:center;position:relative;z-index:2;">Дієтична добавка. Не є лікарським засобом. Перед застосуванням рекомендована консультація лікаря.</p>
           </td>

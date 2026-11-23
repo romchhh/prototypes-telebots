@@ -11,8 +11,8 @@
   ТЕМА B: Не магія, а зрозумілий склад: ваш Eliminal
   ПРЕХЕДЕР: Розберемо два базові компоненти та підкажемо, де шукати відповідь про вашу формулу.
 
-  API: product_image, product_name, product_url, formula_variant_html, unsubscribe_url
-  Локальне прев’ю: src="hero-fallback.jpg". У SendPulse-шаблоні (zip): {{product_image}}.
+  API: first_name (optional), product_name, product_url, formula_variant_html, gel_sku, unsubscribe_url
+  Packshot: packshot_{{gel_sku}}.png. Локальне превʼю: hero-fallback.jpg / pack-gastro.png.
   formula_variant_html — один абзац, напр. «Gastro Health: ромашка, бромелайн і папаїн.»
 -->
 <style>
@@ -40,7 +40,8 @@
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td align="center" bgcolor="#FFFFFF" style="padding:0;background-color:#FFFFFF;line-height:0;font-size:0;">
-            <img class="product-shot" src="hero-fallback.jpg" width="600" alt="Eliminal Gel" style="width:100%;max-width:600px;height:auto;margin:0 auto;display:block;">
+            <!-- локальне превʼю: hero-fallback.jpg -->
+            <img class="product-shot" src="packshot_{{gel_sku}}.png" width="600" alt="Eliminal Gel" style="width:100%;max-width:600px;height:auto;margin:0 auto;display:block;">
           </td>
         </tr>
         <tr>
@@ -107,7 +108,8 @@
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td align="center" style="padding:20px 28px 0 28px;line-height:0;font-size:0;">
-            <img src="pack-gastro.png" width="200" alt="Eliminal Gel" style="width:200px;max-width:55%;height:auto;margin:0 auto;display:block;">
+            <!-- локальне превʼю: pack-gastro.png -->
+            <img src="packshot_{{gel_sku}}.png" width="200" alt="Eliminal Gel" style="width:200px;max-width:55%;height:auto;margin:0 auto;display:block;">
           </td>
         </tr>
         <tr>
@@ -154,7 +156,7 @@
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td class="px" align="center" style="padding:24px 28px 0 28px;position:relative;z-index:2;">
-            <p style="margin:0 0 12px 0;font-family:'IBM Plex Sans',sans-serif;font-size:15px;line-height:22px;color:#3D4540;text-align:center;">З турботою, Команда Eliminal</p>
+            <p style="margin:0 0 12px 0;font-family:'IBM Plex Sans',sans-serif;font-size:15px;line-height:22px;color:#3D4540;text-align:center;">З турботою, Команда Eliminal 💚</p>
             <img src="logo-blue.png" width="100" alt="Eliminal" style="width:100px;height:auto;margin:0 auto 10px auto;">
             <p style="margin:0;font-size:13px;line-height:20px;color:#7A847E;text-align:center;position:relative;z-index:2;">Дієтична добавка. Не є лікарським засобом. Перед застосуванням рекомендована консультація лікаря.</p>
           </td>

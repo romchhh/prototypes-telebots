@@ -12,6 +12,7 @@
   ТЕМА B: 1+1=3: третя упаковка Eliminal у подарунок
   ПРЕХЕДЕР: Минулого разу ви обрали [назва продукту]. Ось що ще є в лінійці.
   API: first_name, product_name, gel_sku, unsubscribe_url
+  Packshot hero: packshot_{{gel_sku}}.png. Порядок карток формул — минулу (gel_sku) ставити останньою в SendPulse. Промокод KURS15.
   Промокод KURS15, лишилося 3 дні.
 -->
 <style>
@@ -32,7 +33,8 @@
   <tr><td align="center" style="padding:0 0 28px 0;"><a href="https://eliminal.ua/"><img src="logo-blue.png" width="132" alt="Eliminal" style="width:132px;margin:0 auto;"></a></td></tr>
 
   <tr><td bgcolor="#FFFFFF" style="border-radius:20px;box-shadow:0 14px 32px rgba(72,52,28,0.12);overflow:hidden;">
-    <img src="pack.jpg" width="600" alt="{{product_name}}" style="width:100%;max-width:600px;height:auto;display:block;">
+    <!-- локальне превʼю: pack.jpg -->
+    <img src="packshot_{{gel_sku}}.png" width="600" alt="{{product_name}}" style="width:100%;max-width:600px;height:auto;display:block;">
     <table role="presentation" width="100%"><tr><td class="px" style="padding:26px 28px 28px 28px;"><p style="margin:0 0 8px 0;font-family:Lora,Georgia,serif;font-size:26px;line-height:34px;font-weight:500;color:#1C2822;text-align:center;">Минулого разу ви обрали {{product_name}}.</p><p style="margin:0 0 16px 0;font-family:'IBM Plex Sans',sans-serif;font-size:16px;line-height:26px;color:#5A655F;text-align:center;">Цього разу можна взяти більше і заплатити менше.</p><p style="margin:0 0 18px 0;font-family:'IBM Plex Sans',sans-serif;font-size:16px;line-height:26px;color:#3D4540;text-align:center;">{{first_name}}, ви вже знаєте свій Eliminal Gel. У лінійці є ще три формули під різні задачі — і всі три є в наборі Smart Choice.</p><p style="margin:0 0 16px 0;font-family:'IBM Plex Sans',sans-serif;font-size:16px;line-height:26px;color:#2F6B45;text-align:center;">Ваш вибір: {{product_name}}</p><table role="presentation" cellpadding="0" cellspacing="0" align="center"><tr>
       <td bgcolor="#2F6B45" style="background-image:linear-gradient(180deg,#4D8F6C 0%,#2F6B45 52%,#234836 100%);border-radius:999px;">
         <a href="https://eliminal.ua/products/eliminal-smart-choice" target="_blank" style="display:inline-block;padding:12px 12px 12px 22px;font-family:'IBM Plex Sans',sans-serif;font-size:16px;font-weight:600;color:#fff;text-decoration:none;">
@@ -135,7 +137,7 @@
     <td bgcolor="#F6F1E6" style="border-radius:20px;box-shadow:0 14px 32px rgba(72,52,28,0.12);overflow:hidden;">
       <table role="presentation" width="100%">
         <tr><td class="px" align="center" style="padding:24px 28px 0;position:relative;z-index:2;">
-          <p style="margin:0 0 12px 0;font-family:'IBM Plex Sans',sans-serif;font-size:15px;line-height:22px;color:#3D4540;">Команда Eliminal &#128154;</p>
+          <p style="margin:0 0 12px 0;font-family:'IBM Plex Sans',sans-serif;font-size:15px;line-height:22px;color:#3D4540;">Команда Eliminal 💚</p>
           <img src="logo-blue.png" width="100" alt="Eliminal" style="width:100px;margin:0 auto 10px auto;">
           <p style="margin:0;font-size:13px;line-height:20px;color:#7A847E;">Дієтична добавка. Не є лікарським засобом. Перед застосуванням рекомендована консультація лікаря.</p>
           <!-- Юрособа-продавець: підставити актуальну на дату запуску. -->
